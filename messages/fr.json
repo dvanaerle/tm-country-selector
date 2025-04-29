@@ -1,0 +1,68 @@
+{
+  "Home": {
+    "title": "Bienvenue chez {storeName}",
+    "description": "{storeName} donne le plus bas prix garantie sur un veranda. Commandez votre veranda en kit avec les instructions facilement.",
+    "storeName": "Tuinmaximaal",
+    "heroImageAlt": "Véranda moderne noir mat avec toite en verre de {storeName}.",
+    "flagAlt": "Drapeau de {country}",
+    "selectCountry": "Sélectionnez votre pays",
+    "areYouFrom": "Venez-vous de {country}?",
+    "goToStore": "Continuer vers la boutique en ligne française",
+    "saveSelection": "Enregistrer ma sélection pour les prochaines visites.",
+    "otherCountryPreference": "Préférez-vous un autre pays ?",
+    "stores": [
+      {
+        "countryCode": "BE-NL",
+        "country": "België",
+        "language": "Nederlands",
+        "storeUrl": "https://www.tuinmaximaal.be/",
+        "flagIcon": "/flags/be.svg"
+      },
+      {
+        "countryCode": "BE-FR",
+        "country": "Belgique",
+        "language": "Français",
+        "storeUrl": "https://www.tuinmaximaal.be/fr/",
+        "flagIcon": "/flags/be.svg"
+      },
+      {
+        "countryCode": "DE",
+        "country": "Deutschland",
+        "language": "Deutsch",
+        "storeUrl": "https://www.tuinmaximaal.de/",
+        "flagIcon": "/flags/de.svg"
+      },
+      {
+        "countryCode": "FR",
+        "country": "France",
+        "language": "Français",
+        "storeUrl": "https://www.tuinmaximaal.fr/",
+        "flagIcon": "/flags/fr.svg"
+      },
+      {
+        "countryCode": "NL",
+        "country": "Nederland",
+        "language": "Nederlands",
+        "storeUrl": "https://www.tuinmaximaal.nl/",
+        "flagIcon": "/flags/nl.svg"
+      },
+      {
+        "countryCode": "EN",
+        "country": "United Kingdom",
+        "language": "English",
+        "storeUrl": "https://www.tuinmaximaal.co.uk/",
+        "flagIcon": "/flags/uk.svg"
+      }
+    ]
+  },
+  "Header": {
+    "logoAriaLabel": "Page d'accueil {storeName}"
+  },
+  "NotFound": {
+    "title": "Page non trouvée | {storeName}",
+    "heading": "Oups ! Page non trouvée.",
+    "description": "Nous ne trouvons pas la page que vous recherchez. Mais ne vous inquiétez pas, nous sommes heureux de vous aider !",
+    "backToHome": "Retour à l'accueil",
+    "imageAlt": "Illustration 404"
+  }
+}

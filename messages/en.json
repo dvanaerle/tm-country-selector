@@ -1,0 +1,68 @@
+{
+  "Home": {
+    "title": "Welcome to {storeName}",
+    "description": "{storeName} offers the lowest price guarantee on any veranda. Order your veranda as a construction kit.",
+    "storeName": "Tuinmaximaal",
+    "heroImageAlt": "Modern veranda matt black measuring with clear glass roof by {storeName}.",
+    "flagAlt": "Flag of {country}",
+    "selectCountry": "Select your country",
+    "areYouFrom": "Are you from {country}?",
+    "goToStore": "Continue to the UK online shop",
+    "saveSelection": "Save my selection for later visits.",
+    "otherCountryPreference": "Preference for another country?",
+    "stores": [
+      {
+        "countryCode": "BE-NL",
+        "country": "België",
+        "language": "Nederlands",
+        "storeUrl": "https://www.tuinmaximaal.be/",
+        "flagIcon": "/flags/be.svg"
+      },
+      {
+        "countryCode": "BE-FR",
+        "country": "Belgique",
+        "language": "Français",
+        "storeUrl": "https://www.tuinmaximaal.be/fr/",
+        "flagIcon": "/flags/be.svg"
+      },
+      {
+        "countryCode": "DE",
+        "country": "Deutschland",
+        "language": "Deutsch",
+        "storeUrl": "https://www.tuinmaximaal.de/",
+        "flagIcon": "/flags/de.svg"
+      },
+      {
+        "countryCode": "FR",
+        "country": "France",
+        "language": "Français",
+        "storeUrl": "https://www.tuinmaximaal.fr/",
+        "flagIcon": "/flags/fr.svg"
+      },
+      {
+        "countryCode": "NL",
+        "country": "Nederland",
+        "language": "Nederlands",
+        "storeUrl": "https://www.tuinmaximaal.nl/",
+        "flagIcon": "/flags/nl.svg"
+      },
+      {
+        "countryCode": "EN",
+        "country": "United Kingdom",
+        "language": "English",
+        "storeUrl": "https://www.tuinmaximaal.co.uk/",
+        "flagIcon": "/flags/uk.svg"
+      }
+    ]
+  },
+  "Header": {
+    "logoAriaLabel": "{storeName} homepage"
+  },
+  "NotFound": {
+    "title": "Page not found | {storeName}",
+    "heading": "Oops! Page not found.",
+    "description": "We can't find the page you're looking for. But don't worry, we're happy to help you!",
+    "backToHome": "Back to Home",
+    "imageAlt": "404 illustration"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "Home": {
+    "title": "Willkommen bei {storeName}",
+    "description": "{storeName} gibt Ihnen die Bestpreisgarantie für alle Terrassenüberdachungen und Glasschiebewände Bausätze. Bestellen Sie Ihre Überdachung als Bausätze.",
+    "storeName": "Tuinmaximaal",
+    "heroImageAlt": "Moderne Terrassenüberdachung in matt schwarz mit Glasdach von {storeName}.",
+    "flagAlt": "Flagge von {country}",
+    "selectCountry": "Wähle dein Land",
+    "areYouFrom": "Kommst du aus {country}?",
+    "goToStore": "Weiter zum deutschen Shop",
+    "saveSelection": "Meine Auswahl für zukünftige Besuche speichern.",
+    "otherCountryPreference": "Bevorzugst du ein anderes Land?",
+    "stores": [
+      {
+        "countryCode": "BE-NL",
+        "country": "België",
+        "language": "Nederlands",
+        "storeUrl": "https://www.tuinmaximaal.be/",
+        "flagIcon": "/flags/be.svg"
+      },
+      {
+        "countryCode": "BE-FR",
+        "country": "Belgique",
+        "language": "Français",
+        "storeUrl": "https://www.tuinmaximaal.be/fr/",
+        "flagIcon": "/flags/be.svg"
+      },
+      {
+        "countryCode": "DE",
+        "country": "Deutschland",
+        "language": "Deutsch",
+        "storeUrl": "https://www.tuinmaximaal.de/",
+        "flagIcon": "/flags/de.svg"
+      },
+      {
+        "countryCode": "FR",
+        "country": "France",
+        "language": "Français",
+        "storeUrl": "https://www.tuinmaximaal.fr/",
+        "flagIcon": "/flags/fr.svg"
+      },
+      {
+        "countryCode": "NL",
+        "country": "Nederland",
+        "language": "Nederlands",
+        "storeUrl": "https://www.tuinmaximaal.nl/",
+        "flagIcon": "/flags/nl.svg"
+      },
+      {
+        "countryCode": "UK",
+        "country": "United Kingdom",
+        "language": "English",
+        "storeUrl": "https://www.tuinmaximaal.co.uk/",
+        "flagIcon": "/flags/uk.svg"
+      }
+    ]
+  },
+  "Header": {
+    "logoAriaLabel": "{storeName} Startseite"
+  },
+  "NotFound": {
+    "title": "Seite nicht gefunden | {storeName}",
+    "heading": "Hoppla! Seite nicht gefunden.",
+    "description": "Wir können die gesuchte Seite nicht finden. Aber keine Sorge, wir helfen Ihnen gerne weiter!",
+    "backToHome": "Zurück zur Startseite",
+    "imageAlt": "404 Illustration"
+  }
+}
