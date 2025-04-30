@@ -98,7 +98,7 @@ function MainContent({
           {/* Display a hero image on the left side. */}
           <div className="relative col-span-12 max-xl:aspect-[2/1] xl:col-span-7">
             <Image
-              src="/tuinmaximaal-verandas.jpg"
+              src="/home/tuinmaximaal-verandas.jpg"
               alt={t("heroImageAlt", { storeName: t("storeName") })}
               fill
               priority
@@ -107,13 +107,13 @@ function MainContent({
             />
           </div>
           {/* Display the store selection options on the right side. */}
-          <div className="no-scrollbar col-span-12 overflow-y-auto sm:bg-white xl:col-span-5 xl:p-20">
+          <div className="no-scrollbar col-span-12 overflow-y-auto sm:bg-white xl:col-span-5 xl:p-12">
             {preferredStore && (
               <>
                 <h1 className="mb-5 text-2xl font-extrabold">
                   {t("selectCountry")}
                 </h1>
-                <div className="mb-8">
+                <div className="mb-6">
                   <p className="text-neutral-grey mb-2 text-sm font-bold">
                     {t("areYouFrom", {
                       country: preferredStore.country,
@@ -133,7 +133,7 @@ function MainContent({
             )}
 
             {/* Display a list of other available stores. */}
-            <ul className="mb-8 grid grid-cols-[repeat(auto-fit,minmax(min(272px,100%),1fr))] gap-3">
+            <ul className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(min(272px,100%),1fr))] gap-3">
               {otherStores.map((store) => (
                 <li key={store.countryCode}>
                   <StoreCard store={store} onSelectStore={handleSelectStore} />

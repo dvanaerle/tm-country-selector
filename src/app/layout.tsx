@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t("title", { storeName: t("storeName") }), // Dynamic title using translations.
     description: t("description", { storeName: t("storeName") }), // Dynamic description using translations.
     icons: {
-      icon: "/favicon.png", // Path to the favicon.
+      icon: "./favicon/favicon.png", // Path to the favicon.
     },
   };
 }
