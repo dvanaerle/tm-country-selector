@@ -13,7 +13,10 @@
   --color-secondary-bone: oklch(0.87 0.0236 65.42);
   --color-neutral-grey: oklch(0.5 0 0);
   --color-neutral-light-grey: oklch(0.92 0 0);
-  --font-sans: articulat-cf, system-ui, sans-serif;
+}
+
+@theme inline {
+  --font-sans: var(--font-articulat-cf);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */

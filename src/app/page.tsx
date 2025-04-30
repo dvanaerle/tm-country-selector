@@ -110,11 +110,11 @@ function MainContent({
           <div className="no-scrollbar col-span-12 overflow-y-auto sm:bg-white xl:col-span-5 xl:p-12">
             {preferredStore && (
               <>
-                <h1 className="mb-5 text-2xl font-extrabold">
+                <h1 className="mb-5 text-2xl font-bold">
                   {t("selectCountry")}
                 </h1>
                 <div className="mb-6">
-                  <p className="text-neutral-grey mb-2 text-sm font-bold">
+                  <p className="text-neutral-grey mb-2 text-sm font-semibold">
                     {t("areYouFrom", {
                       country: preferredStore.country,
                     })}
@@ -126,7 +126,7 @@ function MainContent({
                     onSelectStore={handleSelectStore}
                   />
                 </div>
-                <p className="text-neutral-grey mb-2 text-sm font-bold">
+                <p className="text-neutral-grey mb-2 text-sm font-semibold">
                   {t("otherCountryPreference")}
                 </p>
               </>
