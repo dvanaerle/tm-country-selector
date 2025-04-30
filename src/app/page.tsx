@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import ArrowRightLine from "@/components/icons/arrow_right_line";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
+import heroImage from "@/assets/images/home/tuinmaximaal-verandas.jpg";
 
 // Type definition for store data.
 type StoreData = {
@@ -50,6 +51,7 @@ function StoreCard({
           alt={t("flagAlt", { country: store.country })}
           width={24}
           height={24}
+          unoptimized // Disable image optimization for svg files.
         />
         {isPreferred ? (
           // If this is the preferred store, display a special label.
@@ -98,12 +100,13 @@ function MainContent({
           {/* Display a hero image on the left side. */}
           <div className="relative col-span-12 max-xl:aspect-[2/1] xl:col-span-7">
             <Image
-              src="/home/tuinmaximaal-verandas.jpg"
+              src={heroImage} // Use the imported image object
               alt={t("heroImageAlt", { storeName: t("storeName") })}
               fill
               priority
+              placeholder="blur"
               className="rounded object-cover xl:rounded-none"
-              sizes="(max-width: 1279px) 100vw, (min-width: 1280px) 50vw"
+              sizes="(max-width: 639px) calc(100vw - 4rem), (max-width: 1279px) calc(100vw - 6rem), 50vw"
             />
           </div>
           {/* Display the store selection options on the right side. */}

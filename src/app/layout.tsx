@@ -10,22 +10,22 @@ import "./globals.css"; // Importing global CSS styles.
 const articulatCF = localFont({
   src: [
     {
-      path: "../../public/fonts/Articulat_CF/articulatcf-medium-500.ttf",
+      path: "../assets/fonts/Articulat_CF/articulatcf-medium-500.ttf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Articulat_CF/articulatcf-demibold-600.ttf",
+      path: "../assets/fonts/Articulat_CF/articulatcf-demibold-600.ttf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Articulat_CF/articulatcf-bold-700.ttf",
+      path: "../assets/fonts/Articulat_CF/articulatcf-bold-700.ttf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../../public/fonts/Articulat_CF/articulatcf-heavy-900.ttf",
+      path: "../assets/fonts/Articulat_CF/articulatcf-heavy-900.ttf",
       weight: "900",
       style: "normal",
     },
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
     title: t("title", { storeName: t("storeName") }), // Dynamic title using translations.
     description: t("description", { storeName: t("storeName") }), // Dynamic description using translations.
     icons: {
-      icon: "./favicon/favicon.png", // Path to the favicon.
+      icon: "/favicon/favicon.png", // Path to the favicon.
     },
   };
 }

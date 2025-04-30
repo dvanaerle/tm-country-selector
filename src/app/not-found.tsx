@@ -6,6 +6,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
+import illustration404 from "@/assets/images/404/404-illustration.png";
 
 // Function to generate metadata for the page, such as the title
 export async function generateMetadata({
@@ -38,11 +39,10 @@ export default function NotFound() {
       <div className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center px-4 py-12 text-center xl:p-20">
         {/* Display an illustration for the 404 page */}
         <Image
-          src={"/404/404-illustration.png"}
+          src={illustration404} // Use static import for the image
           alt={t("imageAlt")} // Alt text for accessibility, fetched from translations
-          width={1536}
-          height={665}
           priority
+          placeholder="blur"
         />
         {/* Heading and description text, both translated */}
         <h1 className="mb-2">{t("heading")}</h1>
