@@ -1,33 +1,36 @@
 "use client";
 
+// Importing necessary hooks and components from Next.js and the application.
 import { useTranslations, useLocale } from "next-intl";
 import Image from "next/image";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Header from "@/components/header";
 import { Button } from "@/components/ui/button";
-import ArrowRightLine from "/public/icons/arrow_right_line.svg";
+import ArrowRightLine from "@/components/icons/arrow_right_line";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 
+// Type definition for store data.
 type StoreData = {
-  countryCode: string;
-  country: string;
-  language: string;
-  storeUrl: string;
-  flagIcon: string;
+  countryCode: string; // ISO country code (e.g., "US", "NL").
+  country: string; // Full country name (e.g., "United States").
+  language: string; // Language spoken in the store's region.
+  storeUrl: string; // URL of the store.
+  flagIcon: string; // Path to the flag icon for the country.
 };
 
+// Component to display a single store card.
 function StoreCard({
   store,
   isPreferred = false,
   onSelectStore,
 }: {
   store: StoreData;
-  isPreferred?: boolean;
-  onSelectStore: (storeUrl: string) => void;
+  isPreferred?: boolean; // Indicates if this is the preferred store.
+  onSelectStore: (storeUrl: string) => void; // Callback when the store is selected.
 }) {
-  const t = useTranslations("Home");
+  const t = useTranslations("Home"); // Hook to fetch translations for the "Home" namespace.
 
   return (
     <Button
@@ -36,11 +39,12 @@ function StoreCard({
       fullWidth={true}
       className="group"
       onClick={(e) => {
-        e.preventDefault();
-        onSelectStore(store.storeUrl);
+        e.preventDefault(); // Prevent default button behavior.
+        onSelectStore(store.storeUrl); // Trigger the callback with the store URL.
       }}
     >
       <div className="flex flex-1 items-center gap-x-3">
+        {/* Display the flag icon for the store's country. */}
         <Image
           src={store.flagIcon}
           alt={t("flagAlt", { country: store.country })}
@@ -48,10 +52,12 @@ function StoreCard({
           height={24}
         />
         {isPreferred ? (
+          // If this is the preferred store, display a special label.
           <span className="text-primary-dark-green text-left">
             {t("goToStore")}
           </span>
         ) : (
+          // Otherwise, display the country and language.
           <div className="flex flex-wrap items-center gap-x-1">
             <span className="text-primary-dark-green text-left">
               {store.country}
@@ -60,6 +66,7 @@ function StoreCard({
           </div>
         )}
       </div>
+      {/* Display an arrow icon that becomes visible on hover. */}
       <ArrowRightLine
         className="opacity-0 transition-opacity group-hover:opacity-100"
         aria-hidden="true"
@@ -68,6 +75,7 @@ function StoreCard({
   );
 }
 
+// Component to display the main content of the page.
 function MainContent({
   preferredStore,
   otherStores,
@@ -75,18 +83,19 @@ function MainContent({
   setSaveSelection,
   handleSelectStore,
 }: {
-  preferredStore: StoreData | undefined;
-  otherStores: StoreData[];
-  saveSelection: boolean;
-  setSaveSelection: React.Dispatch<React.SetStateAction<boolean>>;
-  handleSelectStore: (storeUrl: string) => void;
+  preferredStore: StoreData | undefined; // The user's preferred store, if available.
+  otherStores: StoreData[]; // List of other available stores.
+  saveSelection: boolean; // Whether to save the user's store selection.
+  setSaveSelection: React.Dispatch<React.SetStateAction<boolean>>; // Function to update the saveSelection state.
+  handleSelectStore: (storeUrl: string) => void; // Callback when a store is selected.
 }) {
-  const t = useTranslations("Home");
+  const t = useTranslations("Home"); // Hook to fetch translations for the "Home" namespace.
 
   return (
     <main className="container mx-auto px-4 py-12 sm:px-6 xl:h-[calc(100dvh-(--spacing(19)))] xl:p-20">
       <section className="overflow-hidden rounded-lg p-4 max-xl:bg-white sm:p-6 xl:h-full xl:p-0">
         <div className="grid grid-cols-12 gap-y-5 xl:h-full">
+          {/* Display a hero image on the left side. */}
           <div className="relative col-span-12 max-xl:aspect-[2/1] xl:col-span-7">
             <Image
               src="/tuinmaximaal-verandas.jpg"
@@ -97,6 +106,7 @@ function MainContent({
               sizes="(max-width: 1279px) 100vw, (min-width: 1280px) 50vw"
             />
           </div>
+          {/* Display the store selection options on the right side. */}
           <div className="no-scrollbar col-span-12 overflow-y-auto sm:bg-white xl:col-span-5 xl:p-20">
             {preferredStore && (
               <>
@@ -109,6 +119,7 @@ function MainContent({
                       country: preferredStore.country,
                     })}
                   </p>
+                  {/* Display the preferred store card. */}
                   <StoreCard
                     store={preferredStore}
                     isPreferred={true}
@@ -121,6 +132,7 @@ function MainContent({
               </>
             )}
 
+            {/* Display a list of other available stores. */}
             <ul className="mb-8 grid grid-cols-[repeat(auto-fit,minmax(min(272px,100%),1fr))] gap-3">
               {otherStores.map((store) => (
                 <li key={store.countryCode}>
@@ -129,8 +141,10 @@ function MainContent({
               ))}
             </ul>
 
+            {/* Checkbox to allow the user to save their store selection. */}
             <div className="flex items-center space-x-3">
               <Checkbox
+                name="savePreference"
                 id="savePreference"
                 checked={saveSelection}
                 onCheckedChange={(checked) =>
@@ -146,28 +160,33 @@ function MainContent({
   );
 }
 
+// Main page component for the home page.
 export default function Home() {
-  const t = useTranslations("Home");
-  const locale = useLocale();
-  const router = useRouter();
-  const [saveSelection, setSaveSelection] = useState(false);
-  const stores = t.raw("stores") as StoreData[];
-  const userCountryCode = locale.toUpperCase();
+  const t = useTranslations("Home"); // Hook to fetch translations for the "Home" namespace.
+  const locale = useLocale(); // Hook to get the current locale.
+  const router = useRouter(); // Hook to navigate between pages.
+  const [saveSelection, setSaveSelection] = useState(false); // State to track if the user wants to save their selection.
+  const stores = t.raw("stores") as StoreData[]; // Fetch the list of stores from translations.
+  const userCountryCode = locale.toUpperCase(); // Convert the locale to uppercase to match country codes.
   const preferredStore = stores.find(
-    (store) => store.countryCode === userCountryCode,
+    (store) => store.countryCode === userCountryCode, // Find the store matching the user's country code.
   );
   const otherStores = stores.filter(
-    (store) => store.countryCode !== userCountryCode,
+    (store) => store.countryCode !== userCountryCode, // Filter out stores that don't match the user's country code.
   );
+
+  // Function to handle store selection.
   const handleSelectStore = (storeUrl: string) => {
     if (saveSelection) {
-      document.cookie = `preferredStore=${encodeURIComponent(storeUrl)}; path=/; max-age=31536000`; // 1 year
+      // Save the selected store URL in a cookie if the user opted to save their selection.
+      document.cookie = `preferredStore=${encodeURIComponent(storeUrl)}; path=/; max-age=31536000; Secure; SameSite=Strict`; // 1 year
     }
-    router.push(storeUrl);
+    router.push(storeUrl); // Navigate to the selected store's URL.
   };
 
   return (
     <>
+      {/* Render the header and main content components. */}
       <Header />
       <MainContent
         preferredStore={preferredStore}
