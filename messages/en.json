@@ -1,9 +1,12 @@
 {
+  "Metadata": {
+    "titleTemplate": "%s | Tuinmaximaal",
+    "defaultTitle": "Verandas & Glass Sliding Doors | Tuinmaximaal",
+    "description": "Tuinmaximaal offers the lowest price guarantee on verandas and glass sliding doors. Order your garden structure as an easy-to-assemble kit.",
+    "keywords": "veranda, glass sliding doors, garden veranda, aluminium veranda, DIY veranda kit, glass garden room, sliding glass wall, patio cover, lowest price guarantee"
+  },
   "Home": {
-    "title": "Welcome to {storeName}",
-    "description": "{storeName} offers the lowest price guarantee on any veranda. Order your veranda as a construction kit.",
-    "storeName": "Tuinmaximaal",
-    "heroImageAlt": "Modern veranda matt black measuring with clear glass roof by {storeName}.",
+    "heroImageAlt": "Modern veranda with matte black aluminium frame and glass sliding doors by Tuinmaximaal.",
     "flagAlt": "Flag of {country}",
     "selectCountry": "Select your country",
     "areYouFrom": "Are you from {country}?",
@@ -56,10 +59,10 @@
     ]
   },
   "Header": {
-    "logoAriaLabel": "{storeName} homepage"
+    "logoAriaLabel": "Tuinmaximaal homepage"
   },
   "NotFound": {
-    "title": "Page not found | {storeName}",
+    "title": "Page not found",
     "heading": "Oops! Page not found.",
     "description": "We can't find the page you're looking for. But don't worry, we're happy to help you!",
     "backToHome": "Back to Home",

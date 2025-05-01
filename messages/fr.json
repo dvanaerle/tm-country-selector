@@ -1,9 +1,12 @@
 {
+  "Metadata": {
+    "titleTemplate": "%s | Tuinmaximaal",
+    "defaultTitle": "Vérandas & Parois Coulissantes en Verre | Tuinmaximaal",
+    "description": "Tuinmaximaal offre la garantie du prix le plus bas sur toutes les vérandas et parois coulissantes en verre. Commandez votre véranda en kit facile à assembler.",
+    "keywords": "véranda, paroi coulissante en verre, pergola, véranda aluminium, kit de construction, toiture de terrasse, garantie prix bas"
+  },
   "Home": {
-    "title": "Bienvenue chez {storeName}",
-    "description": "{storeName} donne le plus bas prix garantie sur un veranda. Commandez votre veranda en kit avec les instructions facilement.",
-    "storeName": "Tuinmaximaal",
-    "heroImageAlt": "Véranda moderne noir mat avec toite en verre de {storeName}.",
+    "heroImageAlt": "Véranda moderne de Tuinmaximaal avec structure en aluminium noir mat et parois coulissantes en verre.",
     "flagAlt": "Drapeau de {country}",
     "selectCountry": "Sélectionnez votre pays",
     "areYouFrom": "Venez-vous de {country}?",
@@ -56,10 +59,10 @@
     ]
   },
   "Header": {
-    "logoAriaLabel": "Page d'accueil {storeName}"
+    "logoAriaLabel": "Page d'accueil Tuinmaximaal"
   },
   "NotFound": {
-    "title": "Page non trouvée | {storeName}",
+    "title": "Page non trouvée",
     "heading": "Oups ! Page non trouvée.",
     "description": "Nous ne trouvons pas la page que vous recherchez. Mais ne vous inquiétez pas, nous sommes heureux de vous aider !",
     "backToHome": "Retour à l'accueil",

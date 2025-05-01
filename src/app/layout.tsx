@@ -1,12 +1,10 @@
-// Importing types and modules needed for metadata, internationalization, and global styles.
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
-import { getLocale, getTranslations } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import localFont from "next/font/local";
 
-import "./globals.css"; // Importing global CSS styles.
+import "./globals.css";
 
-// Importing the local font with different weights and styles.
 const articulatCF = localFont({
   src: [
     {
@@ -30,36 +28,48 @@ const articulatCF = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-articulat-cf", // Use a unique variable name
+  variable: "--font-articulat-cf",
 });
 
-// Fetching the current locale asynchronously.
-const locale = await getLocale();
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale, namespace: "Metadata" });
 
-// Function to generate metadata for the application, such as title and description.
-// It uses translations based on the current locale and a specific namespace ("Home").
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: "Home" });
   return {
-    title: t("title", { storeName: t("storeName") }), // Dynamic title using translations.
-    description: t("description", { storeName: t("storeName") }), // Dynamic description using translations.
+    title: {
+      template: t("titleTemplate"),
+      default: t("defaultTitle"),
+    },
+    description: t("description"),
+    keywords: t("keywords"),
     icons: {
-      icon: "/favicon/favicon.png", // Path to the favicon.
+      icon: "/favicon.png",
+      shortcut: "/favicon.png",
+      apple: "/favicon.png",
     },
   };
 }
 
-// Root layout component that wraps the entire application.
-// It ensures the correct locale is set and provides internationalization support.
 export default async function RootLayout({
   children,
+  params: { locale },
 }: {
-  children: React.ReactNode; // React's type for child components.
+  children: React.ReactNode;
+  params: { locale: string };
 }) {
+  const messages = await getMessages();
+
   return (
     <html lang={locale}>
-      <body className={`${articulatCF.variable} bg-secondary-beige font-sans`}>
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+      <body
+        className={`${articulatCF.variable} bg-secondary-beige font-sans antialiased`}
+      >
+        <NextIntlClientProvider locale={locale} messages={messages}>
+          {children}
+        </NextIntlClientProvider>
       </body>
     </html>
   );

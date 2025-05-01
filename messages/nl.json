@@ -1,9 +1,12 @@
 {
+  "Metadata": {
+    "titleTemplate": "%s | Tuinmaximaal",
+    "defaultTitle": "Welkom bij Tuinmaximaal",
+    "description": "Tuinmaximaal biedt de laagste prijs garantie op terrasoverkappingen en glazen schuifwanden. Bestel uw terrasoverkapping als bouwpakket met gratis thuisbezorging.",
+    "keywords": "terrasoverkapping, glazen schuifwand, aluminium terrasoverkapping, bouwpakket, schuifpui, tuinoverkapping, laagste prijs garantie"
+  },
   "Home": {
-    "title": "Welkom bij {storeName}",
-    "description": "Laagste prijs garantie op elke terrasoverkapping. Bestel uw terrasoverkapping als bouwpakket. Gratis thuisbezorgd en gemakkelijk snel aan de slag!",
-    "storeName": "Tuinmaximaal",
-    "heroImageAlt": "Moderne terrasoverkapping in mat zwart met glazen dak van {storeName}.",
+    "heroImageAlt": "Moderne terrasoverkapping van Tuinmaximaal met mat zwart aluminium frame en glazen schuifwanden.",
     "flagAlt": "Vlag van {country}",
     "selectCountry": "Selecteer je land",
     "areYouFrom": "Kom je uit {country}?",
@@ -56,10 +59,10 @@
     ]
   },
   "Header": {
-    "logoAriaLabel": "{storeName} startpagina"
+    "logoAriaLabel": "Tuinmaximaal startpagina"
   },
   "NotFound": {
-    "title": "Pagina niet gevonden | {storeName}",
+    "title": "Pagina niet gevonden",
     "heading": "Oeps! Pagina niet gevonden.",
     "description": "We kunnen de pagina die je zoekt niet vinden. Maar geen zorgen, we helpen je graag verder!",
     "backToHome": "Terug naar Home",

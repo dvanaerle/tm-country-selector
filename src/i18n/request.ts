@@ -1,6 +1,4 @@
-// Importing a utility to configure request-based internationalization (i18n) in Next.js.
 import { getRequestConfig } from "next-intl/server";
-// Importing a function to access HTTP headers in a Next.js server environment.
 import { headers } from "next/headers";
 
 // Exporting the configuration for handling internationalization based on the request.

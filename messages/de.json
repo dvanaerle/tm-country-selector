@@ -1,9 +1,12 @@
 {
+  "Metadata": {
+    "titleTemplate": "%s | Tuinmaximaal",
+    "defaultTitle": "Terrassenüberdachungen & Glasschiebewände | Tuinmaximaal",
+    "description": "Tuinmaximaal gibt Ihnen die Bestpreisgarantie für alle Terrassenüberdachungen und Glasschiebewände. Bestellen Sie Ihre Überdachung als einfach zu montierenden Bausatz.",
+    "keywords": "Terrassenüberdachung, Glasschiebewand, Glasdach, Aluminium Terrassenüberdachung, Bausatz, Überdachung, Bestpreisgarantie"
+  },
   "Home": {
-    "title": "Willkommen bei {storeName}",
-    "description": "{storeName} gibt Ihnen die Bestpreisgarantie für alle Terrassenüberdachungen und Glasschiebewände Bausätze. Bestellen Sie Ihre Überdachung als Bausätze.",
-    "storeName": "Tuinmaximaal",
-    "heroImageAlt": "Moderne Terrassenüberdachung in matt schwarz mit Glasdach von {storeName}.",
+    "heroImageAlt": "Moderne Terrassenüberdachung von Tuinmaximaal mit matt schwarzem Aluminiumrahmen und Glasschiebewänden.",
     "flagAlt": "Flagge von {country}",
     "selectCountry": "Wähle dein Land",
     "areYouFrom": "Kommst du aus {country}?",
@@ -56,10 +59,10 @@
     ]
   },
   "Header": {
-    "logoAriaLabel": "{storeName} Startseite"
+    "logoAriaLabel": "Tuinmaximaal Startseite"
   },
   "NotFound": {
-    "title": "Seite nicht gefunden | {storeName}",
+    "title": "Seite nicht gefunden",
     "heading": "Hoppla! Seite nicht gefunden.",
     "description": "Wir können die gesuchte Seite nicht finden. Aber keine Sorge, wir helfen Ihnen gerne weiter!",
     "backToHome": "Zurück zur Startseite",

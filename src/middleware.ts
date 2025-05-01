@@ -1,4 +1,3 @@
-// Importing Next.js utilities for handling server-side requests and responses.
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
@@ -16,7 +15,7 @@ export function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-// Configuration object specifying that this middleware should only run for the root URL ("/").
+// Export the middleware configuration to specify which paths it should apply to.
 export const config = {
-  matcher: "/",
+  matcher: ["/((?!api|_next|.*\\..*).*)"],
 };
