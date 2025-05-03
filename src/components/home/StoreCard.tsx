@@ -42,6 +42,7 @@ export function StoreCard({
           width={24}
           height={24}
           unoptimized
+          priority
         />
         {isPreferred ? (
           <span className="text-primary-dark-green text-left">
