@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import Header from "@/components/header";
-import heroImage from "@/assets/images/home/tuinmaximaal-verandas.jpg";
+import heroImage from "../../public/images/home/tuinmaximaal-verandas.jpg";
 import StoreSelection from "@/components/home/StoreSelection";
 import { type StoreData } from "@/components/home/StoreCard";
 
@@ -31,9 +31,15 @@ export default function Home() {
                 alt={t("heroImageAlt")}
                 fill
                 priority
-                placeholder="blur"
+                fetchPriority="high"
                 className="rounded object-cover xl:rounded-none"
-                sizes="(max-width: 639px) calc(100vw - 4rem), (max-width: 1279px) calc(100vw - 6rem), 50vw"
+                sizes="
+                 (min-width: 1536px) calc((1536px - 160px) * 7/12),
+                 (min-width: 1280px) calc((1280px - 160px) * 7/12),
+                 (min-width: 1024px) calc(1024px - 96px),
+                 (min-width: 768px) calc(768px - 96px),
+                 (min-width: 640px) calc(640px - 96px),
+                 calc(100vw - 64px)"
               />
             </div>
 

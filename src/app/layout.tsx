@@ -8,22 +8,22 @@ import "./globals.css";
 const articulatCF = localFont({
   src: [
     {
-      path: "../assets/fonts/Articulat_CF/articulatcf-medium-500.ttf",
+      path: "../../public/fonts/Articulat_CF/articulatcf-medium-500.ttf",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../assets/fonts/Articulat_CF/articulatcf-demibold-600.ttf",
+      path: "../../public/fonts/Articulat_CF/articulatcf-demibold-600.ttf",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../assets/fonts/Articulat_CF/articulatcf-bold-700.ttf",
+      path: "../../public/fonts/Articulat_CF/articulatcf-bold-700.ttf",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../assets/fonts/Articulat_CF/articulatcf-heavy-900.ttf",
+      path: "../../public/fonts/Articulat_CF/articulatcf-heavy-900.ttf",
       weight: "900",
       style: "normal",
     },
