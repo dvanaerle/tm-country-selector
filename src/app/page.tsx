@@ -33,13 +33,7 @@ export default function Home() {
                 priority
                 fetchPriority="high"
                 className="rounded object-cover xl:rounded-none"
-                sizes="
-                 (min-width: 1536px) calc((1536px - 160px) * 7/12),
-                 (min-width: 1280px) calc((1280px - 160px) * 7/12),
-                 (min-width: 1024px) calc(1024px - 96px),
-                 (min-width: 768px) calc(768px - 96px),
-                 (min-width: 640px) calc(640px - 96px),
-                 calc(100vw - 64px)"
+                sizes="(min-width: 2080px) calc(51.63vw - 218px), (min-width: 1540px) calc(8.27vw + 676px), (min-width: 1280px) 653px, (min-width: 1040px) 928px, (min-width: 780px) 672px, (min-width: 640px) 544px, calc(100vw - 64px)"
               />
             </div>
 
