@@ -5,6 +5,9 @@ const withNextIntl = createNextIntlPlugin();
 // Your base Next.js config
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  images: {
+    formats: ["image/webp", "image/avif"],
+  },
   webpack(config) {
     // Grab the existing rule that handles SVG imports
     const fileLoaderRule = config.module.rules.find((rule) =>

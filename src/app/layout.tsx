@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
 import localFont from "next/font/local";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 
@@ -45,8 +46,6 @@ export async function generateMetadata(): Promise<Metadata> {
     keywords: t("keywords"),
     icons: {
       icon: "/favicon.png",
-      shortcut: "/favicon.png",
-      apple: "/favicon.png",
     },
   };
 }
@@ -62,6 +61,7 @@ export default async function RootLayout({
         className={`${articulatCF.variable} bg-secondary-beige font-sans antialiased`}
       >
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

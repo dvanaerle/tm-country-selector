@@ -27,6 +27,7 @@ export default function NotFound() {
           alt={t("imageAlt")}
           priority
           fetchPriority="high"
+          placeholder="blur"
           sizes="
                  (min-width: 1536px) calc((1536px - 160px),
                  (min-width: 1280px) calc((1280px - 160px),
