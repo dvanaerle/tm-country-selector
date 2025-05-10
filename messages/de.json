@@ -1,71 +1,45 @@
 {
-  "Metadata": {
-    "titleTemplate": "%s | Tuinmaximaal",
-    "defaultTitle": "Willkommen bei Tuinmaximaal",
-    "description": "Tuinmaximaal gibt Ihnen die Bestpreisgarantie für alle Terrassenüberdachungen und Glasschiebewände. Bestellen Sie Ihre Überdachung als einfach zu montierenden Bausatz.",
-    "keywords": "Terrassenüberdachung, Glasschiebewand, Glasdach, Aluminium Terrassenüberdachung, Bausatz, Überdachung, Bestpreisgarantie"
-  },
-  "Home": {
-    "heroImageAlt": "Moderne Terrassenüberdachung von Tuinmaximaal mit matt schwarzem Aluminiumrahmen und Glasschiebewänden.",
-    "flagAlt": "Flagge von {country}",
-    "selectCountry": "Wähle dein Land",
-    "areYouFrom": "Kommst du aus {country}?",
-    "goToStore": "Weiter zum deutschen Shop",
-    "saveSelection": "Meine Auswahl für zukünftige Besuche speichern.",
-    "otherCountryPreference": "Bevorzugst du ein anderes Land?",
-    "stores": [
-      {
-        "countryCode": "BE-NL",
-        "country": "België",
-        "language": "Nederlands",
-        "storeUrl": "https://www.tuinmaximaal.be/",
-        "flagIcon": "/flags/be.svg"
+  "Pages": {
+    "Home": {
+      "Metadata": {
+        "title": "Willkommen bei Tuinmaximaal",
+        "description": "Tuinmaximaal gibt Ihnen die Bestpreisgarantie für alle Terrassenüberdachungen und Glasschiebewände. Bestellen Sie Ihre Überdachung als einfach zu montierenden Bausatz.",
+        "keywords": "Terrassenüberdachung, Glasschiebewand, Glasdach, Aluminium Terrassenüberdachung, Bausatz, Überdachung, Bestpreisgarantie"
       },
-      {
-        "countryCode": "BE-FR",
-        "country": "Belgique",
-        "language": "Français",
-        "storeUrl": "https://www.tuinmaximaal.be/fr/",
-        "flagIcon": "/flags/be.svg"
-      },
-      {
-        "countryCode": "DE",
-        "country": "Deutschland",
-        "language": "Deutsch",
-        "storeUrl": "https://www.tuinmaximaal.de/",
-        "flagIcon": "/flags/de.svg"
-      },
-      {
-        "countryCode": "FR",
-        "country": "France",
-        "language": "Français",
-        "storeUrl": "https://www.tuinmaximaal.fr/",
-        "flagIcon": "/flags/fr.svg"
-      },
-      {
-        "countryCode": "NL",
-        "country": "Nederland",
-        "language": "Nederlands",
-        "storeUrl": "https://www.tuinmaximaal.nl/",
-        "flagIcon": "/flags/nl.svg"
-      },
-      {
-        "countryCode": "UK",
-        "country": "United Kingdom",
-        "language": "English",
-        "storeUrl": "https://www.tuinmaximaal.co.uk/",
-        "flagIcon": "/flags/uk.svg"
+      "a11y": {
+        "heroImageAlt": "Moderne Terrassenüberdachung von Tuinmaximaal mit matt schwarzem Aluminiumrahmen und Glasschiebewänden."
       }
-    ]
+    },
+    "NotFound": {
+      "Metadata": {
+        "title": "Seite nicht gefunden",
+        "description": "Hoppla! Die gesuchte Seite wurde nicht gefunden. Überprüfen Sie die URL oder kehren Sie zur Startseite zurück."
+      },
+      "heading": "Hoppla! Seite nicht gefunden.",
+      "description": "Wir können die gesuchte Seite nicht finden. Aber keine Sorge, wir helfen Ihnen gerne weiter!",
+      "backToHome": "Zurück zur Startseite",
+      "a11y": {
+        "imageAlt": "404 Illustration"
+      }
+    }
   },
-  "Header": {
-    "logoAriaLabel": "Tuinmaximaal Startseite"
-  },
-  "NotFound": {
-    "title": "Seite nicht gefunden",
-    "heading": "Hoppla! Seite nicht gefunden.",
-    "description": "Wir können die gesuchte Seite nicht finden. Aber keine Sorge, wir helfen Ihnen gerne weiter!",
-    "backToHome": "Zurück zur Startseite",
-    "imageAlt": "404 Illustration"
+  "Components": {
+    "Header": {
+      "a11y": {
+        "logoAriaLabel": "Tuinmaximaal Startseite"
+      }
+    },
+    "StoreSelection": {
+      "selectCountry": "Wähle dein Land",
+      "areYouFrom": "Kommst du aus {country}?",
+      "otherCountryPreference": "Bevorzugst du ein anderes Land?",
+      "saveSelection": "Meine Auswahl für zukünftige Besuche speichern."
+    },
+    "StoreCard": {
+      "goToStore": "Weiter zum deutschen Shop",
+      "a11y": {
+        "flagAlt": "Flagge von {country}"
+      }
+    }
   }
 }

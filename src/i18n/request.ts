@@ -1,43 +1,24 @@
 import { getRequestConfig } from "next-intl/server";
 import { headers } from "next/headers";
+import Negotiator from "negotiator";
+import { match } from "@formatjs/intl-localematcher";
 
-// Exporting the configuration for handling internationalization based on the request.
 export default getRequestConfig(async () => {
-  // List of supported locales (languages) for the application.
-  const locales = ["en", "de", "nl", "fr"];
+  // Get the request headers
+  const accept = (await headers()).get("accept-language") ?? "";
 
-  // Default locale to fall back to if no match is found.
+  // Define the supported locales and default locale
+  const supported = ["en", "nl", "de", "fr"];
   const defaultLocale = "en";
 
-  // Variable to store the resolved locale, initialized to the default.
-  let locale = defaultLocale;
+  // Use Negotiator + formatjs-localematcher
+  const languages = new Negotiator({
+    headers: { "accept-language": accept },
+  }).languages();
+  const locale = match(languages, supported, defaultLocale);
 
-  try {
-    // Retrieve the "accept-language" header from the incoming request.
-    const acceptLanguage = (await headers()).get("accept-language");
-
-    if (acceptLanguage) {
-      // Parse the "accept-language" header to extract language codes.
-      const headerLanguages = acceptLanguage
-        .split(",") // Split by commas to get individual language preferences.
-        .map((part) => part.split(";")[0].trim().split("-")[0]); // Extract the primary language code.
-
-      // Find the first language in the header that matches a supported locale.
-      const matchedLocale = headerLanguages.find((lang) =>
-        locales.includes(lang),
-      );
-      if (matchedLocale) {
-        // If a match is found, update the locale.
-        locale = matchedLocale;
-      }
-    }
-  } catch (error) {
-    // Silently handle any errors (e.g., missing headers or parsing issues).
-  }
-
-  // Return the resolved locale and its corresponding translation messages.
   return {
     locale,
-    messages: (await import(`../../messages/${locale}.json`)).default, // Dynamically import the translation file for the resolved locale.
+    messages: (await import(`../../messages/${locale}.json`)).default,
   };
 });

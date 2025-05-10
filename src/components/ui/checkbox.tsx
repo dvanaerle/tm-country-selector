@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
-import { RiCheckLine } from "@remixicon/react";
+import CheckLine from "../../../public/icons/MingCute/check_line.svg";
 
 import { cn } from "@/lib/utils";
 
@@ -14,7 +14,7 @@ function Checkbox({
     <CheckboxPrimitive.Root
       data-slot="checkbox"
       className={cn(
-        "peer border-neutral-grey data-[state=checked]:bg-primary-light-green data-[state=checked]:border-primary-light-green focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-primary-orange/20 aria-invalid:border-primary-orange size-6 shrink-0 rounded border outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:text-white",
+        "peer border-grey data-[state=checked]:bg-light-green data-[state=checked]:border-light-green focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:ring-orange/20 aria-invalid:border-orange size-6 shrink-0 rounded border outline-none focus-visible:ring-[3px] disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:text-white",
         className,
       )}
       {...props}
@@ -23,7 +23,7 @@ function Checkbox({
         data-slot="checkbox-indicator"
         className="flex items-center justify-center text-current transition-none"
       >
-        <RiCheckLine className="size-5" />
+        <CheckLine className="size-5" />
       </CheckboxPrimitive.Indicator>
     </CheckboxPrimitive.Root>
   );

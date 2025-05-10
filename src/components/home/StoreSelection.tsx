@@ -5,7 +5,8 @@ import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { StoreCard, type StoreData } from "./StoreCard";
+import { StoreCard } from "./StoreCard";
+import { type StoreData } from "@/data/stores";
 
 export default function StoreSelection({
   preferredStore,
@@ -14,7 +15,7 @@ export default function StoreSelection({
   preferredStore: StoreData | undefined;
   otherStores: StoreData[];
 }) {
-  const t = useTranslations("Home");
+  const t = useTranslations("Components.StoreSelection");
   const router = useRouter();
   const [saveSelection, setSaveSelection] = useState(false);
 

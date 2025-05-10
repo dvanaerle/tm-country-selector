@@ -10,12 +10,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary-light-green text-white border-b-4 border-primary-light-green-shadow hover:bg-primary-light-green-shadow",
+          "bg-light-green text-white border-b-4 border-shadow-green hover:bg-shadow-green",
         outlineDark:
-          "border border-primary-green text-primary-green hover:bg-primary-green hover:text-white",
-        outlineLight:
-          "border border-neutral-light-grey hover:border-primary-green",
-        link: "text-primary-green hover:text-primary-light-green",
+          "border border-green text-green hover:bg-green hover:text-white",
+        outlineLight: "border border-light-grey hover:border-green",
+        link: "text-green hover:text-light-green",
       },
       size: {
         default: "px-4 py-2 has-[>svg]:px-3",

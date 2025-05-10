@@ -1,71 +1,45 @@
 {
-  "Metadata": {
-    "titleTemplate": "%s | Tuinmaximaal",
-    "defaultTitle": "Welkom bij Tuinmaximaal",
-    "description": "Tuinmaximaal biedt de laagste prijs garantie op terrasoverkappingen en glazen schuifwanden. Bestel uw terrasoverkapping als bouwpakket met gratis thuisbezorging.",
-    "keywords": "terrasoverkapping, glazen schuifwand, aluminium terrasoverkapping, bouwpakket, schuifpui, tuinoverkapping, laagste prijs garantie"
-  },
-  "Home": {
-    "heroImageAlt": "Moderne terrasoverkapping van Tuinmaximaal met mat zwart aluminium frame en glazen schuifwanden.",
-    "flagAlt": "Vlag van {country}",
-    "selectCountry": "Selecteer je land",
-    "areYouFrom": "Kom je uit {country}?",
-    "goToStore": "Verder naar de Nederlandse webshop",
-    "saveSelection": "Mijn selectie opslaan voor toekomstige bezoeken.",
-    "otherCountryPreference": "Voorkeur voor een ander land?",
-    "stores": [
-      {
-        "countryCode": "BE-NL",
-        "country": "België",
-        "language": "Nederlands",
-        "storeUrl": "https://www.tuinmaximaal.be/",
-        "flagIcon": "/flags/be.svg"
+  "Pages": {
+    "Home": {
+      "Metadata": {
+        "title": "Welkom bij Tuinmaximaal",
+        "description": "Tuinmaximaal biedt de laagste prijs garantie op terrasoverkappingen en glazen schuifwanden. Bestel je terrasoverkapping als bouwpakket met gratis thuisbezorging.",
+        "keywords": "terrasoverkapping, glazen schuifwand, aluminium terrasoverkapping, bouwpakket, schuifpui, tuinoverkapping, laagste prijs garantie"
       },
-      {
-        "countryCode": "BE-FR",
-        "country": "Belgique",
-        "language": "Français",
-        "storeUrl": "https://www.tuinmaximaal.be/fr/",
-        "flagIcon": "/flags/be.svg"
-      },
-      {
-        "countryCode": "DE",
-        "country": "Deutschland",
-        "language": "Deutsch",
-        "storeUrl": "https://www.tuinmaximaal.de/",
-        "flagIcon": "/flags/de.svg"
-      },
-      {
-        "countryCode": "FR",
-        "country": "France",
-        "language": "Français",
-        "storeUrl": "https://www.tuinmaximaal.fr/",
-        "flagIcon": "/flags/fr.svg"
-      },
-      {
-        "countryCode": "NL",
-        "country": "Nederland",
-        "language": "Nederlands",
-        "storeUrl": "https://www.tuinmaximaal.nl/",
-        "flagIcon": "/flags/nl.svg"
-      },
-      {
-        "countryCode": "EN",
-        "country": "United Kingdom",
-        "language": "English",
-        "storeUrl": "https://www.tuinmaximaal.co.uk/",
-        "flagIcon": "/flags/uk.svg"
+      "a11y": {
+        "heroImageAlt": "Moderne terrasoverkapping van Tuinmaximaal met mat zwart aluminium frame en glazen schuifwanden."
       }
-    ]
+    },
+    "NotFound": {
+      "Metadata": {
+        "title": "Pagina niet gevonden",
+        "description": "Oeps! De pagina die je zoekt, kan niet worden gevonden. Controleer de url of ga terug naar onze startpagina."
+      },
+      "heading": "Oeps! Pagina niet gevonden.",
+      "description": "We kunnen de pagina die je zoekt niet vinden. Maar geen zorgen, we helpen je graag verder!",
+      "backToHome": "Terug naar Home",
+      "a11y": {
+        "imageAlt": "404 illustratie"
+      }
+    }
   },
-  "Header": {
-    "logoAriaLabel": "Tuinmaximaal startpagina"
-  },
-  "NotFound": {
-    "title": "Pagina niet gevonden",
-    "heading": "Oeps! Pagina niet gevonden.",
-    "description": "We kunnen de pagina die je zoekt niet vinden. Maar geen zorgen, we helpen je graag verder!",
-    "backToHome": "Terug naar Home",
-    "imageAlt": "404 illustratie"
+  "Components": {
+    "Header": {
+      "a11y": {
+        "logoAriaLabel": "Tuinmaximaal startpagina"
+      }
+    },
+    "StoreSelection": {
+      "selectCountry": "Selecteer je land",
+      "areYouFrom": "Kom je uit {country}?",
+      "otherCountryPreference": "Voorkeur voor een ander land?",
+      "saveSelection": "Mijn selectie opslaan voor toekomstige bezoeken."
+    },
+    "StoreCard": {
+      "goToStore": "Verder naar de Nederlandse webshop",
+      "a11y": {
+        "flagAlt": "Vlag van {country}"
+      }
+    }
   }
 }

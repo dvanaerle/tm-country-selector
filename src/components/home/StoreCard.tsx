@@ -1,16 +1,21 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import Image from "next/image";
+import { CircleFlag } from "react-circle-flags";
 import { Button } from "@/components/ui/button";
-import ArrowRightLine from "@/components/icons/arrow_right_line";
+import ArrowRightLine from "../../../public/icons/MingCute/arrow_right_line.svg";
+import { type StoreData } from "@/data/stores";
 
-export type StoreData = {
-  countryCode: string;
-  country: string;
-  language: string;
-  storeUrl: string;
-  flagIcon: string;
+const getFlagCountryCode = (countryCode: string): string => {
+  if (countryCode === "BE-NL") {
+    return "be";
+  } else if (countryCode === "BE-FR") {
+    return "be";
+  } else if (countryCode === "EN") {
+    return "gb";
+  }
+  // Default case for all others
+  return countryCode.toLowerCase();
 };
 
 export function StoreCard({
@@ -22,7 +27,7 @@ export function StoreCard({
   isPreferred?: boolean;
   onSelectStore: (storeUrl: string) => void;
 }) {
-  const t = useTranslations("Home");
+  const t = useTranslations("Components.StoreCard");
 
   return (
     <Button
@@ -36,13 +41,11 @@ export function StoreCard({
       }}
     >
       <div className="flex flex-1 items-center gap-x-3">
-        <Image
-          src={store.flagIcon}
-          alt={t("flagAlt", { country: store.country })}
-          width={24}
+        <CircleFlag
+          countryCode={getFlagCountryCode(store.countryCode)}
           height={24}
-          unoptimized
-          priority
+          width={24}
+          title={t("a11y.flagAlt", { country: store.country })}
         />
         {isPreferred ? (
           <span className="text-primary-dark-green text-left">

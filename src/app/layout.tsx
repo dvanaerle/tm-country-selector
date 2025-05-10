@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
-import localFont from "next/font/local";
-import { SpeedInsights } from "@vercel/speed-insights/next";
 
 import "./globals.css";
 
@@ -32,21 +31,16 @@ const articulatCF = localFont({
   variable: "--font-articulat-cf",
 });
 
-const locale = await getLocale();
-
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations({ locale, namespace: "Metadata" });
+  const t = await getTranslations("Pages.Home.Metadata");
 
   return {
     title: {
-      template: t("titleTemplate"),
-      default: t("defaultTitle"),
+      template: "%s | Tuinmaximaal",
+      default: t("title"),
     },
     description: t("description"),
     keywords: t("keywords"),
-    icons: {
-      icon: "/favicon.png",
-    },
   };
 }
 
@@ -55,13 +49,14 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const locale = await getLocale();
+
   return (
     <html lang={locale}>
       <body
-        className={`${articulatCF.variable} bg-secondary-beige font-sans antialiased`}
+        className={`${articulatCF.variable} bg-orange-10 font-sans antialiased`}
       >
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
-        <SpeedInsights />
       </body>
     </html>
   );

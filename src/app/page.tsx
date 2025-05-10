@@ -1,22 +1,20 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import Header from "@/components/header";
-import heroImage from "../../public/images/home/tuinmaximaal-verandas.jpg";
+import heroImage from "/public/images/tuinmaximaal-verandas.jpg";
 import StoreSelection from "@/components/home/StoreSelection";
-import { type StoreData } from "@/components/home/StoreCard";
+import { StoresData } from "@/data/stores";
+import { getStoreLocalization } from "@/lib/storeUtils";
 
 export default function Home() {
-  const t = useTranslations("Home");
+  const t = useTranslations("Pages.Home");
   const locale = useLocale();
-  const stores = t.raw("stores") as StoreData[];
   const userCountryCode = locale.toUpperCase();
 
-  // This filtering happens on the server
-  const preferredStore = stores.find(
-    (store) => store.countryCode === userCountryCode,
-  );
-  const otherStores = stores.filter(
-    (store) => store.countryCode !== userCountryCode,
+  // Use the utility function to get preferred and other stores
+  const { preferredStore, otherStores } = getStoreLocalization(
+    userCountryCode,
+    StoresData,
   );
 
   return (
@@ -28,7 +26,7 @@ export default function Home() {
             <div className="relative col-span-12 max-xl:aspect-[2/1] xl:col-span-7">
               <Image
                 src={heroImage}
-                alt={t("heroImageAlt")}
+                alt={t("a11y.heroImageAlt")}
                 fill
                 priority
                 fetchPriority="high"

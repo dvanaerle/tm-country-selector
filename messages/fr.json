@@ -1,71 +1,45 @@
 {
-  "Metadata": {
-    "titleTemplate": "%s | Tuinmaximaal",
-    "defaultTitle": "Bienvenue chez Tuinmaximaal",
-    "description": "Tuinmaximaal offre la garantie du prix le plus bas sur toutes les vérandas et parois coulissantes en verre. Commandez votre véranda en kit facile à assembler.",
-    "keywords": "véranda, paroi coulissante en verre, pergola, véranda aluminium, kit de construction, toiture de terrasse, garantie prix bas"
-  },
-  "Home": {
-    "heroImageAlt": "Véranda moderne de Tuinmaximaal avec structure en aluminium noir mat et parois coulissantes en verre.",
-    "flagAlt": "Drapeau de {country}",
-    "selectCountry": "Sélectionnez votre pays",
-    "areYouFrom": "Venez-vous de {country}?",
-    "goToStore": "Continuer vers la boutique en ligne française",
-    "saveSelection": "Enregistrer ma sélection pour les prochaines visites.",
-    "otherCountryPreference": "Préférez-vous un autre pays ?",
-    "stores": [
-      {
-        "countryCode": "BE-NL",
-        "country": "België",
-        "language": "Nederlands",
-        "storeUrl": "https://www.tuinmaximaal.be/",
-        "flagIcon": "/flags/be.svg"
+  "Pages": {
+    "Home": {
+      "Metadata": {
+        "title": "Bienvenue chez Tuinmaximaal",
+        "description": "Tuinmaximaal offre la garantie du prix le plus bas sur toutes les vérandas et parois coulissantes en verre. Commandez votre véranda en kit facile à assembler.",
+        "keywords": "véranda, paroi coulissante en verre, pergola, véranda aluminium, kit de construction, toiture de terrasse, garantie prix bas"
       },
-      {
-        "countryCode": "BE-FR",
-        "country": "Belgique",
-        "language": "Français",
-        "storeUrl": "https://www.tuinmaximaal.be/fr/",
-        "flagIcon": "/flags/be.svg"
-      },
-      {
-        "countryCode": "DE",
-        "country": "Deutschland",
-        "language": "Deutsch",
-        "storeUrl": "https://www.tuinmaximaal.de/",
-        "flagIcon": "/flags/de.svg"
-      },
-      {
-        "countryCode": "FR",
-        "country": "France",
-        "language": "Français",
-        "storeUrl": "https://www.tuinmaximaal.fr/",
-        "flagIcon": "/flags/fr.svg"
-      },
-      {
-        "countryCode": "NL",
-        "country": "Nederland",
-        "language": "Nederlands",
-        "storeUrl": "https://www.tuinmaximaal.nl/",
-        "flagIcon": "/flags/nl.svg"
-      },
-      {
-        "countryCode": "EN",
-        "country": "United Kingdom",
-        "language": "English",
-        "storeUrl": "https://www.tuinmaximaal.co.uk/",
-        "flagIcon": "/flags/uk.svg"
+      "a11y": {
+        "heroImageAlt": "Véranda moderne de Tuinmaximaal avec structure en aluminium noir mat et parois coulissantes en verre."
       }
-    ]
+    },
+    "NotFound": {
+      "Metadata": {
+        "title": "Page non trouvée",
+        "description": "Oops! La page que vous cherchez est introuvable. Vérifiez l'url ou retournez à notre page d'accueil."
+      },
+      "heading": "Oups ! Page non trouvée.",
+      "description": "Nous ne trouvons pas la page que vous recherchez. Mais ne vous inquiétez pas, nous sommes heureux de vous aider !",
+      "backToHome": "Retour à l'accueil",
+      "a11y": {
+        "imageAlt": "Illustration 404"
+      }
+    }
   },
-  "Header": {
-    "logoAriaLabel": "Page d'accueil Tuinmaximaal"
-  },
-  "NotFound": {
-    "title": "Page non trouvée",
-    "heading": "Oups ! Page non trouvée.",
-    "description": "Nous ne trouvons pas la page que vous recherchez. Mais ne vous inquiétez pas, nous sommes heureux de vous aider !",
-    "backToHome": "Retour à l'accueil",
-    "imageAlt": "Illustration 404"
+  "Components": {
+    "Header": {
+      "a11y": {
+        "logoAriaLabel": "Page d'accueil Tuinmaximaal"
+      }
+    },
+    "StoreSelection": {
+      "selectCountry": "Sélectionnez votre pays",
+      "areYouFrom": "Venez-vous de {country}?",
+      "otherCountryPreference": "Préférez-vous un autre pays ?",
+      "saveSelection": "Enregistrer ma sélection pour les prochaines visites."
+    },
+    "StoreCard": {
+      "goToStore": "Continuer vers la boutique en ligne française",
+      "a11y": {
+        "flagAlt": "Drapeau de {country}"
+      }
+    }
   }
 }

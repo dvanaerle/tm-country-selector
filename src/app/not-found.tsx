@@ -5,18 +5,19 @@ import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
-import illustration404 from "../../public/images/404/404-illustration.png";
+import illustration404 from "/public/images/404-illustration.png";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("NotFound");
+  const t = await getTranslations("Pages.NotFound.Metadata");
 
   return {
     title: t("title"),
+    description: t("description"),
   };
 }
 
 export default function NotFound() {
-  const t = useTranslations("NotFound");
+  const t = useTranslations("Pages.NotFound");
 
   return (
     <>
@@ -24,7 +25,7 @@ export default function NotFound() {
       <div className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center px-4 py-12 text-center sm:px-6 xl:p-20">
         <Image
           src={illustration404}
-          alt={t("imageAlt")}
+          alt={t("a11y.imageAlt")}
           priority
           fetchPriority="high"
           placeholder="blur"

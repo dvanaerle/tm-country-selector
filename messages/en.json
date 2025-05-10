@@ -1,71 +1,45 @@
 {
-  "Metadata": {
-    "titleTemplate": "%s | Tuinmaximaal",
-    "defaultTitle": "Welcome to Tuinmaximaal",
-    "description": "Tuinmaximaal offers the lowest price guarantee on verandas and glass sliding doors. Order your garden structure as an easy-to-assemble kit.",
-    "keywords": "veranda, glass sliding doors, garden veranda, aluminium veranda, DIY veranda kit, glass garden room, sliding glass wall, patio cover, lowest price guarantee"
-  },
-  "Home": {
-    "heroImageAlt": "Modern veranda with matte black aluminium frame and glass sliding doors by Tuinmaximaal.",
-    "flagAlt": "Flag of {country}",
-    "selectCountry": "Select your country",
-    "areYouFrom": "Are you from {country}?",
-    "goToStore": "Continue to the UK online shop",
-    "saveSelection": "Save my selection for later visits.",
-    "otherCountryPreference": "Preference for another country?",
-    "stores": [
-      {
-        "countryCode": "BE-NL",
-        "country": "België",
-        "language": "Nederlands",
-        "storeUrl": "https://www.tuinmaximaal.be/",
-        "flagIcon": "/flags/be.svg"
+  "Pages": {
+    "Home": {
+      "Metadata": {
+        "title": "Welcome to Tuinmaximaal",
+        "description": "Tuinmaximaal offers the lowest price guarantee on verandas and glass sliding doors. Order your garden structure as an easy-to-assemble kit.",
+        "keywords": "veranda, glass sliding doors, garden veranda, aluminium veranda, DIY veranda kit, glass garden room, sliding glass wall, patio cover, lowest price guarantee"
       },
-      {
-        "countryCode": "BE-FR",
-        "country": "Belgique",
-        "language": "Français",
-        "storeUrl": "https://www.tuinmaximaal.be/fr/",
-        "flagIcon": "/flags/be.svg"
-      },
-      {
-        "countryCode": "DE",
-        "country": "Deutschland",
-        "language": "Deutsch",
-        "storeUrl": "https://www.tuinmaximaal.de/",
-        "flagIcon": "/flags/de.svg"
-      },
-      {
-        "countryCode": "FR",
-        "country": "France",
-        "language": "Français",
-        "storeUrl": "https://www.tuinmaximaal.fr/",
-        "flagIcon": "/flags/fr.svg"
-      },
-      {
-        "countryCode": "NL",
-        "country": "Nederland",
-        "language": "Nederlands",
-        "storeUrl": "https://www.tuinmaximaal.nl/",
-        "flagIcon": "/flags/nl.svg"
-      },
-      {
-        "countryCode": "EN",
-        "country": "United Kingdom",
-        "language": "English",
-        "storeUrl": "https://www.tuinmaximaal.co.uk/",
-        "flagIcon": "/flags/uk.svg"
+      "a11y": {
+        "heroImageAlt": "Modern veranda with matte black aluminium frame and glass sliding doors by Tuinmaximaal."
       }
-    ]
+    },
+    "NotFound": {
+      "Metadata": {
+        "title": "Page not found",
+        "description": "Oops! The page you're looking for can't be found. Check the url or return to our homepage."
+      },
+      "heading": "Oops! Page not found.",
+      "description": "We can't find the page you're looking for. But don't worry, we're happy to help you!",
+      "backToHome": "Back to Home",
+      "a11y": {
+        "imageAlt": "404 illustration"
+      }
+    }
   },
-  "Header": {
-    "logoAriaLabel": "Tuinmaximaal homepage"
-  },
-  "NotFound": {
-    "title": "Page not found",
-    "heading": "Oops! Page not found.",
-    "description": "We can't find the page you're looking for. But don't worry, we're happy to help you!",
-    "backToHome": "Back to Home",
-    "imageAlt": "404 illustration"
+  "Components": {
+    "Header": {
+      "a11y": {
+        "logoAriaLabel": "Tuinmaximaal homepage"
+      }
+    },
+    "StoreSelection": {
+      "selectCountry": "Select your country",
+      "areYouFrom": "Are you from {country}?",
+      "otherCountryPreference": "Preference for another country?",
+      "saveSelection": "Save my selection for later visits."
+    },
+    "StoreCard": {
+      "goToStore": "Continue to the UK online shop",
+      "a11y": {
+        "flagAlt": "Flag of {country}"
+      }
+    }
   }
 }
