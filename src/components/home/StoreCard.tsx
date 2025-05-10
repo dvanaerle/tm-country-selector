@@ -43,9 +43,10 @@ export function StoreCard({
       <div className="flex flex-1 items-center gap-x-3">
         <CircleFlag
           countryCode={getFlagCountryCode(store.countryCode)}
-          height={24}
-          width={24}
           title={t("a11y.flagAlt", { country: store.country })}
+          width={24}
+          height={24}
+          className="size-6"
         />
         {isPreferred ? (
           <span className="text-primary-dark-green text-left">
