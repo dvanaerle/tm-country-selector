@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Pages.NotFound.Metadata");
@@ -29,30 +30,42 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <div className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] max-w-(--breakpoint-md) flex-col items-center justify-center px-4 py-12 text-center sm:px-6 xl:p-20">
+      <div className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] max-w-(--breakpoint-md) flex-col items-center px-4 py-12 sm:px-6 xl:p-20">
         <section className="w-full rounded-lg bg-white p-4 sm:p-10">
-          <div className="grid w-full max-w-sm items-center gap-1.5">
-            <Label htmlFor="depth">Diepte veranda</Label>
-            <Select id="depth">
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Theme" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="light">Light</SelectItem>
-                <SelectItem value="dark">Dark</SelectItem>
-                <SelectItem value="system">System</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          <h1>Meetinstructies Gumax® glazen schuifwand</h1>
+          <Tabs defaultValue="account" className="w-[400px]">
+            <TabsList>
+              <TabsTrigger value="account">Hoogte muurprofiel</TabsTrigger>
+              <TabsTrigger value="password">Hoogte onderkant goot</TabsTrigger>
+            </TabsList>
+            <TabsContent value="account">
+              <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="depth">Diepte veranda</Label>
+                <Select id="depth">
+                  <SelectTrigger className="w-[180px]">
+                    <SelectValue placeholder="Theme" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="light">Light</SelectItem>
+                    <SelectItem value="dark">Dark</SelectItem>
+                    <SelectItem value="system">System</SelectItem>
+                  </SelectContent>
+                </Select>
+              </div>
 
-          <Link
-            href="/"
-            className={buttonVariants({
-              variant: "default",
-            })}
-          >
-            {t("backToHome")}
-          </Link>
+              <Link
+                href="/"
+                className={buttonVariants({
+                  variant: "default",
+                })}
+              >
+                Bereken doorloophoogte
+              </Link>
+            </TabsContent>
+            <TabsContent value="password">
+              Change your password here.
+            </TabsContent>
+          </Tabs>
         </section>
       </div>
     </>
