@@ -21,6 +21,17 @@
       "a11y": {
         "imageAlt": "404 illustratie"
       }
+    },
+    "MeasuringTool": {
+      "Metadata": {
+        "title": "Meetinstructies Gumax® glazen schuifwand",
+        "description": "Gebruik onze meetinstructies tool voor het meten van je Gumax® glazen schuifwand"
+      },
+      "heading": "Meetinstructies Gumax<sup>®</sup> glazen schuifwand",
+      "tabs": {
+        "wallProfileHeight": "Hoogte muurprofiel",
+        "heightLowerGutter": "Hoogte onderkant goot"
+      }
     }
   },
   "Components": {
@@ -39,6 +50,48 @@
       "goToStore": "Verder naar de Nederlandse webshop",
       "a11y": {
         "flagAlt": "Vlag van {country}"
+      }
+    },
+    "Form": {
+      "Common": {
+        "depthVeranda": "Diepte veranda",
+        "depthVerandaTooltip": "Selecteer de diepte van je veranda.",
+        "slope": "Afloop van je terras",
+        "slopeTooltip": "Voer de afloop van je terras in millimeters in.",
+        "slopePlaceholder": "Afloop terras",
+        "measurementUnitMm": "mm",
+        "measurementUnitMeter": "meter",
+        "calculatePassageHeight": "Bereken doorloophoogte",
+        "calculateBottomWallProfileHeight": "Bereken onderkant muurprofielhoogte",
+        "passageHeightResult": "De berekende doorloophoogte is: <strong>{result} mm</strong>.",
+        "rangeSuccess": "Deze valt <strong>{within}</strong> de doorloophoogte van: <strong>{min} - {max} mm</strong>.",
+        "rangeSuccessWithin": "binnen",
+        "rangeSuccessOutside": "buiten",
+        "rangeError": "Deze valt <strong>{outside}</strong> de doorloophoogte van Tuinmaximaal.",
+        "validationErrors": {
+          "selectOption": "Selecteer een optie",
+          "enterNumber": "Voer een getal in",
+          "integerOnly": "Alleen hele millimeters zijn toegestaan",
+          "validNumberRequired": "Voer een geldig getal in"
+        }
+      },
+      "WallProfileHeight": {
+        "label": "Hoogte muurprofiel t.o.v. bodem (0° afschot)",
+        "tooltip": "Voer de hoogte van het muurprofiel in (in millimeters). De hoogte moet tussen {min} mm en {max} mm liggen.",
+        "placeholder": "Hoogte muurprofiel",
+        "validationErrors": {
+          "min": "De hoogte moet minimaal {min} mm zijn",
+          "max": "De hoogte mag maximaal {max} mm zijn"
+        }
+      },
+      "HeightLowerGutter": {
+        "label": "Hoogte onderkant goot t.o.v. bodem (0° afschot)",
+        "tooltip": "Voer de hoogte van de onderkant goot in (in millimeters). De hoogte moet tussen {min} mm en {max} mm liggen.",
+        "placeholder": "Hoogte onderkant goot",
+        "validationErrors": {
+          "min": "De hoogte moet minimaal {min} mm zijn",
+          "max": "De hoogte mag maximaal {max} mm zijn"
+        }
       }
     }
   }

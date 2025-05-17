@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="container mx-auto px-4 py-12 sm:px-6 xl:h-[calc(100dvh-(--spacing(19)))] xl:p-20">
+      <main className="container mx-auto px-4 py-12 sm:px-6 xl:h-[calc(100dvh-(--spacing(19)))] xl:py-20">
         <section className="overflow-hidden rounded-lg p-4 max-xl:bg-white sm:p-6 xl:h-full xl:p-0">
           <div className="grid grid-cols-12 gap-y-5 xl:h-full">
             <div className="relative col-span-12 max-xl:aspect-[2/1] xl:col-span-7">
@@ -31,10 +31,10 @@ export default function Home() {
                 priority
                 fetchPriority="high"
                 placeholder="blur"
-                className="rounded object-cover xl:rounded-none"
+                className="rounded object-cover object-[center_55%] xl:rounded-none"
                 sizes="
-                 (min-width: 1536px) calc((1536px - 160px) * 7/12),
-                 (min-width: 1280px) calc((1280px - 160px) * 7/12),
+                 (min-width: 1536px) calc((1536px - 48px) * 7/12),
+                 (min-width: 1280px) calc((1280px - 48px) * 7/12),
                  (min-width: 1024px) calc(1024px - 96px),
                  (min-width: 768px) calc(768px - 96px),
                  (min-width: 640px) calc(640px - 96px),

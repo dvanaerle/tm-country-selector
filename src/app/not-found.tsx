@@ -22,7 +22,7 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <div className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center px-4 py-12 text-center sm:px-6 xl:p-20">
+      <main className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center px-4 py-12 text-center sm:px-6 xl:py-20">
         <Image
           src={illustration404}
           alt={t("a11y.imageAlt")}
@@ -30,8 +30,8 @@ export default function NotFound() {
           fetchPriority="high"
           placeholder="blur"
           sizes="
-                 (min-width: 1536px) calc((1536px - 160px),
-                 (min-width: 1280px) calc((1280px - 160px),
+                 (min-width: 1536px) calc((1536px - 48px),
+                 (min-width: 1280px) calc((1280px - 48px),
                  (min-width: 1024px) calc(1024px - 48px),
                  (min-width: 768px) calc(768px - 48px),
                  (min-width: 640px) calc(640px - 48px),
@@ -47,7 +47,7 @@ export default function NotFound() {
         >
           {t("backToHome")}
         </Link>
-      </div>
+      </main>
     </>
   );
 }

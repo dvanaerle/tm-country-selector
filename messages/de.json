@@ -21,6 +21,17 @@
       "a11y": {
         "imageAlt": "404 Illustration"
       }
+    },
+    "MeasuringTool": {
+      "Metadata": {
+        "title": "Messanleitung Gumax® Glasschiebewand",
+        "description": "Nutzen Sie unser Messanleitungs-Tool für das Messen Ihrer Gumax® Glasschiebewand"
+      },
+      "heading": "Messanleitung Gumax<sup>®</sup> Glasschiebewand",
+      "tabs": {
+        "wallProfileHeight": "Wandprofilhöhe",
+        "heightLowerGutter": "Höhe Unterkante Rinne"
+      }
     }
   },
   "Components": {
@@ -39,6 +50,48 @@
       "goToStore": "Weiter zum deutschen Shop",
       "a11y": {
         "flagAlt": "Flagge von {country}"
+      }
+    },
+    "Form": {
+      "Common": {
+        "depthVeranda": "Tiefe der Überdachung",
+        "depthVerandaTooltip": "Wählen Sie die Tiefe Ihrer Überdachung.",
+        "slope": "Gefälle Ihrer Terrasse",
+        "slopeTooltip": "Geben Sie das Gefälle Ihrer Terrasse in Millimetern ein.",
+        "slopePlaceholder": "Terrassengefälle",
+        "measurementUnitMm": "mm",
+        "measurementUnitMeter": "Meter",
+        "calculatePassageHeight": "Durchgangshöhe berechnen",
+        "calculateBottomWallProfileHeight": "Unterkante Wandprofilhöhe berechnen",
+        "passageHeightResult": "Die berechnete Durchgangshöhe beträgt: <strong>{result} mm</strong>.",
+        "rangeSuccess": "Diese liegt <strong>{within}</strong> der Durchgangshöhe von: <strong>{min} - {max} mm</strong>.",
+        "rangeSuccessWithin": "innerhalb",
+        "rangeSuccessOutside": "außerhalb",
+        "rangeError": "Diese liegt <strong>{outside}</strong> der Durchgangshöhe von Tuinmaximaal.",
+        "validationErrors": {
+          "selectOption": "Wählen Sie eine Option",
+          "enterNumber": "Geben Sie eine Zahl ein",
+          "integerOnly": "Nur ganze Millimeter sind erlaubt",
+          "validNumberRequired": "Geben Sie eine gültige Zahl ein"
+        }
+      },
+      "WallProfileHeight": {
+        "label": "Wandprofilhöhe vom Boden (0° Gefälle)",
+        "tooltip": "Geben Sie die Höhe des Wandprofils (in Millimetern) ein. Die Höhe muss zwischen {min} mm und {max} mm liegen.",
+        "placeholder": "Wandprofilhöhe",
+        "validationErrors": {
+          "min": "Die Höhe muss mindestens {min} mm betragen",
+          "max": "Die Höhe darf höchstens {max} mm betragen"
+        }
+      },
+      "HeightLowerGutter": {
+        "label": "Höhe Unterkante Rinne vom Boden (0° Gefälle)",
+        "tooltip": "Geben Sie die Höhe der Unterkante Rinne (in Millimetern) ein. Die Höhe muss zwischen {min} mm und {max} mm liegen.",
+        "placeholder": "Höhe Unterkante Rinne",
+        "validationErrors": {
+          "min": "Die Höhe muss mindestens {min} mm betragen",
+          "max": "Die Höhe darf höchstens {max} mm betragen"
+        }
       }
     }
   }

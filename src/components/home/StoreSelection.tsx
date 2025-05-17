@@ -64,7 +64,7 @@ export default function StoreSelection({
           checked={saveSelection}
           onCheckedChange={(checked) => setSaveSelection(checked === true)}
         />
-        <Label className="cursor-pointer" htmlFor="savePreference">
+        <Label className="cursor-pointer font-medium" htmlFor="savePreference">
           {t("saveSelection")}
         </Label>
       </div>
