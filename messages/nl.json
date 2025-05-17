@@ -25,7 +25,7 @@
     "MeasuringTool": {
       "Metadata": {
         "title": "Meetinstructies Gumax® glazen schuifwand",
-        "description": "Gebruik onze meetinstructies tool voor het meten van je Gumax® glazen schuifwand"
+        "description": "Gebruik onze meetinstructies tool voor het nauwkeurig inmeten van je Gumax® glazen schuifwand"
       },
       "heading": "Meetinstructies Gumax<sup>®</sup> glazen schuifwand",
       "tabs": {
@@ -54,11 +54,11 @@
     },
     "Form": {
       "Common": {
-        "depthVeranda": "Diepte veranda",
-        "depthVerandaTooltip": "Selecteer de diepte van je veranda.",
-        "slope": "Afloop van je terras",
-        "slopeTooltip": "Voer de afloop van je terras in millimeters in.",
-        "slopePlaceholder": "Afloop terras",
+        "depthVeranda": "Diepte overkapping",
+        "depthVerandaTooltip": "Selecteer de diepte van je overkapping.",
+        "slope": "Overloop van je terras",
+        "slopeTooltip": "Voer de overloop van je terras in millimeters in. Dit is het hoogteverschil over je terras.",
+        "slopePlaceholder": "Overloop terras",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "meter",
         "calculatePassageHeight": "Bereken doorloophoogte",
@@ -76,8 +76,8 @@
         }
       },
       "WallProfileHeight": {
-        "label": "Hoogte muurprofiel t.o.v. bodem (0° afschot)",
-        "tooltip": "Voer de hoogte van het muurprofiel in (in millimeters). De hoogte moet tussen {min} mm en {max} mm liggen.",
+        "label": "Hoogte muurprofiel t.o.v. bodem (0° overloop)",
+        "tooltip": "Voer de hoogte van het muurprofiel in (in millimeters). Dit is de hoogte waarop het muurprofiel aan de muur wordt gemonteerd. De hoogte moet tussen {min} mm en {max} mm liggen.",
         "placeholder": "Hoogte muurprofiel",
         "validationErrors": {
           "min": "De hoogte moet minimaal {min} mm zijn",
@@ -85,7 +85,7 @@
         }
       },
       "HeightLowerGutter": {
-        "label": "Hoogte onderkant goot t.o.v. bodem (0° afschot)",
+        "label": "Hoogte onderkant goot t.o.v. bodem (0° overloop)",
         "tooltip": "Voer de hoogte van de onderkant goot in (in millimeters). De hoogte moet tussen {min} mm en {max} mm liggen.",
         "placeholder": "Hoogte onderkant goot",
         "validationErrors": {

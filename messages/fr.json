@@ -24,10 +24,10 @@
     },
     "MeasuringTool": {
       "Metadata": {
-        "title": "Instructions de mesure paroi coulissante en verre Gumax®",
-        "description": "Utilisez notre outil d'instructions de mesure pour mesurer votre paroi coulissante en verre Gumax®"
+        "title": "Instructions de mesure pour la paroi coulissante en verre Gumax®",
+        "description": "Utilisez notre outil d'instructions de mesure pour mesurer avec précision votre paroi coulissante en verre Gumax®"
       },
-      "heading": "Instructions de mesure paroi coulissante en verre Gumax<sup>®</sup>",
+      "heading": "Instructions de mesure pour la paroi coulissante en verre Gumax<sup>®</sup>",
       "tabs": {
         "wallProfileHeight": "Hauteur du profil mural",
         "heightLowerGutter": "Hauteur bas de gouttière"
@@ -56,17 +56,17 @@
       "Common": {
         "depthVeranda": "Profondeur de la véranda",
         "depthVerandaTooltip": "Sélectionnez la profondeur de votre véranda.",
-        "slope": "Pente de votre terrasse",
-        "slopeTooltip": "Entrez la pente de votre terrasse en millimètres.",
-        "slopePlaceholder": "Pente terrasse",
+        "slope": "Débordement de votre terrasse",
+        "slopeTooltip": "Entrez le débordement de votre terrasse en millimètres. C'est la différence de hauteur sur votre terrasse.",
+        "slopePlaceholder": "Débordement terrasse",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "mètre",
         "calculatePassageHeight": "Calculer la hauteur de passage",
         "calculateBottomWallProfileHeight": "Calculer la hauteur du bas du profil mural",
         "passageHeightResult": "La hauteur de passage calculée est : <strong>{result} mm</strong>.",
-        "rangeSuccess": "Celle-ci se situe <strong>{within}</strong> la hauteur de passage de : <strong>{min} - {max} mm</strong>.",
+        "rangeSuccess": "Celle-ci se situe <strong>{within}</strong> la plage de hauteur de passage de : <strong>{min} - {max} mm</strong>.",
         "rangeSuccessWithin": "dans",
-        "rangeSuccessOutside": "hors",
+        "rangeSuccessOutside": "en dehors de",
         "rangeError": "Celle-ci se situe <strong>{outside}</strong> la plage de hauteur de passage de Tuinmaximaal.",
         "validationErrors": {
           "selectOption": "Sélectionnez une option",
@@ -76,8 +76,8 @@
         }
       },
       "WallProfileHeight": {
-        "label": "Hauteur du profil mural par rapport au sol (inclinaison 0°)",
-        "tooltip": "Entrez la hauteur du profil mural (en millimètres). La hauteur doit être comprise entre {min} mm et {max} mm.",
+        "label": "Hauteur du profil mural par rapport au sol (débordement 0°)",
+        "tooltip": "Entrez la hauteur du profil mural (en millimètres). C'est la hauteur à laquelle le profil mural est fixé au mur. La hauteur doit être comprise entre {min} mm et {max} mm.",
         "placeholder": "Hauteur du profil mural",
         "validationErrors": {
           "min": "La hauteur doit être d'au moins {min} mm",
@@ -85,8 +85,8 @@
         }
       },
       "HeightLowerGutter": {
-        "label": "Hauteur bas de gouttière par rapport au sol (inclinaison 0°)",
-        "tooltip": "Entrez la hauteur du bas de la gouttière (en millimètres). La hauteur doit être comprise entre {min} mm et {max} mm.",
+        "label": "Hauteur bas de gouttière par rapport au sol (débordement 0°)",
+        "tooltip": "Entrez la hauteur du sol à la partie inférieure plate de la gouttière (en millimètres). La hauteur doit être comprise entre {min} mm et {max} mm.",
         "placeholder": "Hauteur bas de gouttière",
         "validationErrors": {
           "min": "La hauteur doit être d'au moins {min} mm",

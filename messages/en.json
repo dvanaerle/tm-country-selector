@@ -24,13 +24,13 @@
     },
     "MeasuringTool": {
       "Metadata": {
-        "title": "Measuring Instructions Gumax® Glass Sliding Wall",
-        "description": "Use our measuring instructions tool for measuring your Gumax® glass sliding wall"
+        "title": "Measuring instructions for Gumax® glass sliding doors",
+        "description": "Use our measuring instructions tool for accurately measuring your Gumax® glass sliding doors"
       },
-      "heading": "Measuring Instructions Gumax<sup>®</sup> Glass Sliding Wall",
+      "heading": "Measuring instructions for Gumax<sup>®</sup> glass sliding doors",
       "tabs": {
         "wallProfileHeight": "Wall Profile Height",
-        "heightLowerGutter": "Height Lower Gutter"
+        "heightLowerGutter": "Height to Bottom of Gutter"
       }
     }
   },
@@ -56,15 +56,15 @@
       "Common": {
         "depthVeranda": "Veranda depth",
         "depthVerandaTooltip": "Select the depth of your veranda.",
-        "slope": "Slope of your terrace",
-        "slopeTooltip": "Enter the slope of your terrace in millimeters.",
-        "slopePlaceholder": "Terrace slope",
+        "slope": "Overflow of your terrace",
+        "slopeTooltip": "Enter the overflow of your terrace in millimeters. This is the height difference across your terrace.",
+        "slopePlaceholder": "Terrace overflow",
         "measurementUnitMm": "mm",
-        "measurementUnitMeter": "meter",
+        "measurementUnitMeter": "metre",
         "calculatePassageHeight": "Calculate passage height",
         "calculateBottomWallProfileHeight": "Calculate bottom wall profile height",
         "passageHeightResult": "The calculated passage height is: <strong>{result} mm</strong>.",
-        "rangeSuccess": "This falls <strong>{within}</strong> the passage height of: <strong>{min} - {max} mm</strong>.",
+        "rangeSuccess": "This falls <strong>{within}</strong> the passage height range of: <strong>{min} - {max} mm</strong>.",
         "rangeSuccessWithin": "within",
         "rangeSuccessOutside": "outside",
         "rangeError": "This falls <strong>{outside}</strong> the passage height range of Tuinmaximaal.",
@@ -76,8 +76,8 @@
         }
       },
       "WallProfileHeight": {
-        "label": "Wall profile height from ground (0° slope)",
-        "tooltip": "Enter the height of the wall profile (in millimeters). The height must be between {min} mm and {max} mm.",
+        "label": "Wall profile height from ground (0° overflow)",
+        "tooltip": "Enter the height of the wall profile (in millimeters). This is the height at which the wall profile is mounted to the wall. The height must be between {min} mm and {max} mm.",
         "placeholder": "Wall profile height",
         "validationErrors": {
           "min": "The height must be at least {min} mm",
@@ -85,9 +85,9 @@
         }
       },
       "HeightLowerGutter": {
-        "label": "Height bottom gutter from ground (0° slope)",
-        "tooltip": "Enter the height of the bottom gutter (in millimeters). The height must be between {min} mm and {max} mm.",
-        "placeholder": "Height bottom gutter",
+        "label": "Height of gutter bottom from ground (0° overflow)",
+        "tooltip": "Enter the height from the ground to the flat underside of the gutter (in millimeters). The height must be between {min} mm and {max} mm.",
+        "placeholder": "Height to bottom of gutter",
         "validationErrors": {
           "min": "The height must be at least {min} mm",
           "max": "The height may not exceed {max} mm"
