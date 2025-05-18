@@ -69,6 +69,7 @@
         "rangeSuccessOutside": "außerhalb",
         "rangeError": "Diese liegt <strong>{outside}</strong> des Durchgangshöhenbereichs von Tuinmaximaal.",
         "info": "Info",
+        "moreInformation": "Weitere Informationen",
         "validationErrors": {
           "selectOption": "Wählen Sie eine Option",
           "enterNumber": "Geben Sie eine Zahl ein",

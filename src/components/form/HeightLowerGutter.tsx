@@ -220,11 +220,8 @@ export function HeightLowerGutterForm() {
                     <span>{t("Form.Common.depthVeranda")}</span>
                     <ResponsiveTooltipDialog
                       trigger={
-                        <button type="button">
-                          <InformationLine
-                            className="size-4 shrink-0"
-                            aria-hidden="true"
-                          />
+                        <button type="button" aria-label={t("Form.Common.moreInformation")}>
+                          <InformationLine className="size-4 shrink-0" />
                         </button>
                       }
                       dialogTitle={t("Form.Common.info")}
@@ -268,11 +265,8 @@ export function HeightLowerGutterForm() {
                 </FormLabel>
                 <ResponsiveTooltipDialog
                   trigger={
-                    <button type="button">
-                      <InformationLine
-                        className="size-4 shrink-0"
-                        aria-hidden="true"
-                      />
+                    <button type="button" aria-label={t("Form.Common.moreInformation")}>
+                      <InformationLine className="size-4 shrink-0" />
                     </button>
                   }
                   dialogTitle={t("Form.Common.info")}
@@ -318,11 +312,8 @@ export function HeightLowerGutterForm() {
                 </FormLabel>
                 <ResponsiveTooltipDialog
                   trigger={
-                    <button type="button">
-                      <InformationLine
-                        className="size-4 shrink-0"
-                        aria-hidden="true"
-                      />
+                    <button type="button" aria-label={t("Form.Common.moreInformation")}>
+                      <InformationLine className="size-4 shrink-0" />
                     </button>
                   }
                   dialogTitle={t("Form.Common.info")}
