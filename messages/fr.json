@@ -68,6 +68,7 @@
         "rangeSuccessWithin": "dans",
         "rangeSuccessOutside": "en dehors de",
         "rangeError": "Celle-ci se situe <strong>{outside}</strong> la plage de hauteur de passage de Tuinmaximaal.",
+        "info": "Info",
         "validationErrors": {
           "selectOption": "Sélectionnez une option",
           "enterNumber": "Entrez un nombre",

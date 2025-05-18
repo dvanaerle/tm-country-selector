@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -15,12 +15,6 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import * as RadioGroup from "@radix-ui/react-radio-group";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipTrigger,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
 import InformationLine from "../../../public/icons/MingCute/information_line.svg";
 import CheckCircleLine from "../../../public/icons/MingCute/check_circle_line.svg";
 import WarningLine from "../../../public/icons/MingCute/warning_line.svg";
@@ -28,6 +22,74 @@ import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { useTranslations } from "next-intl";
 import { passageHeights } from "@/data/passageHeights";
 import { depths, meterUnit } from "@/data/depths";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+  TooltipProvider,
+} from "@/components/ui/tooltip";
+
+// Hook that returns true if the device likely uses a coarse pointer (touch)
+function useIsTouch(): boolean {
+  const [isTouch, setIsTouch] = useState(false);
+
+  useEffect(() => {
+    if (typeof window === "undefined" || !window.matchMedia) return;
+    const mql = window.matchMedia("(pointer: coarse)");
+    setIsTouch(mql.matches);
+    const onChange = (e: MediaQueryListEvent) => setIsTouch(e.matches);
+    mql.addEventListener("change", onChange);
+    return () => mql.removeEventListener("change", onChange);
+  }, []);
+
+  return isTouch;
+}
+
+export interface ResponsiveTooltipDialogProps {
+  trigger: React.ReactElement;
+  children: React.ReactNode;
+  dialogTitle?: string;
+}
+
+// Renders a Tooltip on desktop and a Dialog on mobile.
+export const ResponsiveTooltipDialog: React.FC<
+  ResponsiveTooltipDialogProps
+> = ({ trigger, children, dialogTitle = "Information" }) => {
+  const isTouch = useIsTouch();
+
+  if (isTouch) {
+    return (
+      <Dialog>
+        <DialogTrigger asChild>{trigger}</DialogTrigger>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>{dialogTitle}</DialogTitle>
+            <DialogDescription asChild>
+              <div>{children}</div>
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
+    );
+  }
+
+  return (
+    <TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>{trigger}</TooltipTrigger>
+        <TooltipContent>{children}</TooltipContent>
+      </Tooltip>
+    </TooltipProvider>
+  );
+};
 
 const minWallProfileHeight = 2259;
 const maxWallProfileHeight = 3278;
@@ -75,9 +137,9 @@ export function WallProfileHeightForm() {
   >(null);
 
   // Predefined options for depth selection
-  const depthOptions = depths.map((depth) => ({
-    value: depth.toString(),
-    label: `${depth} ${t(meterUnit)}`,
+  const depthOptions = depths.map((d) => ({
+    value: d.toString(),
+    label: `${d} ${t(meterUnit)}`,
   }));
 
   const form = useForm<FormValues>({
@@ -86,22 +148,13 @@ export function WallProfileHeightForm() {
   });
 
   // Function to check if the calculated passage height falls within the predefined ranges
-  function getPassageHeight(rash: number): {
-    inRange: boolean;
-    range: [number, number] | null;
-  } {
+  function getPassageHeight(rash: number) {
     for (const [min, max] of passageHeights) {
       if (rash >= min && rash <= max) {
-        return {
-          inRange: true,
-          range: [min, max],
-        };
+        return { inRange: true, range: [min, max] as [number, number] };
       }
     }
-    return {
-      inRange: false,
-      range: null,
-    };
+    return { inRange: false, range: null };
   }
 
   function onSubmit(values: FormValues) {
@@ -153,18 +206,16 @@ export function WallProfileHeightForm() {
                 <FormLabel asChild>
                   <legend className="flex items-center gap-x-1" data-required>
                     <span>{t("Form.Common.depthVeranda")}</span>
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger asChild>
-                          <button type="button" className="p-0">
-                            <InformationLine className="size-4 shrink-0" />
-                          </button>
-                        </TooltipTrigger>
-                        <TooltipContent>
-                          <p>{t("Form.Common.depthVerandaTooltip")}</p>
-                        </TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
+                    <ResponsiveTooltipDialog
+                      trigger={
+                        <button type="button">
+                          <InformationLine className="size-4 shrink-0" />
+                        </button>
+                      }
+                      dialogTitle={t("Form.Common.info")}
+                    >
+                      {t("Form.Common.depthVerandaTooltip")}
+                    </ResponsiveTooltipDialog>
                   </legend>
                 </FormLabel>
                 <FormControl>
@@ -200,18 +251,16 @@ export function WallProfileHeightForm() {
                 <FormLabel htmlFor="slope">
                   <span>{t("Form.Common.slope")}</span>
                 </FormLabel>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
-                      <button type="button" className="p-0">
-                        <InformationLine className="size-4 shrink-0" />
-                      </button>
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>{t("Form.Common.slopeTooltip")}</p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                <ResponsiveTooltipDialog
+                  trigger={
+                    <button type="button">
+                      <InformationLine className="size-4 shrink-0" />
+                    </button>
+                  }
+                  dialogTitle={t("Form.Common.info")}
+                >
+                  {t("Form.Common.slopeTooltip")}
+                </ResponsiveTooltipDialog>
               </div>
               <FormControl>
                 <div className="relative flex items-center">
@@ -249,21 +298,19 @@ export function WallProfileHeightForm() {
                 >
                   <span>{t("Form.WallProfileHeight.label")}</span>
                 </FormLabel>
-                <TooltipProvider>
-                  <Tooltip>
-                    <TooltipTrigger asChild>
+                <ResponsiveTooltipDialog
+                  trigger={
+                    <button type="button" className="p-0">
                       <InformationLine className="size-4 shrink-0" />
-                    </TooltipTrigger>
-                    <TooltipContent>
-                      <p>
-                        {t("Form.WallProfileHeight.tooltip", {
-                          min: minWallProfileHeight,
-                          max: maxWallProfileHeight,
-                        })}
-                      </p>
-                    </TooltipContent>
-                  </Tooltip>
-                </TooltipProvider>
+                    </button>
+                  }
+                  dialogTitle={t("Form.Common.info")}
+                >
+                  {t("Form.WallProfileHeight.tooltip", {
+                    min: minWallProfileHeight,
+                    max: maxWallProfileHeight,
+                  })}
+                </ResponsiveTooltipDialog>
               </div>
               <FormControl>
                 <div className="relative flex items-center">

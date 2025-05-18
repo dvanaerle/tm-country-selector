@@ -68,6 +68,7 @@
         "rangeSuccessWithin": "binnen",
         "rangeSuccessOutside": "buiten",
         "rangeError": "Deze valt <strong>{outside}</strong> de doorloophoogte van Tuinmaximaal.",
+        "info": "Info",
         "validationErrors": {
           "selectOption": "Selecteer een optie",
           "enterNumber": "Voer een getal in",

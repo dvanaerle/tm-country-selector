@@ -68,6 +68,7 @@
         "rangeSuccessWithin": "within",
         "rangeSuccessOutside": "outside",
         "rangeError": "This falls <strong>{outside}</strong> the passage height range of Tuinmaximaal.",
+        "info": "Info",
         "validationErrors": {
           "selectOption": "Select an option",
           "enterNumber": "Enter a number",
