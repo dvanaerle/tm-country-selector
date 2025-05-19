@@ -56,9 +56,9 @@
       "Common": {
         "depthVeranda": "Tiefe der Überdachung",
         "depthVerandaTooltip": "Wählen Sie die Tiefe Ihrer Überdachung aus.",
-        "slope": "Überlauf Ihrer Terrasse",
-        "slopeTooltip": "Geben Sie den Überlauf Ihrer Terrasse in Millimetern ein. Dies ist der Höhenunterschied über Ihre Terrasse.",
-        "slopePlaceholder": "Terrassenüberlauf",
+        "slope": "Gefälle Ihrer Terrasse",
+        "slopeTooltip": "Geben Sie das Gefälle Ihrer Terrasse in Millimetern ein. Dies ist der Höhenunterschied über Ihre Terrasse.",
+        "slopePlaceholder": "Terrassengefälle",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "Meter",
         "calculatePassageHeight": "Durchgangshöhe berechnen",
@@ -76,7 +76,7 @@
         }
       },
       "WallProfileHeight": {
-        "label": "Wandprofilhöhe vom Boden (0° Überlauf)",
+        "label": "Wandprofilhöhe vom Boden (0° Gefälle)",
         "tooltip": "Geben Sie die Höhe des Wandprofils (in Millimetern) ein. Dies ist die Höhe, in der das Wandprofil an der Wand montiert wird. Die Höhe muss zwischen {min} mm und {max} mm liegen.",
         "placeholder": "Wandprofilhöhe",
         "validationErrors": {
@@ -85,7 +85,7 @@
         }
       },
       "HeightLowerGutter": {
-        "label": "Höhe Unterkante Rinne vom Boden (0° Überlauf)",
+        "label": "Höhe Unterkante Rinne vom Boden (0° Gefälle)",
         "tooltip": "Geben Sie die Höhe vom Boden bis zur Unterkante der Rinne (in Millimetern) ein. Die Höhe muss zwischen {min} mm und {max} mm liegen.",
         "placeholder": "Höhe Unterkante Rinne",
         "validationErrors": {

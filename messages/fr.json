@@ -56,9 +56,9 @@
       "Common": {
         "depthVeranda": "Profondeur de la véranda",
         "depthVerandaTooltip": "Sélectionnez la profondeur de votre véranda.",
-        "slope": "Débordement de votre terrasse",
-        "slopeTooltip": "Entrez le débordement de votre terrasse en millimètres. C'est la différence de hauteur sur votre terrasse.",
-        "slopePlaceholder": "Débordement terrasse",
+        "slope": "Pente de votre terrasse",
+        "slopeTooltip": "Entrez la pente de votre terrasse en millimètres. C'est la différence de hauteur sur votre terrasse.",
+        "slopePlaceholder": "Pente terrasse",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "mètre",
         "calculatePassageHeight": "Calculer la hauteur de passage",
@@ -76,7 +76,7 @@
         }
       },
       "WallProfileHeight": {
-        "label": "Hauteur du profil mural par rapport au sol (débordement 0°)",
+        "label": "Hauteur du profil mural par rapport au sol (pente 0°)",
         "tooltip": "Entrez la hauteur du profil mural (en millimètres). C'est la hauteur à laquelle le profil mural est fixé au mur. La hauteur doit être comprise entre {min} mm et {max} mm.",
         "placeholder": "Hauteur du profil mural",
         "validationErrors": {
@@ -85,7 +85,7 @@
         }
       },
       "HeightLowerGutter": {
-        "label": "Hauteur bas de gouttière par rapport au sol (débordement 0°)",
+        "label": "Hauteur bas de gouttière par rapport au sol (pente 0°)",
         "tooltip": "Entrez la hauteur du sol à la partie inférieure plate de la gouttière (en millimètres). La hauteur doit être comprise entre {min} mm et {max} mm.",
         "placeholder": "Hauteur bas de gouttière",
         "validationErrors": {
