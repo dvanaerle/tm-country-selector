@@ -56,9 +56,9 @@
       "Common": {
         "depthVeranda": "Veranda depth",
         "depthVerandaTooltip": "Select the depth of your veranda.",
-        "slope": "Overflow of your terrace",
-        "slopeTooltip": "Enter the overflow of your terrace in millimeters. This is the height difference across your terrace.",
-        "slopePlaceholder": "Terrace overflow",
+        "slope": "Slope of your terrace",
+        "slopeTooltip": "Enter the slope of your terrace in millimeters. This is the height difference across your terrace.",
+        "slopePlaceholder": "Terrace slope",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "metre",
         "calculatePassageHeight": "Calculate passage height",
@@ -78,7 +78,7 @@
         }
       },
       "WallProfileHeight": {
-        "label": "Wall profile height from ground (0° overflow)",
+        "label": "Wall profile height from ground (0° slope)",
         "tooltip": "Enter the height of the wall profile (in millimeters). This is the height at which the wall profile is mounted to the wall. The height must be between {min} mm and {max} mm.",
         "placeholder": "Wall profile height",
         "validationErrors": {
@@ -87,7 +87,7 @@
         }
       },
       "HeightLowerGutter": {
-        "label": "Height of gutter bottom from ground (0° overflow)",
+        "label": "Height of gutter bottom from ground (0° slope)",
         "tooltip": "Enter the height from the ground to the flat underside of the gutter (in millimeters). The height must be between {min} mm and {max} mm.",
         "placeholder": "Height to bottom of gutter",
         "validationErrors": {
