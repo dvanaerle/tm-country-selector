@@ -78,13 +78,15 @@
         }
       },
       "WallProfileHeight": {
+        "railSystemQuestion": "Wilt u uw railsysteem verzonken neerleggen?",
         "label": "Hoogte muurprofiel t.o.v. bodem (0° afloop)",
         "tooltip": "Voer de hoogte van het muurprofiel in (in millimeters). Dit is de hoogte waarop het muurprofiel aan de muur wordt gemonteerd. De hoogte moet tussen {min} mm en {max} mm liggen.",
         "placeholder": "Hoogte muurprofiel",
         "validationErrors": {
           "min": "De hoogte moet minimaal {min} mm zijn",
           "max": "De hoogte mag maximaal {max} mm zijn"
-        }
+        },
+        "recommendation": "De berekende doorloophoogte van <strong>{currentResult} mm</strong> valt buiten het aanbevolen bereik. Probeer een muurprofielhoogte van <strong>{recommendedWallProfileHeight} mm</strong> om binnen de doorloophoogte van <strong>{min} - {max} mm</strong> te vallen."
       },
       "HeightLowerGutter": {
         "label": "Hoogte onderkant goot t.o.v. bodem (0° afloop)",

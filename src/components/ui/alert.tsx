@@ -4,15 +4,15 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
-  "relative w-full rounded border px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-4 [&>svg]:translate-y-0.5 [&>svg]:text-current",
+  "relative w-full rounded px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-4 gap-y-0.5 items-start [&>svg]:size-5 [&>svg]:translate-y-0.5 [&>svg]:text-current text-base",
   {
     variants: {
       variant: {
         default: "bg-light-grey text-green",
         success:
-          "bg-green-50 text-green-600 [&>svg]:text-current *:data-[slot=alert-description]:text-green-600/90",
+          "bg-light-success text-dark-success",
         error:
-          "bg-red-50 text-red-600 [&>svg]:text-current *:data-[slot=alert-description]:text-red-600/90",
+          "bg-light-error text-dark-error",
       },
     },
     defaultVariants: {
@@ -40,7 +40,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-title"
-      className={cn("col-start-2 text-pretty min-h-4 font-medium", className)}
+      className={cn("col-start-2 min-h-4 font-medium text-pretty", className)}
       {...props}
     />
   );
@@ -54,7 +54,7 @@ function AlertDescription({
     <div
       data-slot="alert-description"
       className={cn(
-        "text-green col-start-2 grid justify-items-start gap-1 text-sm [&_p]:leading-relaxed",
+        "col-start-2 grid justify-items-start gap-1 [&_p]:leading-relaxed",
         className,
       )}
       {...props}

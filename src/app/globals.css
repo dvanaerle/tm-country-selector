@@ -22,6 +22,13 @@
   /* Grey tones */
   --color-light-grey: oklch(91.6% 0 0); /* #e3e3e3 */
   --color-grey: oklch(50% 0 0); /* #636363 */
+
+  /* Alerts */
+  --color-dark-success: oklch(53% 0.156932 137.91); /* #367F0E */
+  --color-dark-error: oklch(53% 0.208768 29.23); /* #C8140D */
+
+  --color-light-success: oklch(97% 0.0221 137.91); /* #EEF9EB */
+  --color-light-error: oklch(97% 0.014749 29.23); /* #FFF2EF */
 }
 
 @theme inline {
