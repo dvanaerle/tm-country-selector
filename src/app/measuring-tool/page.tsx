@@ -6,11 +6,10 @@ import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
 import measuringSlope from "/public/images/measuring-slope.jpg";
-import { WallProfileHeightForm } from "@/components/form/WallProfileHeight";
-import { HeightLowerGutterForm } from "@/components/form/HeightLowerGutter";
+import { PassageHeightCalculatorForm } from "@/components/form/PassageHeightCalculatorForm";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("Pages.MeasuringTool.Metadata");
+  const t = await getTranslations("Pages.MeasuringTool.metaData");
 
   return {
     title: t("title"),
@@ -24,35 +23,34 @@ export default function MeasuringTool() {
   return (
     <>
       <Header />
-      <main className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center px-4 py-12 sm:px-6 xl:py-20">
-        {/* <main className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center px-4 py-12 sm:px-6 md:max-w-(--breakpoint-md) xl:py-20"> */}
-        <section className="grid w-full gap-10 rounded-lg bg-white p-4 sm:p-10 lg:grid-cols-12">
-          <section className="lg:col-span-7">
+      <main className="container mx-auto min-h-[calc(100dvh-(--spacing(19)))] px-4 py-12 sm:px-6 xl:py-20">
+        <section className="grid grid-cols-12 gap-x-8">
+          <section className="col-span-12 lg:col-span-7">
             <Image
               src={measuringSlope}
-              alt={t("a11y.imageAlt")}
+              alt={t("a11y.measuringSlopeImageAlt")}
               priority
               fetchPriority="high"
               placeholder="blur"
-              className="rounded-sm"
+              className="rounded-t-lg lg:rounded-lg"
               sizes="
-                 (min-width: 1536px) calc((1536px - 48px),
-                 (min-width: 1280px) calc((1280px - 48px),
-                 (min-width: 1024px) calc(1024px - 48px),
+                 (min-width: 1536px) calc((1536px - 48px - 32px * 11) * (7 / 12) + 32px * 6),
+                 (min-width: 1280px) calc((1280px - 48px - 32px * 11) * (7 / 12) + 32px * 6),
+                 (min-width: 1024px) calc((1024px - 48px - 32px * 11) * (7 / 12) + 32px * 6),
                  (min-width: 768px) calc(768px - 48px),
                  (min-width: 640px) calc(640px - 48px),
                  calc(100vw - 32px)"
             />
           </section>
 
-          <section className="lg:col-span-5">
-            <h1 className="mb-6">
+          <section className="col-span-12 rounded-b-lg bg-white p-5 sm:p-10 lg:col-span-5 lg:rounded-lg">
+            <h1 className="mb-4 text-2xl font-bold">
               {t.rich("heading", {
                 sup: (chunks) => <sup>{chunks}</sup>,
               })}
             </h1>
 
-            <Tabs>
+            <Tabs defaultValue="wall-profile-height">
               <TabsList>
                 <TabsTrigger value="wall-profile-height">
                   {t("tabs.wallProfileHeight")}
@@ -62,10 +60,22 @@ export default function MeasuringTool() {
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="wall-profile-height">
-                <WallProfileHeightForm />
+                <PassageHeightCalculatorForm
+                  formType="wallProfile"
+                  mainInputLabelKey="Form.WallProfileHeight.label"
+                  mainInputPlaceholderKey="Form.WallProfileHeight.placeholder"
+                  mainInputTooltipKey="Form.WallProfileHeight.tooltip"
+                  submitButtonTextKey="Form.Common.calculatePassageHeight"
+                />
               </TabsContent>
               <TabsContent value="height-lower-gutter">
-                <HeightLowerGutterForm />
+                <PassageHeightCalculatorForm
+                  formType="gutterHeight"
+                  mainInputLabelKey="Form.HeightLowerGutter.label"
+                  mainInputPlaceholderKey="Form.HeightLowerGutter.placeholder"
+                  mainInputTooltipKey="Form.HeightLowerGutter.tooltip"
+                  submitButtonTextKey="Form.Common.calculateBottomWallProfileHeight"
+                />
               </TabsContent>
             </Tabs>
           </section>

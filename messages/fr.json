@@ -1,7 +1,7 @@
 {
   "Pages": {
     "Home": {
-      "Metadata": {
+      "metaData": {
         "title": "Bienvenue chez Tuinmaximaal",
         "description": "Tuinmaximaal offre la garantie du prix le plus bas sur toutes les vérandas et parois coulissantes en verre. Commandez votre véranda en kit facile à assembler.",
         "keywords": "véranda, paroi coulissante en verre, pergola, véranda aluminium, kit de construction, toiture de terrasse, garantie prix bas"
@@ -11,7 +11,7 @@
       }
     },
     "NotFound": {
-      "Metadata": {
+      "metaData": {
         "title": "Page non trouvée",
         "description": "Oops! La page que vous cherchez est introuvable. Vérifiez l'url ou retournez à notre page d'accueil."
       },
@@ -23,27 +23,30 @@
       }
     },
     "MeasuringTool": {
-      "Metadata": {
+      "metaData": {
         "title": "Instructions de mesure pour la paroi coulissante en verre Gumax®",
         "description": "Utilisez notre outil d'instructions de mesure pour mesurer avec précision votre paroi coulissante en verre Gumax®"
       },
-      "heading": "Instructions de mesure pour la paroi coulissante en verre Gumax<sup>®</sup>",
+      "heading": "Instructions de mesure paroi coulissante en verre Gumax<sup>®</sup>",
       "tabs": {
-        "wallProfileHeight": "Hauteur du profil mural",
+        "wallProfileHeight": "Hauteur du profilé mural",
         "heightLowerGutter": "Hauteur bas de gouttière"
+      },
+      "a11y": {
+        "measuringSlopeImageAlt": "Image montrant comment mesurer la pente de la terrasse"
       }
     }
   },
   "Components": {
     "Header": {
       "a11y": {
-        "logoAriaLabel": "Page d'accueil Tuinmaximaal"
+        "logoAriaLabel": "Page d'accueil de Tuinmaximaal"
       }
     },
     "StoreSelection": {
       "selectCountry": "Sélectionnez votre pays",
-      "areYouFrom": "Venez-vous de {country}?",
-      "otherCountryPreference": "Préférez-vous un autre pays ?",
+      "areYouFrom": "Venez-vous de {country} ?",
+      "otherCountryPreference": "Préférence pour un autre pays ?",
       "saveSelection": "Enregistrer ma sélection pour les prochaines visites."
     },
     "StoreCard": {
@@ -58,16 +61,16 @@
         "depthVerandaTooltip": "Sélectionnez la profondeur de votre véranda.",
         "slope": "Pente de votre terrasse",
         "slopeTooltip": "Entrez la pente de votre terrasse en millimètres. C'est la différence de hauteur sur votre terrasse.",
-        "slopePlaceholder": "Pente terrasse",
+        "slopePlaceholder": "Pente de la terrasse",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "mètre",
         "calculatePassageHeight": "Calculer la hauteur de passage",
-        "calculateBottomWallProfileHeight": "Calculer la hauteur du bas du profil mural",
-        "passageHeightResult": "La hauteur de passage calculée est : <strong>{result} mm</strong>.",
-        "rangeSuccess": "Celle-ci se situe <strong>{within}</strong> la plage de hauteur de passage de : <strong>{min} - {max} mm</strong>.",
+        "calculateBottomWallProfileHeight": "Calculer la hauteur du profilé mural inférieur",
+        "passageHeightResult": "La hauteur de passage calculée est de : <strong>{result} mm</strong>.",
+        "rangeSuccess": "Cela se situe <strong>{within}</strong> la plage de hauteur de passage de : <strong>{min} - {max} mm</strong>.",
         "rangeSuccessWithin": "dans",
         "rangeSuccessOutside": "en dehors de",
-        "rangeError": "Celle-ci se situe <strong>{outside}</strong> la plage de hauteur de passage de Tuinmaximaal.",
+        "rangeError": "Cela se situe <strong>{outside}</strong> la plage de hauteur de passage de Tuinmaximaal.",
         "info": "Info",
         "moreInformation": "Plus d'informations",
         "validationErrors": {
@@ -75,16 +78,20 @@
           "enterNumber": "Entrez un nombre",
           "integerOnly": "Seuls les millimètres entiers sont autorisés",
           "validNumberRequired": "Entrez un nombre valide"
-        }
+        },
+        "yes": "Oui",
+        "no": "Non"
       },
       "WallProfileHeight": {
+        "railSystemQuestion": "Encastrer le système de rails dans le sol",
         "label": "Hauteur du profil mural par rapport au sol (pente 0°)",
         "tooltip": "Entrez la hauteur du profil mural (en millimètres). C'est la hauteur à laquelle le profil mural est fixé au mur. La hauteur doit être comprise entre {min} mm et {max} mm.",
         "placeholder": "Hauteur du profil mural",
         "validationErrors": {
           "min": "La hauteur doit être d'au moins {min} mm",
           "max": "La hauteur ne doit pas dépasser {max} mm"
-        }
+        },
+        "recommendation": "Essayez une hauteur de profil mural de <strong>{recommendedWallProfileHeight} mm</strong> pour vous situer dans la plage de hauteur de passage de <strong>{min} - {max} mm</strong>."
       },
       "HeightLowerGutter": {
         "label": "Hauteur bas de gouttière par rapport au sol (pente 0°)",
@@ -93,7 +100,8 @@
         "validationErrors": {
           "min": "La hauteur doit être d'au moins {min} mm",
           "max": "La hauteur ne doit pas dépasser {max} mm"
-        }
+        },
+        "recommendation": "Essayez une hauteur de bas de gouttière de <strong>{recommendedGutterBottomHeight} mm</strong> pour vous situer dans la plage de hauteur de passage de <strong>{min} - {max} mm</strong>."
       }
     }
   }

@@ -5,30 +5,37 @@
 
 @theme {
   /* Base color */
-  --color-green: oklch(27.1% 0.068 154.6); /* #003017 */
+  --color-green: oklch(27.1% 0.068 154.6);
 
   /* Accent colors */
-  --color-orange: oklch(73.2% 0.186 53); /* #ff8000 */
-  --color-light-green: oklch(74.5% 0.168 118.8); /* #a2ba1c */
-
-  /* Orange background shades */
-  --color-orange-20: oklch(93.9% 0.044 68.4); /* #ffe6cc */
-  --color-orange-10: oklch(96.8% 0.021 65.3); /* #fff2e6 */
-
-  /* Support colors */
-  --color-dark-green: oklch(19.4% 0.037 172.8); /* #001a13 */
-  --color-shadow-green: oklch(60.5% 0.135 118.7); /* #7a8c15 */
-
-  /* Grey tones */
-  --color-light-grey: oklch(91.6% 0 0); /* #e3e3e3 */
-  --color-grey: oklch(50% 0 0); /* #636363 */
+  --color-orange: oklch(73.2% 0.186 53);
+  --color-light-green: oklch(74.5% 0.168 118.8);
+  --color-light-success: oklch(74.5% 0.189189 128.8);
+  --color-light-error: oklch(74.5% 0.148652 29.2);
 
   /* Alerts */
-  --color-dark-success: oklch(53% 0.156932 137.91); /* #367F0E */
-  --color-dark-error: oklch(53% 0.208768 29.23); /* #C8140D */
+  --color-success: oklch(64.5% 0.163789 128.8);
+  --color-error: oklch(64.5% 0.231366 29.2);
 
-  --color-light-success: oklch(97% 0.0221 137.91); /* #EEF9EB */
-  --color-light-error: oklch(97% 0.014749 29.23); /* #FFF2EF */
+  /* Background shades */
+  --color-orange-20: oklch(93.9% 0.044 68.4);
+  --color-orange-10: oklch(96.8% 0.021 65.3);
+
+  --color-success-10: oklch(97% 0.0221 137.9);
+  --color-error-10: oklch(97% 0.014749 29.2);
+
+  /* Support colors */
+  --color-dark-green: oklch(19.4% 0.037 172.8);
+  --color-shadow-green: oklch(60.5% 0.135 118.7);
+
+  --color-dark-success: oklch(53% 0.156932 137.9);
+  --color-dark-error: oklch(53% 0.208768 29.2);
+
+  /* Grey tones */
+  --color-light-grey: oklch(91.6% 0 0);
+  --color-grey: oklch(50% 0 0);
+
+  --text-tiny: 0.625rem;
 }
 
 @theme inline {

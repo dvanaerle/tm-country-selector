@@ -1,7 +1,7 @@
 {
   "Pages": {
     "Home": {
-      "Metadata": {
+      "metaData": {
         "title": "Welcome to Tuinmaximaal",
         "description": "Tuinmaximaal offers the lowest price guarantee on verandas and glass sliding doors. Order your garden structure as an easy-to-assemble kit.",
         "keywords": "veranda, glass sliding doors, garden veranda, aluminium veranda, DIY veranda kit, glass garden room, sliding glass wall, patio cover, lowest price guarantee"
@@ -11,7 +11,7 @@
       }
     },
     "NotFound": {
-      "Metadata": {
+      "metaData": {
         "title": "Page not found",
         "description": "Oops! The page you're looking for can't be found. Check the url or return to our homepage."
       },
@@ -23,7 +23,7 @@
       }
     },
     "MeasuringTool": {
-      "Metadata": {
+      "metaData": {
         "title": "Measuring instructions for Gumax® glass sliding doors",
         "description": "Use our measuring instructions tool for accurately measuring your Gumax® glass sliding doors"
       },
@@ -31,6 +31,9 @@
       "tabs": {
         "wallProfileHeight": "Wall Profile Height",
         "heightLowerGutter": "Height to Bottom of Gutter"
+      },
+      "a11y": {
+        "measuringSlopeImageAlt": "Image showing how to measure terrace slope"
       }
     }
   },
@@ -75,16 +78,20 @@
           "enterNumber": "Enter a number",
           "integerOnly": "Only whole millimeters are allowed",
           "validNumberRequired": "Enter a valid number"
-        }
+        },
+        "yes": "Yes",
+        "no": "No"
       },
       "WallProfileHeight": {
+        "railSystemQuestion": "Recess rail system into the ground",
         "label": "Wall profile height from ground (0° slope)",
         "tooltip": "Enter the height of the wall profile (in millimeters). This is the height at which the wall profile is mounted to the wall. The height must be between {min} mm and {max} mm.",
         "placeholder": "Wall profile height",
         "validationErrors": {
           "min": "The height must be at least {min} mm",
           "max": "The height may not exceed {max} mm"
-        }
+        },
+        "recommendation": "Try a wall profile height of <strong>{recommendedWallProfileHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>."
       },
       "HeightLowerGutter": {
         "label": "Height of gutter bottom from ground (0° slope)",
@@ -93,7 +100,8 @@
         "validationErrors": {
           "min": "The height must be at least {min} mm",
           "max": "The height may not exceed {max} mm"
-        }
+        },
+        "recommendation": "Try a gutter bottom height of <strong>{recommendedGutterBottomHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>."
       }
     }
   }

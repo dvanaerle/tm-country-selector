@@ -27,7 +27,7 @@ export default function StoreSelection({
   };
 
   return (
-    <div className="no-scrollbar col-span-12 overflow-y-auto sm:bg-white xl:col-span-5 xl:p-12">
+    <div className="no-scrollbar col-span-12 overflow-y-auto p-5 sm:p-10 xl:col-span-5 xl:p-12">
       {preferredStore && (
         <>
           <h1 className="mb-5 text-2xl font-bold">{t("selectCountry")}</h1>

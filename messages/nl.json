@@ -1,7 +1,7 @@
 {
   "Pages": {
     "Home": {
-      "Metadata": {
+      "metaData": {
         "title": "Welkom bij Tuinmaximaal",
         "description": "Tuinmaximaal biedt de laagste prijs garantie op terrasoverkappingen en glazen schuifwanden. Bestel je terrasoverkapping als bouwpakket met gratis thuisbezorging.",
         "keywords": "terrasoverkapping, glazen schuifwand, aluminium terrasoverkapping, bouwpakket, schuifpui, tuinoverkapping, laagste prijs garantie"
@@ -11,7 +11,7 @@
       }
     },
     "NotFound": {
-      "Metadata": {
+      "metaData": {
         "title": "Pagina niet gevonden",
         "description": "Oeps! De pagina die je zoekt, kan niet worden gevonden. Controleer de url of ga terug naar onze startpagina."
       },
@@ -23,7 +23,7 @@
       }
     },
     "MeasuringTool": {
-      "Metadata": {
+      "metaData": {
         "title": "Meetinstructies Gumax® glazen schuifwand",
         "description": "Gebruik onze meetinstructies tool voor het nauwkeurig inmeten van je Gumax® glazen schuifwand"
       },
@@ -31,43 +31,46 @@
       "tabs": {
         "wallProfileHeight": "Hoogte muurprofiel",
         "heightLowerGutter": "Hoogte onderkant goot"
+      },
+      "a11y": {
+        "measuringSlopeImageAlt": "Afbeelding die laat zien hoe de afschot van het terras gemeten wordt"
       }
     }
   },
   "Components": {
     "Header": {
       "a11y": {
-        "logoAriaLabel": "Tuinmaximaal startpagina"
+        "logoAriaLabel": "Tuinmaximaal homepage"
       }
     },
     "StoreSelection": {
       "selectCountry": "Selecteer je land",
       "areYouFrom": "Kom je uit {country}?",
       "otherCountryPreference": "Voorkeur voor een ander land?",
-      "saveSelection": "Mijn selectie opslaan voor toekomstige bezoeken."
+      "saveSelection": "Mijn selectie bewaren voor een volgend bezoek."
     },
     "StoreCard": {
-      "goToStore": "Verder naar de Nederlandse webshop",
+      "goToStore": "Ga verder naar de Nederlandse webshop",
       "a11y": {
         "flagAlt": "Vlag van {country}"
       }
     },
     "Form": {
       "Common": {
-        "depthVeranda": "Diepte overkapping",
-        "depthVerandaTooltip": "Selecteer de diepte van je overkapping.",
-        "slope": "Afloop van je terras",
-        "slopeTooltip": "Voer de afloop van je terras in millimeters in. Dit is het hoogteverschil over je terras.",
-        "slopePlaceholder": "Afloop terras",
+        "depthVeranda": "Diepte veranda",
+        "depthVerandaTooltip": "Selecteer de diepte van uw veranda.",
+        "slope": "Afschot van uw terras",
+        "slopeTooltip": "Voer de afschot van uw terras in millimeters in. Dit is het hoogteverschil over uw terras.",
+        "slopePlaceholder": "Afschot terras",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "meter",
         "calculatePassageHeight": "Bereken doorloophoogte",
-        "calculateBottomWallProfileHeight": "Bereken onderkant muurprofielhoogte",
+        "calculateBottomWallProfileHeight": "Bereken hoogte onderkant muurprofiel",
         "passageHeightResult": "De berekende doorloophoogte is: <strong>{result} mm</strong>.",
-        "rangeSuccess": "Deze valt <strong>{within}</strong> de doorloophoogte van: <strong>{min} - {max} mm</strong>.",
+        "rangeSuccess": "Dit valt <strong>{within}</strong> het doorloophoogtebereik van: <strong>{min} - {max} mm</strong>.",
         "rangeSuccessWithin": "binnen",
         "rangeSuccessOutside": "buiten",
-        "rangeError": "Deze valt <strong>{outside}</strong> de doorloophoogte van Tuinmaximaal.",
+        "rangeError": "Dit valt <strong>{outside}</strong> het doorloophoogtebereik van Tuinmaximaal.",
         "info": "Info",
         "moreInformation": "Meer informatie",
         "validationErrors": {
@@ -75,27 +78,32 @@
           "enterNumber": "Voer een getal in",
           "integerOnly": "Alleen hele millimeters zijn toegestaan",
           "validNumberRequired": "Voer een geldig getal in"
-        }
+        },
+        "yes": "Ja",
+        "no": "Nee"
       },
       "WallProfileHeight": {
-        "railSystemQuestion": "Wilt u uw railsysteem verzonken neerleggen?",
+        "railSystemQuestion": "Railsysteem verzonken neerleggen",
         "label": "Hoogte muurprofiel t.o.v. bodem (0° afloop)",
         "tooltip": "Voer de hoogte van het muurprofiel in (in millimeters). Dit is de hoogte waarop het muurprofiel aan de muur wordt gemonteerd. De hoogte moet tussen {min} mm en {max} mm liggen.",
         "placeholder": "Hoogte muurprofiel",
+        "submit": "Bereken doorloophoogte",
         "validationErrors": {
           "min": "De hoogte moet minimaal {min} mm zijn",
           "max": "De hoogte mag maximaal {max} mm zijn"
         },
-        "recommendation": "De berekende doorloophoogte van <strong>{currentResult} mm</strong> valt buiten het aanbevolen bereik. Probeer een muurprofielhoogte van <strong>{recommendedWallProfileHeight} mm</strong> om binnen de doorloophoogte van <strong>{min} - {max} mm</strong> te vallen."
+        "recommendation": "Probeer een muurprofielhoogte van <strong>{recommendedWallProfileHeight} mm</strong> om binnen de doorloophoogte van <strong>{min} - {max} mm</strong> te vallen."
       },
       "HeightLowerGutter": {
         "label": "Hoogte onderkant goot t.o.v. bodem (0° afloop)",
         "tooltip": "Voer de hoogte van de onderkant goot in (in millimeters). De hoogte moet tussen {min} mm en {max} mm liggen.",
         "placeholder": "Hoogte onderkant goot",
+        "submit": "Bereken hoogte onderkant muurprofiel",
         "validationErrors": {
           "min": "De hoogte moet minimaal {min} mm zijn",
           "max": "De hoogte mag maximaal {max} mm zijn"
-        }
+        },
+        "recommendation": "Probeer een hoogte onderkant goot van <strong>{recommendedGutterBottomHeight} mm</strong> om binnen de doorloophoogte van <strong>{min} - {max} mm</strong> te vallen."
       }
     }
   }

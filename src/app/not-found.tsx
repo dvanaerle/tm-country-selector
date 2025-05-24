@@ -8,7 +8,7 @@ import { buttonVariants } from "@/components/ui/button";
 import illustration404 from "/public/images/404-illustration.png";
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("Pages.NotFound.Metadata");
+  const t = await getTranslations("Pages.NotFound.metaData");
 
   return {
     title: t("title"),

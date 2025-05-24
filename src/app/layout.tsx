@@ -32,7 +32,7 @@ const articulatCF = localFont({
 });
 
 export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("Pages.Home.Metadata");
+  const t = await getTranslations("Pages.Home.metaData");
 
   return {
     title: {
