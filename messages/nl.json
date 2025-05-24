@@ -87,7 +87,6 @@
         "label": "Hoogte muurprofiel t.o.v. bodem (0° afloop)",
         "tooltip": "Voer de hoogte van het muurprofiel in (in millimeters). Dit is de hoogte waarop het muurprofiel aan de muur wordt gemonteerd. De hoogte moet tussen {min} mm en {max} mm liggen.",
         "placeholder": "Hoogte muurprofiel",
-        "submit": "Bereken doorloophoogte",
         "validationErrors": {
           "min": "De hoogte moet minimaal {min} mm zijn",
           "max": "De hoogte mag maximaal {max} mm zijn"
@@ -98,7 +97,6 @@
         "label": "Hoogte onderkant goot t.o.v. bodem (0° afloop)",
         "tooltip": "Voer de hoogte van de onderkant goot in (in millimeters). De hoogte moet tussen {min} mm en {max} mm liggen.",
         "placeholder": "Hoogte onderkant goot",
-        "submit": "Bereken hoogte onderkant muurprofiel",
         "validationErrors": {
           "min": "De hoogte moet minimaal {min} mm zijn",
           "max": "De hoogte mag maximaal {max} mm zijn"
