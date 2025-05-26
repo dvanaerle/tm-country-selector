@@ -59,9 +59,9 @@
       "Common": {
         "depthVeranda": "Diepte overkapping",
         "depthVerandaTooltip": "Selecteer de diepte van je overkapping.",
-        "slope": "Afschot van je terras",
+        "slope": "Afloop van je terras",
         "slopeTooltip": "Voer de afschot van je terras in millimeters in. Dit is het hoogteverschil over je terras.",
-        "slopePlaceholder": "Afschot terras",
+        "slopePlaceholder": "Afloop terras",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "meter",
         "calculatePassageHeight": "Bereken doorloophoogte",
