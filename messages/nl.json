@@ -57,10 +57,10 @@
     },
     "Form": {
       "Common": {
-        "depthVeranda": "Diepte veranda",
-        "depthVerandaTooltip": "Selecteer de diepte van uw veranda.",
-        "slope": "Afschot van uw terras",
-        "slopeTooltip": "Voer de afschot van uw terras in millimeters in. Dit is het hoogteverschil over uw terras.",
+        "depthVeranda": "Diepte overkapping",
+        "depthVerandaTooltip": "Selecteer de diepte van je overkapping.",
+        "slope": "Afschot van je terras",
+        "slopeTooltip": "Voer de afschot van je terras in millimeters in. Dit is het hoogteverschil over je terras.",
         "slopePlaceholder": "Afschot terras",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "meter",
