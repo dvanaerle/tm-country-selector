@@ -218,12 +218,9 @@ const calculateVerandaDimensions = (
 const applyRailSystemAdjustment = (
   value: number,
   railSystemSlope: RailSystemSlope,
-  isAddition: boolean,
 ): number => {
   if (railSystemSlope === "checked") {
-    return isAddition
-      ? value + calculationConstants.railSystemSlopeAdjustment
-      : value - calculationConstants.railSystemSlopeAdjustment;
+    return value + calculationConstants.railSystemSlopeAdjustment;
   }
   return value;
 };
@@ -248,7 +245,6 @@ const calculatePassageHeightFromWallProfile = (
   gutterBottomWithSlope = applyRailSystemAdjustment(
     gutterBottomWithSlope,
     railSystemSlope,
-    true,
   );
 
   return Math.round(gutterBottomWithSlope);
@@ -269,7 +265,6 @@ const calculateWallProfileFromGutterHeight = (
   wallProfileWithSlope = applyRailSystemAdjustment(
     wallProfileWithSlope,
     railSystemSlope,
-    false,
   );
 
   return Math.round(wallProfileWithSlope);
@@ -364,19 +359,11 @@ const calculateRecommendedInput = (
   if (formType === "wallProfile") {
     let directRecommendation =
       targetOutputValue + heightDiffWallToGutter - slopeDropActual;
-    return applyRailSystemAdjustment(
-      directRecommendation,
-      railSystemSlope,
-      false,
-    );
+    return applyRailSystemAdjustment(directRecommendation, railSystemSlope);
   } else {
     let directRecommendation =
       targetOutputValue - heightDiffWallToGutter + slopeDropActual;
-    return applyRailSystemAdjustment(
-      directRecommendation,
-      railSystemSlope,
-      true,
-    );
+    return applyRailSystemAdjustment(directRecommendation, railSystemSlope);
   }
 };
 
