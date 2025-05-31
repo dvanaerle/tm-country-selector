@@ -37,7 +37,7 @@
         "measuringHeightPavingAlt": "Messen der Höhe vom vorhandenen Pflaster bis zur Unterkante der Rinne der Tuinmaximaal Terrassenüberdachung mittels Maßband, unerlässlich für den Einbau von Glasschiebewänden.",
         "measuringHeightRecessedAlt": "Genaues Messen der Montagehöhe für Tuinmaximaal Glasschiebewände von einer eingelassenen Fundamentrinne bis zum oberen Rahmen der Terrassenüberdachung.",
         "assessingSlopeAlt": "Beurteilung des Terrassengefälles mittels Wasserwaage und Höhenunterschiedsmessung, ein entscheidender Schritt vor der Montage von Tuinmaximaal Glasschiebewänden.",
-        "measuringWidthFrontAlt": "Demonstration der Messung der lichten Frontöffnungsbreite zwischen den Pfosten der Tuinmaximaal Terrassenüberdachung mittels Maßband zur Bestellung von Glasschiebewänden in korrekter Größe.",
+        "measuringWidthFrontAlt": "Demonstration der Messung der lichten Vorderseite Öffnungsbreite zwischen den Pfosten der Tuinmaximaal Terrassenüberdachung mittels Maßband zur Bestellung von Glasschiebewänden in korrekter Größe.",
         "measuringWidthSideAlt": "Messen der seitlichen Tiefe einer Tuinmaximaal Terrassenüberdachung, von der Hauswand bis zu einem äußeren Stützpfosten, um die korrekte Passform der Glasschiebewände sicherzustellen."
       }
     }
@@ -62,13 +62,13 @@
     },
     "Form": {
       "Common": {
-        "depthVeranda": "Tiefe der Veranda",
-        "depthVerandaTooltip": "Messen Sie die Tiefe Ihrer Veranda von der Wand bis zur Vorderkante der Rinne. Dieses Maß beeinflusst die erforderlichen Spezifikationen, wenn Sie die Schiebewände unter einer bestehenden Veranda installieren, und ist relevant für den Installationskontext.",
-        "MeasuringWidthSideCaption": "Messung der Verandatiefe von der Wand bis zur Vorderseite.",
+        "depthVeranda": "Tiefe der Terrassenüberdachung",
+        "depthVerandaTooltip": "Messen Sie die Tiefe Ihrer Terrassenüberdachung von der Wand bis zur Vorderkante der Rinne. Dieses Maß beeinflusst die erforderlichen Spezifikationen, wenn Sie die Schiebewände unter einer bestehenden Terrassenüberdachung installieren, und ist relevant für den Installationskontext.",
+        "MeasuringWidthSideCaption": "Messung der Tiefe der Terrassenüberdachung von der Wand bis zur Vorderseite.",
         "slope": "Gefälle Ihrer Terrasse",
-        "slopeTooltip": "Prüfen Sie, ob Ihre Terrasse ein Gefälle aufweist, und messen Sie den Höhenunterschied über die Tiefe der Veranda. Wenn Ihre Terrasse zum Garten hin abfällt, müssen Sie diesen Unterschied bei der Bestimmung der Montagehöhe des Wandprofils ausgleichen; die Durchgangshöhe bleibt gleich.",
+        "slopeTooltip": "Prüfen Sie, ob Ihre Terrasse ein Gefälle aufweist, und messen Sie den Höhenunterschied über die Tiefe der Terrassenüberdachung. Wenn Ihre Terrasse zum Garten hin abfällt, müssen Sie diesen Unterschied bei der Bestimmung der Montagehöhe des Wandprofils ausgleichen; die Durchgangshöhe bleibt gleich.",
         "MeasuringSlopeCaption": "Bestimmung des Terrassengefälles und des Höhenunterschieds.",
-        "MeasuringWidthFrontCaption": "Messung der Frontbreite der Veranda.",
+        "MeasuringWidthFrontCaption": "Messung der Vorderseite der Terrassenüberdachung.",
         "slopePlaceholder": "Terrassengefälle",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "Meter",
@@ -95,7 +95,7 @@
         "railSystemQuestionTooltip": "Erwägen Sie, die untere Schiene des Schiebesystems im Boden zu versenken. Dies schafft einen schwellenfreien Durchgang. Wenn Sie sich hierfür entscheiden, addieren Sie 18 mm (die Höhe der unteren Schiene) zu Ihrer gemessenen Durchgangshöhe hinzu.",
         "MeasuringHeightRecessedCaption": "Beispiel eines versenkten Schienensystems für einen schwellenfreien Durchgang.",
         "label": "Wandprofilhöhe vom Boden (0° Gefälle)",
-        "tooltip": "Dies ist die Höhe, in der das Wandprofil (an dem die Veranda oder der obere Teil der Schiebewandkonstruktion befestigt ist) an der Fassade montiert wird, gemessen vom Boden. Bei einer Terrasse ohne Gefälle (0°) entspricht diese Höhe direkt dem Wert aus den Tabellen/Messhilfe, basierend auf Ihrer gewünschten Durchgangshöhe und Tiefe.",
+        "tooltip": "Dies ist die Höhe, in der das Wandprofil (an dem die Terrassenüberdachung oder der obere Teil der Schiebewandkonstruktion befestigt ist) an der Fassade montiert wird, gemessen vom Boden. Bei einer Terrasse ohne Gefälle (0°) entspricht diese Höhe direkt dem Wert aus den Tabellen/Messhilfe, basierend auf Ihrer gewünschten Durchgangshöhe und Tiefe.",
         "MeasuringHeightPavingCaption": "Messung der vertikalen Höhe vom Boden für die Profilmontage.",
         "placeholder": "Wandprofilhöhe",
         "validationErrors": {
@@ -106,7 +106,7 @@
       },
       "HeightLowerGutter": {
         "label": "Höhe Unterkante Rinne vom Boden (0° Gefälle)",
-        "tooltip": "Dies ist die \"Durchgangshöhe\": der Abstand von der Oberkante Ihres Fundaments/Pflasters bis zur flachen Unterseite der Rinne Ihrer (bestehenden) Veranda. Messen Sie dies an drei Punkten (links, Mitte, rechts) und verwenden Sie den niedrigsten gemessenen Wert. Bei einer Terrasse ohne Gefälle (0°) ist dies das direkte vertikale Maß.",
+        "tooltip": "Dies ist die \"Durchgangshöhe\": der Abstand von der Oberkante Ihres Fundaments/Pflasters bis zur flachen Unterseite der Rinne Ihrer (bestehenden) Terrassenüberdachung. Messen Sie dies an drei Punkten (links, Mitte, rechts) und verwenden Sie den niedrigsten gemessenen Wert. Bei einer Terrasse ohne Gefälle (0°) ist dies das direkte vertikale Maß.",
         "MeasuringHeightPavingCaption": "Messung der Höhe vom Boden bis zur Unterkante der Rinne.",
         "placeholder": "Höhe Unterkante Rinne",
         "validationErrors": {

@@ -37,7 +37,7 @@
         "measuringHeightPavingAlt": "Het meten van de hoogte vanaf bestaande bestrating tot de onderkant van de goot van de Tuinmaximaal terrasoverkapping met een meetlint, essentieel voor het plaatsen van glazen schuifwanden.",
         "measuringHeightRecessedAlt": "Nauwkeurig meten van de installatiehoogte voor Tuinmaximaal glazen schuifwanden vanaf een verzonken funderingsgoot tot het bovenframe van de terrasoverkapping.",
         "assessingSlopeAlt": "Beoordelen van de afloop van het terras met een waterpas en hoogtemeting, een cruciale stap vóór het installeren van Tuinmaximaal glazen schuifwanden.",
-        "measuringWidthFrontAlt": "Demonstratie van het meten van de vrije frontbreedte tussen de palen van de Tuinmaximaal terrasoverkapping met een meetlint voor het bestellen van de juiste maat glazen schuifwanden.",
+        "measuringWidthFrontAlt": "Demonstratie van het meten van de vrije voorzijde tussen de palen van de Tuinmaximaal terrasoverkapping met een meetlint voor het bestellen van de juiste maat glazen schuifwanden.",
         "measuringWidthSideAlt": "Het meten van de zijdelingse diepte van een Tuinmaximaal terrasoverkapping, van de huismuur tot een buitenste steunpaal, om een goede passing van glazen schuifwanden te verzekeren."
       }
     }
@@ -62,13 +62,13 @@
     },
     "Form": {
       "Common": {
-        "depthVeranda": "Diepte overkapping",
-        "depthVerandaTooltip": "Meet de diepte van uw overkapping van de muur tot aan de voorkant van de goot. Deze maat beïnvloedt de benodigde specificaties als u de schuifwanden onder een bestaande veranda plaatst en is relevant voor de context van de installatie.",
-        "MeasuringWidthSideCaption": "Het meten van de diepte van de overkapping vanaf de muur tot de voorzijde.",
+        "depthVeranda": "Diepte terrasoverkapping",
+        "depthVerandaTooltip": "Meet de diepte van uw terrasoverkapping van de muur tot aan de voorkant van de goot. Deze maat beïnvloedt de benodigde specificaties als u de schuifwanden onder een bestaande terrasoverkapping plaatst en is relevant voor de context van de installatie.",
+        "MeasuringWidthSideCaption": "Het meten van de diepte van de terrasoverkapping vanaf de muur tot de voorzijde.",
         "slope": "Afloop van je terras",
-        "slopeTooltip": "Controleer of uw terras afloopt (helling heeft) en meet het hoogteverschil over de diepte van de overkapping. Als uw terras afloopt richting de tuin, moet u dit verschil compenseren bij het bepalen van de montagehoogte van het muurprofiel; de doorloophoogte blijft gelijk.",
+        "slopeTooltip": "Controleer of uw terras afloopt (helling heeft) en meet het hoogteverschil over de diepte van de terrasoverkapping. Als uw terras afloopt richting de tuin, moet u dit verschil compenseren bij het bepalen van de montagehoogte van het muurprofiel; de doorloophoogte blijft gelijk.",
         "MeasuringSlopeCaption": "Het bepalen van de afloop van het terras en het hoogteverschil.",
-        "MeasuringWidthFrontCaption": "Het meten van de frontbreedte van de overkapping.",
+        "MeasuringWidthFrontCaption": "Het meten van de voorzijde van de terrasoverkapping.",
         "slopePlaceholder": "Afloop terras",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "meter",
@@ -95,7 +95,7 @@
         "railSystemQuestionTooltip": "Overweeg of u de onderrail van het schuifsysteem in de grond wilt verzinken. Dit zorgt voor een drempelloze doorgang. Als u hiervoor kiest, tel dan 18 mm (de hoogte van de onderrail) op bij de gemeten doorloophoogte.",
         "MeasuringHeightRecessedCaption": "Voorbeeld van een verzonken railsysteem voor een drempelloze doorgang.",
         "label": "Hoogte muurprofiel t.o.v. bodem (0° afloop)",
-        "tooltip": "Dit is de hoogte waarop het muurprofiel (waaraan de overkapping of het bovenste deel van de schuifwandconstructie is bevestigd) aan de gevel wordt gemonteerd, gemeten vanaf de grond. Bij een terras zonder helling (0°), komt deze hoogte direct overeen met de waarde uit de tabellen/meethulp, gebaseerd op uw gewenste doorloophoogte en diepte.",
+        "tooltip": "Dit is de hoogte waarop het muurprofiel (waaraan de terrasoverkapping of het bovenste deel van de schuifwandconstructie is bevestigd) aan de gevel wordt gemonteerd, gemeten vanaf de grond. Bij een terras zonder helling (0°), komt deze hoogte direct overeen met de waarde uit de tabellen/meethulp, gebaseerd op uw gewenste doorloophoogte en diepte.",
         "MeasuringHeightPavingCaption": "Het meten van de verticale hoogte vanaf de grond voor profielmontage.",
         "placeholder": "Hoogte muurprofiel",
         "validationErrors": {
@@ -106,7 +106,7 @@
       },
       "HeightLowerGutter": {
         "label": "Hoogte onderkant goot t.o.v. bodem (0° afloop)",
-        "tooltip": "Dit is de \"doorloophoogte\": de afstand tussen de bovenkant van uw fundering/bestrating en de vlakke onderzijde van de goot van uw (bestaande) overkapping. Meet dit op drie punten (links, midden, rechts) en gebruik de laagst gemeten waarde. Bij een terras zonder helling (0°) is dit de directe verticale maat.",
+        "tooltip": "Dit is de \"doorloophoogte\": de afstand tussen de bovenkant van uw fundering/bestrating en de vlakke onderzijde van de goot van uw (bestaande) terrasoverkapping. Meet dit op drie punten (links, midden, rechts) en gebruik de laagst gemeten waarde. Bij een terras zonder helling (0°) is dit de directe verticale maat.",
         "MeasuringHeightPavingCaption": "Het meten van de hoogte vanaf de grond tot de onderkant van de goot.",
         "placeholder": "Hoogte onderkant goot",
         "validationErrors": {

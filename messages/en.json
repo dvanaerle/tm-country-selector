@@ -37,7 +37,7 @@
         "measuringHeightPavingAlt": "Measuring the height from existing paving to the underside of the gutter of a Tuinmaximaal Veranda using a tape measure, essential for fitting Glass Sliding Doors.",
         "measuringHeightRecessedAlt": "Accurately measuring the installation height for Tuinmaximaal Glass Sliding Doors from a recessed foundation channel to the Veranda's upper frame.",
         "assessingSlopeAlt": "Assessing patio slope using a spirit level and height difference measurement, a crucial step before installing Tuinmaximaal Glass Sliding Doors.",
-        "measuringWidthFrontAlt": "Demonstration of measuring the clear front opening width between Tuinmaximaal Veranda posts with a tape measure for ordering correct size Glass Sliding Doors.",
+        "measuringWidthFrontAlt": "Demonstration of measuring the clear front side opening between Tuinmaximaal Veranda posts with a tape measure for ordering correct size Glass Sliding Doors.",
         "measuringWidthSideAlt": "Measuring the side depth of a Tuinmaximaal Veranda, from the house wall to an outer support post, to ensure proper fit of Glass Sliding Doors."
       }
     }
@@ -68,7 +68,7 @@
         "slope": "Slope of your terrace",
         "slopeTooltip": "Check if your terrace has a slope and measure the height difference over the depth of the veranda. If your terrace slopes downwards towards the garden, you must compensate for this difference when determining the mounting height of the wall profile; the passage height remains the same.",
         "MeasuringSlopeCaption": "Determining the terrace slope and height difference.",
-        "MeasuringWidthFrontCaption": "Measuring the front width of the veranda.",
+        "MeasuringWidthFrontCaption": "Measuring the front side of the veranda.",
         "slopePlaceholder": "Terrace slope",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "metre",

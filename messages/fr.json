@@ -37,7 +37,7 @@
         "measuringHeightPavingAlt": "Mesure de la hauteur depuis le pavage existant jusqu'à la sous-face de la gouttière de la Véranda Tuinmaximaal à l'aide d'un mètre ruban, essentielle pour l'installation de Portes et baies coulissantes.",
         "measuringHeightRecessedAlt": "Mesure précise de la hauteur d'installation pour les Portes et baies coulissantes Tuinmaximaal depuis un caniveau de fondation encastré jusqu'au cadre supérieur de la Véranda.",
         "assessingSlopeAlt": "Évaluation de la pente de la terrasse à l'aide d'un niveau à bulle et mesure de la différence de hauteur, une étape cruciale avant d'installer les Portes et baies coulissantes Tuinmaximaal.",
-        "measuringWidthFrontAlt": "Démonstration de la mesure de la largeur d'ouverture avant libre entre les poteaux de Véranda Tuinmaximaal avec un mètre ruban pour commander des Portes et baies coulissantes de la bonne taille.",
+        "measuringWidthFrontAlt": "Démonstration de la mesure de la libre avant entre les poteaux de Véranda Tuinmaximaal avec un mètre ruban pour commander des Portes et baies coulissantes de la bonne taille.",
         "measuringWidthSideAlt": "Mesure de la profondeur latérale d'une Véranda Tuinmaximaal, du mur de la maison à un poteau de support extérieur, pour assurer un ajustement correct des Portes et baies coulissantes."
       }
     }
@@ -68,7 +68,7 @@
         "slope": "Pente de votre terrasse",
         "slopeTooltip": "Vérifiez si votre terrasse a une pente et mesurez la différence de hauteur sur la profondeur de la véranda. Si votre terrasse est en pente vers le jardin, vous devez compenser cette différence lors de la détermination de la hauteur de montage du profilé mural ; la hauteur de passage reste la même.",
         "MeasuringSlopeCaption": "Détermination de la pente de la terrasse et de la différence de hauteur.",
-        "MeasuringWidthFrontCaption": "Mesure de la largeur avant de la véranda.",
+        "MeasuringWidthFrontCaption": "Mesure de l'avant de la véranda.",
         "slopePlaceholder": "Pente de la terrasse",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "mètre",
@@ -92,7 +92,7 @@
       },
       "WallProfileHeight": {
         "railSystemQuestion": "Encastrer le système de rails dans le sol",
-        "railSystemQuestionTooltip": "Envisagez d'encastrer le rail inférieur du système coulissant dans le sol. Cela crée un passage sans seuil. Si vous optez pour cela, ajoutez 18 mm (la hauteur du rail inférieur) à votre hauteur de passage mesurée.",
+        "railSystemQuestionTooltip": "Envisagez d'encastrer le rail inférieur du système coulissant dans le sol. Cela crée un passage sans seuil. Si uo optait pour cela, ajoutez 18 mm (la hauteur du rail inférieur) à votre hauteur de passage mesurée.",
         "MeasuringHeightRecessedCaption": "Exemple d'un système de rail encastré pour un passage sans seuil.",
         "label": "Hauteur du profil mural par rapport au sol (pente 0°)",
         "tooltip": "C'est la hauteur à laquelle le profilé mural (auquel la véranda ou la partie supérieure de la structure de la paroi coulissante est fixée) est monté sur la façade, mesurée depuis le sol. Pour une terrasse sans pente (0°), cette hauteur correspond directement à la valeur des tableaux/outil d'aide à la mesure, en fonction de votre hauteur de passage et de votre profondeur souhaitées.",
