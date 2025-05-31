@@ -58,6 +58,7 @@ export const InfoTooltipSheet = ({
                 sizes="
                  (min-width: 640px) calc(448px - 48px),
                  calc(100vw - 48px)"
+                placeholder="blur"
                 className="rounded-lg"
               />
               {img.captionKey && (
