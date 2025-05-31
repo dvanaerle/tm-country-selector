@@ -4,13 +4,13 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
-  "relative w-full rounded px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-4 gap-y-0.5 items-start [&>svg]:size-5 [&>svg]:translate-y-0.5 [&>svg]:text-current text-base",
+  "relative w-full rounded px-4 py-3 text-sm grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-5 [&>svg]:translate-y-0.5 [&>svg]:text-current text-base",
   {
     variants: {
       variant: {
         default: "bg-light-grey text-green",
-        success: "bg-success-10 border border-light-success text-dark-success",
-        error: "bg-error-10 border border-light-error text-dark-error",
+        success: "bg-success-50 border border-success-600/20 text-success-600",
+        error: "bg-error-50 border border-error-600/20 text-error-600",
       },
     },
     defaultVariants: {

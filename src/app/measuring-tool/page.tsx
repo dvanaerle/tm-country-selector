@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Image from "next/image";
-import measuringSlope from "/public/images/measuring-slope.jpg";
+import MeasuringSlope from "/public/images/measuring-slope.jpg";
 import { PassageHeightCalculatorForm } from "@/components/form/PassageHeightCalculatorForm";
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -24,10 +24,10 @@ export default function MeasuringTool() {
     <>
       <Header />
       <main className="container mx-auto min-h-[calc(100dvh-(--spacing(19)))] px-4 py-12 sm:px-6 xl:py-20">
-        <section className="grid grid-cols-12 gap-x-8">
-          <section className="col-span-12 lg:col-span-7">
+        <section className="grid grid-cols-12 items-start lg:gap-x-8">
+          <div className="col-span-12 lg:col-span-7">
             <Image
-              src={measuringSlope}
+              src={MeasuringSlope}
               alt={t("a11y.measuringSlopeImageAlt")}
               priority
               fetchPriority="high"
@@ -41,9 +41,9 @@ export default function MeasuringTool() {
                  (min-width: 640px) calc(640px - 48px),
                  calc(100vw - 32px)"
             />
-          </section>
+          </div>
 
-          <section className="col-span-12 rounded-b-lg bg-white p-5 sm:p-10 lg:col-span-5 lg:rounded-lg">
+          <section className="col-span-12 rounded-b-lg bg-white p-5 sm:p-10 lg:sticky lg:top-8 lg:col-span-5 lg:rounded-lg">
             <h1 className="mb-4 text-2xl font-bold">
               {t.rich("heading", {
                 sup: (chunks) => <sup>{chunks}</sup>,

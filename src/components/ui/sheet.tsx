@@ -42,7 +42,7 @@ function SheetTrigger({
     <SheetPrimitive.Trigger
       data-slot="sheet-trigger"
       className={cn(
-        "bg-orange flex h-6 items-center justify-center rounded p-2 text-[0.625rem] font-extrabold text-white uppercase",
+        "text-grey p-0.5 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
         className,
       )}
       {...props}
@@ -109,7 +109,7 @@ function SheetContent({
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className="focus:ring-light-grey data-[state=open]:bg-orange bg-orange absolute top-0 right-0 h-10 w-10 rounded-bl-lg p-2 ring-offset-white transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
+        <SheetPrimitive.Close className="focus:ring-light-grey absolute top-0 right-0 h-10 w-10 rounded-bl-lg bg-orange-600 p-2 ring-offset-white transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none data-[state=open]:bg-orange-600">
           <CloseLine className="size-6 text-white" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>

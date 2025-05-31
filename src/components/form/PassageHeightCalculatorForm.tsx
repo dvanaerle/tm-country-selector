@@ -19,6 +19,11 @@ import { InfoTooltipSheet } from "./InfoTooltipSheet";
 import { NumberInputWithUnit } from "./NumberInputWithUnit";
 import { YesNoRadioGroup } from "./YesNoRadioGroup";
 import { CalculationResultAlert } from "./CalculationResultAlert";
+import MeasuringHeightPaving from "/public/images/measuring-height-paving.jpg";
+import MeasuringHeightRecessed from "/public/images/measuring-height-recessed.jpg";
+import MeasuringSlope from "/public/images/measuring-slope.jpg";
+import MeasuringWidthFront from "/public/images/measuring-width-front.jpg";
+import MeasuringWidthSide from "/public/images/measuring-width-side.jpg";
 
 // Configuration constants for veranda calculations
 const verandaConfig = {
@@ -47,8 +52,8 @@ const calculationConstants = {
 
 // Input validation constraints
 const inputConstraints = {
-  wallProfileHeight: { min: 2259, max: 3278 },
-  gutterBottomHeight: { min: 1701, max: 2162 },
+  wallProfileHeight: { min: 2259, max: 3058 },
+  gutterBottomHeight: { min: 1701, max: 2221 },
 } as const;
 
 // Standard passage height ranges according to Tuinmaximaal standards
@@ -633,7 +638,7 @@ export function PassageHeightCalculatorForm({
           render={({ field }) => (
             <FormItem>
               <fieldset className="space-y-2">
-                <div className="flex items-center gap-x-2">
+                <div className="flex items-center space-x-1">
                   <FormLabel asChild>
                     <legend data-required>
                       <span>{t("Form.Common.depthVeranda")}</span>
@@ -643,6 +648,18 @@ export function PassageHeightCalculatorForm({
                     t={t}
                     titleKey="Form.Common.depthVeranda"
                     descriptionKey="Form.Common.depthVerandaTooltip"
+                    images={[
+                      {
+                        src: MeasuringWidthFront,
+                        alt: "Pages.MeasuringTool.MeasuringWidthFrontAlt",
+                        captionKey: "Form.Common.MeasuringWidthFrontCaption",
+                      },
+                      {
+                        src: MeasuringWidthSide,
+                        alt: "Pages.MeasuringTool.MeasuringWidthSideAlt",
+                        captionKey: "Form.Common.MeasuringWidthSideCaption",
+                      },
+                    ]}
                   />
                 </div>
                 <FormControl>
@@ -675,7 +692,7 @@ export function PassageHeightCalculatorForm({
           name="railSystemSlope"
           render={({ field }) => (
             <FormItem>
-              <div className="flex items-center gap-x-2">
+              <div className="flex items-center space-x-1">
                 <FormLabel htmlFor="railSystemSlope-yes" data-required>
                   <span>{t("Form.WallProfileHeight.railSystemQuestion")}</span>
                 </FormLabel>
@@ -683,6 +700,14 @@ export function PassageHeightCalculatorForm({
                   t={t}
                   titleKey="Form.WallProfileHeight.railSystemQuestion"
                   descriptionKey="Form.Common.slopeTooltip"
+                  images={[
+                    {
+                      src: MeasuringHeightRecessed,
+                      alt: "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
+                      captionKey:
+                        "Form.WallProfileHeight.MeasuringHeightRecessedCaption",
+                    },
+                  ]}
                 />
               </div>
               <FormControl>
@@ -706,7 +731,7 @@ export function PassageHeightCalculatorForm({
           name="slope"
           render={({ field, fieldState }) => (
             <FormItem>
-              <div className="flex items-center gap-x-2">
+              <div className="flex items-center space-x-1">
                 <FormLabel htmlFor="slope">
                   <span>{t("Form.Common.slope")}</span>
                 </FormLabel>
@@ -714,6 +739,13 @@ export function PassageHeightCalculatorForm({
                   t={t}
                   titleKey="Form.Common.slope"
                   descriptionKey="Form.Common.slopeTooltip"
+                  images={[
+                    {
+                      src: MeasuringSlope,
+                      alt: "Pages.MeasuringTool.MeasuringSlopeAlt",
+                      captionKey: "Form.Common.MeasuringSlopeCaption",
+                    },
+                  ]}
                 />
               </div>
               <FormControl>
@@ -742,7 +774,7 @@ export function PassageHeightCalculatorForm({
           }
           render={({ field, fieldState }) => (
             <FormItem>
-              <div className="flex items-center gap-x-2">
+              <div className="flex items-center space-x-1">
                 <FormLabel
                   htmlFor={
                     formType === "wallProfile"
@@ -761,6 +793,14 @@ export function PassageHeightCalculatorForm({
                     min: mainInputConstraints.min,
                     max: mainInputConstraints.max,
                   }}
+                  images={[
+                    {
+                      src: MeasuringHeightPaving,
+                      alt: "Pages.MeasuringTool.MeasuringHeightPavingAlt",
+                      captionKey:
+                        "Form.WallProfileHeight.MeasuringHeightPavingCaption",
+                    },
+                  ]}
                 />
               </div>
               <FormControl>

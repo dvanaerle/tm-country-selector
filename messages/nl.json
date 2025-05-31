@@ -33,7 +33,12 @@
         "heightLowerGutter": "Hoogte onderkant goot"
       },
       "a11y": {
-        "measuringSlopeImageAlt": "Afbeelding die laat zien hoe de afschot van het terras gemeten wordt"
+        "measuringSlopeImageAlt": "Afbeelding die laat zien hoe de afschot van het terras gemeten wordt",
+        "measuringHeightPavingAlt": "Het meten van de hoogte vanaf bestaande bestrating tot de onderkant van de goot van de Tuinmaximaal terrasoverkapping met een meetlint, essentieel voor het plaatsen van glazen schuifwanden.",
+        "measuringHeightRecessedAlt": "Nauwkeurig meten van de installatiehoogte voor Tuinmaximaal glazen schuifwanden vanaf een verzonken funderingsgoot tot het bovenframe van de terrasoverkapping.",
+        "assessingSlopeAlt": "Beoordelen van de afloop van het terras met een waterpas en hoogtemeting, een cruciale stap vóór het installeren van Tuinmaximaal glazen schuifwanden.",
+        "measuringWidthFrontAlt": "Demonstratie van het meten van de vrije frontbreedte tussen de palen van de Tuinmaximaal terrasoverkapping met een meetlint voor het bestellen van de juiste maat glazen schuifwanden.",
+        "measuringWidthSideAlt": "Het meten van de zijdelingse diepte van een Tuinmaximaal terrasoverkapping, van de huismuur tot een buitenste steunpaal, om een goede passing van glazen schuifwanden te verzekeren."
       }
     }
   },
@@ -58,9 +63,12 @@
     "Form": {
       "Common": {
         "depthVeranda": "Diepte overkapping",
-        "depthVerandaTooltip": "Selecteer de diepte van je overkapping.",
+        "depthVerandaTooltip": "Meet de diepte van uw veranda van de muur tot aan de voorkant van de goot. Deze maat beïnvloedt de benodigde specificaties als u de schuifwanden onder een bestaande veranda plaatst en is relevant voor de context van de installatie.",
+        "MeasuringWidthSideCaption": "Het meten van de diepte van de veranda vanaf de muur tot de voorzijde.",
         "slope": "Afloop van je terras",
-        "slopeTooltip": "Voer de afschot van je terras in millimeters in. Dit is het hoogteverschil over je terras.",
+        "slopeTooltip": "Controleer of uw terras afloopt (helling heeft) en meet het hoogteverschil over de diepte van de veranda. Als uw terras afloopt richting de tuin, moet u dit verschil compenseren bij het bepalen van de montagehoogte van het muurprofiel; de doorloophoogte blijft gelijk.",
+        "MeasuringSlopeCaption": "Het bepalen van de afloop van het terras en het hoogteverschil.",
+        "MeasuringWidthFrontCaption": "Het meten van de frontbreedte van de veranda.",
         "slopePlaceholder": "Afloop terras",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "meter",
@@ -84,22 +92,26 @@
       },
       "WallProfileHeight": {
         "railSystemQuestion": "Railsysteem verzonken neerleggen",
+        "railSystemQuestionTooltip": "Overweeg of u de onderrail van het schuifsysteem in de grond wilt verzinken. Dit zorgt voor een drempelloze doorgang. Als u hiervoor kiest, tel dan 18 mm (de hoogte van de onderrail) op bij de gemeten doorloophoogte.",
+        "MeasuringHeightRecessedCaption": "Voorbeeld van een verzonken railsysteem voor een drempelloze doorgang.",
         "label": "Hoogte muurprofiel t.o.v. bodem (0° afloop)",
-        "tooltip": "Voer de hoogte van het muurprofiel in (in millimeters). Dit is de hoogte waarop het muurprofiel aan de muur wordt gemonteerd. De hoogte moet tussen {min} mm en {max} mm liggen.",
+        "tooltip": "Dit is de hoogte waarop het muurprofiel (waaraan de veranda of het bovenste deel van de schuifwandconstructie is bevestigd) aan de gevel wordt gemonteerd, gemeten vanaf de grond. Bij een terras zonder helling (0°), komt deze hoogte direct overeen met de waarde uit de tabellen/meethulp, gebaseerd op uw gewenste doorloophoogte en diepte.",
+        "MeasuringHeightPavingCaption": "Het meten van de verticale hoogte vanaf de grond voor profielmontage.",
         "placeholder": "Hoogte muurprofiel",
         "validationErrors": {
-          "min": "De hoogte moet minimaal {min} mm zijn",
-          "max": "De hoogte mag maximaal {max} mm zijn"
+          "min": "De muurprofielhoogte moet minimaal {min} mm zijn.",
+          "max": "De muurprofielhoogte mag maximaal {max} mm zijn."
         },
         "recommendation": "Probeer een muurprofielhoogte van <strong>{recommendedWallProfileHeight} mm</strong> om binnen de doorloophoogte van <strong>{min} - {max} mm</strong> te vallen."
       },
       "HeightLowerGutter": {
         "label": "Hoogte onderkant goot t.o.v. bodem (0° afloop)",
-        "tooltip": "Voer de hoogte van de onderkant goot in (in millimeters). De hoogte moet tussen {min} mm en {max} mm liggen.",
+        "tooltip": "Dit is de \"doorloophoogte\": de afstand tussen de bovenkant van uw fundering/bestrating en de vlakke onderzijde van de goot van uw (bestaande) veranda. Meet dit op drie punten (links, midden, rechts) en gebruik de laagst gemeten waarde. Bij een terras zonder helling (0°) is dit de directe verticale maat.",
+        "MeasuringHeightPavingCaption": "Het meten van de hoogte vanaf de grond tot de onderkant van de goot.",
         "placeholder": "Hoogte onderkant goot",
         "validationErrors": {
-          "min": "De hoogte moet minimaal {min} mm zijn",
-          "max": "De hoogte mag maximaal {max} mm zijn"
+          "min": "De hoogte onderkant goot moet minimaal {min} mm zijn.",
+          "max": "De hoogte onderkant goot mag maximaal {max} mm zijn."
         },
         "recommendation": "Probeer een hoogte onderkant goot van <strong>{recommendedGutterBottomHeight} mm</strong> om binnen de doorloophoogte van <strong>{min} - {max} mm</strong> te vallen."
       }
