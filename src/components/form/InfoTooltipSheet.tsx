@@ -52,7 +52,14 @@ export const InfoTooltipSheet = ({
           images.length > 0 &&
           images.map((img, idx) => (
             <figure key={idx} className="mb-4">
-              <Image src={img.src} alt={img.alt} className="rounded-lg" />
+              <Image
+                src={img.src}
+                alt={img.alt}
+                sizes="
+                 (min-width: 640px) calc(448px - 48px),
+                 calc(100vw - 48px)"
+                className="rounded-lg"
+              />
               {img.captionKey && (
                 <figcaption className="text-grey mt-2 text-center text-sm">
                   {t(img.captionKey, img.captionValues)}
