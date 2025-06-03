@@ -73,7 +73,7 @@
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "mètre",
         "calculatePassageHeight": "Calculer la hauteur de passage",
-        "calculateBottomWallProfileHeight": "Calculer la hauteur du profilé mural inférieur",
+        "calculateBottomWallProfileHeight": "Calculer la hauteur jusqu'au bas du profilé mural",
         "passageHeightResult": "La hauteur de passage calculée est de : <strong>{result} mm</strong>.",
         "rangeSuccess": "Cela se situe <strong>{within}</strong> la plage de hauteur de passage de : <strong>{min} - {max} mm</strong>.",
         "rangeSuccessWithin": "dans",
@@ -93,29 +93,29 @@
       },
       "WallProfileHeight": {
         "railSystemQuestion": "Encastrer le système de rails dans le sol",
-        "railSystemQuestionTooltip": "Envisagez d'encastrer le rail inférieur du système coulissant dans le sol. Cela crée un passage sans seuil. Si uo optait pour cela, ajoutez 18 mm (la hauteur du rail inférieur) à votre hauteur de passage mesurée.",
+        "railSystemQuestionTooltip": "Envisagez d'encastrer le rail inférieur du système coulissant dans le sol. Cela crée un passage sans seuil. Si vous optez pour cela, ajoutez 18 mm (la hauteur du rail inférieur) à votre hauteur de passage mesurée.",
         "MeasuringHeightRecessedCaption": "Exemple d'un système de rail encastré pour un passage sans seuil.",
-        "label": "Hauteur du profil mural par rapport au sol (pente 0°)",
+        "label": "Hauteur jusqu'au bas du profilé mural par rapport au sol (pente 0°)",
         "tooltip": "C'est la hauteur à laquelle le profilé mural (auquel la véranda ou la partie supérieure de la structure de la paroi coulissante est fixée) est monté sur la façade, mesurée depuis le sol. Pour une terrasse sans pente (0°), cette hauteur correspond directement à la valeur des tableaux/outil d'aide à la mesure, en fonction de votre hauteur de passage et de votre profondeur souhaitées.",
         "MeasuringHeightPavingCaption": "Mesure de la hauteur verticale depuis le sol pour le montage du profilé.",
-        "placeholder": "Hauteur du profil mural",
+        "placeholder": "Hauteur jusqu'au bas du profilé mural",
         "validationErrors": {
-          "min": "La hauteur du profil mural doit être d'au moins {min} mm.",
-          "max": "La hauteur du profil mural ne doit pas dépasser {max} mm."
+          "min": "La hauteur jusqu'au bas du profilé mural doit être d'au moins {min} mm.",
+          "max": "La hauteur jusqu'au bas du profilé mural ne doit pas dépasser {max} mm."
         },
         "recommendation": "Essayez une hauteur de profil mural de <strong>{recommendedWallProfileHeight} mm</strong> pour vous situer dans la plage de hauteur de passage de <strong>{min} - {max} mm</strong>."
       },
       "HeightBottomGutter": {
-        "label": "Hauteur bas de gouttière par rapport au sol (pente 0°)",
+        "label": "Hauteur jusqu'au bas de la gouttière par rapport au sol (pente 0°)",
         "tooltip": "Ceci est la \"hauteur de passage\": la distance entre le haut de votre fondation/pavage et le dessous plat de la gouttière de votre véranda (existante). Mesurez-la en trois points (gauche, centre, droite) et utilisez la valeur la plus basse mesurée. Pour une terrasse sans pente (0°), c'est la mesure verticale directe.",
         "MeasuringHeightPavingCaption": "Mesure de la hauteur depuis le sol jusqu'au dessous de la gouttière.",
-        "placeholder": "Hauteur bas de gouttière",
+        "placeholder": "Hauteur jusqu'au bas de la gouttière",
         "heightBottomGutterResult": "La hauteur calculée jusqu'au bas de la gouttière est : <strong>{result} mm</strong>.",
         "validationErrors": {
-          "min": "La hauteur bas de gouttière doit être d'au moins {min} mm.",
-          "max": "La hauteur bas de gouttière ne doit pas dépasser {max} mm."
+          "min": "La hauteur jusqu'au bas de la gouttière doit être d'au moins {min} mm.",
+          "max": "La hauteur jusqu'au bas de la gouttière ne doit pas dépasser {max} mm."
         },
-        "recommendation": "Essayez une hauteur de bas de gouttière de <strong>{recommendedGutterBottomHeight} mm</strong> pour vous situer dans la plage de hauteur de passage de <strong>{min} - {max} mm</strong>."
+        "recommendation": "Essayez une hauteur jusqu'au bas de la gouttière de <strong>{recommendedGutterBottomHeight} mm</strong> pour vous situer dans la plage de hauteur de passage de <strong>{min} - {max} mm</strong>."
       }
     }
   }

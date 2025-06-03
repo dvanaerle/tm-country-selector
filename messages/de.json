@@ -73,7 +73,7 @@
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "Meter",
         "calculatePassageHeight": "Durchgangshöhe berechnen",
-        "calculateBottomWallProfileHeight": "Höhe des unteren Wandprofils berechnen",
+        "calculateBottomWallProfileHeight": "Höhe bis Unterkante Wandprofil berechnen",
         "passageHeightResult": "Die berechnete Durchgangshöhe beträgt: <strong>{result} mm</strong>.",
         "rangeSuccess": "Dies liegt <strong>{within}</strong> dem Durchgangshöhenbereich von: <strong>{min} - {max} mm</strong>.",
         "rangeSuccessWithin": "innerhalb",
@@ -95,27 +95,27 @@
         "railSystemQuestion": "Schienensystem im Boden versenken",
         "railSystemQuestionTooltip": "Erwägen Sie, die untere Schiene des Schiebesystems im Boden zu versenken. Dies schafft einen schwellenfreien Durchgang. Wenn Sie sich hierfür entscheiden, addieren Sie 18 mm (die Höhe der unteren Schiene) zu Ihrer gemessenen Durchgangshöhe hinzu.",
         "MeasuringHeightRecessedCaption": "Beispiel eines versenkten Schienensystems für einen schwellenfreien Durchgang.",
-        "label": "Wandprofilhöhe vom Boden (0° Gefälle)",
+        "label": "Höhe bis Unterkante Wandprofil vom Boden (0° Gefälle)",
         "tooltip": "Dies ist die Höhe, in der das Wandprofil (an dem die Terrassenüberdachung oder der obere Teil der Schiebewandkonstruktion befestigt ist) an der Fassade montiert wird, gemessen vom Boden. Bei einer Terrasse ohne Gefälle (0°) entspricht diese Höhe direkt dem Wert aus den Tabellen/Messhilfe, basierend auf Ihrer gewünschten Durchgangshöhe und Tiefe.",
         "MeasuringHeightPavingCaption": "Messung der vertikalen Höhe vom Boden für die Profilmontage.",
-        "placeholder": "Wandprofilhöhe",
+        "placeholder": "Höhe bis Unterkante Wandprofil",
         "validationErrors": {
-          "min": "Die Wandprofilhöhe muss mindestens {min} mm betragen.",
-          "max": "Die Wandprofilhöhe darf höchstens {max} mm betragen."
+          "min": "Die Höhe bis Unterkante Wandprofil muss mindestens {min} mm betragen.",
+          "max": "Die Höhe bis Unterkante Wandprofil darf höchstens {max} mm betragen."
         },
         "recommendation": "Versuchen Sie eine Wandprofilhöhe von <strong>{recommendedWallProfileHeight} mm</strong>, um in den Durchgangshöhenbereich von <strong>{min} - {max} mm</strong> zu fallen."
       },
       "HeightBottomGutter": {
-        "label": "Höhe Unterkante Rinne vom Boden (0° Gefälle)",
+        "label": "Höhe bis Unterkante Rinne vom Boden (0° Gefälle)",
         "tooltip": "Dies ist die \"Durchgangshöhe\": der Abstand von der Oberkante Ihres Fundaments/Pflasters bis zur flachen Unterseite der Rinne Ihrer (bestehenden) Terrassenüberdachung. Messen Sie dies an drei Punkten (links, Mitte, rechts) und verwenden Sie den niedrigsten gemessenen Wert. Bei einer Terrasse ohne Gefälle (0°) ist dies das direkte vertikale Maß.",
         "MeasuringHeightPavingCaption": "Messung der Höhe vom Boden bis zur Unterkante der Rinne.",
-        "placeholder": "Höhe Unterkante Rinne",
+        "placeholder": "Höhe bis Unterkante Rinne",
         "heightBottomGutterResult": "Die berechnete Höhe bis Unterkante Rinne beträgt: <strong>{result} mm</strong>.",
         "validationErrors": {
-          "min": "Die Höhe Unterkante Rinne muss mindestens {min} mm betragen.",
-          "max": "Die Höhe Unterkante Rinne darf höchstens {max} mm betragen."
+          "min": "Die Höhe bis Unterkante Rinne muss mindestens {min} mm betragen.",
+          "max": "Die Höhe bis Unterkante Rinne darf höchstens {max} mm betragen."
         },
-        "recommendation": "Versuchen Sie eine Rinnenunterkantenhöhe von <strong>{recommendedGutterBottomHeight} mm</strong>, um in den Durchgangshöhenbereich von <strong>{min} - {max} mm</strong> zu fallen."
+        "recommendation": "Versuchen Sie eine Höhe bis Unterkante Rinne von <strong>{recommendedGutterBottomHeight} mm</strong>, um in den Durchgangshöhenbereich von <strong>{min} - {max} mm</strong> zu fallen."
       }
     }
   }

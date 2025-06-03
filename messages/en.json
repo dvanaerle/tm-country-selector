@@ -73,7 +73,7 @@
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "metre",
         "calculatePassageHeight": "Calculate passage height",
-        "calculateBottomWallProfileHeight": "Calculate bottom wall profile height",
+        "calculateBottomWallProfileHeight": "Calculate height to bottom of wall profile",
         "passageHeightResult": "The calculated passage height is: <strong>{result} mm</strong>.",
         "rangeSuccess": "This falls <strong>{within}</strong> the passage height range of: <strong>{min} - {max} mm</strong>.",
         "rangeSuccessWithin": "within",
@@ -95,18 +95,18 @@
         "railSystemQuestion": "Recess rail system into the ground",
         "railSystemQuestionTooltip": "Consider recessing the bottom rail of the sliding system into the ground. This creates a threshold-free passage. If you opt for this, add 18 mm (the height of the bottom rail) to your measured passage height.",
         "MeasuringHeightRecessedCaption": "Example of a recessed rail system for a threshold-free passage.",
-        "label": "Wall profile height from ground (0° slope)",
+        "label": "Height to bottom of wall profile from ground (0° slope)",
         "tooltip": "This is the height at which the wall profile (to which the veranda or the upper part of the sliding wall construction is attached) is mounted to the façade, measured from the ground. For a terrace with no slope (0°), this height corresponds directly to the value from the tables/measuring tool, based on your desired passage height and depth.",
         "MeasuringHeightPavingCaption": "Measuring vertical height from the ground for profile mounting.",
-        "placeholder": "Wall profile height",
+        "placeholder": "Height to bottom of wall profile",
         "validationErrors": {
-          "min": "The wall profile height must be at least {min} mm.",
-          "max": "The wall profile height may not exceed {max} mm."
+          "min": "The height to bottom of wall profile must be at least {min} mm.",
+          "max": "The height to bottom of wall profile may not exceed {max} mm."
         },
         "recommendation": "Try a wall profile height of <strong>{recommendedWallProfileHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>."
       },
       "HeightBottomGutter": {
-        "label": "Height of gutter bottom from ground (0° slope)",
+        "label": "Height to bottom of gutter from ground (0° slope)",
         "tooltip": "This is the \"passage height\": the distance from the top of your foundation/paving to the flat underside of the gutter of your (existing) veranda. Measure this at three points (left, centre, right) and use the lowest measured value. For a terrace with no slope (0°), this is the direct vertical measurement.",
         "MeasuringHeightPavingCaption": "Measuring the height from the ground to the underside of the gutter.",
         "placeholder": "Height to bottom of gutter",
@@ -115,7 +115,7 @@
           "min": "The height to bottom of gutter must be at least {min} mm.",
           "max": "The height to bottom of gutter may not exceed {max} mm."
         },
-        "recommendation": "Try a gutter bottom height of <strong>{recommendedGutterBottomHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>."
+        "recommendation": "Try a height to bottom of gutter of <strong>{recommendedGutterBottomHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>."
       }
     }
   }

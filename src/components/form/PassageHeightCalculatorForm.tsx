@@ -515,7 +515,7 @@ export function PassageHeightCalculatorForm({
               ? "wallProfileHeight"
               : "heightBottomGutter"
           }
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
               <div className="flex items-center space-x-1">
                 <FormLabel htmlFor={field.name} data-required>
@@ -551,6 +551,7 @@ export function PassageHeightCalculatorForm({
                   min={constraints.min}
                   max={constraints.max}
                   aria-describedby={`${field.name}-error`}
+                  isInvalid={fieldState.invalid}
                 />
               </FormControl>
               <FormMessage id={`${field.name}-error`} />
