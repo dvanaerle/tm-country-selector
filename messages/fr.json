@@ -29,8 +29,8 @@
       },
       "heading": "Instructions de mesure paroi coulissante en verre Gumax<sup>®</sup>",
       "tabs": {
-        "wallProfileHeight": "Hauteur du profilé mural",
-        "heightLowerGutter": "Hauteur bas de gouttière"
+        "wallProfileHeight": "Hauteur jusqu'au bas du profilé mural",
+        "heightBottomGutter": "Hauteur jusqu'au bas de la gouttière"
       },
       "a11y": {
         "measuringSlopeImageAlt": "Image montrant comment mesurer la pente de la terrasse",
@@ -66,7 +66,7 @@
         "depthVerandaTooltip": "Mesurez la profondeur de votre véranda, du mur jusqu'à l'avant de la gouttière. Cette dimension affecte les spécifications requises si vous installez les parois coulissantes sous une véranda existante et est pertinente pour le contexte de l'installation.",
         "MeasuringWidthSideCaption": "Mesure de la profondeur de la véranda du mur à l'avant.",
         "slope": "Pente de votre terrasse",
-        "slopeTooltip": "Vérifiez si votre terrasse a une pente et mesurez la différence de hauteur sur la profondeur de la véranda. Si votre terrasse est en pente vers le jardin, vous devez compenser cette différence lors de la détermination de la hauteur de montage du profilé mural ; la hauteur de passage reste la même.",
+        "slopeTooltip": "Vérifiez si votre terrasse a une pente et mesurez la différence de hauteur sur la profondeur de la véranda. Si votre terrasse est en pente vers le jardin, vous devez compenser cette différence lors de la détermination de la hauteur de montage du profilé mural ; la hauteur de passage reste la même. Prenez également en compte la hauteur de 18 mm du rail inférieur si vous prévoyez de l'encastrer, car cela peut affecter les calculs globaux.",
         "MeasuringSlopeCaption": "Détermination de la pente de la terrasse et de la différence de hauteur.",
         "MeasuringWidthFrontCaption": "Mesure de l'avant de la véranda.",
         "slopePlaceholder": "Pente de la terrasse",
@@ -79,6 +79,7 @@
         "rangeSuccessWithin": "dans",
         "rangeSuccessOutside": "en dehors de",
         "rangeError": "Cela se situe <strong>{outside}</strong> la plage de hauteur de passage de Tuinmaximaal.",
+        "maximumPostsRule": "La hauteur de passage maximale est de <strong>2500 mm</strong> en raison de la hauteur standard des poteaux.",
         "info": "Info",
         "moreInformation": "Plus d'informations",
         "validationErrors": {
@@ -104,11 +105,12 @@
         },
         "recommendation": "Essayez une hauteur de profil mural de <strong>{recommendedWallProfileHeight} mm</strong> pour vous situer dans la plage de hauteur de passage de <strong>{min} - {max} mm</strong>."
       },
-      "HeightLowerGutter": {
+      "HeightBottomGutter": {
         "label": "Hauteur bas de gouttière par rapport au sol (pente 0°)",
         "tooltip": "Ceci est la \"hauteur de passage\": la distance entre le haut de votre fondation/pavage et le dessous plat de la gouttière de votre véranda (existante). Mesurez-la en trois points (gauche, centre, droite) et utilisez la valeur la plus basse mesurée. Pour une terrasse sans pente (0°), c'est la mesure verticale directe.",
         "MeasuringHeightPavingCaption": "Mesure de la hauteur depuis le sol jusqu'au dessous de la gouttière.",
         "placeholder": "Hauteur bas de gouttière",
+        "heightBottomGutterResult": "La hauteur calculée jusqu'au bas de la gouttière est : <strong>{result} mm</strong>.",
         "validationErrors": {
           "min": "La hauteur bas de gouttière doit être d'au moins {min} mm.",
           "max": "La hauteur bas de gouttière ne doit pas dépasser {max} mm."

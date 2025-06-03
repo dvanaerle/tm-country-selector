@@ -56,7 +56,7 @@ export default function MeasuringTool() {
                   {t("tabs.wallProfileHeight")}
                 </TabsTrigger>
                 <TabsTrigger value="height-lower-gutter">
-                  {t("tabs.heightLowerGutter")}
+                  {t("tabs.heightBottomGutter")}
                 </TabsTrigger>
               </TabsList>
               <TabsContent value="wall-profile-height">
@@ -71,9 +71,9 @@ export default function MeasuringTool() {
               <TabsContent value="height-lower-gutter">
                 <PassageHeightCalculatorForm
                   formType="gutterHeight"
-                  mainInputLabelKey="Form.HeightLowerGutter.label"
-                  mainInputPlaceholderKey="Form.HeightLowerGutter.placeholder"
-                  mainInputTooltipKey="Form.HeightLowerGutter.tooltip"
+                  mainInputLabelKey="Form.HeightBottomGutter.label"
+                  mainInputPlaceholderKey="Form.HeightBottomGutter.placeholder"
+                  mainInputTooltipKey="Form.HeightBottomGutter.tooltip"
                   submitButtonTextKey="Form.Common.calculateBottomWallProfileHeight"
                 />
               </TabsContent>

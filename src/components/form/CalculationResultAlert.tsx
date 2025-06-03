@@ -1,3 +1,4 @@
+
 import React from "react";
 import { useTranslations } from "next-intl";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
@@ -21,15 +22,18 @@ interface CalculationResultAlertProps {
   recommendation: Recommendation | null;
 }
 
-export const CalculationResultAlert = ({
+export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
   t,
   formType,
   calculatedOutput,
   isOutputInRange,
   outputRange,
   recommendation,
-}: CalculationResultAlertProps) => {
-  const resultTitleKey = "Form.Common.passageHeightResult";
+}) => {
+  const resultTitleKey =
+    formType === "gutterHeight"
+      ? "Form.HeightBottomGutter.heightBottomGutterResult"
+      : "Form.Common.passageHeightResult";
 
   const alertTitle = t.rich(resultTitleKey, {
     result: calculatedOutput,
@@ -52,21 +56,30 @@ export const CalculationResultAlert = ({
   const renderErrorContent = () => (
     <>
       {outputRange ? (
-        <span>
-          {t.rich("Form.Common.rangeError", {
-            outside: t("Form.Common.rangeSuccessOutside"),
-            min: outputRange[0],
-            max: outputRange[1],
-            strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
-          })}
-        </span>
+        <>
+          <span>
+            {t.rich("Form.Common.rangeError", {
+              outside: t("Form.Common.rangeSuccessOutside"),
+              min: outputRange[0],
+              max: outputRange[1],
+              strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
+            })}
+          </span>
+          {formType === "wallProfile" && calculatedOutput > 2500 && (
+            <p className="mt-2">
+              {t.rich("Form.Common.maximumPostsRule", {
+                strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
+              })}
+            </p>
+          )}
+        </>
       ) : (
         <span>
           {t("Form.Common.genericRangeError", { result: calculatedOutput })}
         </span>
       )}
 
-      {recommendation ? (
+      {recommendation && (
         <p className="mt-2">
           {formType === "wallProfile"
             ? t.rich("Form.WallProfileHeight.recommendation", {
@@ -76,7 +89,7 @@ export const CalculationResultAlert = ({
                 max: recommendation.newOutputRange[1],
                 strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
               })
-            : t.rich("Form.HeightLowerGutter.recommendation", {
+            : t.rich("Form.HeightBottomGutter.recommendation", {
                 currentResult: calculatedOutput,
                 recommendedGutterBottomHeight: recommendation.recommendedInput,
                 min: recommendation.newOutputRange[0],
@@ -84,15 +97,17 @@ export const CalculationResultAlert = ({
                 strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
               })}
         </p>
-      ) : (
-        <p className="mt-2">{t("Form.Common.noRecommendation")}</p>
       )}
     </>
   );
 
   return (
-    <Alert variant={alertVariant}>
-      {alertVariant === "success" ? <CheckCircleLine /> : <WarningLine />}
+    <Alert variant={alertVariant} role="alert" aria-live="polite">
+      {alertVariant === "success" ? (
+        <CheckCircleLine aria-hidden="true" />
+      ) : (
+        <WarningLine aria-hidden="true" />
+      )}
       <AlertTitle>{alertTitle}</AlertTitle>
       <AlertDescription>
         {isOutputInRange && outputRange

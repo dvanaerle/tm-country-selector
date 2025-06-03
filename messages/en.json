@@ -29,8 +29,8 @@
       },
       "heading": "Measuring instructions for Gumax<sup>®</sup> glass sliding doors",
       "tabs": {
-        "wallProfileHeight": "Wall Profile Height",
-        "heightLowerGutter": "Height to Bottom of Gutter"
+        "wallProfileHeight": "Height to bottom of wall profile",
+        "heightBottomGutter": "Height to bottom of gutter"
       },
       "a11y": {
         "measuringSlopeImageAlt": "Image showing how to measure terrace slope",
@@ -66,7 +66,7 @@
         "depthVerandaTooltip": "Measure the depth of your veranda from the wall to the front of the gutter. This dimension affects the required specifications if you are installing the sliding walls under an existing veranda and is relevant for the installation context.",
         "MeasuringWidthSideCaption": "Measuring the depth of the veranda from the wall to the front.",
         "slope": "Slope of your terrace",
-        "slopeTooltip": "Check if your terrace has a slope and measure the height difference over the depth of the veranda. If your terrace slopes downwards towards the garden, you must compensate for this difference when determining the mounting height of the wall profile; the passage height remains the same.",
+        "slopeTooltip": "Check if your terrace has a slope and measure the height difference over the depth of the veranda. If your terrace slopes downwards towards the garden, you must compensate for this difference when determining the mounting height of the wall profile; the passage height remains the same. Also consider the 18 mm height of the bottom rail if you plan to recess it, as this can affect overall calculations.",
         "MeasuringSlopeCaption": "Determining the terrace slope and height difference.",
         "MeasuringWidthFrontCaption": "Measuring the front side of the veranda.",
         "slopePlaceholder": "Terrace slope",
@@ -79,6 +79,7 @@
         "rangeSuccessWithin": "within",
         "rangeSuccessOutside": "outside",
         "rangeError": "This falls <strong>{outside}</strong> the passage height range of Tuinmaximaal.",
+        "maximumPostsRule": "The maximum passage height is <strong>2500 mm</strong> due to the standard height of the posts.",
         "info": "Info",
         "moreInformation": "More information",
         "validationErrors": {
@@ -104,11 +105,12 @@
         },
         "recommendation": "Try a wall profile height of <strong>{recommendedWallProfileHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>."
       },
-      "HeightLowerGutter": {
+      "HeightBottomGutter": {
         "label": "Height of gutter bottom from ground (0° slope)",
         "tooltip": "This is the \"passage height\": the distance from the top of your foundation/paving to the flat underside of the gutter of your (existing) veranda. Measure this at three points (left, centre, right) and use the lowest measured value. For a terrace with no slope (0°), this is the direct vertical measurement.",
         "MeasuringHeightPavingCaption": "Measuring the height from the ground to the underside of the gutter.",
         "placeholder": "Height to bottom of gutter",
+        "heightBottomGutterResult": "The calculated height to bottom of gutter is: <strong>{result} mm</strong>.",
         "validationErrors": {
           "min": "The height to bottom of gutter must be at least {min} mm.",
           "max": "The height to bottom of gutter may not exceed {max} mm."

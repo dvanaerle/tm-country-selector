@@ -29,8 +29,8 @@
       },
       "heading": "Messanleitung Gumax<sup>®</sup> Glasschiebewand",
       "tabs": {
-        "wallProfileHeight": "Wandprofilhöhe",
-        "heightLowerGutter": "Höhe Unterkante Rinne"
+        "wallProfileHeight": "Höhe bis Unterkante Wandprofil",
+        "heightBottomGutter": "Höhe bis Unterkante Rinne"
       },
       "a11y": {
         "measuringSlopeImageAlt": "Abbildung zur Messung der Terrassenneigung",
@@ -66,7 +66,7 @@
         "depthVerandaTooltip": "Messen Sie die Tiefe Ihrer Terrassenüberdachung von der Wand bis zur Vorderkante der Rinne. Dieses Maß beeinflusst die erforderlichen Spezifikationen, wenn Sie die Schiebewände unter einer bestehenden Terrassenüberdachung installieren, und ist relevant für den Installationskontext.",
         "MeasuringWidthSideCaption": "Messung der Tiefe der Terrassenüberdachung von der Wand bis zur Vorderseite.",
         "slope": "Gefälle Ihrer Terrasse",
-        "slopeTooltip": "Prüfen Sie, ob Ihre Terrasse ein Gefälle aufweist, und messen Sie den Höhenunterschied über die Tiefe der Terrassenüberdachung. Wenn Ihre Terrasse zum Garten hin abfällt, müssen Sie diesen Unterschied bei der Bestimmung der Montagehöhe des Wandprofils ausgleichen; die Durchgangshöhe bleibt gleich.",
+        "slopeTooltip": "Prüfen Sie, ob Ihre Terrasse ein Gefälle aufweist, und messen Sie den Höhenunterschied über die Tiefe der Terrassenüberdachung. Wenn Ihre Terrasse zum Garten hin abfällt, müssen Sie diesen Unterschied bei der Bestimmung der Montagehöhe des Wandprofils ausgleichen; die Durchgangshöhe bleibt gleich. Berücksichtigen Sie auch die 18 mm Höhe der unteren Schiene, falls Sie planen, diese zu versenken, da dies die Gesamtberechnungen beeinflussen kann.",
         "MeasuringSlopeCaption": "Bestimmung des Terrassengefälles und des Höhenunterschieds.",
         "MeasuringWidthFrontCaption": "Messung der Vorderseite der Terrassenüberdachung.",
         "slopePlaceholder": "Terrassengefälle",
@@ -79,6 +79,7 @@
         "rangeSuccessWithin": "innerhalb",
         "rangeSuccessOutside": "außerhalb",
         "rangeError": "Dies liegt <strong>{outside}</strong> dem Durchgangshöhenbereich von Tuinmaximaal.",
+        "maximumPostsRule": "Die maximale Durchgangshöhe beträgt <strong>2500 mm</strong> aufgrund der Standardhöhe der Pfosten.",
         "info": "Info",
         "moreInformation": "Weitere Informationen",
         "validationErrors": {
@@ -104,11 +105,12 @@
         },
         "recommendation": "Versuchen Sie eine Wandprofilhöhe von <strong>{recommendedWallProfileHeight} mm</strong>, um in den Durchgangshöhenbereich von <strong>{min} - {max} mm</strong> zu fallen."
       },
-      "HeightLowerGutter": {
+      "HeightBottomGutter": {
         "label": "Höhe Unterkante Rinne vom Boden (0° Gefälle)",
         "tooltip": "Dies ist die \"Durchgangshöhe\": der Abstand von der Oberkante Ihres Fundaments/Pflasters bis zur flachen Unterseite der Rinne Ihrer (bestehenden) Terrassenüberdachung. Messen Sie dies an drei Punkten (links, Mitte, rechts) und verwenden Sie den niedrigsten gemessenen Wert. Bei einer Terrasse ohne Gefälle (0°) ist dies das direkte vertikale Maß.",
         "MeasuringHeightPavingCaption": "Messung der Höhe vom Boden bis zur Unterkante der Rinne.",
         "placeholder": "Höhe Unterkante Rinne",
+        "heightBottomGutterResult": "Die berechnete Höhe bis Unterkante Rinne beträgt: <strong>{result} mm</strong>.",
         "validationErrors": {
           "min": "Die Höhe Unterkante Rinne muss mindestens {min} mm betragen.",
           "max": "Die Höhe Unterkante Rinne darf höchstens {max} mm betragen."
