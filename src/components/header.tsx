@@ -10,7 +10,7 @@ export default function Header() {
       <nav role="navigation" aria-label={t("a11y.mainNavigation")}>
         <Link href="/" aria-label={t("a11y.logoAriaLabel")} className="group">
           <div className="container mx-auto px-4 sm:px-6">
-            <div className="bg-green border-dark-green absolute top-0 z-10 rounded-br rounded-bl border-t-0 border-r-2 border-b-2 border-l-2 px-6 pt-4 pb-6 group-focus-visible:ring-2 group-focus-visible:ring-white/50 group-focus-visible:outline-none">
+            <div className="bg-green border-dark-green absolute top-0 z-10 rounded-br rounded-bl border-t-0 border-r-2 border-b-2 border-l-2 px-6 pt-4 pb-6 group-focus-visible:ring-2 group-focus-visible:ring-offset-1 group-focus-visible:ring-green/50 group-focus-visible:outline-none">
               <Logo width={96} height={61} aria-hidden="true" role="img" />
             </div>
           </div>
