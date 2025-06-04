@@ -3,7 +3,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
@@ -313,7 +313,7 @@ export function PassageHeightCalculatorForm({
   const depthOptions = useMemo(
     () =>
       config.depths.map((d) => ({
-        value: d.toString(),
+        value: String(d),
         label: `${d} ${t("Form.Common.measurementUnitMeter")}`,
       })),
     [t],
@@ -382,7 +382,7 @@ export function PassageHeightCalculatorForm({
           render={({ field }) => (
             <FormItem>
               <fieldset className="space-y-2">
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center gap-x-1">
                   <FormLabel asChild>
                     <legend data-required>
                       <span>{t("Form.Common.depthVeranda")}</span>
@@ -436,7 +436,7 @@ export function PassageHeightCalculatorForm({
           name="railSystemSlope"
           render={({ field }) => (
             <FormItem>
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center gap-x-1">
                 <FormLabel htmlFor="railSystemSlope-yes" data-required>
                   <span>{t("Form.WallProfileHeight.railSystemQuestion")}</span>
                 </FormLabel>
@@ -475,7 +475,7 @@ export function PassageHeightCalculatorForm({
           name="slope"
           render={({ field }) => (
             <FormItem>
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center gap-x-1">
                 <FormLabel htmlFor="slope">
                   <span>{t("Form.Common.slope")}</span>
                 </FormLabel>
@@ -517,7 +517,7 @@ export function PassageHeightCalculatorForm({
           }
           render={({ field, fieldState }) => (
             <FormItem>
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center gap-x-1">
                 <FormLabel htmlFor={field.name} data-required>
                   <span>{t(mainInputLabelKey)}</span>
                 </FormLabel>
@@ -561,7 +561,7 @@ export function PassageHeightCalculatorForm({
 
         <Button
           type="submit"
-          className={buttonVariants({ variant: "default", fullWidth: true })}
+          className="w-full"
           disabled={!form.formState.isValid}
         >
           {t(submitButtonTextKey)}
