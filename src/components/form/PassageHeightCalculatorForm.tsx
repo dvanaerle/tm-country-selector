@@ -573,6 +573,7 @@ export function PassageHeightCalculatorForm({
             formType={formType}
             calculatedOutput={result.output}
             isOutputInRange={result.inRange}
+            maxPassageHeight={config.limits.maxPassageHeight}
             outputRange={result.range}
             recommendation={result.recommendation}
           />

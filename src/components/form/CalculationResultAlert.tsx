@@ -17,6 +17,7 @@ interface CalculationResultAlertProps {
   formType: CalculatorFormType;
   calculatedOutput: number;
   isOutputInRange: boolean;
+  maxPassageHeight: number;
   outputRange: [number, number] | null;
   recommendation: Recommendation | null;
 }
@@ -26,6 +27,7 @@ export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
   formType,
   calculatedOutput,
   isOutputInRange,
+  maxPassageHeight,
   outputRange,
   recommendation,
 }) => {
@@ -69,13 +71,17 @@ export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
               strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
             })}
           </span>
-          {formType === "wallProfile" && calculatedOutput > 2500 && (
-            <p className="mt-2">
-              {t.rich("Form.Common.maximumPostsRule", {
-                strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
-              })}
-            </p>
-          )}
+          {formType === "wallProfile" &&
+            calculatedOutput > maxPassageHeight && (
+              <p className="mt-2">
+                {t.rich("Form.Common.maximumPostsRule", {
+                  maxPassageHeight,
+                  strong: (chunks: React.ReactNode) => (
+                    <strong>{chunks}</strong>
+                  ),
+                })}
+              </p>
+            )}
         </>
       ) : (
         <span>
