@@ -22,31 +22,43 @@ export default function NotFound() {
   return (
     <>
       <Header />
-      <main className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center px-4 py-12 text-center sm:px-6 xl:py-20">
+      <main
+        className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center gap-y-4 px-4 py-12 text-center sm:px-6 xl:py-20"
+        role="main"
+        aria-live="polite"
+      >
         <Image
           src={illustration404}
           alt={t("a11y.imageAlt")}
           priority
           fetchPriority="high"
           placeholder="blur"
+          width={1024}
+          height={443}
           sizes="
-                 (min-width: 1536px) calc((1536px - 48px),
-                 (min-width: 1280px) calc((1280px - 48px),
                  (min-width: 1024px) calc(1024px - 48px),
                  (min-width: 768px) calc(768px - 48px),
                  (min-width: 640px) calc(640px - 48px),
                  calc(100vw - 32px)"
         />
-        <h1 className="mb-2">{t("heading")}</h1>
-        <p className="text-neutral-grey mb-4">{t("description")}</p>
+
+        <h1>{t("heading")}</h1>
+
+        <p className="text-neutral-grey">{t("description")}</p>
+
         <Link
           href="/"
           className={buttonVariants({
             variant: "default",
           })}
+          aria-describedby="not-found-description"
         >
           {t("backToHome")}
         </Link>
+
+        <p id="not-found-description" className="sr-only">
+          {t("a11y.backToHomeDescription")}
+        </p>
       </main>
     </>
   );

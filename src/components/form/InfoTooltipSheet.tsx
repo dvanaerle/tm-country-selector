@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/sheet";
 import InformationLine from "../../../public/icons/MingCute/information_line.svg";
 
-// Type for an image with an optional caption
 interface InfoImage {
   src: string | StaticImageData;
   alt: string;
@@ -28,47 +27,47 @@ interface InfoTooltipSheetProps {
   images?: InfoImage[];
 }
 
-export const InfoTooltipSheet = ({
+export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
   titleKey,
   descriptionKey,
   descriptionValues,
   triggerTextKey,
   t,
-  images,
-}: InfoTooltipSheetProps) => (
-  <Sheet>
-    <SheetTrigger
-      aria-label={t(triggerTextKey || "Form.Common.moreInformation")}
-    >
-      <InformationLine />
-    </SheetTrigger>
-    <SheetContent>
-      <SheetHeader>
-        <SheetTitle>{t(titleKey)}</SheetTitle>
-        <SheetDescription className="mb-4">
-          {t(descriptionKey, descriptionValues)}
-        </SheetDescription>
-        {images &&
-          images.length > 0 &&
-          images.map((img, idx) => (
-            <figure key={idx} className="mb-4">
-              <Image
-                src={img.src}
-                alt={img.alt}
-                sizes="
-                 (min-width: 640px) calc(448px - 48px),
-                 calc(100vw - 48px)"
-                placeholder="blur"
-                className="rounded-lg"
-              />
-              {img.captionKey && (
-                <figcaption className="text-grey mt-2 text-center text-sm">
-                  {t(img.captionKey, img.captionValues)}
-                </figcaption>
-              )}
-            </figure>
-          ))}
-      </SheetHeader>
-    </SheetContent>
-  </Sheet>
-);
+  images = [],
+}) => {
+  return (
+    <Sheet>
+      <SheetTrigger
+        className="focus-visible:ring-grey/50 focus-visible:border-green rounded border border-transparent outline-none focus-visible:ring-2"
+        aria-label={t(triggerTextKey || "Form.Common.moreInformation")}
+      >
+        <InformationLine aria-hidden="true" />
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>{t(titleKey)}</SheetTitle>
+          <SheetDescription className="mb-4">
+            {t(descriptionKey, descriptionValues)}
+          </SheetDescription>
+          {images.length > 0 &&
+            images.map((img, idx) => (
+              <figure key={idx} className="mb-4">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  sizes="(min-width: 640px) calc(448px - 48px), calc(100vw - 48px)"
+                  placeholder="blur"
+                  className="rounded-lg"
+                />
+                {img.captionKey && (
+                  <figcaption className="text-grey mt-2 text-center text-sm">
+                    {t(img.captionKey, img.captionValues)}
+                  </figcaption>
+                )}
+              </figure>
+            ))}
+        </SheetHeader>
+      </SheetContent>
+    </Sheet>
+  );
+};

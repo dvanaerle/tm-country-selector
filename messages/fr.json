@@ -7,7 +7,8 @@
         "keywords": "véranda, paroi coulissante en verre, pergola, véranda aluminium, kit de construction, toiture de terrasse, garantie prix bas"
       },
       "a11y": {
-        "heroImageAlt": "Véranda moderne de Tuinmaximaal avec structure en aluminium noir mat et parois coulissantes en verre."
+        "heroImageAlt": "Véranda moderne de Tuinmaximaal avec structure en aluminium noir mat et parois coulissantes en verre.",
+        "mainContentLabel": "Contenu de la page d'accueil avec sélection de magasin"
       }
     },
     "NotFound": {
@@ -19,7 +20,8 @@
       "description": "Nous ne trouvons pas la page que vous recherchez. Mais ne vous inquiétez pas, nous sommes heureux de vous aider !",
       "backToHome": "Retour à l'accueil",
       "a11y": {
-        "imageAlt": "Illustration 404"
+        "imageAlt": "Illustration d'erreur 404",
+        "backToHomeDescription": "Naviguer vers la page d'accueil"
       }
     },
     "MeasuringTool": {
@@ -34,6 +36,7 @@
       },
       "a11y": {
         "measuringSlopeImageAlt": "Image montrant comment mesurer la pente de la terrasse",
+        "calculatorTabsLabel": "Options de calcul de hauteur",
         "measuringHeightPavingAlt": "Mesure de la hauteur depuis le pavage existant jusqu'à la sous-face de la gouttière de la Véranda Tuinmaximaal à l'aide d'un mètre ruban, essentielle pour l'installation de Portes et baies coulissantes.",
         "measuringHeightRecessedAlt": "Mesure précise de la hauteur d'installation pour les Portes et baies coulissantes Tuinmaximaal depuis un caniveau de fondation encastré jusqu'au cadre supérieur de la Véranda.",
         "assessingSlopeAlt": "Évaluation de la pente de la terrasse à l'aide d'un niveau à bulle et mesure de la différence de hauteur, une étape cruciale avant d'installer les Portes et baies coulissantes Tuinmaximaal.",
@@ -45,7 +48,8 @@
   "Components": {
     "Header": {
       "a11y": {
-        "logoAriaLabel": "Page d'accueil de Tuinmaximaal"
+        "logoAriaLabel": "Page d'accueil de Tuinmaximaal",
+        "mainNavigation": "Navigation principale"
       }
     },
     "StoreSelection": {
@@ -55,6 +59,7 @@
       "saveSelection": "Enregistrer ma sélection pour les prochaines visites."
     },
     "StoreCard": {
+      "selectCountry": "Sélectionner le pays",
       "goToStore": "Continuer vers la boutique en ligne française",
       "a11y": {
         "flagAlt": "Drapeau de {country}"
@@ -82,6 +87,7 @@
         "maximumPostsRule": "La hauteur de passage maximale est de <strong>2500 mm</strong> en raison de la hauteur standard des poteaux.",
         "info": "Info",
         "moreInformation": "Plus d'informations",
+        "recommendation": "Recommandation",
         "validationErrors": {
           "selectOption": "Sélectionnez une option",
           "enterNumber": "Entrez un nombre",

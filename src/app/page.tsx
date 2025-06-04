@@ -11,7 +11,6 @@ export default function Home() {
   const locale = useLocale();
   const userCountryCode = locale.toUpperCase();
 
-  // Use the utility function to get preferred and other stores
   const { preferredStore, otherStores } = getStoreLocalization(
     userCountryCode,
     StoresData,
@@ -20,7 +19,11 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="container mx-auto px-4 py-12 sm:px-6 xl:h-[calc(100dvh-(--spacing(19)))] xl:py-20">
+      <main
+        className="container mx-auto px-4 py-12 sm:px-6 xl:h-[calc(100dvh-(--spacing(19)))] xl:py-20"
+        role="main"
+        aria-label={t("a11y.mainContentLabel")}
+      >
         <section className="overflow-hidden rounded-lg bg-white xl:h-full">
           <div className="grid grid-cols-12 xl:h-full">
             <div className="relative col-span-12 max-xl:aspect-16/9 xl:col-span-7">
@@ -42,7 +45,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Store selection - interactive client component */}
             <StoreSelection
               preferredStore={preferredStore}
               otherStores={otherStores}

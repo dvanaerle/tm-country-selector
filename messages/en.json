@@ -7,7 +7,8 @@
         "keywords": "veranda, glass sliding doors, garden veranda, aluminium veranda, DIY veranda kit, glass garden room, sliding glass wall, patio cover, lowest price guarantee"
       },
       "a11y": {
-        "heroImageAlt": "Modern veranda with matte black aluminium frame and glass sliding doors by Tuinmaximaal."
+        "heroImageAlt": "Modern veranda with matte black aluminium frame and glass sliding doors by Tuinmaximaal.",
+        "mainContentLabel": "Homepage content with store selection"
       }
     },
     "NotFound": {
@@ -19,7 +20,8 @@
       "description": "We can't find the page you're looking for. But don't worry, we're happy to help you!",
       "backToHome": "Back to Home",
       "a11y": {
-        "imageAlt": "404 illustration"
+        "imageAlt": "404 error illustration",
+        "backToHomeDescription": "Navigate back to the homepage"
       }
     },
     "MeasuringTool": {
@@ -34,6 +36,7 @@
       },
       "a11y": {
         "measuringSlopeImageAlt": "Image showing how to measure terrace slope",
+        "calculatorTabsLabel": "Height calculation options",
         "measuringHeightPavingAlt": "Measuring the height from existing paving to the underside of the gutter of a Tuinmaximaal Veranda using a tape measure, essential for fitting Glass Sliding Doors.",
         "measuringHeightRecessedAlt": "Accurately measuring the installation height for Tuinmaximaal Glass Sliding Doors from a recessed foundation channel to the Veranda's upper frame.",
         "assessingSlopeAlt": "Assessing patio slope using a spirit level and height difference measurement, a crucial step before installing Tuinmaximaal Glass Sliding Doors.",
@@ -45,7 +48,8 @@
   "Components": {
     "Header": {
       "a11y": {
-        "logoAriaLabel": "Tuinmaximaal homepage"
+        "logoAriaLabel": "Tuinmaximaal homepage",
+        "mainNavigation": "Main navigation"
       }
     },
     "StoreSelection": {
@@ -55,6 +59,7 @@
       "saveSelection": "Save my selection for later visits."
     },
     "StoreCard": {
+      "selectCountry": "Select country",
       "goToStore": "Continue to the UK online shop",
       "a11y": {
         "flagAlt": "Flag of {country}"
@@ -82,6 +87,7 @@
         "maximumPostsRule": "The maximum passage height is <strong>2500 mm</strong> due to the standard height of the posts.",
         "info": "Info",
         "moreInformation": "More information",
+        "recommendation": "Recommendation",
         "validationErrors": {
           "selectOption": "Select an option",
           "enterNumber": "Enter a number",

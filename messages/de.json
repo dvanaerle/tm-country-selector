@@ -7,7 +7,8 @@
         "keywords": "Terrassenüberdachung, Glasschiebewand, Glasdach, Aluminium Terrassenüberdachung, Bausatz, Überdachung, Bestpreisgarantie"
       },
       "a11y": {
-        "heroImageAlt": "Moderne Terrassenüberdachung von Tuinmaximaal mit matt schwarzem Aluminiumrahmen und Glasschiebewänden."
+        "heroImageAlt": "Moderne Terrassenüberdachung von Tuinmaximaal mit matt schwarzem Aluminiumrahmen und Glasschiebewänden.",
+        "mainContentLabel": "Homepage-Inhalt mit Geschäftsauswahl"
       }
     },
     "NotFound": {
@@ -19,7 +20,8 @@
       "description": "Wir können die gesuchte Seite nicht finden. Aber keine Sorge, wir helfen Ihnen gerne weiter!",
       "backToHome": "Zurück zur Startseite",
       "a11y": {
-        "imageAlt": "404 Illustration"
+        "imageAlt": "404 Fehler-Illustration",
+        "backToHomeDescription": "Zurück zur Startseite navigieren"
       }
     },
     "MeasuringTool": {
@@ -34,6 +36,7 @@
       },
       "a11y": {
         "measuringSlopeImageAlt": "Abbildung zur Messung der Terrassenneigung",
+        "calculatorTabsLabel": "Höhenberechnung Optionen",
         "measuringHeightPavingAlt": "Messen der Höhe vom vorhandenen Pflaster bis zur Unterkante der Rinne der Tuinmaximaal Terrassenüberdachung mittels Maßband, unerlässlich für den Einbau von Glasschiebewänden.",
         "measuringHeightRecessedAlt": "Genaues Messen der Montagehöhe für Tuinmaximaal Glasschiebewände von einer eingelassenen Fundamentrinne bis zum oberen Rahmen der Terrassenüberdachung.",
         "assessingSlopeAlt": "Beurteilung des Terrassengefälles mittels Wasserwaage und Höhenunterschiedsmessung, ein entscheidender Schritt vor der Montage von Tuinmaximaal Glasschiebewänden.",
@@ -45,7 +48,8 @@
   "Components": {
     "Header": {
       "a11y": {
-        "logoAriaLabel": "Tuinmaximaal Startseite"
+        "logoAriaLabel": "Tuinmaximaal Startseite",
+        "mainNavigation": "Hauptnavigation"
       }
     },
     "StoreSelection": {
@@ -55,6 +59,7 @@
       "saveSelection": "Meine Auswahl für zukünftige Besuche speichern."
     },
     "StoreCard": {
+      "selectCountry": "Land auswählen",
       "goToStore": "Weiter zum deutschen Online-Shop",
       "a11y": {
         "flagAlt": "Flagge von {country}"
@@ -82,6 +87,7 @@
         "maximumPostsRule": "Die maximale Durchgangshöhe beträgt <strong>2500 mm</strong> aufgrund der Standardhöhe der Pfosten.",
         "info": "Info",
         "moreInformation": "Weitere Informationen",
+        "recommendation": "Empfehlung",
         "validationErrors": {
           "selectOption": "Wählen Sie eine Option",
           "enterNumber": "Geben Sie eine Zahl ein",

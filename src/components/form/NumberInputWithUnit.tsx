@@ -10,9 +10,10 @@ interface NumberInputWithUnitProps {
   value: number | undefined;
   onChange: (value: number | undefined) => void;
   isInvalid?: boolean;
+  "aria-describedby"?: string;
 }
 
-export const NumberInputWithUnit = ({
+export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
   id,
   placeholder,
   unit,
@@ -20,23 +21,46 @@ export const NumberInputWithUnit = ({
   max,
   value,
   onChange,
-  isInvalid,
-}: NumberInputWithUnitProps) => (
-  <div className="relative flex items-center">
-    <Input
-      id={id}
-      type="number"
-      step={1}
-      min={min}
-      max={max}
-      placeholder={placeholder}
-      className="pr-10"
-      aria-invalid={isInvalid}
-      value={value ?? ""}
-      onChange={(e) =>
-        onChange(e.target.value === "" ? undefined : Number(e.target.value))
-      }
-    />
-    <span className="text-grey absolute right-3 text-sm">{unit}</span>
-  </div>
-);
+  isInvalid = false,
+  "aria-describedby": ariaDescribedBy,
+}) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const inputValue = e.target.value;
+    if (inputValue === "") {
+      onChange(undefined);
+      return;
+    }
+
+    const numValue = Number(inputValue);
+    if (!isNaN(numValue)) {
+      onChange(numValue);
+    }
+  };
+
+  const unitId = `${id}-unit`;
+
+  return (
+    <div className="relative flex items-center">
+      <Input
+        id={id}
+        type="number"
+        step={1}
+        min={min}
+        max={max}
+        placeholder={placeholder}
+        className="pr-10"
+        aria-invalid={isInvalid}
+        aria-describedby={`${unitId} ${ariaDescribedBy || ""}`.trim()}
+        value={value ?? ""}
+        onChange={handleChange}
+      />
+      <span
+        id={unitId}
+        className="text-grey pointer-events-none absolute right-3 text-sm"
+        aria-label={`Unit: ${unit}`}
+      >
+        {unit}
+      </span>
+    </div>
+  );
+};

@@ -18,16 +18,29 @@ export default function StoreSelection({
   const t = useTranslations("Components.StoreSelection");
   const router = useRouter();
   const [saveSelection, setSaveSelection] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSelectStore = (storeUrl: string) => {
-    if (saveSelection) {
-      document.cookie = `preferredStore=${encodeURIComponent(storeUrl)}; path=/; max-age=31536000; Secure; SameSite=Strict`;
+  const handleSelectStore = async (storeUrl: string) => {
+    try {
+      setIsLoading(true);
+
+      if (saveSelection) {
+        document.cookie = `preferredStore=${encodeURIComponent(storeUrl)}; path=/; max-age=31536000; Secure; SameSite=Strict`;
+      }
+
+      router.push(storeUrl);
+    } catch (error) {
+      console.error("Failed to navigate to store:", error);
+      setIsLoading(false);
     }
-    router.push(storeUrl);
   };
 
   return (
-    <div className="no-scrollbar col-span-12 overflow-y-auto p-5 sm:p-10 xl:col-span-5 xl:p-12">
+    <div
+      className="no-scrollbar col-span-12 overflow-y-auto p-5 sm:p-10 xl:col-span-5 xl:p-12"
+      role="region"
+      aria-label={t("selectCountry")}
+    >
       {preferredStore && (
         <>
           <h1 className="mb-5 text-2xl font-bold">{t("selectCountry")}</h1>
@@ -41,6 +54,7 @@ export default function StoreSelection({
               store={preferredStore}
               isPreferred={true}
               onSelectStore={handleSelectStore}
+              disabled={isLoading}
             />
           </div>
           <p className="text-neutral-grey mb-2 text-sm font-semibold">
@@ -49,10 +63,20 @@ export default function StoreSelection({
         </>
       )}
 
-      <ul className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(min(272px,100%),1fr))] gap-3">
+      <ul
+        className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(min(272px,100%),1fr))] gap-3"
+        role="list"
+        aria-label={
+          otherStores.length > 0 ? t("otherCountryPreference") : undefined
+        }
+      >
         {otherStores.map((store) => (
-          <li key={store.countryCode}>
-            <StoreCard store={store} onSelectStore={handleSelectStore} />
+          <li key={store.countryCode} role="listitem">
+            <StoreCard
+              store={store}
+              onSelectStore={handleSelectStore}
+              disabled={isLoading}
+            />
           </li>
         ))}
       </ul>
@@ -63,6 +87,7 @@ export default function StoreSelection({
           id="savePreference"
           checked={saveSelection}
           onCheckedChange={(checked) => setSaveSelection(checked === true)}
+          disabled={isLoading}
         />
         <Label className="cursor-pointer font-medium" htmlFor="savePreference">
           {t("saveSelection")}

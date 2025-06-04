@@ -29,6 +29,8 @@ const articulatCF = localFont({
     },
   ],
   variable: "--font-articulat-cf",
+  fallback: ["system-ui", "sans-serif"],
+  display: "swap",
 });
 
 export async function generateMetadata(): Promise<Metadata> {

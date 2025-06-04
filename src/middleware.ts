@@ -1,21 +1,29 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-// Middleware function that intercepts incoming requests.
 export function middleware(request: NextRequest) {
-  // Attempt to retrieve the value of the "preferredStore" cookie from the request.
-  const preferredStoreCookie = request.cookies.get("preferredStore")?.value;
+  try {
+    const preferredStoreCookie = request.cookies.get("preferredStore")?.value;
 
-  // If the "preferredStore" cookie exists, redirect the user to the stored URL.
-  if (preferredStoreCookie) {
-    return NextResponse.redirect(preferredStoreCookie);
+    if (preferredStoreCookie) {
+      // Validate URL format before redirecting
+      try {
+        new URL(preferredStoreCookie);
+        return NextResponse.redirect(preferredStoreCookie);
+      } catch {
+        // Invalid URL in cookie, clear it and continue
+        const response = NextResponse.next();
+        response.cookies.delete("preferredStore");
+        return response;
+      }
+    }
+  } catch (error) {
+    console.error("Middleware error:", error);
   }
 
-  // If the cookie does not exist, proceed with the request as usual.
   return NextResponse.next();
 }
 
-// Export the middleware configuration to specify which paths it should apply to.
 export const config = {
   matcher: ["/((?!api|_next|.*\\..*).*)"],
 };

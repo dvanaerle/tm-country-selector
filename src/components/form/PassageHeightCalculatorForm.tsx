@@ -418,7 +418,7 @@ export function PassageHeightCalculatorForm({
                       <RadioGroupCards.Item
                         key={option.value}
                         value={option.value}
-                        className="ring-light-grey text-grey data-[state=checked]:ring-green data-[state=checked]:text-green rounded px-3 py-1.5 text-sm ring data-[state=checked]:font-semibold data-[state=checked]:ring-1"
+                        className="focus-visible:ring-grey/50 border-light-grey data-[state=checked]:text-green text-grey data-[state=checked]:border-green focus-visible:border-green rounded border px-3 py-1.5 text-sm outline-none focus-visible:ring-2 data-[state=checked]:font-semibold"
                       >
                         <span>{option.label}</span>
                       </RadioGroupCards.Item>

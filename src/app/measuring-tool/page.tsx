@@ -23,7 +23,10 @@ export default function MeasuringTool() {
   return (
     <>
       <Header />
-      <main className="container mx-auto min-h-[calc(100dvh-(--spacing(19)))] px-4 py-12 sm:px-6 xl:py-20">
+      <main
+        className="container mx-auto min-h-[calc(100dvh-(--spacing(19)))] px-4 py-12 sm:px-6 xl:py-20"
+        role="main"
+      >
         <section className="grid grid-cols-12 items-start lg:gap-x-8">
           <div className="col-span-12 lg:col-span-7">
             <Image
@@ -43,23 +46,31 @@ export default function MeasuringTool() {
             />
           </div>
 
-          <section className="col-span-12 rounded-b-lg bg-white p-5 sm:p-10 lg:sticky lg:top-8 lg:col-span-5 lg:rounded-lg">
-            <h1 className="mb-4 text-2xl font-bold">
+          <section
+            className="col-span-12 rounded-b-lg bg-white p-5 sm:p-10 lg:sticky lg:top-8 lg:col-span-5 lg:rounded-lg"
+            role="region"
+            aria-labelledby="measuring-tool-heading"
+          >
+            <h1 id="measuring-tool-heading" className="mb-4 text-2xl font-bold">
               {t.rich("heading", {
                 sup: (chunks) => <sup>{chunks}</sup>,
               })}
             </h1>
 
-            <Tabs defaultValue="wall-profile-height">
-              <TabsList>
-                <TabsTrigger value="wall-profile-height">
+            <Tabs
+              defaultValue="wall-profile-height"
+              aria-label={t("a11y.calculatorTabsLabel")}
+            >
+              <TabsList role="tablist">
+                <TabsTrigger value="wall-profile-height" role="tab">
                   {t("tabs.wallProfileHeight")}
                 </TabsTrigger>
-                <TabsTrigger value="height-lower-gutter">
+                <TabsTrigger value="height-lower-gutter" role="tab">
                   {t("tabs.heightBottomGutter")}
                 </TabsTrigger>
               </TabsList>
-              <TabsContent value="wall-profile-height">
+
+              <TabsContent value="wall-profile-height" role="tabpanel">
                 <PassageHeightCalculatorForm
                   formType="wallProfile"
                   mainInputLabelKey="Form.WallProfileHeight.label"
@@ -68,7 +79,8 @@ export default function MeasuringTool() {
                   submitButtonTextKey="Form.Common.calculatePassageHeight"
                 />
               </TabsContent>
-              <TabsContent value="height-lower-gutter">
+
+              <TabsContent value="height-lower-gutter" role="tabpanel">
                 <PassageHeightCalculatorForm
                   formType="gutterHeight"
                   mainInputLabelKey="Form.HeightBottomGutter.label"

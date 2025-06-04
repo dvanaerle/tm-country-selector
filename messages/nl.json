@@ -7,7 +7,8 @@
         "keywords": "terrasoverkapping, glazen schuifwand, aluminium terrasoverkapping, bouwpakket, schuifpui, tuinoverkapping, laagste prijs garantie"
       },
       "a11y": {
-        "heroImageAlt": "Moderne terrasoverkapping van Tuinmaximaal met mat zwart aluminium frame en glazen schuifwanden."
+        "heroImageAlt": "Moderne terrasoverkapping van Tuinmaximaal met mat zwart aluminium frame en glazen schuifwanden.",
+        "mainContentLabel": "Homepagina-inhoud met shop selectie"
       }
     },
     "NotFound": {
@@ -19,7 +20,8 @@
       "description": "We kunnen de pagina die je zoekt niet vinden. Maar geen zorgen, we helpen je graag verder!",
       "backToHome": "Terug naar Home",
       "a11y": {
-        "imageAlt": "404 illustratie"
+        "imageAlt": "404 fout illustratie",
+        "backToHomeDescription": "Navigeer terug naar de startpagina"
       }
     },
     "MeasuringTool": {
@@ -34,6 +36,7 @@
       },
       "a11y": {
         "measuringSlopeImageAlt": "Afbeelding die laat zien hoe de afschot van het terras gemeten wordt",
+        "calculatorTabsLabel": "Hoogte berekening opties",
         "measuringHeightPavingAlt": "Het meten van de hoogte vanaf bestaande bestrating tot de onderkant van de goot van de Tuinmaximaal terrasoverkapping met een meetlint, essentieel voor het plaatsen van glazen schuifwanden.",
         "measuringHeightRecessedAlt": "Nauwkeurig meten van de installatiehoogte voor Tuinmaximaal glazen schuifwanden vanaf een verzonken funderingsgoot tot het bovenframe van de terrasoverkapping.",
         "assessingSlopeAlt": "Beoordelen van de afloop van het terras met een waterpas en hoogtemeting, een cruciale stap vóór het installeren van Tuinmaximaal glazen schuifwanden.",
@@ -45,7 +48,8 @@
   "Components": {
     "Header": {
       "a11y": {
-        "logoAriaLabel": "Tuinmaximaal homepage"
+        "logoAriaLabel": "Tuinmaximaal homepage",
+        "mainNavigation": "Hoofdnavigatie"
       }
     },
     "StoreSelection": {
@@ -55,6 +59,7 @@
       "saveSelection": "Mijn selectie bewaren voor een volgend bezoek."
     },
     "StoreCard": {
+      "selectCountry": "Selecteer land",
       "goToStore": "Ga verder naar de Nederlandse webshop",
       "a11y": {
         "flagAlt": "Vlag van {country}"
@@ -82,6 +87,7 @@
         "maximumPostsRule": "De maximale doorloophoogte is <strong>2500 mm</strong> vanwege de standaardhoogte van de staanders.",
         "info": "Info",
         "moreInformation": "Meer informatie",
+        "recommendation": "Aanbeveling",
         "validationErrors": {
           "selectOption": "Selecteer een optie",
           "enterNumber": "Voer een getal in",

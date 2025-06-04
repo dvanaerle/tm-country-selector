@@ -9,8 +9,10 @@ const alertVariants = cva(
     variants: {
       variant: {
         default: "bg-light-grey text-green",
-        success: "bg-success-50 border border-success-600/20 text-success-600",
-        error: "bg-error-50 border border-error-600/20 text-error-600",
+        success:
+          "bg-success-500/8 border border-success-500/20 text-success-600",
+        error: "bg-error-500/6 border border-error-500/20 text-error-600",
+        info: "bg-info-500/8 border border-info-500/20 text-info-600",
       },
     },
     defaultVariants: {
@@ -51,10 +53,7 @@ function AlertDescription({
   return (
     <div
       data-slot="alert-description"
-      className={cn(
-        "col-start-2 grid justify-items-start gap-1 [&_p]:leading-relaxed",
-        className,
-      )}
+      className={cn("col-start-2 grid justify-items-start gap-1", className)}
       {...props}
     />
   );

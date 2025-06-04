@@ -1,4 +1,3 @@
-
 import React from "react";
 import { useTranslations } from "next-intl";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
@@ -41,17 +40,22 @@ export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
   });
 
   const alertVariant = isOutputInRange && !recommendation ? "success" : "error";
+  const alertRole = alertVariant === "error" ? "alert" : "status";
 
-  const renderSuccessContent = () => (
-    <span>
-      {t.rich("Form.Common.rangeSuccess", {
-        within: t("Form.Common.rangeSuccessWithin"),
-        min: outputRange![0],
-        max: outputRange![1],
-        strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
-      })}
-    </span>
-  );
+  const renderSuccessContent = () => {
+    if (!outputRange) return null;
+
+    return (
+      <span>
+        {t.rich("Form.Common.rangeSuccess", {
+          within: t("Form.Common.rangeSuccessWithin"),
+          min: outputRange[0],
+          max: outputRange[1],
+          strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
+        })}
+      </span>
+    );
+  };
 
   const renderErrorContent = () => (
     <>
@@ -80,7 +84,11 @@ export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
       )}
 
       {recommendation && (
-        <p className="mt-2">
+        <div
+          className="mt-2"
+          role="region"
+          aria-label={t("Form.Common.recommendation")}
+        >
           {formType === "wallProfile"
             ? t.rich("Form.WallProfileHeight.recommendation", {
                 currentResult: calculatedOutput,
@@ -96,13 +104,13 @@ export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
                 max: recommendation.newOutputRange[1],
                 strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
               })}
-        </p>
+        </div>
       )}
     </>
   );
 
   return (
-    <Alert variant={alertVariant} role="alert" aria-live="polite">
+    <Alert variant={alertVariant} role={alertRole} aria-live="polite">
       {alertVariant === "success" ? (
         <CheckCircleLine aria-hidden="true" />
       ) : (

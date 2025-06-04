@@ -9,16 +9,18 @@ interface YesNoRadioGroupProps {
   onChange: (value: string) => void;
   yesLabel: string;
   noLabel: string;
+  "aria-describedby"?: string;
 }
 
-export const YesNoRadioGroup = ({
+export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
   id,
   name,
   value,
   onChange,
   yesLabel,
   noLabel,
-}: YesNoRadioGroupProps) => {
+  "aria-describedby": ariaDescribedBy,
+}) => {
   const options = [
     { id: `${id}-yes`, value: "checked", label: yesLabel },
     { id: `${id}-no`, value: "unchecked", label: noLabel },
@@ -30,6 +32,7 @@ export const YesNoRadioGroup = ({
       value={value}
       className="flex space-x-4"
       name={name}
+      aria-describedby={ariaDescribedBy}
     >
       {options.map((option) => (
         <div key={option.id} className="flex items-center space-x-2">
@@ -38,7 +41,10 @@ export const YesNoRadioGroup = ({
             id={option.id}
             className="peer"
           />
-          <Label className="cursor-pointer font-medium" htmlFor={option.id}>
+          <Label
+            className="cursor-pointer font-medium peer-focus-visible:outline-none"
+            htmlFor={option.id}
+          >
             {option.label}
           </Label>
         </div>
