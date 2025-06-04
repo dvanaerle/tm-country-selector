@@ -84,7 +84,7 @@
         "rangeSuccessWithin": "within",
         "rangeSuccessOutside": "outside",
         "rangeError": "This falls <strong>{outside}</strong> the passage height range of Tuinmaximaal.",
-        "maximumPostsRule": "The maximum passage height is <strong>2500 mm</strong> due to the standard height of the posts.",
+        "maximumPostsRule": "The maximum passage height is <strong>{maxPassageHeight} mm</strong> due to the standard height of the posts.",
         "info": "Info",
         "moreInformation": "More information",
         "recommendation": "Recommendation",

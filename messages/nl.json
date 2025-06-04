@@ -84,7 +84,7 @@
         "rangeSuccessWithin": "binnen",
         "rangeSuccessOutside": "buiten",
         "rangeError": "Dit valt <strong>{outside}</strong> het doorloophoogtebereik van Tuinmaximaal.",
-        "maximumPostsRule": "De maximale doorloophoogte is <strong>2500 mm</strong> vanwege de standaardhoogte van de staanders.",
+        "maximumPostsRule": "De maximale doorloophoogte is <strong>{maxPassageHeight} mm</strong> vanwege de standaardhoogte van de staanders.",
         "info": "Info",
         "moreInformation": "Meer informatie",
         "recommendation": "Aanbeveling",

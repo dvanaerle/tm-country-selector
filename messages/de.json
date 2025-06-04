@@ -84,7 +84,7 @@
         "rangeSuccessWithin": "innerhalb",
         "rangeSuccessOutside": "außerhalb",
         "rangeError": "Dies liegt <strong>{outside}</strong> dem Durchgangshöhenbereich von Tuinmaximaal.",
-        "maximumPostsRule": "Die maximale Durchgangshöhe beträgt <strong>2500 mm</strong> aufgrund der Standardhöhe der Pfosten.",
+        "maximumPostsRule": "Die maximale Durchgangshöhe beträgt <strong>{maxPassageHeight} mm</strong> aufgrund der Standardhöhe der Pfosten.",
         "info": "Info",
         "moreInformation": "Weitere Informationen",
         "recommendation": "Empfehlung",

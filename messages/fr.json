@@ -84,7 +84,7 @@
         "rangeSuccessWithin": "dans",
         "rangeSuccessOutside": "en dehors de",
         "rangeError": "Cela se situe <strong>{outside}</strong> la plage de hauteur de passage de Tuinmaximaal.",
-        "maximumPostsRule": "La hauteur de passage maximale est de <strong>2500 mm</strong> en raison de la hauteur standard des poteaux.",
+        "maximumPostsRule": "La hauteur de passage maximale est de <strong>{maxPassageHeight} mm</strong> en raison de la hauteur standard des poteaux.",
         "info": "Info",
         "moreInformation": "Plus d'informations",
         "recommendation": "Recommandation",
