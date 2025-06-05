@@ -116,7 +116,7 @@
         "tooltip": "Ceci est la \"hauteur de passage\": la distance entre le haut de votre fondation/pavage et le dessous plat de la gouttière de votre véranda (existante). Mesurez-la en trois points (gauche, centre, droite) et utilisez la valeur la plus basse mesurée. Pour une terrasse sans pente (0°), c'est la mesure verticale directe.",
         "MeasuringHeightPavingCaption": "Mesure de la hauteur depuis le sol jusqu'au dessous de la gouttière.",
         "placeholder": "Hauteur jusqu'au bas de la gouttière",
-        "heightBottomGutterResult": "La hauteur calculée jusqu'au bas de la gouttière est : <strong>{result} mm</strong>.",
+        "heightBottomGutterResult": "La hauteur calculée jusqu'au bas du profil mural est de : <strong>{result} mm</strong>.",
         "validationErrors": {
           "min": "La hauteur jusqu'au bas de la gouttière doit être d'au moins {min} mm.",
           "max": "La hauteur jusqu'au bas de la gouttière ne doit pas dépasser {max} mm."

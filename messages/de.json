@@ -116,7 +116,7 @@
         "tooltip": "Dies ist die \"Durchgangshöhe\": der Abstand von der Oberkante Ihres Fundaments/Pflasters bis zur flachen Unterseite der Rinne Ihrer (bestehenden) Terrassenüberdachung. Messen Sie dies an drei Punkten (links, Mitte, rechts) und verwenden Sie den niedrigsten gemessenen Wert. Bei einer Terrasse ohne Gefälle (0°) ist dies das direkte vertikale Maß.",
         "MeasuringHeightPavingCaption": "Messung der Höhe vom Boden bis zur Unterkante der Rinne.",
         "placeholder": "Höhe bis Unterkante Rinne",
-        "heightBottomGutterResult": "Die berechnete Höhe bis Unterkante Rinne beträgt: <strong>{result} mm</strong>.",
+        "heightBottomGutterResult": "Die berechnete Höhe bis zur Unterkante des Wandprofils beträgt: <strong>{result} mm</strong>.",
         "validationErrors": {
           "min": "Die Höhe bis Unterkante Rinne muss mindestens {min} mm betragen.",
           "max": "Die Höhe bis Unterkante Rinne darf höchstens {max} mm betragen."

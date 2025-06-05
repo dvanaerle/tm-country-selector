@@ -116,7 +116,7 @@
         "tooltip": "This is the \"passage height\": the distance from the top of your foundation/paving to the flat underside of the gutter of your (existing) veranda. Measure this at three points (left, centre, right) and use the lowest measured value. For a terrace with no slope (0°), this is the direct vertical measurement.",
         "MeasuringHeightPavingCaption": "Measuring the height from the ground to the underside of the gutter.",
         "placeholder": "Height to bottom of gutter",
-        "heightBottomGutterResult": "The calculated height to bottom of gutter is: <strong>{result} mm</strong>.",
+        "heightBottomGutterResult": "The calculated height to the bottom edge of the wall profile is: <strong>{result} mm</strong>.",
         "validationErrors": {
           "min": "The height to bottom of gutter must be at least {min} mm.",
           "max": "The height to bottom of gutter may not exceed {max} mm."

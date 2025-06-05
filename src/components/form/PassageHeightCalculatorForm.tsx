@@ -26,7 +26,7 @@ import MeasuringWidthSide from "/public/images/measuring-width-side.jpg";
 
 // Configuration constants
 const config = {
-  depths: [2, 2.5, 3, 3.5, 4] as const,
+  depths: [2.5, 3, 3.5, 4] as const,
   angle: (8 * Math.PI) / 180, // Convert to radians once
   adjustments: {
     depthPrimary: 4.59,
@@ -324,7 +324,6 @@ export function PassageHeightCalculatorForm({
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: "onChange",
-    defaultValues: { slope: 0 },
   });
 
   useEffect(() => {
