@@ -31,9 +31,22 @@ const config = {
   ] as [number, number][],
 } as const;
 
+// Type definitions
 type FormType = "wallProfile" | "gutterHeight";
 type RailSlope = "checked" | "unchecked";
 export type FormValues = z.infer<ReturnType<typeof createSchema>>;
+
+// Types for validated data to avoid non-null assertions
+type ValidatedWallProfileForm = FormValues & {
+  wallProfileHeight: number;
+  depth: number;
+  railSystemSlope: RailSlope;
+};
+type ValidatedGutterHeightForm = FormValues & {
+  heightBottomGutter: number;
+  depth: number;
+  railSystemSlope: RailSlope;
+};
 
 // Logic for calculations
 const calculator = {
@@ -88,7 +101,6 @@ const calculator = {
     return Math.round(wallProfile);
   },
 
-  // DEDICATED SUGGESTION FUNCTION: The true mathematical inverse of calculateFromWallProfile.
   calculateInverseForWallProfileSuggestion(
     depth: number,
     slope: number,
@@ -167,7 +179,6 @@ const calculator = {
       targetOutput = Math.min(targetOutput, config.limits.maxPassageHeight);
     }
 
-    // Now calls the correct dedicated inverse function for each form type.
     const recommendedInput =
       formType === "wallProfile"
         ? this.calculateInverseForWallProfileSuggestion(
@@ -295,33 +306,34 @@ export function usePassageHeightCalculator(formType: FormType) {
   const schema = useMemo(() => createSchema(t, formType), [t, formType]);
 
   const calculateResult = (values: FormValues) => {
-    let output: number;
-    let topWallProfileHeight: number | null = null;
     const slope = values.slope ?? 0;
 
     if (formType === "wallProfile") {
-      output = calculator.calculateFromWallProfile(
-        values.depth,
+      const validValues = values as ValidatedWallProfileForm;
+      const passageHeight = calculator.calculateFromWallProfile(
+        validValues.depth,
         slope,
-        values.wallProfileHeight!,
-        values.railSystemSlope,
+        validValues.wallProfileHeight,
+        validValues.railSystemSlope,
       );
+      const { range } = calculator.checkRange(passageHeight, "wallProfile");
+      return { output: passageHeight, topWallProfileHeight: null, range };
     } else {
-      output = calculator.calculateFromGutterHeight(
-        values.depth,
+      const validValues = values as ValidatedGutterHeightForm;
+      const wallProfile = calculator.calculateFromGutterHeight(
+        validValues.depth,
         slope,
-        values.heightBottomGutter!,
-        values.railSystemSlope,
+        validValues.heightBottomGutter,
+        validValues.railSystemSlope,
       );
       const { wallToGutterDiff } = calculator.calculateDimensions(
-        values.depth,
+        validValues.depth,
         slope,
       );
-      topWallProfileHeight = Math.round(output + wallToGutterDiff);
+      const topWallProfileHeight = Math.round(wallProfile + wallToGutterDiff);
+      const { range } = calculator.checkRange(wallProfile, "gutterHeight");
+      return { output: wallProfile, topWallProfileHeight, range };
     }
-
-    const { range } = calculator.checkRange(output, formType);
-    return { output, topWallProfileHeight, range };
   };
 
   return { t, schema, config, calculateResult };
