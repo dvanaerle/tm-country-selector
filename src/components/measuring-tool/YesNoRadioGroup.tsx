@@ -35,7 +35,7 @@ export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
   return (
     <RadioGroup
       onValueChange={handleValueChange}
-      value={String(value)}
+      value={value === undefined ? "" : String(value)}
       className="flex space-x-4"
       name={name}
       aria-describedby={ariaDescribedBy}

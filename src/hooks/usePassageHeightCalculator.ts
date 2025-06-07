@@ -84,8 +84,27 @@ const calculator = {
       depth,
       slope,
     );
-    // This maintains the intuitive slope behavior for the user.
     const wallProfile = targetGutterHeight + wallToGutterDiff + slopeDrop;
+    return Math.round(wallProfile);
+  },
+
+  // DEDICATED SUGGESTION FUNCTION: The true mathematical inverse of calculateFromWallProfile.
+  calculateInverseForWallProfileSuggestion(
+    depth: number,
+    slope: number,
+    targetPassageHeight: number,
+    railSlope: RailSlope,
+  ) {
+    const targetGutterHeight =
+      railSlope === "checked"
+        ? targetPassageHeight - config.adjustments.railSlope
+        : targetPassageHeight;
+    const { wallToGutterDiff, slopeDrop } = this.calculateDimensions(
+      depth,
+      slope,
+    );
+    // The true inverse must subtract slopeDrop.
+    const wallProfile = targetGutterHeight + wallToGutterDiff - slopeDrop;
     return Math.round(wallProfile);
   },
 
@@ -148,9 +167,10 @@ const calculator = {
       targetOutput = Math.min(targetOutput, config.limits.maxPassageHeight);
     }
 
+    // Now calls the correct dedicated inverse function for each form type.
     const recommendedInput =
       formType === "wallProfile"
-        ? this.calculateFromGutterHeight(
+        ? this.calculateInverseForWallProfileSuggestion(
             depth,
             slope,
             targetOutput,
@@ -293,7 +313,6 @@ export function usePassageHeightCalculator(formType: FormType) {
         values.heightBottomGutter!,
         values.railSystemSlope,
       );
-      // The height difference is calculated dynamically.
       const { wallToGutterDiff } = calculator.calculateDimensions(
         values.depth,
         slope,
