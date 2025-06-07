@@ -1,10 +1,12 @@
 import React from "react";
 import { Input } from "@/components/ui/input";
+import { useTranslations } from "next-intl";
 
 interface NumberInputWithUnitProps {
   id: string;
   placeholder: string;
   unit: string;
+  t: ReturnType<typeof useTranslations>;
   min?: number;
   max?: number;
   value: number | undefined;
@@ -18,6 +20,7 @@ export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
   id,
   placeholder,
   unit,
+  t,
   min,
   max,
   value,
@@ -60,7 +63,7 @@ export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
       <span
         id={unitId}
         className="text-grey pointer-events-none absolute right-3 text-sm transition-opacity peer-disabled:opacity-50"
-        aria-label={`Unit: ${unit}`}
+        aria-label={t("Form.Common.unitLabel", { unit })}
       >
         {unit}
       </span>

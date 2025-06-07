@@ -35,6 +35,9 @@
         "heightBottomGutter": "Height to bottom of gutter"
       },
       "a11y": {
+        "measuringToolVideoTitle": "Measuring instructions Gumax® glass sliding doors - New Gumax® veranda",
+        "measuringToolVideoDescription": "If you have not yet installed the Gumax® veranda, for example because you want to order it at the same time as a glass sliding wall, use this instruction and the measurement tool to determine the correct rail system for your Gumax® glass sliding wall.",
+        "measuringToolVideoAlt": "Video with measuring instructions for the Gumax® glass sliding wall, including tips for measuring the height and slope of the veranda.",
         "measuringSlopeImageAlt": "Image showing how to measure terrace slope",
         "calculatorTabsLabel": "Height calculation options",
         "measuringHeightPavingAlt": "Measuring the height from existing paving to the underside of the gutter of a Tuinmaximaal Veranda using a tape measure, essential for fitting Glass Sliding Doors.",
@@ -77,6 +80,7 @@
         "slopePlaceholder": "Terrace slope",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "metre",
+        "unitLabel": "Unit: {unit}",
         "calculatePassageHeight": "Calculate passage height",
         "calculateBottomWallProfileHeight": "Calculate height to bottom of wall profile",
         "passageHeightResult": "The calculated passage height is: <strong>{result} mm</strong>.",
@@ -125,8 +129,15 @@
           "min": "The height to bottom of gutter must be at least {min} mm.",
           "max": "The height to bottom of gutter may not exceed {max} mm."
         },
-        "recommendation": "Try a height to bottom of gutter of <strong>{recommendedGutterBottomHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>."
+        "recommendation": "Try a height to bottom of gutter of <strong>{recommendedGutterBottomHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>.",
+        "wallProfileHeightsResultTitle": "The calculated wall profile heights:",
+        "bottomWallProfileHeightLabel": "Bottom of wall profile: <strong>{height} mm</strong>",
+        "topWallProfileHeightLabel": "Top of wall profile: <strong>{height} mm</strong>",
+        "walkthroughHeightRangeLabel": "Choose rail system passage height: <strong>{min} - {max} mm</strong>."
       }
     }
+  },
+  "Video": {
+    "playVideoAriaLabel": "Play video about {title}"
   }
 }

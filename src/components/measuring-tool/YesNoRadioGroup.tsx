@@ -5,13 +5,14 @@ import { Label } from "@/components/ui/label";
 interface YesNoRadioGroupProps {
   id: string;
   name: string;
-  value: string;
-  onChange: (value: string) => void;
+  value: boolean | undefined;
+  onChange: (value: boolean) => void;
   yesLabel: string;
   noLabel: string;
   "aria-describedby"?: string;
 }
 
+// A reusable radio group for "Yes" or "No" selections, using boolean values.
 export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
   id,
   name,
@@ -22,14 +23,19 @@ export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
   "aria-describedby": ariaDescribedBy,
 }) => {
   const options = [
-    { id: `${id}-yes`, value: "checked", label: yesLabel },
-    { id: `${id}-no`, value: "unchecked", label: noLabel },
+    { id: `${id}-yes`, value: "true", label: yesLabel },
+    { id: `${id}-no`, value: "false", label: noLabel },
   ];
+
+  // Converts the radio group's string output to a boolean before calling onChange.
+  const handleValueChange = (val: string) => {
+    onChange(val === "true");
+  };
 
   return (
     <RadioGroup
-      onValueChange={onChange}
-      value={value}
+      onValueChange={handleValueChange}
+      value={String(value)}
       className="flex space-x-4"
       name={name}
       aria-describedby={ariaDescribedBy}

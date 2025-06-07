@@ -80,6 +80,7 @@
         "slopePlaceholder": "Afloop terras",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "meter",
+        "unitLabel": "Eenheid: {unit}",
         "calculatePassageHeight": "Bereken doorloophoogte onderkant goot",
         "calculateBottomWallProfileHeight": "Bereken hoogtes muurprofiel",
         "passageHeightResult": "De berekende doorloophoogte onderkant goot is: <strong>{result} mm</strong>.",
@@ -135,5 +136,8 @@
         "walkthroughHeightRangeLabel": "Kies doorloophoogte railsysteem: <strong>{min} - {max} mm</strong>."
       }
     }
+  },
+  "Video": {
+    "playVideoAriaLabel": "Video afspelen over {title}"
   }
 }

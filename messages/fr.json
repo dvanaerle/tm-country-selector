@@ -35,6 +35,9 @@
         "heightBottomGutter": "Hauteur jusqu'au bas de la gouttière"
       },
       "a11y": {
+        "measuringToolVideoTitle": "Instructions de mesure pour les parois coulissantes en verre Gumax® - Nouvelle véranda Gumax®",
+        "measuringToolVideoDescription": "Si vous n'avez pas encore installé la véranda Gumax®, par exemple parce que vous souhaitez la commander en même temps qu'une paroi coulissante en verre, utilisez ces instructions et l'outil de mesure pour déterminer le système de rails adapté à votre paroi coulissante en verre Gumax®.",
+        "measuringToolVideoAlt": "Vidéo avec instructions de mesure pour la paroi coulissante en verre Gumax®, avec des conseils pour mesurer la hauteur et la pente de la véranda.",
         "measuringSlopeImageAlt": "Image montrant comment mesurer la pente de la terrasse",
         "calculatorTabsLabel": "Options de calcul de hauteur",
         "measuringHeightPavingAlt": "Mesure de la hauteur depuis le pavage existant jusqu'à la sous-face de la gouttière de la Véranda Tuinmaximaal à l'aide d'un mètre ruban, essentielle pour l'installation de Portes et baies coulissantes.",
@@ -54,7 +57,7 @@
     },
     "StoreSelection": {
       "selectCountry": "Sélectionnez votre pays",
-      "areYouFrom": "Venez-vous de {country} ?",
+      "areYouFrom": "Venez-vous de {country}?",
       "otherCountryPreference": "Préférence pour un autre pays ?",
       "saveSelection": "Enregistrer ma sélection pour les prochaines visites."
     },
@@ -77,6 +80,7 @@
         "slopePlaceholder": "Pente de la terrasse",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "mètre",
+        "unitLabel": "Unité : {unit}",
         "calculatePassageHeight": "Calculer la hauteur de passage",
         "calculateBottomWallProfileHeight": "Calculer la hauteur jusqu'au bas du profilé mural",
         "passageHeightResult": "La hauteur de passage calculée est de : <strong>{result} mm</strong>.",
@@ -125,8 +129,15 @@
           "min": "La hauteur jusqu'au bas de la gouttière doit être d'au moins {min} mm.",
           "max": "La hauteur jusqu'au bas de la gouttière ne doit pas dépasser {max} mm."
         },
-        "recommendation": "Essayez une hauteur jusqu'au bas de la gouttière de <strong>{recommendedGutterBottomHeight} mm</strong> pour vous situer dans la plage de hauteur de passage de <strong>{min} - {max} mm</strong>."
+        "recommendation": "Essayez une hauteur jusqu'au bas de la gouttière de <strong>{recommendedGutterBottomHeight} mm</strong> pour vous situer dans la plage de hauteur de passage de <strong>{min} - {max} mm</strong>.",
+        "wallProfileHeightsResultTitle": "Les hauteurs de profilé mural calculées :",
+        "bottomWallProfileHeightLabel": "Bas du profilé mural : <strong>{height} mm</strong>",
+        "topWallProfileHeightLabel": "Haut du profilé mural : <strong>{height} mm</strong>",
+        "walkthroughHeightRangeLabel": "Choisissez la hauteur de passage du système de rails : <strong>{min} - {max} mm</strong>."
       }
     }
+  },
+  "Video": {
+    "playVideoAriaLabel": "Lancer la vidéo sur {title}"
   }
 }

@@ -3,9 +3,9 @@
 import { useState } from "react";
 import Image, { StaticImageData } from "next/image";
 import PlayCircleFill from "/public/icons/MingCute/play_circle_fill.svg";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 
-interface VideoPlayerProps {
+interface VideoProps {
   videoUrls: {
     [locale: string]: string;
     fallback: string;
@@ -20,7 +20,7 @@ interface VideoPlayerProps {
   placeholder?: "blur" | "empty" | `data:image/${string}`;
 }
 
-export default function VideoPlayer({
+export default function Video({
   videoUrls,
   overlayImage,
   title,
@@ -30,9 +30,10 @@ export default function VideoPlayer({
   sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   placeholder = "blur",
   className,
-}: VideoPlayerProps) {
+}: VideoProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const locale = useLocale();
+  const t = useTranslations("Video");
 
   const selectedVideoUrl = videoUrls[locale] || videoUrls.fallback;
 
@@ -50,7 +51,7 @@ export default function VideoPlayer({
       {!isPlaying && (
         <button
           onClick={() => setIsPlaying(true)}
-          aria-label={`Play video about ${title}`}
+          aria-label={t("playVideoAriaLabel", { title })}
           className="absolute inset-0 z-20 flex items-center justify-center"
           type="button"
         >

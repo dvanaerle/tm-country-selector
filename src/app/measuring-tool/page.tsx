@@ -5,8 +5,8 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import MeasuringVideoThumb from "/public/images/measuring-video-thumb.jpg";
-import { PassageHeightCalculatorForm } from "@/components/form/PassageHeightCalculatorForm";
-import VideoPlayer from "@/components/ui/video-player";
+import { PassageHeightCalculatorForm } from "@/components/measuring-tool/PassageHeightCalculatorForm";
+import Video from "@/components/ui/video";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Pages.MeasuringTool.metaData");
@@ -29,7 +29,7 @@ export default function MeasuringTool() {
       >
         <section className="grid grid-cols-12 items-start lg:gap-x-8">
           <div className="col-span-12 lg:col-span-7">
-            <VideoPlayer
+            <Video
               videoUrls={{
                 fallback: "https://www.youtube.com/embed/4Lyr89rL_Fg",
               }}

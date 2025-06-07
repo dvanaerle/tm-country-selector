@@ -35,6 +35,9 @@
         "heightBottomGutter": "Höhe bis Unterkante Rinne"
       },
       "a11y": {
+        "measuringToolVideoTitle": "Messanleitung Gumax® Glasschiebewand - Neue Gumax® Überdachung",
+        "measuringToolVideoDescription": "Haben Sie die Gumax® Terrassenüberdachung noch nicht installiert, zum Beispiel weil Sie sie gleichzeitig mit einer Glasschiebewand bestellen möchten? Nutzen Sie diese Anleitung und die Messhilfe zur Bestimmung des richtigen Schienensystems für Ihre Gumax® Glasschiebewand.",
+        "measuringToolVideoAlt": "Video mit Messanleitungen für die Gumax® Glasschiebewand, inklusive Tipps zum Messen der Höhe und Neigung der Terrassenüberdachung.",
         "measuringSlopeImageAlt": "Abbildung zur Messung der Terrassenneigung",
         "calculatorTabsLabel": "Höhenberechnung Optionen",
         "measuringHeightPavingAlt": "Messen der Höhe vom vorhandenen Pflaster bis zur Unterkante der Rinne der Tuinmaximaal Terrassenüberdachung mittels Maßband, unerlässlich für den Einbau von Glasschiebewänden.",
@@ -77,6 +80,7 @@
         "slopePlaceholder": "Terrassengefälle",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "Meter",
+        "unitLabel": "Einheit: {unit}",
         "calculatePassageHeight": "Durchgangshöhe berechnen",
         "calculateBottomWallProfileHeight": "Höhe bis Unterkante Wandprofil berechnen",
         "passageHeightResult": "Die berechnete Durchgangshöhe beträgt: <strong>{result} mm</strong>.",
@@ -125,8 +129,15 @@
           "min": "Die Höhe bis Unterkante Rinne muss mindestens {min} mm betragen.",
           "max": "Die Höhe bis Unterkante Rinne darf höchstens {max} mm betragen."
         },
-        "recommendation": "Versuchen Sie eine Höhe bis Unterkante Rinne von <strong>{recommendedGutterBottomHeight} mm</strong>, um in den Durchgangshöhenbereich von <strong>{min} - {max} mm</strong> zu fallen."
+        "recommendation": "Versuchen Sie eine Höhe bis Unterkante Rinne von <strong>{recommendedGutterBottomHeight} mm</strong>, um in den Durchgangshöhenbereich von <strong>{min} - {max} mm</strong> zu fallen.",
+        "wallProfileHeightsResultTitle": "Die berechneten Wandprofilhöhen:",
+        "bottomWallProfileHeightLabel": "Unterkante Wandprofil: <strong>{height} mm</strong>",
+        "topWallProfileHeightLabel": "Oberkante Wandprofil: <strong>{height} mm</strong>",
+        "walkthroughHeightRangeLabel": "Wählen Sie die Durchgangshöhe des Schienensystems: <strong>{min} - {max} mm</strong>."
       }
     }
+  },
+  "Video": {
+    "playVideoAriaLabel": "Video über {title} abspielen"
   }
 }
