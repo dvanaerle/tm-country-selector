@@ -31,10 +31,13 @@
       },
       "heading": "Meetinstructies Gumax<sup>®</sup> glazen schuifwand",
       "tabs": {
-        "wallProfileHeight": "Hoogte tot onderkant muurprofiel",
-        "heightBottomGutter": "Hoogte tot onderkant goot"
+        "wallProfileHeight": "Hoogte muurprofiel",
+        "heightBottomGutter": "Hoogte onderkant goot"
       },
       "a11y": {
+        "measuringToolVideoTitle": "Meetinstructies Gumax® glazen schuifwand - Nieuwe Gumax® overkapping",
+        "measuringToolVideoDescription": "Heeft u de Gumax® terrasoverkapping nog niet geïnstalleerd, bijvoorbeeld omdat u deze tegelijk met een glazen schuifwand wilt bestellen? Gebruik dan deze instructie en de inmeethulp voor het bepalen van het juiste railsysteem voor uw Gumax® glazen schuifwand.",
+        "measuringToolVideoAlt": "Video met meetinstructies voor de Gumax® glazen schuifwand, inclusief tips voor het meten van de hoogte en afloop van de terrasoverkapping.",
         "measuringSlopeImageAlt": "Afbeelding die laat zien hoe de afschot van het terras gemeten wordt",
         "calculatorTabsLabel": "Hoogte berekening opties",
         "measuringHeightPavingAlt": "Het meten van de hoogte vanaf bestaande bestrating tot de onderkant van de goot van de Tuinmaximaal terrasoverkapping met een meetlint, essentieel voor het plaatsen van glazen schuifwanden.",
@@ -77,10 +80,10 @@
         "slopePlaceholder": "Afloop terras",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "meter",
-        "calculatePassageHeight": "Bereken doorloophoogte",
-        "calculateBottomWallProfileHeight": "Bereken hoogte tot onderkant muurprofiel",
-        "passageHeightResult": "De berekende doorloophoogte is: <strong>{result} mm</strong>.",
-        "rangeSuccess": "Dit valt <strong>{within}</strong> het doorloophoogtebereik van: <strong>{min} - {max} mm</strong>.",
+        "calculatePassageHeight": "Bereken doorloophoogte onderkant goot",
+        "calculateBottomWallProfileHeight": "Bereken hoogtes muurprofiel",
+        "passageHeightResult": "De berekende doorloophoogte onderkant goot is: <strong>{result} mm</strong>.",
+        "rangeSuccess": "Kies doorloophoogte railsysteem: <strong>{min} - {max} mm</strong>.",
         "rangeSuccessWithin": "binnen",
         "rangeSuccessOutside": "buiten",
         "rangeError": "Dit valt <strong>{outside}</strong> het doorloophoogtebereik van Tuinmaximaal.",
@@ -92,7 +95,11 @@
           "selectOption": "Selecteer een optie",
           "enterNumber": "Voer een getal in",
           "integerOnly": "Alleen hele millimeters zijn toegestaan",
-          "validNumberRequired": "Voer een geldig getal in"
+          "validNumberRequired": "Voer een geldig getal in",
+          "suggestionMessage": "Probeer een {fieldName} van {recommendedInput} mm om binnen het bereik van {min} - {max} mm te vallen.",
+          "dynamicRangeMessage": "Voor de geselecteerde opties moet de hoogte tussen {min} mm en {max} mm liggen.",
+          "wallProfileHeightFieldName": "muurprofielhoogte",
+          "passageHeightFieldName": "doorloophoogte"
         },
         "yes": "Ja",
         "no": "Nee"
@@ -101,7 +108,7 @@
         "railSystemQuestion": "Railsysteem verzonken neerleggen",
         "railSystemQuestionTooltip": "Overweeg of u de onderrail van het schuifsysteem in de grond wilt verzinken. Dit zorgt voor een drempelloze doorgang. Als u hiervoor kiest, tel dan 18 mm (de hoogte van de onderrail) op bij de gemeten doorloophoogte.",
         "MeasuringHeightRecessedCaption": "Voorbeeld van een verzonken railsysteem voor een drempelloze doorgang.",
-        "label": "Hoogte tot onderkant muurprofiel t.o.v. bodem (0° afloop)",
+        "label": "Hoogte onderkant muurprofiel t.o.v. bodem (0° afloop)",
         "tooltip": "Dit is de hoogte waarop het muurprofiel (waaraan de terrasoverkapping of het bovenste deel van de schuifwandconstructie is bevestigd) aan de gevel wordt gemonteerd, gemeten vanaf de grond. Bij een terras zonder helling (0°), komt deze hoogte direct overeen met de waarde uit de tabellen/meethulp, gebaseerd op uw gewenste doorloophoogte en diepte.",
         "MeasuringHeightPavingCaption": "Het meten van de verticale hoogte vanaf de grond voor profielmontage.",
         "placeholder": "Hoogte tot onderkant muurprofiel",
@@ -112,7 +119,7 @@
         "recommendation": "Probeer een muurprofielhoogte van <strong>{recommendedWallProfileHeight} mm</strong> om binnen de doorloophoogte van <strong>{min} - {max} mm</strong> te vallen."
       },
       "HeightBottomGutter": {
-        "label": "Hoogte tot onderkant goot t.o.v. bodem (0° afloop)",
+        "label": "Hoogte onderkant goot t.o.v. bodem (0° afloop)",
         "tooltip": "Dit is de \"doorloophoogte\": de afstand tussen de bovenkant van uw fundering/bestrating en de vlakke onderzijde van de goot van uw (bestaande) terrasoverkapping. Meet dit op drie punten (links, midden, rechts) en gebruik de laagst gemeten waarde. Bij een terras zonder helling (0°) is dit de directe verticale maat.",
         "MeasuringHeightPavingCaption": "Het meten van de hoogte vanaf de grond tot de onderkant van de goot.",
         "placeholder": "Hoogte tot onderkant goot",
@@ -121,7 +128,11 @@
           "min": "De hoogte tot onderkant goot moet minimaal {min} mm zijn.",
           "max": "De hoogte tot onderkant goot mag maximaal {max} mm zijn."
         },
-        "recommendation": "Probeer een hoogte tot onderkant goot van <strong>{recommendedGutterBottomHeight} mm</strong> om binnen de doorloophoogte van <strong>{min} - {max} mm</strong> te vallen."
+        "recommendation": "Kies een hoogte tot onderkant goot van <strong>{recommendedGutterBottomHeight} mm</strong> om binnen de doorloophoogte van <strong>{min} - {max} mm</strong> te vallen.",
+        "wallProfileHeightsResultTitle": "De berekende hoogtes muurprofiel:",
+        "bottomWallProfileHeightLabel": "Onderzijde muurprofiel: <strong>{height} mm</strong>",
+        "topWallProfileHeightLabel": "Bovenzijde muurprofiel: <strong>{height} mm</strong>",
+        "walkthroughHeightRangeLabel": "Kies doorloophoogte railsysteem: <strong>{min} - {max} mm</strong>."
       }
     }
   }

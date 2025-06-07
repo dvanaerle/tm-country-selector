@@ -4,9 +4,9 @@ import { getTranslations } from "next-intl/server";
 import { useTranslations } from "next-intl";
 import React from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import Image from "next/image";
-import MeasuringSlope from "/public/images/measuring-slope.jpg";
+import MeasuringVideoThumb from "/public/images/measuring-video-thumb.jpg";
 import { PassageHeightCalculatorForm } from "@/components/form/PassageHeightCalculatorForm";
+import VideoPlayer from "@/components/ui/video-player";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Pages.MeasuringTool.metaData");
@@ -29,20 +29,23 @@ export default function MeasuringTool() {
       >
         <section className="grid grid-cols-12 items-start lg:gap-x-8">
           <div className="col-span-12 lg:col-span-7">
-            <Image
-              src={MeasuringSlope}
-              alt={t("a11y.measuringSlopeImageAlt")}
+            <VideoPlayer
+              videoUrls={{
+                fallback: "https://www.youtube.com/embed/4Lyr89rL_Fg",
+              }}
+              overlayImage={MeasuringVideoThumb}
+              title={t("a11y.measuringToolVideoTitle")}
+              alt={t("a11y.measuringToolVideoAlt")}
               priority
               fetchPriority="high"
-              placeholder="blur"
               className="rounded-t-lg lg:rounded-lg"
               sizes="
-                 (min-width: 1536px) calc((1536px - 48px - 32px * 11) * (7 / 12) + 32px * 6),
-                 (min-width: 1280px) calc((1280px - 48px - 32px * 11) * (7 / 12) + 32px * 6),
-                 (min-width: 1024px) calc((1024px - 48px - 32px * 11) * (7 / 12) + 32px * 6),
-                 (min-width: 768px) calc(768px - 48px),
-                 (min-width: 640px) calc(640px - 48px),
-                 calc(100vw - 32px)"
+              (min-width: 1536px) calc((1536px - 48px - 32px * 11) * (7 / 12) + 32px * 6),
+              (min-width: 1280px) calc((1280px - 48px - 32px * 11) * (7 / 12) + 32px * 6),
+              (min-width: 1024px) calc((1024px - 48px - 32px * 11) * (7 / 12) + 32px * 6),
+              (min-width: 768px) calc(768px - 48px),
+              (min-width: 640px) calc(640px - 48px),
+              calc(100vw - 32px)"
             />
           </div>
 

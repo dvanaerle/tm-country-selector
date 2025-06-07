@@ -92,7 +92,11 @@
           "selectOption": "Select an option",
           "enterNumber": "Enter a number",
           "integerOnly": "Only whole millimeters are allowed",
-          "validNumberRequired": "Enter a valid number"
+          "validNumberRequired": "Enter a valid number",
+          "suggestionMessage": "Try a {fieldName} of {recommendedInput} mm to fall within the range of {min} - {max} mm.",
+          "dynamicRangeMessage": "For the selected options, the height must be between {min} mm and {max} mm.",
+          "wallProfileHeightFieldName": "wall profile height",
+          "passageHeightFieldName": "passage height"
         },
         "yes": "Yes",
         "no": "No"

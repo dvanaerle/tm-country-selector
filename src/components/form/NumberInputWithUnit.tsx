@@ -11,6 +11,7 @@ interface NumberInputWithUnitProps {
   onChange: (value: number | undefined) => void;
   isInvalid?: boolean;
   "aria-describedby"?: string;
+  disabled?: boolean;
 }
 
 export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
@@ -22,6 +23,7 @@ export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
   value,
   onChange,
   isInvalid = false,
+  disabled = false,
   "aria-describedby": ariaDescribedBy,
 }) => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -48,15 +50,16 @@ export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
         min={min}
         max={max}
         placeholder={placeholder}
-        className="pr-10"
+        className="peer pr-10"
         aria-invalid={isInvalid}
         aria-describedby={`${unitId} ${ariaDescribedBy || ""}`.trim()}
         value={value ?? ""}
         onChange={handleChange}
+        disabled={disabled}
       />
       <span
         id={unitId}
-        className="text-grey pointer-events-none absolute right-3 text-sm"
+        className="text-grey pointer-events-none absolute right-3 text-sm transition-opacity peer-disabled:opacity-50"
         aria-label={`Unit: ${unit}`}
       >
         {unit}

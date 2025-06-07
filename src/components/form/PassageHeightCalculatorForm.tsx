@@ -33,11 +33,10 @@ const config = {
     depthSecondary: 7,
     wallToGutter: 1,
     railSlope: 18,
+    wallProfileHeightDifference: 488,
   },
   limits: {
     maxPassageHeight: 2500,
-    wallProfile: { min: 2259, max: 3058 },
-    gutterHeight: { min: 1701, max: 2500 },
   },
   ranges: [
     [1980, 2020],
@@ -66,20 +65,181 @@ interface FormProps {
   submitButtonTextKey: string;
 }
 
-interface Recommendation {
-  recommendedInput: number;
-  resultingOutputInRange: number;
-  newOutputRange: [number, number];
-}
-
 interface Result {
   output: number | null;
-  inRange: boolean;
+  topWallProfileHeight?: number | null;
   range: [number, number] | null;
-  recommendation: Recommendation | null;
 }
 
-// Create form validation schema
+const calculateDimensions = (depth: number, slope: number) => {
+  const cosAngle = Math.cos(config.angle);
+  const sinAngle = Math.sin(config.angle);
+  const insideDepth =
+    depth * cosAngle * 1000 +
+    config.adjustments.depthPrimary +
+    config.adjustments.depthSecondary;
+  const wallToGutterDiff =
+    depth * sinAngle * 1000 + config.adjustments.wallToGutter;
+  const slopeRatio = insideDepth > 0 ? slope / insideDepth : 0;
+  const slopeDrop =
+    insideDepth * Math.sin(Math.asin(Math.max(-1, Math.min(1, slopeRatio))));
+  return { insideDepth, wallToGutterDiff, slopeDrop };
+};
+
+const applyRailAdjustment = (value: number, railSlope: RailSlope) =>
+  railSlope === "checked" ? value + config.adjustments.railSlope : value;
+
+const calculateFromWallProfile = (
+  depth: number,
+  slope: number,
+  wallProfile: number,
+  railSlope: RailSlope,
+) => {
+  const { wallToGutterDiff, slopeDrop } = calculateDimensions(depth, slope);
+  const gutterHeight = wallProfile - wallToGutterDiff + slopeDrop;
+  return Math.round(applyRailAdjustment(gutterHeight, railSlope));
+};
+
+const calculateFromGutterHeight = (
+  depth: number,
+  slope: number,
+  gutterHeight: number,
+  railSlope: RailSlope,
+) => {
+  const { wallToGutterDiff, slopeDrop } = calculateDimensions(depth, slope);
+  const wallProfile = gutterHeight + wallToGutterDiff - slopeDrop;
+  return Math.round(applyRailAdjustment(wallProfile, railSlope));
+};
+
+const checkRange = (value: number, formType: FormType) => {
+  for (const [min, max] of config.ranges) {
+    if (value >= min && value <= max) {
+      if (formType === "wallProfile" && value > config.limits.maxPassageHeight)
+        continue;
+      return { inRange: true, range: [min, max] as [number, number] };
+    }
+  }
+  let closest: [number, number] | null = null;
+  let minDiff = Infinity;
+  for (const range of config.ranges) {
+    const [min, max] = range;
+    if (formType === "wallProfile" && min > config.limits.maxPassageHeight)
+      continue;
+    const diff = Math.min(Math.abs(value - min), Math.abs(value - max));
+    if (diff < minDiff) {
+      minDiff = diff;
+      closest = [min, max];
+    }
+  }
+  return { inRange: false, range: closest };
+};
+
+type FormValues = z.infer<ReturnType<typeof createSchema>>;
+
+const getWallProfileForPassageHeight = (
+  targetPassageHeight: number,
+  depth: number,
+  slope: number,
+  railSlope: RailSlope,
+) => {
+  const { wallToGutterDiff, slopeDrop } = calculateDimensions(depth, slope);
+  let baseGutterHeight = targetPassageHeight;
+  if (railSlope === "checked") {
+    baseGutterHeight -= config.adjustments.railSlope;
+  }
+  return Math.round(baseGutterHeight + wallToGutterDiff - slopeDrop);
+};
+
+const getGutterHeightForWallProfile = (
+  targetWallProfile: number,
+  depth: number,
+  slope: number,
+  railSlope: RailSlope,
+) => {
+  const { wallToGutterDiff, slopeDrop } = calculateDimensions(depth, slope);
+  let baseWallProfile = targetWallProfile;
+  if (railSlope === "checked") {
+    baseWallProfile -= config.adjustments.railSlope;
+  }
+  return Math.round(baseWallProfile - wallToGutterDiff + slopeDrop);
+};
+
+const getDynamicInputRange = (
+  formType: FormType,
+  depth: number,
+  slope: number,
+  railSystemSlope: RailSlope,
+) => {
+  const validInputs: number[] = [];
+  const calculationRanges = config.ranges.filter((range) => {
+    if (formType === "wallProfile") {
+      return range[0] <= config.limits.maxPassageHeight;
+    }
+    return true;
+  });
+
+  for (const [minRange, maxRange] of calculationRanges) {
+    if (formType === "wallProfile") {
+      validInputs.push(
+        getWallProfileForPassageHeight(minRange, depth, slope, railSystemSlope),
+      );
+      validInputs.push(
+        getWallProfileForPassageHeight(maxRange, depth, slope, railSystemSlope),
+      );
+    } else {
+      validInputs.push(
+        getGutterHeightForWallProfile(minRange, depth, slope, railSystemSlope),
+      );
+      validInputs.push(
+        getGutterHeightForWallProfile(maxRange, depth, slope, railSystemSlope),
+      );
+    }
+  }
+
+  if (validInputs.length === 0) return null;
+  return { min: Math.min(...validInputs), max: Math.max(...validInputs) };
+};
+
+const generateSuggestion = (
+  formType: FormType,
+  data: FormValues,
+  output: number,
+  closestRange: [number, number],
+) => {
+  const { depth, slope = 0, railSystemSlope } = data;
+  if (depth == null || railSystemSlope == null) {
+    return null;
+  }
+
+  let targetOutput =
+    output < closestRange[0] ? closestRange[0] : closestRange[1];
+
+  // If calculating for a wall profile, the target passage height must not exceed the absolute maximum limit.
+  if (formType === "wallProfile") {
+    targetOutput = Math.min(targetOutput, config.limits.maxPassageHeight);
+  }
+
+  const recommendedInput =
+    formType === "wallProfile"
+      ? getWallProfileForPassageHeight(
+          targetOutput,
+          depth,
+          slope,
+          railSystemSlope,
+        )
+      : getGutterHeightForWallProfile(
+          targetOutput,
+          depth,
+          slope,
+          railSystemSlope,
+        );
+
+  return {
+    recommendedInput: Math.round(recommendedInput),
+    newOutputRange: closestRange,
+  };
+};
+
 const createSchema = (
   t: ReturnType<typeof useTranslations>,
   formType: FormType,
@@ -104,18 +264,6 @@ const createSchema = (
         ),
       })
       .int(t("Form.Common.validationErrors.integerOnly"))
-      .min(
-        config.limits.wallProfile.min,
-        t("Form.WallProfileHeight.validationErrors.min", {
-          min: config.limits.wallProfile.min,
-        }),
-      )
-      .max(
-        config.limits.wallProfile.max,
-        t("Form.WallProfileHeight.validationErrors.max", {
-          max: config.limits.wallProfile.max,
-        }),
-      )
       .optional(),
     heightBottomGutter: z.coerce
       .number({
@@ -124,166 +272,93 @@ const createSchema = (
         ),
       })
       .int(t("Form.Common.validationErrors.integerOnly"))
-      .min(
-        config.limits.gutterHeight.min,
-        t("Form.HeightBottomGutter.validationErrors.min", {
-          min: config.limits.gutterHeight.min,
-        }),
-      )
-      .max(
-        config.limits.gutterHeight.max,
-        t("Form.HeightBottomGutter.validationErrors.max", {
-          max: config.limits.gutterHeight.max,
-        }),
-      )
       .optional(),
   });
 
   return baseSchema.superRefine((data, ctx) => {
     const field =
       formType === "wallProfile" ? "wallProfileHeight" : "heightBottomGutter";
-    if (data[field] == null) {
+    const mainInputValue = data[field];
+
+    if (mainInputValue == null) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
         message: t("Form.Common.validationErrors.validNumberRequired"),
         path: [field],
       });
+      return;
+    }
+
+    if (data.depth == null || data.railSystemSlope == null) {
+      return;
+    }
+
+    const slope = data.slope ?? 0;
+    const calculatedOutput =
+      formType === "wallProfile"
+        ? calculateFromWallProfile(
+            data.depth,
+            slope,
+            mainInputValue,
+            data.railSystemSlope,
+          )
+        : calculateFromGutterHeight(
+            data.depth,
+            slope,
+            mainInputValue,
+            data.railSystemSlope,
+          );
+
+    const { inRange, range: closestRange } = checkRange(
+      calculatedOutput,
+      formType,
+    );
+
+    if (!inRange) {
+      if (closestRange) {
+        const suggestion = generateSuggestion(
+          formType,
+          data as FormValues,
+          calculatedOutput,
+          closestRange,
+        );
+        if (suggestion) {
+          const fieldName =
+            formType === "wallProfile"
+              ? t("Form.Common.validationErrors.wallProfileHeightFieldName")
+              : t("Form.Common.validationErrors.passageHeightFieldName");
+          ctx.addIssue({
+            code: z.ZodIssueCode.custom,
+            path: [field],
+            message: t("Form.Common.validationErrors.suggestionMessage", {
+              fieldName: fieldName,
+              recommendedInput: suggestion.recommendedInput,
+              min: suggestion.newOutputRange[0],
+              max: suggestion.newOutputRange[1],
+            }),
+          });
+          return;
+        }
+      }
+
+      const dynamicRange = getDynamicInputRange(
+        formType,
+        data.depth,
+        slope,
+        data.railSystemSlope,
+      );
+      if (dynamicRange) {
+        ctx.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: [field],
+          message: t("Form.Common.validationErrors.dynamicRangeMessage", {
+            min: dynamicRange.min,
+            max: dynamicRange.max,
+          }),
+        });
+      }
     }
   });
-};
-
-type FormValues = z.infer<ReturnType<typeof createSchema>>;
-
-// Calculate core dimensions
-const calculateDimensions = (depth: number, slope: number) => {
-  const cosAngle = Math.cos(config.angle);
-  const sinAngle = Math.sin(config.angle);
-
-  const insideDepth =
-    depth * cosAngle * 1000 +
-    config.adjustments.depthPrimary +
-    config.adjustments.depthSecondary;
-
-  const wallToGutterDiff =
-    depth * sinAngle * 1000 + config.adjustments.wallToGutter;
-
-  const slopeRatio = insideDepth > 0 ? slope / insideDepth : 0;
-  const slopeDrop =
-    insideDepth * Math.sin(Math.asin(Math.max(-1, Math.min(1, slopeRatio))));
-
-  return { insideDepth, wallToGutterDiff, slopeDrop };
-};
-
-// Apply rail system adjustment
-const applyRailAdjustment = (value: number, railSlope: RailSlope) =>
-  railSlope === "checked" ? value + config.adjustments.railSlope : value;
-
-// Calculate passage height from wall profile
-const calculateFromWallProfile = (
-  depth: number,
-  slope: number,
-  wallProfile: number,
-  railSlope: RailSlope,
-) => {
-  const { wallToGutterDiff, slopeDrop } = calculateDimensions(depth, slope);
-  const gutterHeight = wallProfile - wallToGutterDiff + slopeDrop;
-  return Math.round(applyRailAdjustment(gutterHeight, railSlope));
-};
-
-// Calculate wall profile from gutter height
-const calculateFromGutterHeight = (
-  depth: number,
-  slope: number,
-  gutterHeight: number,
-  railSlope: RailSlope,
-) => {
-  const { wallToGutterDiff, slopeDrop } = calculateDimensions(depth, slope);
-  const wallProfile = gutterHeight + wallToGutterDiff - slopeDrop;
-  return Math.round(applyRailAdjustment(wallProfile, railSlope));
-};
-
-// Check if output is within valid ranges
-const checkRange = (value: number, formType: FormType) => {
-  for (const [min, max] of config.ranges) {
-    if (value >= min && value <= max) {
-      if (formType === "wallProfile" && value > config.limits.maxPassageHeight)
-        continue;
-      return { inRange: true, range: [min, max] as [number, number] };
-    }
-  }
-
-  // Find closest range
-  let closest: [number, number] | null = null;
-  let minDiff = Infinity;
-
-  for (const range of config.ranges) {
-    const [min, max] = range;
-    if (formType === "wallProfile" && min > config.limits.maxPassageHeight)
-      continue;
-
-    const diff = Math.min(Math.abs(value - min), Math.abs(value - max));
-    if (diff < minDiff) {
-      minDiff = diff;
-      closest = [min, max];
-    }
-  }
-
-  return { inRange: false, range: closest };
-};
-
-// Generate recommendation to get output in valid range
-const generateRecommendation = (
-  formType: FormType,
-  values: FormValues,
-  output: number,
-): Recommendation | null => {
-  const { range } = checkRange(output, formType);
-  if (!range) return null;
-
-  const target =
-    output < range[0]
-      ? range[0]
-      : formType === "wallProfile"
-        ? Math.min(range[1], config.limits.maxPassageHeight)
-        : range[1];
-
-  const { depth, slope = 0, railSystemSlope } = values;
-  const { wallToGutterDiff, slopeDrop } = calculateDimensions(depth, slope);
-
-  let recommendedInput: number;
-  if (formType === "wallProfile") {
-    recommendedInput = target + wallToGutterDiff - slopeDrop;
-    if (railSystemSlope === "checked")
-      recommendedInput -= config.adjustments.railSlope;
-  } else {
-    recommendedInput = target - wallToGutterDiff + slopeDrop;
-    if (railSystemSlope === "checked")
-      recommendedInput -= config.adjustments.railSlope;
-  }
-
-  const limits =
-    formType === "wallProfile"
-      ? config.limits.wallProfile
-      : config.limits.gutterHeight;
-  const clampedInput = Math.max(
-    limits.min,
-    Math.min(limits.max, Math.round(recommendedInput)),
-  );
-
-  const testOutput =
-    formType === "wallProfile"
-      ? calculateFromWallProfile(depth, slope, clampedInput, railSystemSlope)
-      : calculateFromGutterHeight(depth, slope, clampedInput, railSystemSlope);
-
-  const testResult = checkRange(testOutput, formType);
-
-  return testResult.inRange && testResult.range
-    ? {
-        recommendedInput: clampedInput,
-        resultingOutputInRange: testOutput,
-        newOutputRange: testResult.range,
-      }
-    : null;
 };
 
 export function PassageHeightCalculatorForm({
@@ -295,20 +370,12 @@ export function PassageHeightCalculatorForm({
 }: FormProps) {
   const t = useTranslations("Components");
 
+  const [currentStep, setCurrentStep] = useState(1);
   const [result, setResult] = useState<Result>({
     output: null,
-    inRange: false,
+    topWallProfileHeight: null,
     range: null,
-    recommendation: null,
   });
-
-  const constraints = useMemo(
-    () =>
-      formType === "wallProfile"
-        ? config.limits.wallProfile
-        : config.limits.gutterHeight,
-    [formType],
-  );
 
   const depthOptions = useMemo(
     () =>
@@ -326,85 +393,119 @@ export function PassageHeightCalculatorForm({
     mode: "onChange",
   });
 
+  const mainFieldName = useMemo(
+    () =>
+      formType === "wallProfile" ? "wallProfileHeight" : "heightBottomGutter",
+    [formType],
+  );
+
+  const { trigger, watch, getValues } = form;
+  const watchedDepth = watch("depth");
+  const watchedRailSlope = watch("railSystemSlope");
+  const watchedSlope = watch("slope");
+
   useEffect(() => {
+    // Re-validate the main field if its dependencies change
+    if (getValues(mainFieldName) != null) {
+      trigger(mainFieldName);
+    }
+  }, [
+    watchedDepth,
+    watchedRailSlope,
+    watchedSlope,
+    mainFieldName,
+    trigger,
+    getValues,
+  ]);
+
+  useEffect(() => {
+    if (watchedDepth && currentStep === 1) {
+      setCurrentStep(2);
+    }
+  }, [watchedDepth, currentStep]);
+
+  useEffect(() => {
+    if (watchedRailSlope && currentStep === 2) {
+      setCurrentStep(3);
+    }
+  }, [watchedRailSlope, currentStep]);
+
+  useEffect(() => {
+    // Clear the result when the form becomes dirty after a submission
     if (form.formState.isDirty && result.output !== null) {
       setResult({
         output: null,
-        inRange: false,
+        topWallProfileHeight: null,
         range: null,
-        recommendation: null,
       });
     }
   }, [form.formState.isDirty, result.output]);
 
-  // Handle form submission and calculations
   const handleSubmit = (values: FormValues) => {
-    try {
-      const output =
-        formType === "wallProfile"
-          ? calculateFromWallProfile(
-              values.depth,
-              values.slope ?? 0,
-              values.wallProfileHeight!,
-              values.railSystemSlope,
-            )
-          : calculateFromGutterHeight(
-              values.depth,
-              values.slope ?? 0,
-              values.heightBottomGutter!,
-              values.railSystemSlope,
-            );
+    let output: number;
+    let topWallProfileHeight: number | null = null;
 
-      const { inRange, range } = checkRange(output, formType);
-      const recommendation = !inRange
-        ? generateRecommendation(formType, values, output)
-        : null;
-
-      setResult({ output, inRange, range, recommendation });
-      form.reset({ ...values });
-    } catch (error) {
-      setResult({
-        output: null,
-        inRange: false,
-        range: null,
-        recommendation: null,
-      });
+    if (formType === "wallProfile") {
+      output = calculateFromWallProfile(
+        values.depth,
+        values.slope ?? 0,
+        values.wallProfileHeight!,
+        values.railSystemSlope,
+      );
+    } else {
+      output = calculateFromGutterHeight(
+        values.depth,
+        values.slope ?? 0,
+        values.heightBottomGutter!,
+        values.railSystemSlope,
+      );
+      topWallProfileHeight =
+        output + config.adjustments.wallProfileHeightDifference;
     }
+
+    const { range } = checkRange(output, formType);
+
+    setResult({
+      output,
+      topWallProfileHeight,
+      range,
+    });
+    // Reset the form state to pristine with the current values
+    form.reset({ ...values });
   };
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-6">
+        {/* Step 1: Veranda Depth */}
         <FormField
           control={form.control}
           name="depth"
           render={({ field }) => (
             <FormItem>
               <fieldset className="space-y-2">
-                <div className="flex items-center gap-x-1">
-                  <FormLabel asChild>
-                    <legend data-required>
-                      <span>{t("Form.Common.depthVeranda")}</span>
-                    </legend>
-                  </FormLabel>
-                  <InfoTooltipSheet
-                    t={t}
-                    titleKey="Form.Common.depthVeranda"
-                    descriptionKey="Form.Common.depthVerandaTooltip"
-                    images={[
-                      {
-                        src: MeasuringWidthFront,
-                        alt: "Pages.MeasuringTool.MeasuringWidthFrontAlt",
-                        captionKey: "Form.Common.MeasuringWidthFrontCaption",
-                      },
-                      {
-                        src: MeasuringWidthSide,
-                        alt: "Pages.MeasuringTool.MeasuringWidthSideAlt",
-                        captionKey: "Form.Common.MeasuringWidthSideCaption",
-                      },
-                    ]}
-                  />
-                </div>
+                <FormLabel asChild>
+                  <legend data-required className="flex items-center gap-x-1">
+                    <span>{t("Form.Common.depthVeranda")}</span>
+                    <InfoTooltipSheet
+                      t={t}
+                      titleKey="Form.Common.depthVeranda"
+                      descriptionKey="Form.Common.depthVerandaTooltip"
+                      images={[
+                        {
+                          src: MeasuringWidthFront,
+                          alt: "Pages.MeasuringTool.MeasuringWidthFrontAlt",
+                          captionKey: "Form.Common.MeasuringWidthFrontCaption",
+                        },
+                        {
+                          src: MeasuringWidthSide,
+                          alt: "Pages.MeasuringTool.MeasuringWidthSideAlt",
+                          captionKey: "Form.Common.MeasuringWidthSideCaption",
+                        },
+                      ]}
+                    />
+                  </legend>
+                </FormLabel>
                 <FormControl>
                   <RadioGroupCards.Root
                     name={field.name}
@@ -430,138 +531,150 @@ export function PassageHeightCalculatorForm({
           )}
         />
 
-        <FormField
-          control={form.control}
-          name="railSystemSlope"
-          render={({ field }) => (
-            <FormItem>
-              <div className="flex items-center gap-x-1">
-                <FormLabel htmlFor="railSystemSlope-yes" data-required>
+        {/* Step 2: Rail System Slope */}
+        <fieldset
+          disabled={currentStep < 2}
+          className="group transition-opacity duration-300"
+        >
+          <FormField
+            control={form.control}
+            name="railSystemSlope"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel
+                  htmlFor="railSystemSlope-yes"
+                  data-required
+                  className="flex items-center gap-x-1 transition-opacity group-disabled:opacity-50"
+                >
                   <span>{t("Form.WallProfileHeight.railSystemQuestion")}</span>
+                  <InfoTooltipSheet
+                    t={t}
+                    titleKey="Form.WallProfileHeight.railSystemQuestion"
+                    descriptionKey="Form.Common.slopeTooltip"
+                    images={[
+                      {
+                        src: MeasuringHeightRecessed,
+                        alt: "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
+                        captionKey:
+                          "Form.WallProfileHeight.MeasuringHeightRecessedCaption",
+                      },
+                    ]}
+                  />
                 </FormLabel>
-                <InfoTooltipSheet
-                  t={t}
-                  titleKey="Form.WallProfileHeight.railSystemQuestion"
-                  descriptionKey="Form.Common.slopeTooltip"
-                  images={[
-                    {
-                      src: MeasuringHeightRecessed,
-                      alt: "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
-                      captionKey:
-                        "Form.WallProfileHeight.MeasuringHeightRecessedCaption",
-                    },
-                  ]}
-                />
-              </div>
-              <FormControl>
-                <YesNoRadioGroup
-                  id={field.name}
-                  name={field.name}
-                  value={field.value ?? ""}
-                  onChange={field.onChange}
-                  yesLabel={t("Form.Common.yes")}
-                  noLabel={t("Form.Common.no")}
-                  aria-describedby={`${field.name}-error`}
-                />
-              </FormControl>
-              <FormMessage id={`${field.name}-error`} />
-            </FormItem>
-          )}
-        />
+                <FormControl>
+                  <YesNoRadioGroup
+                    id={field.name}
+                    name={field.name}
+                    value={field.value ?? ""}
+                    onChange={field.onChange}
+                    yesLabel={t("Form.Common.yes")}
+                    noLabel={t("Form.Common.no")}
+                    aria-describedby={`${field.name}-error`}
+                  />
+                </FormControl>
+                <FormMessage id={`${field.name}-error`} />
+              </FormItem>
+            )}
+          />
+        </fieldset>
 
-        <FormField
-          control={form.control}
-          name="slope"
-          render={({ field }) => (
-            <FormItem>
-              <div className="flex items-center gap-x-1">
-                <FormLabel htmlFor="slope">
+        {/* Step 3: Final Inputs (Slope, Height, and Submit) */}
+        <fieldset
+          disabled={currentStep < 3}
+          className="group space-y-6 transition-opacity duration-300"
+        >
+          <FormField
+            control={form.control}
+            name="slope"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel
+                  htmlFor="slope"
+                  className="flex items-center gap-x-1 transition-opacity group-disabled:opacity-50"
+                >
                   <span>{t("Form.Common.slope")}</span>
+                  <InfoTooltipSheet
+                    t={t}
+                    titleKey="Form.Common.slope"
+                    descriptionKey="Form.Common.slopeTooltip"
+                    images={[
+                      {
+                        src: MeasuringSlope,
+                        alt: "Pages.MeasuringTool.MeasuringSlopeAlt",
+                        captionKey: "Form.Common.MeasuringSlopeCaption",
+                      },
+                    ]}
+                  />
                 </FormLabel>
-                <InfoTooltipSheet
-                  t={t}
-                  titleKey="Form.Common.slope"
-                  descriptionKey="Form.Common.slopeTooltip"
-                  images={[
-                    {
-                      src: MeasuringSlope,
-                      alt: "Pages.MeasuringTool.MeasuringSlopeAlt",
-                      captionKey: "Form.Common.MeasuringSlopeCaption",
-                    },
-                  ]}
-                />
-              </div>
-              <FormControl>
-                <NumberInputWithUnit
-                  id="slope"
-                  value={field.value}
-                  onChange={field.onChange}
-                  placeholder={t("Form.Common.slopePlaceholder")}
-                  unit={t("Form.Common.measurementUnitMm")}
-                  aria-describedby={`${field.name}-error`}
-                  min={0}
-                />
-              </FormControl>
-              <FormMessage id={`${field.name}-error`} />
-            </FormItem>
-          )}
-        />
+                <FormControl>
+                  <NumberInputWithUnit
+                    id="slope"
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder={t("Form.Common.slopePlaceholder")}
+                    unit={t("Form.Common.measurementUnitMm")}
+                    aria-describedby={`${field.name}-error`}
+                    min={0}
+                  />
+                </FormControl>
+                <FormMessage id={`${field.name}-error`} />
+              </FormItem>
+            )}
+          />
 
-        <FormField
-          control={form.control}
-          name={
-            formType === "wallProfile"
-              ? "wallProfileHeight"
-              : "heightBottomGutter"
-          }
-          render={({ field, fieldState }) => (
-            <FormItem>
-              <div className="flex items-center gap-x-1">
-                <FormLabel htmlFor={field.name} data-required>
+          <FormField
+            control={form.control}
+            name={mainFieldName}
+            render={({ field, fieldState }) => (
+              <FormItem>
+                <FormLabel
+                  htmlFor={field.name}
+                  data-required
+                  className="flex items-center gap-x-1 transition-opacity group-disabled:opacity-50"
+                >
                   <span>{t(mainInputLabelKey)}</span>
+                  <InfoTooltipSheet
+                    t={t}
+                    titleKey={mainInputLabelKey}
+                    descriptionKey={mainInputTooltipKey}
+                    images={[
+                      {
+                        src:
+                          formType === "wallProfile"
+                            ? MeasuringHeightPaving
+                            : MeasuringHeightRecessed,
+                        alt:
+                          formType === "wallProfile"
+                            ? "Pages.MeasuringTool.MeasuringHeightPavingAlt"
+                            : "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
+                        captionKey:
+                          "Form.WallProfileHeight.MeasuringHeightPavingCaption",
+                      },
+                    ]}
+                  />
                 </FormLabel>
-                <InfoTooltipSheet
-                  t={t}
-                  titleKey={mainInputLabelKey}
-                  descriptionKey={mainInputTooltipKey}
-                  images={[
-                    {
-                      src:
-                        formType === "wallProfile"
-                          ? MeasuringHeightPaving
-                          : MeasuringHeightRecessed,
-                      alt:
-                        formType === "wallProfile"
-                          ? "Pages.MeasuringTool.MeasuringHeightPavingAlt"
-                          : "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
-                      captionKey:
-                        "Form.WallProfileHeight.MeasuringHeightPavingCaption",
-                    },
-                  ]}
-                />
-              </div>
-              <FormControl>
-                <NumberInputWithUnit
-                  id={field.name}
-                  value={field.value}
-                  onChange={field.onChange}
-                  placeholder={t(mainInputPlaceholderKey)}
-                  unit={t("Form.Common.measurementUnitMm")}
-                  min={constraints.min}
-                  max={constraints.max}
-                  aria-describedby={`${field.name}-error`}
-                  isInvalid={fieldState.invalid}
-                />
-              </FormControl>
-              <FormMessage id={`${field.name}-error`} />
-            </FormItem>
-          )}
-        />
+                <FormControl>
+                  <NumberInputWithUnit
+                    id={field.name}
+                    value={field.value}
+                    onChange={field.onChange}
+                    placeholder={t(mainInputPlaceholderKey)}
+                    min={0}
+                    unit={t("Form.Common.measurementUnitMm")}
+                    aria-describedby={`${field.name}-error`}
+                    isInvalid={fieldState.invalid}
+                  />
+                </FormControl>
+                <FormMessage id={`${field.name}-error`} />
+              </FormItem>
+            )}
+          />
+        </fieldset>
 
         <Button
           type="submit"
           className="w-full"
-          disabled={!form.formState.isValid}
+          disabled={currentStep < 3 || !form.formState.isValid}
         >
           {t(submitButtonTextKey)}
         </Button>
@@ -571,10 +684,8 @@ export function PassageHeightCalculatorForm({
             t={t}
             formType={formType}
             calculatedOutput={result.output}
-            isOutputInRange={result.inRange}
-            maxPassageHeight={config.limits.maxPassageHeight}
             outputRange={result.range}
-            recommendation={result.recommendation}
+            topWallProfileHeight={result.topWallProfileHeight}
           />
         )}
       </form>

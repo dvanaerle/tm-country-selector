@@ -1,132 +1,82 @@
 import React from "react";
 import { useTranslations } from "next-intl";
-import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Alert, AlertDescription } from "@/components/ui/alert";
 import CheckCircleLine from "../../../public/icons/MingCute/check_circle_line.svg";
-import WarningLine from "../../../public/icons/MingCute/warning_line.svg";
 
 type CalculatorFormType = "wallProfile" | "gutterHeight";
-
-interface Recommendation {
-  recommendedInput: number;
-  resultingOutputInRange: number;
-  newOutputRange: [number, number];
-}
 
 interface CalculationResultAlertProps {
   t: ReturnType<typeof useTranslations>;
   formType: CalculatorFormType;
   calculatedOutput: number;
-  isOutputInRange: boolean;
-  maxPassageHeight: number;
   outputRange: [number, number] | null;
-  recommendation: Recommendation | null;
+  topWallProfileHeight?: number | null;
 }
 
 export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
   t,
   formType,
   calculatedOutput,
-  isOutputInRange,
-  maxPassageHeight,
   outputRange,
-  recommendation,
+  topWallProfileHeight,
 }) => {
-  const resultTitleKey =
-    formType === "gutterHeight"
-      ? "Form.HeightBottomGutter.heightBottomGutterResult"
-      : "Form.Common.passageHeightResult";
-
-  const alertTitle = t.rich(resultTitleKey, {
-    result: calculatedOutput,
-    strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
-  });
-
-  const alertVariant = isOutputInRange && !recommendation ? "success" : "error";
-  const alertRole = alertVariant === "error" ? "alert" : "status";
-
-  const renderSuccessContent = () => {
-    if (!outputRange) return null;
-
-    return (
-      <span>
-        {t.rich("Form.Common.rangeSuccess", {
-          within: t("Form.Common.rangeSuccessWithin"),
-          min: outputRange[0],
-          max: outputRange[1],
-          strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
-        })}
-      </span>
-    );
-  };
-
-  const renderErrorContent = () => (
-    <>
-      {outputRange ? (
-        <>
-          <span>
-            {t.rich("Form.Common.rangeError", {
-              outside: t("Form.Common.rangeSuccessOutside"),
-              min: outputRange[0],
-              max: outputRange[1],
-              strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
-            })}
-          </span>
-          {formType === "wallProfile" &&
-            calculatedOutput > maxPassageHeight && (
-              <p className="mt-2">
-                {t.rich("Form.Common.maximumPostsRule", {
-                  maxPassageHeight,
-                  strong: (chunks: React.ReactNode) => (
-                    <strong>{chunks}</strong>
-                  ),
-                })}
-              </p>
-            )}
-        </>
-      ) : (
-        <span>
-          {t("Form.Common.genericRangeError", { result: calculatedOutput })}
-        </span>
-      )}
-
-      {recommendation && (
-        <div
-          className="mt-2"
-          role="region"
-          aria-label={t("Form.Common.recommendation")}
-        >
-          {formType === "wallProfile"
-            ? t.rich("Form.WallProfileHeight.recommendation", {
-                currentResult: calculatedOutput,
-                recommendedWallProfileHeight: recommendation.recommendedInput,
-                min: recommendation.newOutputRange[0],
-                max: recommendation.newOutputRange[1],
-                strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
-              })
-            : t.rich("Form.HeightBottomGutter.recommendation", {
-                currentResult: calculatedOutput,
-                recommendedGutterBottomHeight: recommendation.recommendedInput,
-                min: recommendation.newOutputRange[0],
-                max: recommendation.newOutputRange[1],
-                strong: (chunks: React.ReactNode) => <strong>{chunks}</strong>,
-              })}
-        </div>
-      )}
-    </>
-  );
-
+  // Always render the success variant as error states are handled by form validation
   return (
-    <Alert variant={alertVariant} role={alertRole} aria-live="polite">
-      {alertVariant === "success" ? (
-        <CheckCircleLine aria-hidden="true" />
-      ) : (
-        <WarningLine aria-hidden="true" />
-      )}
-      <AlertTitle>{alertTitle}</AlertTitle>
+    <Alert variant="success" role="status" aria-live="polite">
+      <CheckCircleLine aria-hidden="true" />
       <AlertDescription>
-        {isOutputInRange && outputRange
-          ? renderSuccessContent()
-          : renderErrorContent()}
+        {formType === "gutterHeight" &&
+        topWallProfileHeight != null &&
+        outputRange ? (
+          <>
+            <p className="font-semibold">
+              {t("Form.HeightBottomGutter.wallProfileHeightsResultTitle")}
+            </p>
+            <ul className="mb-2 list-disc pl-5">
+              <li>
+                {t.rich(
+                  "Form.HeightBottomGutter.bottomWallProfileHeightLabel",
+                  {
+                    height: calculatedOutput,
+                    strong: (chunks) => <strong>{chunks}</strong>,
+                  },
+                )}
+              </li>
+              <li>
+                {t.rich("Form.HeightBottomGutter.topWallProfileHeightLabel", {
+                  height: topWallProfileHeight,
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
+              </li>
+            </ul>
+            <div>
+              {t.rich("Form.HeightBottomGutter.walkthroughHeightRangeLabel", {
+                min: outputRange[0],
+                max: outputRange[1],
+                strong: (chunks) => <strong>{chunks}</strong>,
+              })}
+            </div>
+          </>
+        ) : (
+          <>
+            <p>
+              {t.rich("Form.Common.passageHeightResult", {
+                result: calculatedOutput,
+                strong: (chunks) => <strong>{chunks}</strong>,
+              })}
+            </p>
+            {outputRange && (
+              <span>
+                {t.rich("Form.Common.rangeSuccess", {
+                  within: t("Form.Common.rangeSuccessWithin"),
+                  min: outputRange[0],
+                  max: outputRange[1],
+                  strong: (chunks) => <strong>{chunks}</strong>,
+                })}
+              </span>
+            )}
+          </>
+        )}
       </AlertDescription>
     </Alert>
   );
