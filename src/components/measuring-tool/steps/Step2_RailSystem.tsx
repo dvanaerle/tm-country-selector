@@ -44,36 +44,42 @@ export const Step2_RailSystem: React.FC<Step2RailSystemProps> = ({
 
           return (
             <FormItem>
-              <FormLabel
-                data-required
-                className="flex items-center gap-x-1 transition-opacity group-disabled:opacity-50"
-              >
-                <span>{t("Form.WallProfileHeight.railSystemQuestion")}</span>
-                <InfoTooltipSheet
-                  t={t}
-                  titleKey="Form.WallProfileHeight.railSystemQuestion"
-                  descriptionKey="Form.Common.slopeTooltip"
-                  images={[
-                    {
-                      src: MeasuringHeightRecessed,
-                      alt: "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
-                      captionKey:
-                        "Form.WallProfileHeight.MeasuringHeightRecessedCaption",
-                    },
-                  ]}
-                />
-              </FormLabel>
-              <FormControl>
-                <YesNoRadioGroup
-                  id={field.name}
-                  name={field.name}
-                  value={field.value ? valueAsBoolean : undefined}
-                  onChange={handleValueChange}
-                  yesLabel={t("Form.Common.yes")}
-                  noLabel={t("Form.Common.no")}
-                  aria-describedby={`${field.name}-error`}
-                />
-              </FormControl>
+              <fieldset className="space-y-2">
+                <FormLabel asChild>
+                  <legend
+                    data-required
+                    className="flex items-center gap-x-1 transition-opacity group-disabled:opacity-50"
+                  >
+                    <span>
+                      {t("Form.WallProfileHeight.railSystemQuestion")}
+                    </span>
+                    <InfoTooltipSheet
+                      t={t}
+                      titleKey="Form.WallProfileHeight.railSystemQuestion"
+                      descriptionKey="Form.Common.slopeTooltip"
+                      images={[
+                        {
+                          src: MeasuringHeightRecessed,
+                          alt: "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
+                          captionKey:
+                            "Form.WallProfileHeight.MeasuringHeightRecessedCaption",
+                        },
+                      ]}
+                    />
+                  </legend>
+                </FormLabel>
+                <FormControl>
+                  <YesNoRadioGroup
+                    id={field.name}
+                    name={field.name}
+                    value={field.value ? valueAsBoolean : undefined}
+                    onChange={handleValueChange}
+                    yesLabel={t("Form.Common.yes")}
+                    noLabel={t("Form.Common.no")}
+                    aria-describedby={`${field.name}-error`}
+                  />
+                </FormControl>
+              </fieldset>
               <FormMessage id={`${field.name}-error`} />
             </FormItem>
           );
