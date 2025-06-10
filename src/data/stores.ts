@@ -1,10 +1,20 @@
+/**
+ * Definieert de datastructuur voor een enkele store.
+ */
 export type StoreData = {
+  /** De unieke code voor het land en de taal (bijv. "BE-NL", "DE"). */
   countryCode: string;
+  /** De naam van het land. */
   country: string;
+  /** De taal die in het land wordt gesproken. */
   language: string;
+  /** De volledige URL naar de webshop. */
   storeUrl: string;
 };
 
+/**
+ * Een array met de data van alle beschikbare stores.
+ */
 export const StoresData: StoreData[] = [
   {
     countryCode: "BE-NL",

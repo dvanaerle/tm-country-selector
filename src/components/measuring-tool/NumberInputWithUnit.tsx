@@ -2,6 +2,9 @@ import React from "react";
 import { Input } from "@/components/ui/input";
 import { useTranslations } from "next-intl";
 
+/**
+ * Props voor de NumberInputWithUnit component.
+ */
 interface NumberInputWithUnitProps {
   id: string;
   placeholder: string;
@@ -16,6 +19,10 @@ interface NumberInputWithUnitProps {
   disabled?: boolean;
 }
 
+/**
+ * Een inputveld voor numerieke waarden met een eenheid (bijv. "mm") die ernaast wordt weergegeven.
+ * Zorgt voor de conversie van de input-string naar een numerieke waarde.
+ */
 export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
   id,
   placeholder,
@@ -29,6 +36,10 @@ export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
   disabled = false,
   "aria-describedby": ariaDescribedBy,
 }) => {
+  /**
+   * Behandelt de wijziging van de inputwaarde.
+   * Converteert de string-waarde naar een getal of `undefined` als het veld leeg is.
+   */
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
     if (inputValue === "") {
@@ -37,6 +48,7 @@ export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
     }
 
     const numValue = Number(inputValue);
+    // Roep onChange alleen aan als de waarde een geldig getal is.
     if (!isNaN(numValue)) {
       onChange(numValue);
     }

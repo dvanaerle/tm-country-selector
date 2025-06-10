@@ -28,6 +28,7 @@ export default function MeasuringTool() {
         role="main"
       >
         <section className="grid grid-cols-12 items-start lg:gap-x-8">
+          {/* Videosectie */}
           <div className="col-span-12 lg:col-span-7">
             <Video
               videoUrls={{
@@ -49,6 +50,7 @@ export default function MeasuringTool() {
             />
           </div>
 
+          {/* Calculatorsectie */}
           <section
             className="col-span-12 rounded-b-lg bg-white p-5 sm:p-10 lg:sticky lg:top-8 lg:col-span-5 lg:rounded-lg"
             role="region"
@@ -60,6 +62,7 @@ export default function MeasuringTool() {
               })}
             </h1>
 
+            {/* Tabs om te wisselen tussen de twee calculator-modi */}
             <Tabs
               defaultValue="wall-profile-height"
               aria-label={t("a11y.calculatorTabsLabel")}
@@ -73,6 +76,7 @@ export default function MeasuringTool() {
                 </TabsTrigger>
               </TabsList>
 
+              {/* Tab content voor "Bereken vanuit muurprofielhoogte" */}
               <TabsContent value="wall-profile-height" role="tabpanel">
                 <PassageHeightCalculatorForm
                   formType="wallProfile"
@@ -83,6 +87,7 @@ export default function MeasuringTool() {
                 />
               </TabsContent>
 
+              {/* Tab content voor "Bereken vanuit hoogte onderkant goot" */}
               <TabsContent value="height-lower-gutter" role="tabpanel">
                 <PassageHeightCalculatorForm
                   formType="gutterHeight"

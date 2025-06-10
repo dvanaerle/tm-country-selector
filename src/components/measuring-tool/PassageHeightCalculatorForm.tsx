@@ -13,8 +13,10 @@ import { Step1_Depth } from "./steps/Step1_Depth";
 import { Step2_RailSystem } from "./steps/Step2_RailSystem";
 import { Step3_FinalInputs } from "./steps/Step3_FinalInputs";
 
+/** Het type berekening: muurprofiel of goothoogte. */
 type FormType = "wallProfile" | "gutterHeight";
 
+/** Props voor het formulier. */
 interface FormProps {
   formType: FormType;
   mainInputLabelKey: string;
@@ -23,13 +25,17 @@ interface FormProps {
   submitButtonTextKey: string;
 }
 
+/** De structuur van het berekeningsresultaat. */
 interface Result {
   output: number | null;
   topWallProfileHeight?: number | null;
   range: [number, number] | null;
 }
 
-// Orchestrates a multi-step form for calculating passage height.
+/**
+ * Orchestreert een meerstapsformulier voor het berekenen van de doorloophoogte of goothoogte.
+ * Deze component beheert de staat van het formulier, de stappen en de weergave van het resultaat.
+ */
 export function PassageHeightCalculatorForm({
   formType,
   mainInputLabelKey,
@@ -44,9 +50,11 @@ export function PassageHeightCalculatorForm({
     range: null,
   });
 
+  // Hook voor de berekeningslogica, schema en configuratie.
   const { t, schema, config, calculateResult } =
     usePassageHeightCalculator(formType);
 
+  // Memoized opties voor de diepteselectie.
   const depthOptions = useMemo(
     () =>
       config.depths.map((d) => ({
@@ -61,6 +69,7 @@ export function PassageHeightCalculatorForm({
     mode: "onChange",
   });
 
+  // Bepaalt de naam van het hoofdveld op basis van het formuliertype.
   const mainFieldName = useMemo(
     () =>
       formType === "wallProfile" ? "wallProfileHeight" : "heightBottomGutter",
@@ -78,13 +87,13 @@ export function PassageHeightCalculatorForm({
   const watchedRailSlope = watch("railSystemSlope");
   const watchedSlope = watch("slope");
 
-  // Effect to advance the form to the next step when a value is selected.
+  // Effect om automatisch naar de volgende stap te gaan.
   useEffect(() => {
     if (watchedRailSlope !== undefined) setCurrentStep(3);
     else if (watchedDepth) setCurrentStep(2);
   }, [watchedDepth, watchedRailSlope]);
 
-  // Effect to re-trigger validation on the main input when dependencies change.
+  // Effect om validatie opnieuw te triggeren wanneer afhankelijke velden veranderen.
   useEffect(() => {
     if (getValues(mainFieldName) != null) {
       trigger(mainFieldName);
@@ -98,13 +107,16 @@ export function PassageHeightCalculatorForm({
     getValues,
   ]);
 
-  // Effect to clear the previous result when the form becomes dirty.
+  // Effect om het vorige resultaat te wissen wanneer het formulier wordt gewijzigd.
   useEffect(() => {
     if (formState.isDirty && result.output !== null) {
       setResult({ output: null, topWallProfileHeight: null, range: null });
     }
   }, [formState.isDirty, result.output]);
 
+  /**
+   * Verwerkt de formulierinzending, berekent het resultaat en reset het formulier.
+   */
   const onSubmit = (values: FormValues) => {
     const newResult = calculateResult(values);
     setResult(newResult);

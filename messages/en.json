@@ -36,15 +36,13 @@
       },
       "a11y": {
         "measuringToolVideoTitle": "Measuring instructions Gumax® glass sliding doors - New Gumax® veranda",
-        "measuringToolVideoDescription": "If you have not yet installed the Gumax® veranda, for example because you want to order it at the same time as a glass sliding wall, use this instruction and the measurement tool to determine the correct rail system for your Gumax® glass sliding wall.",
         "measuringToolVideoAlt": "Video with measuring instructions for the Gumax® glass sliding wall, including tips for measuring the height and slope of the veranda.",
-        "measuringSlopeImageAlt": "Image showing how to measure terrace slope",
         "calculatorTabsLabel": "Height calculation options",
-        "measuringHeightPavingAlt": "Measuring the height from existing paving to the underside of the gutter of a Tuinmaximaal Veranda using a tape measure, essential for fitting Glass Sliding Doors.",
-        "measuringHeightRecessedAlt": "Accurately measuring the installation height for Tuinmaximaal Glass Sliding Doors from a recessed foundation channel to the Veranda's upper frame.",
-        "assessingSlopeAlt": "Assessing patio slope using a spirit level and height difference measurement, a crucial step before installing Tuinmaximaal Glass Sliding Doors.",
-        "measuringWidthFrontAlt": "Demonstration of measuring the clear front side opening between Tuinmaximaal Veranda posts with a tape measure for ordering correct size Glass Sliding Doors.",
-        "measuringWidthSideAlt": "Measuring the side depth of a Tuinmaximaal Veranda, from the house wall to an outer support post, to ensure proper fit of Glass Sliding Doors."
+        "MeasuringSlopeAlt": "Image showing how to measure terrace slope",
+        "MeasuringHeightPavingAlt": "Measuring the height from existing paving to the underside of the gutter of a Tuinmaximaal Veranda using a tape measure, essential for fitting Glass Sliding Doors.",
+        "MeasuringHeightRecessedAlt": "Accurately measuring the installation height for Tuinmaximaal Glass Sliding Doors from a recessed foundation channel to the Veranda's upper frame.",
+        "MeasuringWidthFrontAlt": "Demonstration of measuring the clear front side opening between Tuinmaximaal Veranda posts with a tape measure for ordering correct size Glass Sliding Doors.",
+        "MeasuringWidthSideAlt": "Measuring the side depth of a Tuinmaximaal Veranda, from the house wall to an outer support post, to ensure proper fit of Glass Sliding Doors."
       }
     }
   },
@@ -70,6 +68,11 @@
     },
     "Form": {
       "Common": {
+        "yes": "Yes",
+        "no": "No",
+        "info": "Info",
+        "moreInformation": "More information",
+        "recommendation": "Recommendation",
         "depthVeranda": "Veranda depth",
         "depthVerandaTooltip": "Measure the depth of your veranda from the wall to the front of the gutter. This dimension affects the required specifications if you are installing the sliding walls under an existing veranda and is relevant for the installation context.",
         "MeasuringWidthSideCaption": "Measuring the depth of the veranda from the wall to the front.",
@@ -81,55 +84,34 @@
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "metre",
         "unitLabel": "Unit: {unit}",
-        "calculatePassageHeight": "Calculate passage height",
-        "calculateBottomWallProfileHeight": "Calculate height to bottom of wall profile",
-        "passageHeightResult": "The calculated passage height is: <strong>{result} mm</strong>.",
-        "rangeSuccess": "This falls <strong>{within}</strong> the passage height range of: <strong>{min} - {max} mm</strong>.",
-        "rangeSuccessWithin": "within",
-        "rangeSuccessOutside": "outside",
-        "rangeError": "This falls <strong>{outside}</strong> the passage height range of Tuinmaximaal.",
-        "maximumPostsRule": "The maximum passage height is <strong>{maxPassageHeight} mm</strong> due to the standard height of the posts.",
-        "info": "Info",
-        "moreInformation": "More information",
-        "recommendation": "Recommendation",
+        "calculatePassageHeight": "Calculate passage height at gutter",
+        "calculateBottomWallProfileHeight": "Calculate wall profile heights",
+        "passageHeightResult": "The calculated passage height at the gutter is: <strong>{result} mm</strong>.",
+        "rangeSuccess": "Choose rail system passage height: <strong>{min} - {max} mm</strong>.",
         "validationErrors": {
           "selectOption": "Select an option",
           "enterNumber": "Enter a number",
           "integerOnly": "Only whole millimeters are allowed",
           "validNumberRequired": "Enter a valid number",
           "suggestionMessage": "Try a {fieldName} of {recommendedInput} mm to fall within the range of {min} - {max} mm.",
-          "dynamicRangeMessage": "For the selected options, the height must be between {min} mm and {max} mm.",
           "wallProfileHeightFieldName": "wall profile height",
           "passageHeightFieldName": "passage height"
-        },
-        "yes": "Yes",
-        "no": "No"
+        }
       },
       "WallProfileHeight": {
+        "label": "Height to bottom of wall profile from ground (0° slope)",
+        "placeholder": "Height to bottom of wall profile",
+        "tooltip": "This is the height at which the wall profile (to which the veranda or the upper part of the sliding wall construction is attached) is mounted to the façade, measured from the ground. For a terrace with no slope (0°), this height corresponds directly to the value from the tables/measuring tool, based on your desired passage height and depth.",
         "railSystemQuestion": "Recess rail system into the ground",
         "railSystemQuestionTooltip": "Consider recessing the bottom rail of the sliding system into the ground. This creates a threshold-free passage. If you opt for this, add 18 mm (the height of the bottom rail) to your measured passage height.",
-        "MeasuringHeightRecessedCaption": "Example of a recessed rail system for a threshold-free passage.",
-        "label": "Height to bottom of wall profile from ground (0° slope)",
-        "tooltip": "This is the height at which the wall profile (to which the veranda or the upper part of the sliding wall construction is attached) is mounted to the façade, measured from the ground. For a terrace with no slope (0°), this height corresponds directly to the value from the tables/measuring tool, based on your desired passage height and depth.",
         "MeasuringHeightPavingCaption": "Measuring vertical height from the ground for profile mounting.",
-        "placeholder": "Height to bottom of wall profile",
-        "validationErrors": {
-          "min": "The height to bottom of wall profile must be at least {min} mm.",
-          "max": "The height to bottom of wall profile may not exceed {max} mm."
-        },
-        "recommendation": "Try a wall profile height of <strong>{recommendedWallProfileHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>."
+        "MeasuringHeightRecessedCaption": "Example of a recessed rail system for a threshold-free passage."
       },
       "HeightBottomGutter": {
         "label": "Height to bottom of gutter from ground (0° slope)",
+        "placeholder": "Height to bottom of gutter",
         "tooltip": "This is the \"passage height\": the distance from the top of your foundation/paving to the flat underside of the gutter of your (existing) veranda. Measure this at three points (left, centre, right) and use the lowest measured value. For a terrace with no slope (0°), this is the direct vertical measurement.",
         "MeasuringHeightPavingCaption": "Measuring the height from the ground to the underside of the gutter.",
-        "placeholder": "Height to bottom of gutter",
-        "heightBottomGutterResult": "The calculated height to the bottom edge of the wall profile is: <strong>{result} mm</strong>.",
-        "validationErrors": {
-          "min": "The height to bottom of gutter must be at least {min} mm.",
-          "max": "The height to bottom of gutter may not exceed {max} mm."
-        },
-        "recommendation": "Try a height to bottom of gutter of <strong>{recommendedGutterBottomHeight} mm</strong> to fall within the passage height range of <strong>{min} - {max} mm</strong>.",
         "wallProfileHeightsResultTitle": "The calculated wall profile heights:",
         "bottomWallProfileHeightLabel": "Bottom of wall profile: <strong>{height} mm</strong>",
         "topWallProfileHeightLabel": "Top of wall profile: <strong>{height} mm</strong>",

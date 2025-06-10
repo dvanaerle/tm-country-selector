@@ -13,18 +13,28 @@ import { InfoTooltipSheet } from "../InfoTooltipSheet";
 import MeasuringWidthFront from "/public/images/measuring-width-front.jpg";
 import MeasuringWidthSide from "/public/images/measuring-width-side.jpg";
 
-// Type definitions for component props
+/**
+ * Definieert de structuur van een diepte-optie voor de radiogroep.
+ */
 interface DepthOption {
   value: string;
   label: string;
 }
 
+/**
+ * Props voor de Step1_Depth component.
+ */
 interface Step1DepthProps {
+  /** Vertalingsfunctie van next-intl. */
   t: ReturnType<typeof useTranslations>;
+  /** Een lijst van beschikbare diepte-opties. */
   depthOptions: DepthOption[];
 }
 
-// Renders the veranda depth selection step in the calculator form.
+/**
+ * Rendert de eerste stap van het formulier: Diepte terrasoverkapping.
+ * Maakt gebruik van een radiogroep met card-stijl voor de selectie.
+ */
 export const Step1_Depth: React.FC<Step1DepthProps> = ({ t, depthOptions }) => {
   const form = useFormContext();
 

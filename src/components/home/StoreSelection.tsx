@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -8,31 +8,46 @@ import { Label } from "@/components/ui/label";
 import { StoreCard } from "./StoreCard";
 import { type StoreData } from "@/data/stores";
 
+interface StoreSelectionProps {
+  /** De gedetecteerde voorkeurselectie van de gebruiker, indien aanwezig. */
+  preferredStore: StoreData | undefined;
+  /** Een lijst met alle andere beschikbare landen. */
+  otherStores: StoreData[];
+}
+
+/**
+ * Rendert de UI voor het selecteren van een land, beheert de laadstatus
+ * en de navigatie inclusief het opslaan van de keuze in een cookie.
+ */
 export default function StoreSelection({
   preferredStore,
   otherStores,
-}: {
-  preferredStore: StoreData | undefined;
-  otherStores: StoreData[];
-}) {
+}: StoreSelectionProps) {
   const t = useTranslations("Components.StoreSelection");
   const router = useRouter();
   const [saveSelection, setSaveSelection] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isPending, startTransition] = useTransition();
 
-  const handleSelectStore = async (storeUrl: string) => {
-    try {
-      setIsLoading(true);
+  const isLoading = isPending; // Gebruik `isPending` voor een betere UX bij navigatie.
 
-      if (saveSelection) {
-        document.cookie = `preferredStore=${encodeURIComponent(storeUrl)}; path=/; max-age=31536000; Secure; SameSite=Strict`;
+  /**
+   * Behandelt de selectie van een winkel.
+   * Slaat de voorkeur op in een cookie indien aangevinkt en navigeert naar de URL.
+   */
+  const handleSelectStore = (storeUrl: string) => {
+    startTransition(() => {
+      try {
+        if (saveSelection) {
+          // Cookie instellen om de keuze 365 dagen te onthouden.
+          document.cookie = `preferredStore=${encodeURIComponent(
+            storeUrl,
+          )}; path=/; max-age=31536000; Secure; SameSite=Strict`;
+        }
+        router.push(storeUrl);
+      } catch (error) {
+        console.error(error);
       }
-
-      router.push(storeUrl);
-    } catch (error) {
-      console.error("Failed to navigate to store:", error);
-      setIsLoading(false);
-    }
+    });
   };
 
   return (
@@ -46,9 +61,7 @@ export default function StoreSelection({
           <h1 className="mb-5 text-2xl font-bold">{t("selectCountry")}</h1>
           <div className="mb-6">
             <p className="text-neutral-grey mb-2 text-sm font-semibold">
-              {t("areYouFrom", {
-                country: preferredStore.country,
-              })}
+              {t("areYouFrom", { country: preferredStore.country })}
             </p>
             <StoreCard
               store={preferredStore}

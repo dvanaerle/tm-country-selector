@@ -2,6 +2,9 @@ import React from "react";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 
+/**
+ * Props voor de YesNoRadioGroup component.
+ */
 interface YesNoRadioGroupProps {
   id: string;
   name: string;
@@ -12,7 +15,11 @@ interface YesNoRadioGroupProps {
   "aria-describedby"?: string;
 }
 
-// A reusable radio group for "Yes" or "No" selections, using boolean values.
+/**
+ * Een herbruikbare radiogroep voor "Ja" of "Nee" selecties.
+ * Deze component werkt intern met booleaanse waarden (`true`/`false`)
+ * voor een eenvoudige integratie met formulierlogica.
+ */
 export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
   id,
   name,
@@ -27,7 +34,10 @@ export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
     { id: `${id}-no`, value: "false", label: noLabel },
   ];
 
-  // Converts the radio group's string output to a boolean before calling onChange.
+  /**
+   * Converteert de string-waarde van de radiogroep ("true" of "false")
+   * naar een booleaanse waarde voordat de `onChange`-callback wordt aangeroepen.
+   */
   const handleValueChange = (val: string) => {
     onChange(val === "true");
   };

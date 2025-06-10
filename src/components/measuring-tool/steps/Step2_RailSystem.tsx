@@ -12,13 +12,20 @@ import { InfoTooltipSheet } from "../InfoTooltipSheet";
 import { YesNoRadioGroup } from "../YesNoRadioGroup";
 import MeasuringHeightRecessed from "/public/images/measuring-height-recessed.jpg";
 
-// Type definitions for component props
+/**
+ * Props voor de Step2_RailSystem component.
+ */
 interface Step2RailSystemProps {
+  /** Vertalingsfunctie van next-intl. */
   t: ReturnType<typeof useTranslations>;
+  /** Geeft aan of de fieldset uitgeschakeld moet zijn. */
   disabled: boolean;
 }
 
-// Renders the rail system slope question step in the calculator form.
+/**
+ * Rendert de tweede stap van het formulier, waarin wordt gevraagd of het railsysteem verzonken is.
+ * Maakt gebruik van de `YesNoRadioGroup` voor een "Ja/Nee" selectie.
+ */
 export const Step2_RailSystem: React.FC<Step2RailSystemProps> = ({
   t,
   disabled,
@@ -34,11 +41,15 @@ export const Step2_RailSystem: React.FC<Step2RailSystemProps> = ({
         control={form.control}
         name="railSystemSlope"
         render={({ field }) => {
-          // Adapter logic to translate between the form's string values and the component's boolean values.
+          // Adapterlogica: `react-hook-form` gebruikt hier 'checked'/'unchecked' strings,
+          // terwijl `YesNoRadioGroup` met booleans werkt.
           const valueAsBoolean = field.value === "checked";
 
+          /**
+           * Converteert de boolean van `YesNoRadioGroup` terug naar de string
+           * die het validatieschema van de formulierhook verwacht.
+           */
           const handleValueChange = (isSelected: boolean) => {
-            // Convert boolean back to the string value the validation schema expects.
             field.onChange(isSelected ? "checked" : "unchecked");
           };
 

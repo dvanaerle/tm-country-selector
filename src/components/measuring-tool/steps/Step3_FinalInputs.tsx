@@ -14,20 +14,32 @@ import MeasuringHeightPaving from "/public/images/measuring-height-paving.jpg";
 import MeasuringHeightRecessed from "/public/images/measuring-height-recessed.jpg";
 import MeasuringSlope from "/public/images/measuring-slope.jpg";
 
-// Type definitions for component props
+/** Het type berekening dat wordt uitgevoerd. */
 type FormType = "wallProfile" | "gutterHeight";
 
+/**
+ * Props voor de Step3_FinalInputs component.
+ */
 interface Step3FinalInputsProps {
+  /** Vertalingsfunctie van next-intl. */
   t: ReturnType<typeof useTranslations>;
+  /** Geeft aan of de fieldset uitgeschakeld moet zijn. */
   disabled: boolean;
+  /** Het type formulier, beïnvloedt de getoonde velden/afbeeldingen. */
   formType: FormType;
+  /** De naam van het hoofd-invoerveld (bijv. 'wallProfileHeight'). */
   mainFieldName: string;
+  /** De vertalingskey voor het label van het hoofdveld. */
   mainInputLabelKey: string;
+  /** De vertalingskey voor de placeholder van het hoofdveld. */
   mainInputPlaceholderKey: string;
+  /** De vertalingskey voor de tooltip van het hoofdveld. */
   mainInputTooltipKey: string;
 }
 
-// Renders the final inputs for slope and height in the calculator form.
+/**
+ * Rendert de laatste invoervelden (stap 3): Afloop terras en Hoogte onderkant muurprofiel.
+ */
 export const Step3_FinalInputs: React.FC<Step3FinalInputsProps> = ({
   t,
   disabled,
@@ -44,7 +56,7 @@ export const Step3_FinalInputs: React.FC<Step3FinalInputsProps> = ({
       disabled={disabled}
       className="group space-y-6 transition-opacity duration-300"
     >
-      {/* Slope Input */}
+      {/* Invoerveld voor afloop */}
       <FormField
         control={form.control}
         name="slope"
@@ -85,7 +97,7 @@ export const Step3_FinalInputs: React.FC<Step3FinalInputsProps> = ({
         )}
       />
 
-      {/* Main Height/Profile Input */}
+      {/* Hoofdinvoerveld voor hoogte onderkant muurprofiel */}
       <FormField
         control={form.control}
         name={mainFieldName}
@@ -103,6 +115,7 @@ export const Step3_FinalInputs: React.FC<Step3FinalInputsProps> = ({
                 descriptionKey={mainInputTooltipKey}
                 images={[
                   {
+                    // De afbeelding is afhankelijk van het formuliertype.
                     src:
                       formType === "wallProfile"
                         ? MeasuringHeightPaving

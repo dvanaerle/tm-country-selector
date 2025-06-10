@@ -6,6 +6,9 @@ import { Button } from "@/components/ui/button";
 import ArrowRightLine from "../../../public/icons/MingCute/arrow_right_line.svg";
 import { type StoreData } from "@/data/stores";
 
+/**
+ * Vertaalt een landcode naar een vlagcode die door `react-circle-flags` wordt ondersteund.
+ */
 const getFlagCountryCode = (countryCode: string): string => {
   const flagMap: Record<string, string> = {
     "BE-NL": "be",
@@ -15,37 +18,54 @@ const getFlagCountryCode = (countryCode: string): string => {
   return flagMap[countryCode] || countryCode.toLowerCase();
 };
 
+/**
+ * Props voor de StoreCard component.
+ */
+interface StoreCardProps {
+  /** De data van de store. */
+  store: StoreData;
+  /** Geeft aan of dit de voorkeurselectie is. */
+  isPreferred?: boolean;
+  /** Callback-functie die wordt aangeroepen bij selectie. */
+  onSelectStore: (storeUrl: string) => void;
+  /** Geeft aan of de card is uitgeschakeld. */
+  disabled?: boolean;
+}
+
+/**
+ * Rendert een klikbare card voor een specifiek land.
+ */
 export function StoreCard({
   store,
   isPreferred = false,
   onSelectStore,
   disabled = false,
-}: {
-  store: StoreData;
-  isPreferred?: boolean;
-  onSelectStore: (storeUrl: string) => void;
-  disabled?: boolean;
-}) {
+}: StoreCardProps) {
   const t = useTranslations("Components.StoreCard");
+
+  /**
+   * Behandelt de klik op de card en roept de `onSelectStore` callback aan.
+   */
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!disabled) {
+      onSelectStore(store.storeUrl);
+    }
+  };
+
+  const ariaLabel = isPreferred
+    ? t("goToStore")
+    : `${t("selectCountry")}: ${store.country} (${store.language})`;
 
   return (
     <Button
       variant="outlineLight"
       size="md"
-      fullWidth={true}
+      fullWidth
       className="group"
       disabled={disabled}
-      onClick={(e) => {
-        e.preventDefault();
-        if (!disabled) {
-          onSelectStore(store.storeUrl);
-        }
-      }}
-      aria-label={
-        isPreferred
-          ? t("goToStore")
-          : `${t("selectCountry")}: ${store.country} (${store.language})`
-      }
+      onClick={handleClick}
+      aria-label={ariaLabel}
     >
       <div className="flex flex-1 items-center gap-x-3">
         <CircleFlag

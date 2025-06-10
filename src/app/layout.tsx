@@ -5,6 +5,7 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import "./globals.css";
 
+// Laadt het lokale 'Articulat CF' lettertype en stelt het beschikbaar als een CSS-variabele.
 const articulatCF = localFont({
   src: [
     {
@@ -28,18 +29,22 @@ const articulatCF = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-articulat-cf",
-  fallback: ["system-ui", "sans-serif"],
-  display: "swap",
+  variable: "--font-articulat-cf", // CSS-variabele naam voor eenvoudige styling.
+  fallback: ["system-ui", "sans-serif"], // Fallback lettertypen voor robuustheid.
+  display: "swap", // Zorgt voor snelle weergave van tekst tijdens het laden.
 });
 
+/**
+ * Genereert de standaard metadata voor de applicatie.
+ * Kan per pagina worden overschreven of uitgebreid.
+ */
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Pages.Home.metaData");
 
   return {
     title: {
-      template: "%s | Tuinmaximaal",
-      default: t("title"),
+      template: "%s | Tuinmaximaal", // Een template voor paginatitels.
+      default: t("title"), // De standaardtitel voor de homepage.
     },
     description: t("description"),
     keywords: t("keywords"),

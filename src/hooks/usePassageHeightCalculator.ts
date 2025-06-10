@@ -2,19 +2,20 @@ import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 
-// Configuration constants
+// Configuratieconstanten voor de berekeningen.
 const config = {
   depths: [2.5, 3, 3.5, 4] as const,
-  angle: (8 * Math.PI) / 180, // Convert to radians once
+  angle: (8 * Math.PI) / 180, // Hoek van 8 graden, eenmalig omgerekend naar radialen.
   adjustments: {
     depthPrimary: 4.59,
     depthSecondary: 7,
     wallToGutter: 1,
-    railSlope: 18,
+    railSlope: 18, // Aanpassing voor verzonken railsysteem.
   },
   limits: {
-    maxPassageHeight: 2500,
+    maxPassageHeight: 2500, // Maximale toegestane doorloophoogte.
   },
+  // Geldige bereiken voor de output.
   ranges: [
     [1980, 2020],
     [2030, 2070],
@@ -31,12 +32,12 @@ const config = {
   ] as [number, number][],
 } as const;
 
-// Type definitions
+// Type definities
 type FormType = "wallProfile" | "gutterHeight";
 type RailSlope = "checked" | "unchecked";
 export type FormValues = z.infer<ReturnType<typeof createSchema>>;
 
-// Types for validated data to avoid non-null assertions
+// Types voor gevalideerde data om non-null assertions te vermijden.
 type ValidatedWallProfileForm = FormValues & {
   wallProfileHeight: number;
   depth: number;
@@ -48,8 +49,11 @@ type ValidatedGutterHeightForm = FormValues & {
   railSystemSlope: RailSlope;
 };
 
-// Logic for calculations
+/**
+ * Een object dat alle rekenkundige logica groepeert.
+ */
 const calculator = {
+  /** Berekent cruciale afmetingen op basis van diepte en afloop. */
   calculateDimensions(depth: number, slope: number) {
     const cosAngle = Math.cos(config.angle);
     const sinAngle = Math.sin(config.angle);
@@ -65,6 +69,7 @@ const calculator = {
     return { insideDepth, wallToGutterDiff, slopeDrop };
   },
 
+  /** Berekent de doorloophoogte op basis van de muurprofielhoogte. */
   calculateFromWallProfile(
     depth: number,
     slope: number,
@@ -83,6 +88,7 @@ const calculator = {
     return Math.round(passageHeight);
   },
 
+  /** Berekent de muurprofielhoogte op basis van de gewenste doorloophoogte. */
   calculateFromGutterHeight(
     depth: number,
     slope: number,
@@ -101,6 +107,7 @@ const calculator = {
     return Math.round(wallProfile);
   },
 
+  /** Berekent een voorgestelde muurprofielhoogte als de input buiten het bereik valt. */
   calculateInverseForWallProfileSuggestion(
     depth: number,
     slope: number,
@@ -115,11 +122,12 @@ const calculator = {
       depth,
       slope,
     );
-    // The true inverse must subtract slopeDrop.
+    // De inverse berekening moet de hellingsdaling aftrekken.
     const wallProfile = targetGutterHeight + wallToGutterDiff - slopeDrop;
     return Math.round(wallProfile);
   },
 
+  /** Berekent een voorgestelde doorloophoogte als de input buiten het bereik valt. */
   calculateInverseForGutterHeightSuggestion(
     depth: number,
     slope: number,
@@ -138,6 +146,7 @@ const calculator = {
     return Math.round(recommendedPassageHeight);
   },
 
+  /** Controleert of een waarde binnen de gedefinieerde bereiken valt. */
   checkRange(value: number, formType: FormType) {
     for (const [min, max] of config.ranges) {
       if (value >= min && value <= max) {
@@ -149,6 +158,7 @@ const calculator = {
         return { inRange: true, range: [min, max] as [number, number] };
       }
     }
+    // Zoek het dichtstbijzijnde bereik als de waarde buiten alle bereiken valt.
     let closest: [number, number] | null = null;
     let minDiff = Infinity;
     for (const range of config.ranges) {
@@ -164,6 +174,7 @@ const calculator = {
     return { inRange: false, range: closest };
   },
 
+  /** Genereert een suggestie voor een nieuwe invoerwaarde als het resultaat buiten het bereik valt. */
   generateSuggestion(
     formType: FormType,
     data: FormValues,
@@ -201,7 +212,9 @@ const calculator = {
   },
 };
 
-// Zod schema factory
+/**
+ * Een factory-functie die een Zod-validatieschema creëert op basis van het formuliertype.
+ */
 const createSchema = (
   t: ReturnType<typeof useTranslations>,
   formType: FormType,
@@ -300,7 +313,10 @@ const createSchema = (
     });
 };
 
-// The custom hook
+/**
+ * Custom hook voor de doorloophoogtecalculator.
+ * Beheert de state, validatie en berekeningslogica.
+ */
 export function usePassageHeightCalculator(formType: FormType) {
   const t = useTranslations("Components");
   const schema = useMemo(() => createSchema(t, formType), [t, formType]);

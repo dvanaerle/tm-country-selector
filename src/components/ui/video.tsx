@@ -6,12 +6,13 @@ import PlayCircleFill from "/public/icons/MingCute/play_circle_fill.svg";
 import { useLocale, useTranslations } from "next-intl";
 
 interface VideoProps {
-  videoUrls: {
-    [locale: string]: string;
-    fallback: string;
-  };
+  /** Een object met video-URL's per taal, plus een fallback. */
+  videoUrls: { [locale: string]: string; fallback: string };
+  /** De afbeelding die als overlay/thumbnail wordt getoond. */
   overlayImage: string | StaticImageData;
+  /** De titel van de video, gebruikt in de `iframe` en `aria-label`. */
   title: string;
+  /** De alt-tekst voor de overlay-afbeelding. */
   alt: string;
   priority?: boolean;
   fetchPriority?: "low" | "auto" | "high";
@@ -20,6 +21,10 @@ interface VideoProps {
   placeholder?: "blur" | "empty" | `data:image/${string}`;
 }
 
+/**
+ * Een performance-vriendelijke video-component.
+ * Rendert een `iframe` pas nadat de gebruiker op de afspeelknop klikt.
+ */
 export default function Video({
   videoUrls,
   overlayImage,
@@ -35,56 +40,62 @@ export default function Video({
   const locale = useLocale();
   const t = useTranslations("Video");
 
+  // Selecteert de juiste video-URL op basis van de taal, met een fallback.
   const selectedVideoUrl = videoUrls[locale] || videoUrls.fallback;
 
+  /** Voegt de autoplay parameter toe aan de URL om de video direct te starten. */
   function addAutoplayParam(url: string) {
-    const hasQuery = url.includes("?");
-    const hasAutoplay = url.includes("autoplay=1");
-    if (hasAutoplay) return url;
-    return url + (hasQuery ? "&" : "?") + "autoplay=1";
+    if (url.includes("autoplay=1")) return url;
+    const separator = url.includes("?") ? "&" : "?";
+    return `${url}${separator}autoplay=1`;
   }
 
-  return (
-    <div
-      className={`relative aspect-16/9 w-full cursor-pointer overflow-hidden ${className}`}
-    >
-      {!isPlaying && (
-        <button
-          onClick={() => setIsPlaying(true)}
-          aria-label={t("playVideoAriaLabel", { title })}
-          className="absolute inset-0 z-20 flex items-center justify-center"
-          type="button"
-        >
-          <div className="absolute inset-0 -z-10">
-            <Image
-              src={overlayImage}
-              alt={alt}
-              priority={priority}
-              fetchPriority={fetchPriority}
-              sizes={sizes}
-              placeholder={placeholder}
-            />
-          </div>
-
-          <div className="relative">
-            <PlayCircleFill
-              className="size-16 text-white sm:size-24"
-              aria-hidden="true"
-            />
-          </div>
-        </button>
-      )}
-
-      {isPlaying && (
+  // Als de video speelt, render de iframe.
+  if (isPlaying) {
+    return (
+      <div
+        className={`relative aspect-16/9 w-full overflow-hidden ${className}`}
+      >
         <iframe
-          className="h-full w-full"
+          className="size-full"
           src={addAutoplayParam(selectedVideoUrl)}
           title={title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           loading="lazy"
           allowFullScreen
         />
-      )}
+      </div>
+    );
+  }
+
+  // Anders, toon de thumbnail met afspeelknop.
+  return (
+    <div
+      className={`relative aspect-16/9 w-full cursor-pointer overflow-hidden ${className}`}
+    >
+      <button
+        onClick={() => setIsPlaying(true)}
+        aria-label={t("playVideoAriaLabel", { title })}
+        className="absolute inset-0 z-20 flex size-full items-center justify-center border-none bg-transparent p-0"
+        type="button"
+      >
+        <Image
+          src={overlayImage}
+          alt={alt}
+          priority={priority}
+          fetchPriority={fetchPriority}
+          sizes={sizes}
+          placeholder={placeholder}
+          fill
+          className="object-cover"
+        />
+        <div className="relative z-10 flex size-full items-center justify-center">
+          <PlayCircleFill
+            className="size-16 text-white sm:size-24"
+            aria-hidden="true"
+          />
+        </div>
+      </button>
     </div>
   );
 }

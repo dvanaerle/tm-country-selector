@@ -25,7 +25,7 @@ export default function NotFound() {
       <main
         className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center gap-y-4 px-4 py-12 text-center sm:px-6 xl:py-20"
         role="main"
-        aria-live="polite"
+        aria-live="polite" // Maakt de content direct beschikbaar voor screenreaders.
       >
         <Image
           src={illustration404}
@@ -36,27 +36,29 @@ export default function NotFound() {
           width={1024}
           height={443}
           sizes="
-                 (min-width: 1024px) calc(1024px - 48px),
-                 (min-width: 768px) calc(768px - 48px),
-                 (min-width: 640px) calc(640px - 48px),
-                 calc(100vw - 32px)"
+            (min-width: 1024px) calc(1024px - 48px),
+            (min-width: 768px) calc(768px - 48px),
+            (min-width: 640px) calc(640px - 48px),
+            calc(100vw - 32px)"
         />
 
         <h1>{t("heading")}</h1>
 
-        <p className="text-neutral-grey">{t("description")}</p>
+        <p id="not-found-description" className="text-neutral-grey">
+          {t("description")}
+        </p>
 
+        {/* Link terug naar de homepage met een toegankelijke beschrijving. */}
         <Link
           href="/"
-          className={buttonVariants({
-            variant: "default",
-          })}
-          aria-describedby="not-found-description"
+          className={buttonVariants({ variant: "default" })}
+          aria-describedby="back-to-home-sr-description"
         >
           {t("backToHome")}
         </Link>
 
-        <p id="not-found-description" className="sr-only">
+        {/* Verborgen beschrijving voor screenreaders. */}
+        <p id="back-to-home-sr-description" className="sr-only">
           {t("a11y.backToHomeDescription")}
         </p>
       </main>
