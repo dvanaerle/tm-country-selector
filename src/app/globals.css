@@ -2,8 +2,8 @@
 @import "tw-animate-css";
 
 @theme {
-  --color-brand: oklch(27.1% 0.068 154.6);
-  --color-brand-shadow: oklch(19.1% 0.036 175.1);
+  --color-primary: oklch(27.1% 0.068 154.6);
+  --color-primary-shadow: oklch(19.1% 0.036 175.1);
 
   --color-neutral-light: oklch(91.6% 0 0);
   --color-neutral-medium: oklch(50% 0 0);
@@ -13,9 +13,7 @@
   --color-accent: oklch(73.2% 0.186 53);
   --color-accent-strong: oklch(68.7% 0.188 47.8);
 
-  --color-secondary-light: oklch(74.5% 0.168 118.8);
-  --color-secondary-medium: oklch(62% 0.156 124.9);
-  --color-secondary-strong: oklch(55.9% 0.14 124.7);
+  --color-secondary: oklch(55.9% 0.14 124.7);
   --color-secondary-shadow: oklch(47.6% 0.119 124.5);
 
   --color-info-bg: oklch(96.5% 0.014 238);
@@ -28,11 +26,16 @@
 
   --color-success-bg: oklch(96.3% 0.015 132.5);
   --color-success: oklch(55.1% 0.17 137.9);
-  --color-success-bg: oklch(52.7% 0.162 137.8);
+  --color-success-on-bg: oklch(52.7% 0.162 137.8);
+
+  --color-ring: oklch(0.708 0 0);
 }
 
 @theme inline {
   --font-sans: var(--font-articulat-cf);
+  --color-border: var(--color-neutral-light);
+  --color-input: var(--color-neutral-light);
+  --color-control: var(--color-neutral-medium);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -47,6 +50,12 @@
 }
 
 @layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-accent-bg-subtle text-primary;
+  }
   button,
   [role="button"] {
     @apply cursor-pointer;
@@ -55,23 +64,31 @@
   [role="button"]:disabled {
     @apply cursor-default;
   }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-balance;
+  }
   h1 {
-    @apply text-4xl font-black text-balance;
+    @apply text-4xl font-black;
   }
   h2 {
-    @apply text-3xl font-black text-balance;
+    @apply text-3xl font-black;
   }
   h3 {
-    @apply text-2xl font-black text-balance;
+    @apply text-2xl font-black;
   }
   h4 {
-    @apply text-xl font-black text-balance;
+    @apply text-xl font-black;
   }
   h5 {
-    @apply text-lg font-black text-balance;
+    @apply text-lg font-black;
   }
   h6 {
-    @apply text-base font-black text-balance;
+    @apply text-base font-black;
   }
   p {
     @apply text-pretty;
@@ -80,6 +97,6 @@
   label[data-required="true"] span:after,
   [data-slot="form-label"][data-required="true"] span:after {
     content: "*";
-    @apply text-error ml-1;
+    @apply text-error mx-1;
   }
 }

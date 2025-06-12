@@ -42,7 +42,7 @@ function SheetTrigger({
     <SheetPrimitive.Trigger
       data-slot="sheet-trigger"
       className={cn(
-        "text-grey p-0.5 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+        "text-neutral-medium p-1 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
         className,
       )}
       {...props}
@@ -109,7 +109,7 @@ function SheetContent({
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className="focus:ring-grey absolute top-0 right-0 h-10 w-10 rounded-bl-lg bg-orange-600 p-2 ring-offset-white transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none data-[state=open]:bg-orange-600">
+        <SheetPrimitive.Close className="focus:ring-ring/50 bg-accent data-[state=open]:bg-accent absolute top-0 right-0 h-10 w-10 rounded-bl-lg p-2 ring-offset-white transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
           <CloseLine className="size-6 text-white" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
@@ -146,7 +146,7 @@ function SheetTitle({
     <SheetPrimitive.Title
       data-slot="sheet-title"
       className={cn(
-        "text-green w-[calc(100%-2.5rem)] text-xl font-bold",
+        "w-[calc(100%-2.5rem)] text-xl font-bold",
         className,
       )}
       {...props}
@@ -161,7 +161,7 @@ function SheetDescription({
   return (
     <SheetPrimitive.Description
       data-slot="sheet-description"
-      className={cn("text-green text-sm", className)}
+      className={cn("text-sm", className)}
       {...props}
     />
   );

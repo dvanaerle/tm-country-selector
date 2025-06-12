@@ -44,7 +44,7 @@ export default function NotFound() {
 
         <h1>{t("heading")}</h1>
 
-        <p id="not-found-description" className="text-neutral-grey">
+        <p id="not-found-description" className="text-neutral-medium">
           {t("description")}
         </p>
 

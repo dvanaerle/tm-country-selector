@@ -61,7 +61,7 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <body
-        className={`${articulatCF.variable} bg-orange-10 font-sans antialiased`}
+        className={`${articulatCF.variable} font-sans antialiased`}
       >
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>

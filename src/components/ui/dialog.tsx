@@ -64,7 +64,7 @@ function DialogContent({
         {...props}
       >
         {children}
-        <DialogPrimitive.Close className="focus:ring-light-grey data-[state=open]:bg-green data-[state=open]:text-light-grey absolute top-4 right-4 rounded opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5">
+        <DialogPrimitive.Close className="focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-neutral-medium absolute top-4 right-4 rounded opacity-70 ring-offset-white transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5">
           <CloseLine />
           <span className="sr-only">Close</span>
         </DialogPrimitive.Close>

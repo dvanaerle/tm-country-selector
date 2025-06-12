@@ -55,7 +55,7 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
   return (
     <Sheet>
       <SheetTrigger
-        className="focus-visible:ring-grey/50 focus-visible:border-green rounded border border-transparent outline-none focus-visible:ring-2"
+        className="focus-visible:ring-neutral-medium/30 rounded outline-none focus-visible:ring-2"
         aria-label={t(triggerTextKey || "Form.Common.moreInformation")}
       >
         <InformationLine aria-hidden="true" />
@@ -77,7 +77,7 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
                   className="rounded-lg"
                 />
                 {img.captionKey && (
-                  <figcaption className="text-grey mt-2 text-center text-sm">
+                  <figcaption className="text-neutral-medium mt-2 text-center text-sm">
                     {t(img.captionKey, img.captionValues)}
                   </figcaption>
                 )}

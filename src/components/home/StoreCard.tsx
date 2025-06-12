@@ -61,8 +61,7 @@ export function StoreCard({
     <Button
       variant="outlineLight"
       size="md"
-      fullWidth
-      className="group"
+      className="group w-full"
       disabled={disabled}
       onClick={handleClick}
       aria-label={ariaLabel}
@@ -77,15 +76,13 @@ export function StoreCard({
           role="img"
         />
         {isPreferred ? (
-          <span className="text-primary-dark-green text-left">
-            {t("goToStore")}
-          </span>
+          <span className="text-left">{t("goToStore")}</span>
         ) : (
           <div className="flex flex-wrap items-center gap-x-1">
-            <span className="text-primary-dark-green text-left">
-              {store.country}
+            <span className="text-left">{store.country}</span>
+            <span className="text-neutral-medium text-sm">
+              ({store.language})
             </span>
-            <span className="text-grey text-sm">({store.language})</span>
           </div>
         )}
       </div>

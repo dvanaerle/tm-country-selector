@@ -60,7 +60,7 @@ export default function StoreSelection({
         <>
           <h1 className="mb-5 text-2xl font-bold">{t("selectCountry")}</h1>
           <div className="mb-6">
-            <p className="text-neutral-grey mb-2 text-sm font-semibold">
+            <p className="text-neutral-medium mb-2 text-sm font-semibold">
               {t("areYouFrom", { country: preferredStore.country })}
             </p>
             <StoreCard
@@ -70,7 +70,7 @@ export default function StoreSelection({
               disabled={isLoading}
             />
           </div>
-          <p className="text-neutral-grey mb-2 text-sm font-semibold">
+          <p className="text-neutral-medium mb-2 text-sm font-semibold">
             {t("otherCountryPreference")}
           </p>
         </>
