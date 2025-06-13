@@ -2,40 +2,44 @@
 @import "tw-animate-css";
 
 @theme {
+  --inset-shadow-button-y: 4px;
+  --inset-shadow-button: inset 0px calc(var(--inset-shadow-button-y) * -1) 0px
+    rgba(0, 0, 0, 0.2);
+  --color-surface: oklch(95.1% 0.035 68.7);
+  --color-background: oklch(97.5% 0.017 67.6);
+  --color-foreground: oklch(27.1% 0.068 154.6);
+  --color-card: oklch(100% 0 0);
+  --color-card-foreground: oklch(27.1% 0.068 154.6);
   --color-primary: oklch(27.1% 0.068 154.6);
+  --color-primary-foreground: oklch(100% 0 0);
   --color-primary-shadow: oklch(19.1% 0.036 175.1);
-
-  --color-neutral-light: oklch(91.6% 0 0);
-  --color-neutral-medium: oklch(50% 0 0);
-
-  --color-accent-bg-subtle: oklch(97.5% 0.017 67.6);
-  --color-accent-bg-soft: oklch(95.1% 0.035 68.7);
-  --color-accent: oklch(73.2% 0.186 53);
-  --color-accent-strong: oklch(68.7% 0.188 47.8);
-
   --color-secondary: oklch(55.9% 0.14 124.7);
-  --color-secondary-shadow: oklch(47.6% 0.119 124.5);
-
-  --color-info-bg: oklch(96.5% 0.014 238);
-  --color-info: oklch(56.9% 0.169 251.7);
-  --color-info-on-bg: oklch(54.3% 0.163 252.1);
-
-  --color-error-bg: oklch(96.6% 0.015 17.4);
-  --color-error: oklch(59.8% 0.245 29.2);
-  --color-error-on-bg: oklch(57.1% 0.234 29.2);
-
-  --color-success-bg: oklch(96.3% 0.015 132.5);
+  --color-secondary-foreground: oklch(100% 0 0);
+  --color-secondary-hover: oklch(47.6% 0.119 124.5);
+  --color-muted: oklch(91.6% 0 0);
+  --color-muted-foreground: oklch(50% 0 0);
+  --color-accent: oklch(68.7% 0.188 47.8);
+  --color-accent-foreground: oklch(100% 0 0);
+  --color-destructive: oklch(59.8% 0.245 29.2);
+  --color-destructive-foreground: oklch(100% 0 0);
+  --color-destructive-background: oklch(59.8% 0.245 29.2 / 0.06);
+  --color-destructive-on-background: oklch(57.1% 0.234 29.2);
   --color-success: oklch(55.1% 0.17 137.9);
-  --color-success-on-bg: oklch(52.7% 0.162 137.8);
-
-  --color-ring: oklch(0.708 0 0);
+  --color-success-foreground: oklch(100% 0 0);
+  --color-success-background: oklch(55.1% 0.17 137.9 / 0.08);
+  --color-success-on-background: oklch(52.7% 0.162 137.8);
+  --color-info: oklch(56.9% 0.169 251.7);
+  --color-info-foreground: oklch(100% 0 0);
+  --color-info-background: oklch(56.9% 0.169 251.7 / 0.08);
+  --color-info-on-background: oklch(54.3% 0.163 252.1);
+  --color-control: oklch(50% 0 0);
+  --color-border: oklch(91.6% 0 0);
+  --color-input: oklch(91.6% 0 0);
+  --color-ring: oklch(70.8% 0 0);
 }
 
 @theme inline {
   --font-sans: var(--font-articulat-cf);
-  --color-border: var(--color-neutral-light);
-  --color-input: var(--color-neutral-light);
-  --color-control: var(--color-neutral-medium);
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -54,7 +58,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-accent-bg-subtle text-primary;
+    @apply bg-background text-foreground;
   }
   button,
   [role="button"] {
@@ -82,21 +86,26 @@
     @apply text-2xl font-black;
   }
   h4 {
-    @apply text-xl font-black;
+    @apply text-xl font-bold;
   }
   h5 {
-    @apply text-lg font-black;
+    @apply text-lg font-bold;
   }
   h6 {
-    @apply text-base font-black;
+    @apply text-base font-semibold;
   }
   p {
     @apply text-pretty;
   }
-  input[required] + label span:after,
-  label[data-required="true"] span:after,
-  [data-slot="form-label"][data-required="true"] span:after {
+}
+
+@layer utilities {
+  label[data-required] span::after,
+  legend[data-required] span::after {
     content: "*";
-    @apply text-error mx-1;
+    @apply text-destructive mx-1;
+  }
+  .trans-all * {
+    @apply transition-opacity duration-300;
   }
 }

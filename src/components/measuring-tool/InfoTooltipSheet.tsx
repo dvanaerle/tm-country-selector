@@ -37,6 +37,7 @@ interface InfoTooltipSheetProps {
   t: ReturnType<typeof useTranslations>;
   /** Een optionele lijst van afbeeldingen om weer te geven. */
   images?: InfoImage[];
+  disabled?: boolean;
 }
 
 /**
@@ -51,12 +52,14 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
   triggerTextKey,
   t,
   images = [],
+  disabled,
 }) => {
   return (
     <Sheet>
       <SheetTrigger
-        className="focus-visible:ring-neutral-medium/30 rounded outline-none focus-visible:ring-2"
+        className="focus-visible:ring-ring/50 rounded outline-none focus-visible:ring-2"
         aria-label={t(triggerTextKey || "Form.Common.moreInformation")}
+        disabled={disabled}
       >
         <InformationLine aria-hidden="true" />
       </SheetTrigger>
@@ -77,7 +80,7 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
                   className="rounded-lg"
                 />
                 {img.captionKey && (
-                  <figcaption className="text-neutral-medium mt-2 text-center text-sm">
+                  <figcaption className="text-muted-foreground mt-2 text-center text-sm">
                     {t(img.captionKey, img.captionValues)}
                   </figcaption>
                 )}

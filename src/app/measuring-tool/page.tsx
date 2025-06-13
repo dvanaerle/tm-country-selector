@@ -56,7 +56,7 @@ export default function MeasuringTool() {
             role="region"
             aria-labelledby="measuring-tool-heading"
           >
-            <h1 id="measuring-tool-heading" className="mb-4 text-2xl font-bold">
+            <h1 id="measuring-tool-heading" className="mb-5 text-2xl font-bold">
               {t.rich("heading", {
                 sup: (chunks) => <sup>{chunks}</sup>,
               })}

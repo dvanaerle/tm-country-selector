@@ -76,7 +76,7 @@ export default function Video({
       <button
         onClick={() => setIsPlaying(true)}
         aria-label={t("playVideoAriaLabel", { title })}
-        className="absolute inset-0 z-20 flex size-full items-center justify-center border-none bg-transparent p-0"
+        className="group absolute inset-0 z-20 flex size-full items-center justify-center"
         type="button"
       >
         <Image
@@ -91,7 +91,7 @@ export default function Video({
         />
         <div className="relative z-10 flex size-full items-center justify-center">
           <PlayCircleFill
-            className="size-16 text-white sm:size-24"
+            className="size-16 rounded-full text-white transition-transform duration-300 group-hover:scale-110 group-focus-visible:scale-110 group-focus-visible:ring-2 group-focus-visible:ring-white/50 group-focus-visible:outline-none sm:size-24"
             aria-hidden="true"
           />
         </div>

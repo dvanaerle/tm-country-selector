@@ -14,7 +14,7 @@ export default function Header() {
             aria-label={t("a11y.logoAriaLabel")}
             className="group relative"
           >
-            <div className="bg-primary border-primary-shadow group-focus-visible:ring-ring/50 absolute top-0 z-10 rounded-br rounded-bl border-r-2 border-b-2 border-l-2 px-6 pt-4 pb-6 group-focus-visible:ring-2 group-focus-visible:ring-offset-2 group-focus-visible:outline-none">
+            <div className="bg-primary border-primary-shadow group-focus-visible:ring-ring/50 absolute top-0 z-10 rounded-b-sm border-x-2 border-b-2 px-6 pt-4 pb-6 group-focus-visible:ring-2 group-focus-visible:ring-offset-2 group-focus-visible:outline-none">
               <Logo width={96} height={61} aria-hidden="true" role="img" />
             </div>
           </Link>

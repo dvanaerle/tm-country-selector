@@ -46,19 +46,19 @@ export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
     <RadioGroup
       onValueChange={handleValueChange}
       value={value === undefined ? "" : String(value)}
-      className="flex space-x-4"
+      className="flex gap-x-4"
       name={name}
       aria-describedby={ariaDescribedBy}
     >
       {options.map((option) => (
-        <div key={option.id} className="flex items-center space-x-2">
+        <div key={option.id} className="flex items-center gap-x-2">
           <RadioGroupItem
             value={option.value}
             id={option.id}
             className="peer"
           />
           <Label
-            className="cursor-pointer font-medium peer-focus-visible:outline-none"
+            className="cursor-pointer text-base font-medium peer-focus-visible:outline-none"
             htmlFor={option.id}
           >
             {option.label}

@@ -11,7 +11,8 @@ import {
 } from "@/hooks/usePassageHeightCalculator";
 import { Step1_Depth } from "./steps/Step1_Depth";
 import { Step2_RailSystem } from "./steps/Step2_RailSystem";
-import { Step3_FinalInputs } from "./steps/Step3_FinalInputs";
+import { Step3_TerraceSlope } from "./steps/Step3_TerraceSlope";
+import { Step4_HeightBottomWallProfile } from "./steps/Step4_HeightBottomWallProfile";
 
 /** Het type berekening: muurprofiel of goothoogte. */
 type FormType = "wallProfile" | "gutterHeight";
@@ -125,10 +126,11 @@ export function PassageHeightCalculatorForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={handleHookSubmit(onSubmit)} className="space-y-6">
+      <form onSubmit={handleHookSubmit(onSubmit)} className="space-y-5">
         <Step1_Depth t={t} depthOptions={depthOptions} />
         <Step2_RailSystem t={t} disabled={currentStep < 2} />
-        <Step3_FinalInputs
+        <Step3_TerraceSlope t={t} disabled={currentStep < 3} />
+        <Step4_HeightBottomWallProfile
           t={t}
           disabled={currentStep < 3}
           formType={formType}
@@ -137,7 +139,6 @@ export function PassageHeightCalculatorForm({
           mainInputPlaceholderKey={mainInputPlaceholderKey}
           mainInputTooltipKey={mainInputTooltipKey}
         />
-
         <Button
           type="submit"
           className="w-full"

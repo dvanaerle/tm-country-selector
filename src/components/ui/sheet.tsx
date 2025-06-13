@@ -42,7 +42,7 @@ function SheetTrigger({
     <SheetPrimitive.Trigger
       data-slot="sheet-trigger"
       className={cn(
-        "text-neutral-medium p-1 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+        "text-muted-foreground p-0.5 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
         className,
       )}
       {...props}
@@ -95,7 +95,7 @@ function SheetContent({
       <SheetPrimitive.Content
         data-slot="sheet-content"
         className={cn(
-          "data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 bg-white transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
+          "data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 overflow-y-auto bg-white transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
           side === "right" &&
             "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 sm:max-w-md",
           side === "left" &&
@@ -103,13 +103,13 @@ function SheetContent({
           side === "top" &&
             "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
           side === "bottom" &&
-            "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto max-h-[calc(100%-3rem)] overflow-x-auto rounded-t-lg",
+            "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto max-h-[calc(100%-3rem)] rounded-t-lg",
           className,
         )}
         {...props}
       >
         {children}
-        <SheetPrimitive.Close className="focus:ring-ring/50 bg-accent data-[state=open]:bg-accent absolute top-0 right-0 h-10 w-10 rounded-bl-lg p-2 ring-offset-white transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
+        <SheetPrimitive.Close className="focus:ring-ring bg-accent absolute top-0 right-0 h-10 w-10 rounded-bl-lg p-2 ring-offset-white focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
           <CloseLine className="size-6 text-white" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
@@ -146,7 +146,7 @@ function SheetTitle({
     <SheetPrimitive.Title
       data-slot="sheet-title"
       className={cn(
-        "w-[calc(100%-2.5rem)] text-xl font-bold",
+        "w-[calc(100%-(--spacing(10)))] text-xl font-bold",
         className,
       )}
       {...props}

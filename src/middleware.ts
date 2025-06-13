@@ -7,11 +7,13 @@ export function middleware(request: NextRequest): NextResponse {
     const preferredStoreUrl = request.cookies.get("preferredStore")?.value;
 
     if (preferredStoreUrl) {
-      // Valideer dat de waarde in de cookie een geldige URL is voordat er wordt doorgestuurd.
       try {
-        const url = new URL(preferredStoreUrl);
-        // Stuur de gebruiker door naar de opgeslagen landselectie.
-        return NextResponse.redirect(url);
+        // Valideer dat de waarde in de cookie een geldige URL is voordat er wordt doorgestuurd.
+        const url = new URL(preferredStoreUrl, request.nextUrl.origin);
+        if (url.origin === request.nextUrl.origin) {
+          // Stuur de gebruiker door naar de opgeslagen landselectie.
+          return NextResponse.redirect(url);
+        }
       } catch {
         // Als de URL ongeldig is, verwijder de corrupte cookie en ga verder.
         const response = NextResponse.next();

@@ -25,7 +25,7 @@ export default function NotFound() {
       <main
         className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center gap-y-4 px-4 py-12 text-center sm:px-6 xl:py-20"
         role="main"
-        aria-live="polite" // Maakt de content direct beschikbaar voor screenreaders.
+        aria-live="polite"
       >
         <Image
           src={illustration404}
@@ -44,7 +44,7 @@ export default function NotFound() {
 
         <h1>{t("heading")}</h1>
 
-        <p id="not-found-description" className="text-neutral-medium">
+        <p id="not-found-description" className="text-muted-foreground">
           {t("description")}
         </p>
 

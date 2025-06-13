@@ -60,7 +60,7 @@ export default function StoreSelection({
         <>
           <h1 className="mb-5 text-2xl font-bold">{t("selectCountry")}</h1>
           <div className="mb-6">
-            <p className="text-neutral-medium mb-2 text-sm font-semibold">
+            <p className="text-muted-foreground mb-2 text-sm font-semibold">
               {t("areYouFrom", { country: preferredStore.country })}
             </p>
             <StoreCard
@@ -70,14 +70,14 @@ export default function StoreSelection({
               disabled={isLoading}
             />
           </div>
-          <p className="text-neutral-medium mb-2 text-sm font-semibold">
+          <p className="text-muted-foreground mb-2 text-sm font-semibold">
             {t("otherCountryPreference")}
           </p>
         </>
       )}
 
       <ul
-        className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(min(272px,100%),1fr))] gap-3"
+        className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(min(278px,100%),1fr))] gap-3"
         role="list"
         aria-label={
           otherStores.length > 0 ? t("otherCountryPreference") : undefined
@@ -94,7 +94,7 @@ export default function StoreSelection({
         ))}
       </ul>
 
-      <div className="flex items-center space-x-3">
+      <div className="flex items-center gap-x-3">
         <Checkbox
           name="savePreference"
           id="savePreference"
