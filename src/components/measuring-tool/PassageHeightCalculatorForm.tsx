@@ -126,7 +126,7 @@ export function PassageHeightCalculatorForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={handleHookSubmit(onSubmit)} className="space-y-5">
+      <form onSubmit={handleHookSubmit(onSubmit)} className="space-y-6">
         <Step1_Depth t={t} depthOptions={depthOptions} />
         <Step2_RailSystem t={t} disabled={currentStep < 2} />
         <Step3_TerraceSlope t={t} disabled={currentStep < 3} />
