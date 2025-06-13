@@ -16,6 +16,30 @@ interface YesNoRadioGroupProps {
 }
 
 /**
+ * Props voor de RadioOption component.
+ */
+interface RadioOptionProps {
+  id: string;
+  value: string;
+  label: string;
+}
+
+/**
+ * Een helper component om een individuele radio optie te renderen.
+ */
+const RadioOption: React.FC<RadioOptionProps> = ({ id, value, label }) => (
+  <div className="flex items-center gap-x-2">
+    <RadioGroupItem value={value} id={id} className="peer" />
+    <Label
+      className="cursor-pointer text-base font-medium peer-focus-visible:outline-none"
+      htmlFor={id}
+    >
+      {label}
+    </Label>
+  </div>
+);
+
+/**
  * Een herbruikbare radiogroep voor "Ja" of "Nee" selecties.
  * Deze component werkt intern met booleaanse waarden (`true`/`false`)
  * voor een eenvoudige integratie met formulierlogica.
@@ -51,19 +75,12 @@ export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
       aria-describedby={ariaDescribedBy}
     >
       {options.map((option) => (
-        <div key={option.id} className="flex items-center gap-x-2">
-          <RadioGroupItem
-            value={option.value}
-            id={option.id}
-            className="peer"
-          />
-          <Label
-            className="cursor-pointer text-base font-medium peer-focus-visible:outline-none"
-            htmlFor={option.id}
-          >
-            {option.label}
-          </Label>
-        </div>
+        <RadioOption
+          key={option.id}
+          id={option.id}
+          value={option.value}
+          label={option.label}
+        />
       ))}
     </RadioGroup>
   );
