@@ -24,7 +24,7 @@ interface RadioOptionProps {
 const RadioOption: React.FC<RadioOptionProps> = ({ id, value, label }) => (
   <Label
     htmlFor={id}
-    className="group hover:bg-muted/30 has-[:checked]:bg-muted/40 has-[:focus-visible]:border-ring has-[:focus-visible]:ring-ring/50 has-[:checked]:border-primary flex min-h-12 flex-1 cursor-pointer items-center gap-x-2 rounded-sm border px-3 py-2.75 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 has-[:focus-visible]:ring-2"
+    className="group hover:bg-muted/30 has-[:checked]:bg-muted/40 has-[:focus-visible]:border-ring has-[:focus-visible]:ring-ring/50 has-[:checked]:border-primary flex min-h-12 flex-1 cursor-pointer items-center gap-x-2 rounded-sm border px-3 py-2.75 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 has-[:disabled]:hover:bg-transparent has-[:focus-visible]:ring-2"
   >
     <RadioGroupItem
       value={value}
@@ -65,7 +65,7 @@ export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
     <RadioGroup
       onValueChange={handleValueChange}
       value={value === undefined ? "" : String(value)}
-      className="flex gap-x-4"
+      className="flex flex-wrap gap-x-2"
       name={name}
       aria-describedby={ariaDescribedBy}
     >
