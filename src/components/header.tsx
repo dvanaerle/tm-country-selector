@@ -15,7 +15,7 @@ export default function Header() {
             className="group relative"
           >
             <div className="bg-primary border-primary-shadow group-focus-visible:ring-ring/50 absolute top-0 z-10 rounded-b-sm border-x-2 border-b-2 px-6 pt-4 pb-6 group-focus-visible:ring-2 group-focus-visible:ring-offset-2 group-focus-visible:outline-none">
-              <Logo width={96} height={61} aria-hidden="true" role="img" />
+              <Logo width={96} height={61} aria-hidden="true" />
             </div>
           </Link>
         </div>

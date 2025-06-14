@@ -73,7 +73,6 @@ export function StoreCard({
           width={24}
           height={24}
           className="size-6"
-          role="img"
         />
         {isPreferred ? (
           <span className="text-left">{t("goToStore")}</span>

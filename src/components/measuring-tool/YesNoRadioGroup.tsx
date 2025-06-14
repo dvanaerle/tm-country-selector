@@ -29,7 +29,7 @@ interface RadioOptionProps {
  */
 const RadioOption: React.FC<RadioOptionProps> = ({ id, value, label }) => (
   <div className="flex items-center gap-x-2">
-    <RadioGroupItem value={value} id={id} className="peer" />
+    <RadioGroupItem value={value} id={id} className="peer" aria-label={label} />
     <Label
       className="cursor-pointer text-base font-medium peer-focus-visible:outline-none"
       htmlFor={id}
