@@ -23,12 +23,36 @@ interface Step3Props {
 // Rendert de invoervelden voor stap 3: Afloop terras.
 export const Step3_TerraceSlope: React.FC<Step3Props> = ({ t, disabled }) => {
   const form = useFormContext();
+  const groupLabelId = React.useId(); // Uniek ID voor de legend
 
   return (
     // <fieldset> groepeert het gerelateerde invoerveld.
     <fieldset disabled={disabled} className="trans-all">
-      {/* Geen <legend> hier, omdat er slechts één hoofd-formuliercontrole binnen deze fieldset zit. */}
-      {/* Een FormLabel is voldoende voor een enkele invoer. */}
+      <FormLabel
+        asChild // Render als een child om styling toe te passen op de legend
+        id={groupLabelId} // Pas het unieke ID toe op de legend
+      >
+        {/* Het <legend>-element voorziet de fieldset van een toegankelijke naam */}
+        <legend
+          className="flex items-center gap-x-1 has-disabled:opacity-50"
+          data-required
+        >
+          <span>{t("Form.Common.slope")}</span>
+          <InfoTooltipSheet
+            t={t}
+            disabled={disabled}
+            titleKey="Form.Common.slope"
+            descriptionKey="Form.Common.slopeTooltip"
+            images={[
+              {
+                src: MeasuringSlope,
+                alt: "Pages.MeasuringTool.MeasuringSlopeAlt",
+                captionKey: "Form.Common.MeasuringSlopeCaption",
+              },
+            ]}
+          />
+        </legend>
+      </FormLabel>
 
       {/* Invoerveld voor afloop */}
       <FormField
@@ -41,20 +65,8 @@ export const Step3_TerraceSlope: React.FC<Step3Props> = ({ t, disabled }) => {
               htmlFor="slope"
               className="flex items-center gap-x-1 has-disabled:opacity-50"
             >
-              <span>{t("Form.Common.slope")}</span>
-              <InfoTooltipSheet
-                t={t}
-                disabled={disabled}
-                titleKey="Form.Common.slope"
-                descriptionKey="Form.Common.slopeTooltip"
-                images={[
-                  {
-                    src: MeasuringSlope,
-                    alt: "Pages.MeasuringTool.MeasuringSlopeAlt",
-                    captionKey: "Form.Common.MeasuringSlopeCaption",
-                  },
-                ]}
-              />
+              <span className="sr-only">{t("Form.Common.slope")}</span>
+              {/* Visueel verborgen label om expliciet te linken */}
             </FormLabel>
             <FormControl>
               <NumberInputWithUnit
@@ -67,6 +79,7 @@ export const Step3_TerraceSlope: React.FC<Step3Props> = ({ t, disabled }) => {
                 aria-describedby={`${field.name}-error`}
                 min={0}
                 isInvalid={fieldState.invalid}
+                aria-labelledby={groupLabelId} // Koppel het invoerveld aan de legend voor zijn toegankelijke naam
               />
             </FormControl>
             <FormMessage id={`${field.name}-error`} />

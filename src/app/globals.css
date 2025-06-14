@@ -5,6 +5,7 @@
   --inset-shadow-button-y: 4px;
   --inset-shadow-button: inset 0px calc(var(--inset-shadow-button-y) * -1) 0px
     rgba(0, 0, 0, 0.2);
+  --tw-leading: 1.5;
   --color-surface: oklch(95.1% 0.035 68.7);
   --color-background: oklch(97.5% 0.017 67.6);
   --color-foreground: oklch(27.1% 0.068 154.6);

@@ -22,15 +22,20 @@ interface RadioOptionProps {
 
 // Een helper component om een individuele radio optie te renderen.
 const RadioOption: React.FC<RadioOptionProps> = ({ id, value, label }) => (
-  <div className="flex items-center gap-x-2">
-    <RadioGroupItem value={value} id={id} className="peer" aria-label={label} />
-    <Label
-      className="cursor-pointer text-base font-medium peer-focus-visible:outline-none"
-      htmlFor={id}
-    >
+  <Label
+    htmlFor={id}
+    className="group hover:bg-muted/30 has-[:checked]:bg-muted/40 has-[:focus-visible]:border-ring has-[:focus-visible]:ring-ring/50 has-[:checked]:border-primary flex min-h-12 flex-1 cursor-pointer items-center gap-x-2 rounded-sm border px-3 py-2.75 has-[:disabled]:cursor-not-allowed has-[:disabled]:opacity-50 has-[:focus-visible]:ring-2"
+  >
+    <RadioGroupItem
+      value={value}
+      id={id}
+      className="peer focus-visible:ring-0 focus-visible:outline-none"
+      aria-label={label}
+    />
+    <span className="text-base font-medium group-has-[:checked]:font-semibold peer-focus-visible:outline-none">
       {label}
-    </Label>
-  </div>
+    </span>
+  </Label>
 );
 
 // Een herbruikbare radiogroep voor "Ja" of "Nee" selecties.

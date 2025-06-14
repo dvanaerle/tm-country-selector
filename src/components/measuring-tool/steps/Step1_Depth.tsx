@@ -85,7 +85,7 @@ export const Step1_Depth: React.FC<Step1DepthProps> = ({ t, depthOptions }) => {
                   <RadioGroupCards.Item
                     key={option.value}
                     value={option.value}
-                    className="focus-visible:ring-ring/50 data-[state=checked]:text-primary text-muted-foreground data-[state=checked]:border-primary focus-visible:border-ring hover:bg-muted/30 data-[state=checked]:bg-muted/30 rounded border px-3 py-1.5 outline-none focus-visible:ring-2 data-[state=checked]:font-semibold"
+                    className="focus-visible:ring-ring/50 data-[state=checked]:text-primary text-muted-foreground data-[state=checked]:border-primary focus-visible:border-ring hover:bg-muted/30 data-[state=checked]:bg-muted/30 border-input min-h-12 rounded border px-4 py-2.75 outline-none focus-visible:ring-2 data-[state=checked]:font-semibold"
                   >
                     <span>{option.label}</span>
                   </RadioGroupCards.Item>

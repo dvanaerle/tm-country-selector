@@ -6,7 +6,11 @@ export default function Header() {
   const t = useTranslations("Components.Header");
 
   return (
-    <header className="bg-primary h-19" role="banner">
+    <header
+      className="bg-primary h-19"
+      role="banner"
+      aria-label={t("a11y.siteHeader")}
+    >
       <nav role="navigation" aria-label={t("a11y.mainNavigation")}>
         <div className="container mx-auto px-4 sm:px-6">
           <Link

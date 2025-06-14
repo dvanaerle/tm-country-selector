@@ -50,7 +50,8 @@
     "Header": {
       "a11y": {
         "logoAriaLabel": "Tuinmaximaal homepage",
-        "mainNavigation": "Hoofdnavigatie"
+        "mainNavigation": "Hoofdnavigatie",
+        "siteHeader": "Sitebalk"
       }
     },
     "StoreSelection": {

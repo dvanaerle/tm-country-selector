@@ -45,12 +45,44 @@ export const Step4_HeightBottomWallProfile: React.FC<Step4Props> = ({
   mainInputTooltipKey,
 }) => {
   const form = useFormContext();
+  const groupLabelId = React.useId(); // Uniek ID voor de legend
 
   return (
     // <fieldset> groepeert het gerelateerde invoerveld.
     <fieldset disabled={disabled} className="trans-all">
-      {/* Geen <legend> hier, omdat er slechts één hoofd-formuliercontrole binnen deze fieldset zit. */}
-      {/* Een FormLabel is voldoende voor een enkele invoer. */}
+      <FormLabel
+        asChild // Render als een child om styling toe te passen op de legend
+        id={groupLabelId} // Pas het unieke ID toe op de legend
+      >
+        {/* Het <legend>-element voorziet de fieldset van een toegankelijke naam */}
+        <legend
+          className="flex items-center gap-x-1 has-disabled:opacity-50"
+          data-required
+        >
+          <span>{t(mainInputLabelKey)}</span>
+          <InfoTooltipSheet
+            t={t}
+            disabled={disabled}
+            titleKey={mainInputLabelKey}
+            descriptionKey={mainInputTooltipKey}
+            images={[
+              {
+                // De afbeelding is afhankelijk van het formuliertype.
+                src:
+                  formType === "wallProfile"
+                    ? MeasuringHeightPaving
+                    : MeasuringHeightRecessed,
+                alt:
+                  formType === "wallProfile"
+                    ? "Pages.MeasuringTool.MeasuringHeightPavingAlt"
+                    : "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
+                captionKey:
+                  "Form.WallProfileHeight.MeasuringHeightPavingCaption",
+              },
+            ]}
+          />
+        </legend>
+      </FormLabel>
 
       {/* Hoofdinvoerveld voor hoogte onderkant muurprofiel */}
       <FormField
@@ -64,28 +96,8 @@ export const Step4_HeightBottomWallProfile: React.FC<Step4Props> = ({
               data-required
               className="flex items-center gap-x-1 has-disabled:opacity-50"
             >
-              <span>{t(mainInputLabelKey)}</span>
-              <InfoTooltipSheet
-                t={t}
-                disabled={disabled}
-                titleKey={mainInputLabelKey}
-                descriptionKey={mainInputTooltipKey}
-                images={[
-                  {
-                    // De afbeelding is afhankelijk van het formuliertype.
-                    src:
-                      formType === "wallProfile"
-                        ? MeasuringHeightPaving
-                        : MeasuringHeightRecessed,
-                    alt:
-                      formType === "wallProfile"
-                        ? "Pages.MeasuringTool.MeasuringHeightPavingAlt"
-                        : "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
-                    captionKey:
-                      "Form.WallProfileHeight.MeasuringHeightPavingCaption",
-                  },
-                ]}
-              />
+              <span className="sr-only">{t(mainInputLabelKey)}</span>{" "}
+              {/* Visueel verborgen label om expliciet te linken */}
             </FormLabel>
             <FormControl>
               <NumberInputWithUnit
@@ -98,6 +110,7 @@ export const Step4_HeightBottomWallProfile: React.FC<Step4Props> = ({
                 unit={t("Form.Common.measurementUnitMm")}
                 aria-describedby={`${field.name}-error`}
                 isInvalid={fieldState.invalid}
+                aria-labelledby={groupLabelId} // Koppel het invoerveld aan de legend voor zijn toegankelijke naam
               />
             </FormControl>
             <FormMessage id={`${field.name}-error`} />

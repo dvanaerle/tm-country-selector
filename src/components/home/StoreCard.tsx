@@ -57,6 +57,7 @@ export function StoreCard({
         <CircleFlag
           countryCode={getFlagCountryCode(store.countryCode)}
           title={t("a11y.flagAlt", { country: store.country })}
+          alt={t("a11y.flagAlt", { country: store.country })}
           width={24}
           height={24}
           className="size-6"
