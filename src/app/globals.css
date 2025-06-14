@@ -106,6 +106,6 @@
     @apply text-destructive mx-1;
   }
   .trans-all * {
-    @apply transition-opacity duration-300;
+    @apply transition-all duration-300;
   }
 }
