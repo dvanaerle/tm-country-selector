@@ -53,10 +53,6 @@ export function StoreCard({
     }
   };
 
-  const ariaLabel = isPreferred
-    ? t("goToStore")
-    : `${t("selectCountry")}: ${store.country} (${store.language})`;
-
   return (
     <Button
       type="button"
@@ -64,7 +60,6 @@ export function StoreCard({
       className="group min-h-13 w-full px-4"
       disabled={disabled}
       onClick={handleClick}
-      aria-label={ariaLabel}
     >
       <div className="flex flex-1 items-center gap-x-3">
         <CircleFlag
@@ -78,6 +73,7 @@ export function StoreCard({
           <span className="text-left">{t("goToStore")}</span>
         ) : (
           <div className="flex flex-wrap items-center gap-x-1.5">
+            <span className="sr-only">{t("selectCountry")}</span>
             <span className="text-left">{store.country}</span>
             <span className="text-muted-foreground text-sm">
               ({store.language})

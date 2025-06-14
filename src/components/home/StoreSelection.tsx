@@ -101,6 +101,7 @@ export default function StoreSelection({
           checked={saveSelection}
           onCheckedChange={(checked) => setSaveSelection(checked === true)}
           disabled={isLoading}
+          aria-label={t("saveSelection")}
         />
         <Label className="cursor-pointer font-medium" htmlFor="savePreference">
           {t("saveSelection")}
