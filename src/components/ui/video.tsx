@@ -6,13 +6,13 @@ import PlayCircleFill from "/public/icons/MingCute/play_circle_fill.svg";
 import { useLocale, useTranslations } from "next-intl";
 
 interface VideoProps {
-  /** Een object met video-URL's per taal, plus een fallback. */
+  // Een object met video-URL's per taal, plus een fallback.
   videoUrls: { [locale: string]: string; fallback: string };
-  /** De afbeelding die als overlay/thumbnail wordt getoond. */
+  // De afbeelding die als overlay/thumbnail wordt getoond.
   overlayImage: string | StaticImageData;
-  /** De titel van de video, gebruikt in de `iframe` en `aria-label`. */
+  // De titel van de video, gebruikt in de `iframe` en `aria-label`.
   title: string;
-  /** De alt-tekst voor de overlay-afbeelding. */
+  // De alt-tekst voor de overlay-afbeelding.
   alt: string;
   priority?: boolean;
   fetchPriority?: "low" | "auto" | "high";
@@ -21,10 +21,8 @@ interface VideoProps {
   placeholder?: "blur" | "empty" | `data:image/${string}`;
 }
 
-/**
- * Een performance-vriendelijke video-component.
- * Rendert een `iframe` pas nadat de gebruiker op de afspeelknop klikt.
- */
+// Een performance-vriendelijke video-component.
+// Rendert een `iframe` pas nadat de gebruiker op de afspeelknop klikt.
 export default function Video({
   videoUrls,
   overlayImage,
@@ -43,7 +41,7 @@ export default function Video({
   // Selecteert de juiste video-URL op basis van de taal, met een fallback.
   const selectedVideoUrl = videoUrls[locale] || videoUrls.fallback;
 
-  /** Voegt de autoplay parameter toe aan de URL om de video direct te starten. */
+  // Voegt de autoplay parameter toe aan de URL om de video direct te starten.
   function addAutoplayParam(url: string) {
     if (url.includes("autoplay=1")) return url;
     const separator = url.includes("?") ? "&" : "?";

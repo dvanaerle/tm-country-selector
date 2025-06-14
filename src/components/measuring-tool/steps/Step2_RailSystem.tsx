@@ -12,20 +12,16 @@ import { InfoTooltipSheet } from "../InfoTooltipSheet";
 import { YesNoRadioGroup } from "../YesNoRadioGroup";
 import MeasuringHeightRecessed from "/public/images/measuring-height-recessed.jpg";
 
-/**
- * Props voor de Step2_RailSystem component.
- */
+// Props voor de Step2_RailSystem component.
 interface Step2RailSystemProps {
-  /** Vertalingsfunctie van next-intl. */
+  // Vertalingsfunctie van next-intl.
   t: ReturnType<typeof useTranslations>;
-  /** Geeft aan of de fieldset uitgeschakeld moet zijn. */
+  // Geeft aan of de fieldset uitgeschakeld moet zijn.
   disabled: boolean;
 }
 
-/**
- * Rendert de tweede stap van het formulier, waarin wordt gevraagd of het railsysteem verzonken is.
- * Maakt gebruik van de `YesNoRadioGroup` voor een "Ja/Nee" selectie.
- */
+// Rendert de tweede stap van het formulier, waarin wordt gevraagd of het railsysteem verzonken is.
+// Maakt gebruik van de `YesNoRadioGroup` voor een "Ja/Nee" selectie.
 export const Step2_RailSystem: React.FC<Step2RailSystemProps> = ({
   t,
   disabled,
@@ -43,10 +39,8 @@ export const Step2_RailSystem: React.FC<Step2RailSystemProps> = ({
         // terwijl `YesNoRadioGroup` met booleans werkt.
         const valueAsBoolean = field.value === "checked";
 
-        /**
-         * Converteert de boolean van `YesNoRadioGroup` terug naar de string
-         * die het validatieschema van de formulierhook verwacht.
-         */
+        // Converteert de boolean van `YesNoRadioGroup` terug naar de string
+        // die het validatieschema van de formulierhook verwacht.
         const handleValueChange = (isSelected: boolean) => {
           field.onChange(isSelected ? "checked" : "unchecked");
         };

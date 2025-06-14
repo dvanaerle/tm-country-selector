@@ -34,10 +34,8 @@ const articulatCF = localFont({
   display: "swap", // Zorgt voor snelle weergave van tekst tijdens het laden.
 });
 
-/**
- * Genereert de standaard metadata voor de applicatie.
- * Kan per pagina worden overschreven of uitgebreid.
- */
+// Genereert de standaard metadata voor de applicatie.
+// Kan per pagina worden overschreven of uitgebreid.
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Pages.Home.metaData");
 

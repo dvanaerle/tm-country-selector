@@ -49,11 +49,9 @@ type ValidatedGutterHeightForm = FormValues & {
   railSystemSlope: RailSlope;
 };
 
-/**
- * Een object dat alle rekenkundige logica groepeert.
- */
+// Een object dat alle rekenkundige logica groepeert.
 const calculator = {
-  /** Berekent cruciale afmetingen op basis van diepte en afloop. */
+// Berekent cruciale afmetingen op basis van diepte en afloop.
   calculateDimensions(depth: number, slope: number) {
     const cosAngle = Math.cos(config.angle);
     const sinAngle = Math.sin(config.angle);
@@ -69,7 +67,7 @@ const calculator = {
     return { insideDepth, wallToGutterDiff, slopeDrop };
   },
 
-  /** Berekent de doorloophoogte op basis van de muurprofielhoogte. */
+// Berekent de doorloophoogte op basis van de muurprofielhoogte.
   calculateFromWallProfile(
     depth: number,
     slope: number,
@@ -88,7 +86,7 @@ const calculator = {
     return Math.round(passageHeight);
   },
 
-  /** Berekent de muurprofielhoogte op basis van de gewenste doorloophoogte. */
+// Berekent de muurprofielhoogte op basis van de gewenste doorloophoogte.
   calculateFromGutterHeight(
     depth: number,
     slope: number,
@@ -107,7 +105,7 @@ const calculator = {
     return Math.round(wallProfile);
   },
 
-  /** Berekent een voorgestelde muurprofielhoogte als de input buiten het bereik valt. */
+// Berekent een voorgestelde muurprofielhoogte als de input buiten het bereik valt.
   calculateInverseForWallProfileSuggestion(
     depth: number,
     slope: number,
@@ -127,7 +125,7 @@ const calculator = {
     return Math.round(wallProfile);
   },
 
-  /** Berekent een voorgestelde doorloophoogte als de input buiten het bereik valt. */
+// Berekent een voorgestelde doorloophoogte als de input buiten het bereik valt.
   calculateInverseForGutterHeightSuggestion(
     depth: number,
     slope: number,
@@ -146,7 +144,7 @@ const calculator = {
     return Math.round(recommendedPassageHeight);
   },
 
-  /** Controleert of een waarde binnen de gedefinieerde bereiken valt. */
+// Controleert of een waarde binnen de gedefinieerde bereiken valt.
   checkRange(value: number, formType: FormType) {
     for (const [min, max] of config.ranges) {
       if (value >= min && value <= max) {
@@ -174,7 +172,7 @@ const calculator = {
     return { inRange: false, range: closest };
   },
 
-  /** Genereert een suggestie voor een nieuwe invoerwaarde als het resultaat buiten het bereik valt. */
+// Genereert een suggestie voor een nieuwe invoerwaarde als het resultaat buiten het bereik valt.
   generateSuggestion(
     formType: FormType,
     data: FormValues,
@@ -212,9 +210,7 @@ const calculator = {
   },
 };
 
-/**
- * Een factory-functie die een Zod-validatieschema creëert op basis van het formuliertype.
- */
+// Een factory-functie die een Zod-validatieschema creëert op basis van het formuliertype.
 const createSchema = (
   t: ReturnType<typeof useTranslations>,
   formType: FormType,
@@ -313,10 +309,8 @@ const createSchema = (
     });
 };
 
-/**
- * Custom hook voor de doorloophoogtecalculator.
- * Beheert de state, validatie en berekeningslogica.
- */
+// Custom hook voor de doorloophoogtecalculator.
+// Beheert de state, validatie en berekeningslogica.
 export function usePassageHeightCalculator(formType: FormType) {
   const t = useTranslations("Components");
   const schema = useMemo(() => createSchema(t, formType), [t, formType]);

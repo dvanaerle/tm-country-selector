@@ -11,9 +11,7 @@ import {
 } from "@/components/ui/sheet";
 import InformationLine from "../../../public/icons/MingCute/information_line.svg";
 
-/**
- * Definieert de structuur voor afbeeldingen die in de tooltip worden weergegeven.
- */
+// Definieert de structuur voor afbeeldingen die in de tooltip worden weergegeven.
 interface InfoImage {
   src: string | StaticImageData;
   alt: string;
@@ -21,30 +19,26 @@ interface InfoImage {
   captionValues?: Record<string, any>;
 }
 
-/**
- * Props voor de InfoTooltipSheet component.
- */
+// Props voor de InfoTooltipSheet component.
 interface InfoTooltipSheetProps {
-  /** De key voor de titelvertaling. */
+  // De key voor de titelvertaling.
   titleKey: string;
-  /** De key voor de beschrijvingvertaling. */
+  // De key voor de beschrijvingvertaling.
   descriptionKey: string;
-  /** Optionele waarden voor de beschrijvingvertaling. */
+  // Optionele waarden voor de beschrijvingvertaling.
   descriptionValues?: Record<string, any>;
-  /** Optionele key voor de triggertekst. */
+  // Optionele key voor de triggertekst.
   triggerTextKey?: string;
-  /** Vertalingsfunctie van next-intl. */
+  // Vertalingsfunctie van next-intl.
   t: ReturnType<typeof useTranslations>;
-  /** Een optionele lijst van afbeeldingen om weer te geven. */
+  // Een optionele lijst van afbeeldingen om weer te geven.
   images?: InfoImage[];
   disabled?: boolean;
 }
 
-/**
- * Een herbruikbare component die een informatie-icoon toont.
- * Bij het aanklikken wordt een "sheet" (zijpaneel) geopend met een titel,
- * beschrijving en optionele afbeeldingen.
- */
+// Een herbruikbare component die een informatie-icoon toont.
+// Bij het aanklikken wordt een "sheet" (zijpaneel) geopend met een titel,
+// beschrijving en optionele afbeeldingen.
 export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
   titleKey,
   descriptionKey,

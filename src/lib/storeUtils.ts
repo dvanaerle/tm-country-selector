@@ -1,9 +1,7 @@
 import { type StoreData } from "@/data/stores";
 
-/**
- * Scheidt een lijst van landen in een 'voorkeursland' en 'overige landen'
- * op basis van de landcode van de gebruiker.
- */
+// Scheidt een lijst van landen in een 'voorkeursland' en 'overige landen'
+// op basis van de landcode van de gebruiker.
 export function getStoreLocalization(
   userCountryCode: string,
   allStores: StoreData[],

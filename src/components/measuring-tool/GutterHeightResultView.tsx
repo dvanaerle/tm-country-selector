@@ -1,25 +1,21 @@
 import React from "react";
 import { useTranslations } from "next-intl";
 
-/**
- * Props voor de GutterHeightResultView component.
- */
+// Props voor de GutterHeightResultView component.
 interface GutterHeightResultViewProps {
-  /** Vertalingsfunctie van next-intl. */
+  // Vertalingsfunctie van next-intl.
   t: ReturnType<typeof useTranslations>;
-  /** De berekende hoogte van het onderste gootprofiel. */
+  // De berekende hoogte van het onderste gootprofiel.
   calculatedOutput: number;
-  /** De hoogte van het bovenste muurprofiel. */
+  // De hoogte van het bovenste muurprofiel.
   topWallProfileHeight: number;
-  /** Het acceptabele bereik voor de doorloophoogte. */
+  // Het acceptabele bereik voor de doorloophoogte.
   outputRange: [number, number];
 }
 
-/**
- * Een component die de resultaten van de goothoogteberekening weergeeft.
- * Het toont de berekende hoogtes voor zowel het onderste als het bovenste muurprofiel,
- * en het resulterende bereik van de doorloophoogte.
- */
+// Een component die de resultaten van de goothoogteberekening weergeeft.
+// Het toont de berekende hoogtes voor zowel het onderste als het bovenste muurprofiel,
+// en het resulterende bereik van de doorloophoogte.
 export const GutterHeightResultView: React.FC<GutterHeightResultViewProps> = ({
   t,
   calculatedOutput,
@@ -30,7 +26,7 @@ export const GutterHeightResultView: React.FC<GutterHeightResultViewProps> = ({
     <p className="font-semibold">
       {t("Form.HeightBottomGutter.wallProfileHeightsResultTitle")}
     </p>
-    <ul className="mb-2 list-disc pl-5">
+    <ul className="mb-2 list-disc pl-5" role="list">
       <li>
         {t.rich("Form.HeightBottomGutter.bottomWallProfileHeightLabel", {
           height: calculatedOutput,

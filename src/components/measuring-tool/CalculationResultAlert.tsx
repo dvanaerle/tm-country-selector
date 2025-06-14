@@ -5,32 +5,26 @@ import { GutterHeightResultView } from "./GutterHeightResultView";
 import { PassageHeightResultView } from "./PassageHeightResultView";
 import CheckCircleLine from "../../../public/icons/MingCute/check_circle_line.svg";
 
-/**
- * Het type berekening dat door het formulier wordt uitgevoerd.
- */
+// Het type berekening dat door het formulier wordt uitgevoerd.
 type CalculatorFormType = "wallProfile" | "gutterHeight";
 
-/**
- * Props voor de CalculationResultAlert component.
- */
+// Props voor de CalculationResultAlert component.
 interface CalculationResultAlertProps {
-  /** Vertalingsfunctie van next-intl. */
+  // Vertalingsfunctie van next-intl.
   t: ReturnType<typeof useTranslations>;
-  /** Het type van het formulier, bepaalt welke resultaatweergave wordt getoond. */
+  // Het type van het formulier, bepaalt welke resultaatweergave wordt getoond.
   formType: CalculatorFormType;
-  /** De berekende outputwaarde. */
+  // De berekende outputwaarde.
   calculatedOutput: number;
-  /** Het acceptabele bereik voor de output, of null als er geen is. */
+  // Het acceptabele bereik voor de output, of null als er geen is.
   outputRange: [number, number] | null;
-  /** De hoogte van het bovenste muurprofiel, optioneel. */
+  // De hoogte van het bovenste muurprofiel, optioneel.
   topWallProfileHeight?: number | null;
 }
 
-/**
- * Toont een succesmelding met het berekende resultaat.
- * Deze component toont ofwel de goothoogte ofwel de doorloophoogte,
- * afhankelijk van het opgegeven `formType`.
- */
+// Toont een succesmelding met het berekende resultaat.
+// Deze component toont ofwel de goothoogte ofwel de doorloophoogte,
+// afhankelijk van het opgegeven `formType`.
 export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
   t,
   formType,

@@ -9,16 +9,14 @@ import { StoreCard } from "./StoreCard";
 import { type StoreData } from "@/data/stores";
 
 interface StoreSelectionProps {
-  /** De gedetecteerde voorkeurselectie van de gebruiker, indien aanwezig. */
+  // De gedetecteerde voorkeurselectie van de gebruiker, indien aanwezig.
   preferredStore: StoreData | undefined;
-  /** Een lijst met alle andere beschikbare landen. */
+  // Een lijst met alle andere beschikbare landen.
   otherStores: StoreData[];
 }
 
-/**
- * Rendert de UI voor het selecteren van een land, beheert de laadstatus
- * en de navigatie inclusief het opslaan van de keuze in een cookie.
- */
+// Rendert de UI voor het selecteren van een land, beheert de laadstatus
+// en de navigatie inclusief het opslaan van de keuze in een cookie.
 export default function StoreSelection({
   preferredStore,
   otherStores,
@@ -30,10 +28,8 @@ export default function StoreSelection({
 
   const isLoading = isPending; // Gebruik `isPending` voor een betere UX bij navigatie.
 
-  /**
-   * Behandelt de selectie van een winkel.
-   * Slaat de voorkeur op in een cookie indien aangevinkt en navigeert naar de URL.
-   */
+  // Behandelt de selectie van een winkel.
+  // Slaat de voorkeur op in een cookie indien aangevinkt en navigeert naar de URL.
   const handleSelectStore = (storeUrl: string) => {
     startTransition(() => {
       try {

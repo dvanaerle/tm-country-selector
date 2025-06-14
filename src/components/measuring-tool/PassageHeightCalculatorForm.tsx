@@ -14,10 +14,10 @@ import { Step2_RailSystem } from "./steps/Step2_RailSystem";
 import { Step3_TerraceSlope } from "./steps/Step3_TerraceSlope";
 import { Step4_HeightBottomWallProfile } from "./steps/Step4_HeightBottomWallProfile";
 
-/** Het type berekening: muurprofiel of goothoogte. */
+// Het type berekening: muurprofiel of goothoogte.
 type FormType = "wallProfile" | "gutterHeight";
 
-/** Props voor het formulier. */
+// Props voor het formulier.
 interface FormProps {
   formType: FormType;
   mainInputLabelKey: string;
@@ -26,17 +26,15 @@ interface FormProps {
   submitButtonTextKey: string;
 }
 
-/** De structuur van het berekeningsresultaat. */
+// De structuur van het berekeningsresultaat.
 interface Result {
   output: number | null;
   topWallProfileHeight?: number | null;
   range: [number, number] | null;
 }
 
-/**
- * Orchestreert een meerstapsformulier voor het berekenen van de doorloophoogte of goothoogte.
- * Deze component beheert de staat van het formulier, de stappen en de weergave van het resultaat.
- */
+// Orchestreert een meerstapsformulier voor het berekenen van de doorloophoogte of goothoogte.
+// Deze component beheert de staat van het formulier, de stappen en de weergave van het resultaat.
 export function PassageHeightCalculatorForm({
   formType,
   mainInputLabelKey,
@@ -115,9 +113,7 @@ export function PassageHeightCalculatorForm({
     }
   }, [formState.isDirty, result.output]);
 
-  /**
-   * Verwerkt de formulierinzending, berekent het resultaat en reset het formulier.
-   */
+// Verwerkt de formulierinzending, berekent het resultaat en reset het formulier.
   const onSubmit = (values: FormValues) => {
     const newResult = calculateResult(values);
     setResult(newResult);

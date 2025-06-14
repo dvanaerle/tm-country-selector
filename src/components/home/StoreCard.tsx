@@ -6,9 +6,7 @@ import { Button } from "@/components/ui/button";
 import ArrowRightLine from "../../../public/icons/MingCute/arrow_right_line.svg";
 import { type StoreData } from "@/data/stores";
 
-/**
- * Vertaalt een landcode naar een vlagcode die door `react-circle-flags` wordt ondersteund.
- */
+// Vertaalt een landcode naar een vlagcode die door `react-circle-flags` wordt ondersteund.
 const getFlagCountryCode = (countryCode: string): string => {
   const flagMap: Record<string, string> = {
     "BE-NL": "be",
@@ -18,23 +16,19 @@ const getFlagCountryCode = (countryCode: string): string => {
   return flagMap[countryCode] || countryCode.toLowerCase();
 };
 
-/**
- * Props voor de StoreCard component.
- */
+// Props voor de StoreCard component.
 interface StoreCardProps {
-  /** De data van de store. */
+  // De data van de store.
   store: StoreData;
-  /** Geeft aan of dit de voorkeurselectie is. */
+  // Geeft aan of dit de voorkeurselectie is.
   isPreferred?: boolean;
-  /** Callback-functie die wordt aangeroepen bij selectie. */
+  // Callback-functie die wordt aangeroepen bij selectie.
   onSelectStore: (storeUrl: string) => void;
-  /** Geeft aan of de card is uitgeschakeld. */
+  // Geeft aan of de card is uitgeschakeld.
   disabled?: boolean;
 }
 
-/**
- * Rendert een klikbare card voor een specifiek land.
- */
+// Rendert een klikbare card voor een specifiek land.
 export function StoreCard({
   store,
   isPreferred = false,
@@ -43,9 +37,7 @@ export function StoreCard({
 }: StoreCardProps) {
   const t = useTranslations("Components.StoreCard");
 
-  /**
-   * Behandelt de klik op de card en roept de `onSelectStore` callback aan.
-   */
+  // Behandelt de klik op de card en roept de `onSelectStore` callback aan.
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!disabled) {
