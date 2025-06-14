@@ -75,9 +75,6 @@ export default function StoreSelection({
       <ul
         className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(min(278px,100%),1fr))] gap-3"
         role="list"
-        aria-label={
-          otherStores.length > 0 ? t("otherCountryPreference") : undefined
-        }
       >
         {otherStores.map((store) => (
           <li key={store.countryCode} role="listitem">

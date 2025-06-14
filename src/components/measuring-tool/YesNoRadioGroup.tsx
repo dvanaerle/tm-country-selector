@@ -11,6 +11,7 @@ interface YesNoRadioGroupProps {
   yesLabel: string;
   noLabel: string;
   "aria-describedby"?: string;
+  "aria-labelledby"?: string;
 }
 
 // Props voor de RadioOption component.
@@ -49,6 +50,7 @@ export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
   yesLabel,
   noLabel,
   "aria-describedby": ariaDescribedBy,
+  "aria-labelledby": ariaLabelledBy,
 }) => {
   const options = [
     { id: `${id}-yes`, value: "true", label: yesLabel },
@@ -68,6 +70,7 @@ export const YesNoRadioGroup: React.FC<YesNoRadioGroupProps> = ({
       className="flex flex-wrap gap-x-2"
       name={name}
       aria-describedby={ariaDescribedBy}
+      aria-labelledby={ariaLabelledBy}
     >
       {options.map((option) => (
         <RadioOption

@@ -63,10 +63,7 @@ export default function MeasuringTool() {
             </h1>
 
             {/* Tabs om te wisselen tussen de twee calculator-modi */}
-            <Tabs
-              defaultValue="wall-profile-height"
-              aria-label={t("a11y.calculatorTabsLabel")}
-            >
+            <Tabs defaultValue="wall-profile-height">
               <TabsList role="tablist">
                 <TabsTrigger value="wall-profile-height" role="tab">
                   {t("tabs.wallProfileHeight")}
