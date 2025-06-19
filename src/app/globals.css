@@ -11,6 +11,8 @@
   --color-foreground: oklch(27.1% 0.068 154.6);
   --color-card: oklch(100% 0 0);
   --color-card-foreground: oklch(27.1% 0.068 154.6);
+  --color-popover: oklch(100% 0 0);
+  --color-popover-foreground: oklch(50% 0 0);
   --color-primary: oklch(27.1% 0.068 154.6);
   --color-primary-foreground: oklch(100% 0 0);
   --color-primary-shadow: oklch(19.1% 0.036 175.1);

@@ -9,8 +9,6 @@ interface GutterHeightResultViewProps {
   calculatedOutput: number;
   // De hoogte van het bovenste muurprofiel.
   topWallProfileHeight: number;
-  // Het acceptabele bereik voor de doorloophoogte.
-  outputRange: [number, number];
 }
 
 // Een component die de resultaten van de goothoogteberekening weergeeft.
@@ -20,7 +18,6 @@ export const GutterHeightResultView: React.FC<GutterHeightResultViewProps> = ({
   t,
   calculatedOutput,
   topWallProfileHeight,
-  outputRange,
 }) => (
   <>
     <p className="font-semibold">
@@ -40,12 +37,5 @@ export const GutterHeightResultView: React.FC<GutterHeightResultViewProps> = ({
         })}
       </li>
     </ul>
-    <div>
-      {t.rich("Form.HeightBottomGutter.walkthroughHeightRangeLabel", {
-        min: outputRange[0],
-        max: outputRange[1],
-        strong: (chunks) => <strong>{chunks}</strong>,
-      })}
-    </div>
   </>
 );

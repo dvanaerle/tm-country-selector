@@ -63,13 +63,13 @@ export default function MeasuringTool() {
             </h1>
 
             {/* Tabs om te wisselen tussen de twee calculator-modi */}
-            <Tabs defaultValue="wall-profile-height">
+            <Tabs defaultValue="height-lower-gutter">
               <TabsList role="tablist">
-                <TabsTrigger value="wall-profile-height" role="tab">
-                  {t("tabs.wallProfileHeight")}
-                </TabsTrigger>
                 <TabsTrigger value="height-lower-gutter" role="tab">
                   {t("tabs.heightBottomGutter")}
+                </TabsTrigger>
+                <TabsTrigger value="wall-profile-height" role="tab">
+                  {t("tabs.wallProfileHeight")}
                 </TabsTrigger>
               </TabsList>
 

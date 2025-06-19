@@ -46,7 +46,6 @@ export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
             t={t}
             calculatedOutput={calculatedOutput}
             topWallProfileHeight={topWallProfileHeight}
-            outputRange={outputRange}
           />
         ) : (
           // Toont het resultaat voor de doorloophoogte.

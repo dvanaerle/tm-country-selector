@@ -51,7 +51,7 @@ type ValidatedGutterHeightForm = FormValues & {
 
 // Een object dat alle rekenkundige logica groepeert.
 const calculator = {
-// Berekent cruciale afmetingen op basis van diepte en afloop.
+  // Berekent cruciale afmetingen op basis van diepte en afloop.
   calculateDimensions(depth: number, slope: number) {
     const cosAngle = Math.cos(config.angle);
     const sinAngle = Math.sin(config.angle);
@@ -67,7 +67,7 @@ const calculator = {
     return { insideDepth, wallToGutterDiff, slopeDrop };
   },
 
-// Berekent de doorloophoogte op basis van de muurprofielhoogte.
+  // Berekent de doorloophoogte op basis van de muurprofielhoogte.
   calculateFromWallProfile(
     depth: number,
     slope: number,
@@ -86,7 +86,7 @@ const calculator = {
     return Math.round(passageHeight);
   },
 
-// Berekent de muurprofielhoogte op basis van de gewenste doorloophoogte.
+  // Berekent de muurprofielhoogte op basis van de gewenste doorloophoogte.
   calculateFromGutterHeight(
     depth: number,
     slope: number,
@@ -105,7 +105,7 @@ const calculator = {
     return Math.round(wallProfile);
   },
 
-// Berekent een voorgestelde muurprofielhoogte als de input buiten het bereik valt.
+  // Berekent een voorgestelde muurprofielhoogte als de input buiten het bereik valt.
   calculateInverseForWallProfileSuggestion(
     depth: number,
     slope: number,
@@ -125,7 +125,7 @@ const calculator = {
     return Math.round(wallProfile);
   },
 
-// Berekent een voorgestelde doorloophoogte als de input buiten het bereik valt.
+  // Berekent een voorgestelde doorloophoogte als de input buiten het bereik valt.
   calculateInverseForGutterHeightSuggestion(
     depth: number,
     slope: number,
@@ -144,15 +144,13 @@ const calculator = {
     return Math.round(recommendedPassageHeight);
   },
 
-// Controleert of een waarde binnen de gedefinieerde bereiken valt.
+  // Controleert of een waarde binnen de gedefinieerde bereiken valt.
   checkRange(value: number, formType: FormType) {
     for (const [min, max] of config.ranges) {
+      // Alleen voor wallProfile geldt de maxPassageHeight, niet voor gutterHeight
+      if (formType === "wallProfile" && value > config.limits.maxPassageHeight)
+        continue;
       if (value >= min && value <= max) {
-        if (
-          formType === "wallProfile" &&
-          value > config.limits.maxPassageHeight
-        )
-          continue;
         return { inRange: true, range: [min, max] as [number, number] };
       }
     }
@@ -172,7 +170,7 @@ const calculator = {
     return { inRange: false, range: closest };
   },
 
-// Genereert een suggestie voor een nieuwe invoerwaarde als het resultaat buiten het bereik valt.
+  // Genereert een suggestie voor een nieuwe invoerwaarde als het resultaat buiten het bereik valt.
   generateSuggestion(
     formType: FormType,
     data: FormValues,
@@ -283,27 +281,28 @@ const createSchema = (
       );
 
       if (!inRange && closestRange) {
-        const suggestion = calculator.generateSuggestion(
-          formType,
-          data,
-          calculatedOutput,
-          closestRange,
-        );
-        if (suggestion) {
-          const fieldName =
-            formType === "wallProfile"
-              ? t("Form.Common.validationErrors.wallProfileHeightFieldName")
-              : t("Form.Common.validationErrors.passageHeightFieldName");
-          ctx.addIssue({
-            code: z.ZodIssueCode.custom,
-            path: [field],
-            message: t("Form.Common.validationErrors.suggestionMessage", {
-              fieldName,
-              recommendedInput: suggestion.recommendedInput,
-              min: suggestion.newOutputRange[0],
-              max: suggestion.newOutputRange[1],
-            }),
-          });
+        if (formType === "wallProfile") {
+          const suggestion = calculator.generateSuggestion(
+            formType,
+            data,
+            calculatedOutput,
+            closestRange,
+          );
+          if (suggestion) {
+            const fieldName = t(
+              "Form.Common.validationErrors.wallProfileHeightFieldName",
+            );
+            ctx.addIssue({
+              code: z.ZodIssueCode.custom,
+              path: [field],
+              message: t("Form.Common.validationErrors.suggestionMessage", {
+                fieldName,
+                recommendedInput: suggestion.recommendedInput,
+                min: suggestion.newOutputRange[0],
+                max: suggestion.newOutputRange[1],
+              }),
+            });
+          }
         }
       }
     });
@@ -336,11 +335,7 @@ export function usePassageHeightCalculator(formType: FormType) {
         validValues.heightBottomGutter,
         validValues.railSystemSlope,
       );
-      const { wallToGutterDiff } = calculator.calculateDimensions(
-        validValues.depth,
-        slope,
-      );
-      const topWallProfileHeight = Math.round(wallProfile + wallToGutterDiff);
+      const topWallProfileHeight = Math.round(wallProfile + 150);
       const { range } = calculator.checkRange(wallProfile, "gutterHeight");
       return { output: wallProfile, topWallProfileHeight, range };
     }
