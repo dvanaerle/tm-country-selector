@@ -20,7 +20,7 @@ export const GutterHeightResultView: React.FC<GutterHeightResultViewProps> = ({
   topWallProfileHeight,
 }) => (
   <>
-    <ul className="mb-2 list-(--dash) space-x-12 pl-4" role="list">
+    <ul className="list-(--dash) space-x-12 pl-3" role="list">
       <li className="pl-2">
         {t.rich("Form.HeightBottomGutter.bottomWallProfileHeightLabel", {
           height: calculatedOutput,

@@ -4,16 +4,16 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const alertVariants = cva(
-  "relative w-full rounded border px-4 py-3 grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-3 gap-y-0.5 items-start [&>svg]:size-5 [&>svg]:translate-y-0.5 [&>svg]:text-current text-pretty",
+  "relative w-full rounded border px-4 py-3 grid has-[>svg]:grid-cols-[calc(var(--spacing)*4)_1fr] grid-cols-[0_1fr] has-[>svg]:gap-x-4 gap-y-0.5 items-start [&>svg]:size-5 [&>svg]:translate-y-0.5 [&>svg]:text-current text-pretty",
   {
     variants: {
       variant: {
-        default: "border-muted bg-muted/40 text-primary *:data-[slot=alert-description]:text-primary/90",
+        default: "border-muted bg-muted/40 text-primary",
         success:
-          "bg-success-background border-success/20 text-success-on-background",
+          "bg-success-background border-success/20 text-success-on-background [&>svg]:text-success",
         destructive:
-          "bg-destructive-background border-destructive/20 text-destructive-on-background",
-        info: "bg-info-background [&>svg]:text-info border-info/20 text-info-on-background/90 *:data-[slot=alert-title]:text-info",
+          "bg-destructive-background border-destructive/20 text-destructive-on-background [&>svg]:text-destructive",
+        info: "bg-info-background [&>svg]:text-info border-info/20 text-info-on-background",
       },
     },
     defaultVariants: {
