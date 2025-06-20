@@ -3,8 +3,6 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
 import { StoreCard } from "./StoreCard";
 import { type StoreData } from "@/data/stores";
 
@@ -86,20 +84,6 @@ export default function StoreSelection({
           </li>
         ))}
       </ul>
-
-      {/* <div className="flex items-center gap-x-3">
-        <Checkbox
-          name="savePreference"
-          id="savePreference"
-          checked={saveSelection}
-          onCheckedChange={(checked) => setSaveSelection(checked === true)}
-          disabled={isLoading}
-          aria-label={t("saveSelection")}
-        />
-        <Label className="cursor-pointer font-medium" htmlFor="savePreference">
-          {t("saveSelection")}
-        </Label>
-      </div> */}
     </div>
   );
 }

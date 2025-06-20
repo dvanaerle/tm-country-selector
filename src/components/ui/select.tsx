@@ -46,7 +46,7 @@ function SelectTrigger({
     >
       {children}
       <SelectPrimitive.Icon asChild>
-        <DownLine className="text-primary size-5" />
+        <DownLine className="text-primary size-5" aria-hidden="true" />
       </SelectPrimitive.Icon>
     </SelectPrimitive.Trigger>
   );
@@ -116,7 +116,7 @@ function SelectItem({
     >
       <span className="absolute right-4 flex size-5 items-center justify-center">
         <SelectPrimitive.ItemIndicator>
-          <CheckLine className="size-5" />
+          <CheckLine className="size-5" aria-hidden="true" />
         </SelectPrimitive.ItemIndicator>
       </span>
       <SelectPrimitive.ItemText>{children}</SelectPrimitive.ItemText>

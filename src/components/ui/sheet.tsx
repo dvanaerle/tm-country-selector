@@ -110,7 +110,7 @@ function SheetContent({
       >
         {children}
         <SheetPrimitive.Close className="focus:ring-ring bg-accent absolute top-0 right-0 h-10 w-10 rounded-bl-lg p-2 ring-offset-white focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
-          <CloseLine className="size-6 text-white" />
+          <CloseLine className="size-6 text-white" aria-hidden="true" />
           <span className="sr-only">Close</span>
         </SheetPrimitive.Close>
       </SheetPrimitive.Content>
