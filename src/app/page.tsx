@@ -21,7 +21,7 @@ export default function Home() {
     <>
       <Header />
       <main
-        className="container mx-auto px-4 py-12 sm:px-6 xl:h-[calc(100dvh-(--spacing(19)))] xl:py-20"
+        className="container mx-auto px-4 py-12 sm:px-6 xl:h-[calc(100dvh-(--spacing(19)))] xl:pt-20"
         role="main"
         aria-label={t("a11y.mainContentLabel")}
       >

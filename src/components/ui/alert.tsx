@@ -8,12 +8,12 @@ const alertVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-muted",
+        default: "border-muted bg-muted/40 text-primary *:data-[slot=alert-description]:text-primary/90",
         success:
           "bg-success-background border-success/20 text-success-on-background",
         destructive:
           "bg-destructive-background border-destructive/20 text-destructive-on-background",
-        info: "bg-info-background border-info/20 text-info-on-background",
+        info: "bg-info-background [&>svg]:text-info border-info/20 text-info-on-background/90 *:data-[slot=alert-title]:text-info",
       },
     },
     defaultVariants: {
@@ -41,7 +41,7 @@ function AlertTitle({ className, ...props }: React.ComponentProps<"div">) {
   return (
     <div
       data-slot="alert-title"
-      className={cn("col-start-2 min-h-4 font-medium", className)}
+      className={cn("col-start-2 min-h-4 font-semibold", className)}
       {...props}
     />
   );

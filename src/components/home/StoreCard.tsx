@@ -49,7 +49,7 @@ export function StoreCard({
     <Button
       type="button"
       variant="border"
-      className="group min-h-13 w-full px-4"
+      className="group min-h-12 w-full px-4"
       disabled={disabled}
       onClick={handleClick}
     >

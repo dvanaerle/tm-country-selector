@@ -20,17 +20,14 @@ export const GutterHeightResultView: React.FC<GutterHeightResultViewProps> = ({
   topWallProfileHeight,
 }) => (
   <>
-    <p className="font-semibold">
-      {t("Form.HeightBottomGutter.wallProfileHeightsResultTitle")}
-    </p>
-    <ul className="mb-2 list-disc pl-5" role="list">
-      <li>
+    <ul className="mb-2 list-(--dash) space-x-12 pl-4" role="list">
+      <li className="pl-2">
         {t.rich("Form.HeightBottomGutter.bottomWallProfileHeightLabel", {
           height: calculatedOutput,
           strong: (chunks) => <strong>{chunks}</strong>,
         })}
       </li>
-      <li>
+      <li className="pl-2">
         {t.rich("Form.HeightBottomGutter.topWallProfileHeightLabel", {
           height: topWallProfileHeight,
           strong: (chunks) => <strong>{chunks}</strong>,

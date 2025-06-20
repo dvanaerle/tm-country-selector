@@ -16,14 +16,8 @@ interface PassageHeightResultViewProps {
 // een succesbericht dat aangeeft binnen welk bereik de waarde valt.
 export const PassageHeightResultView: React.FC<
   PassageHeightResultViewProps
-> = ({ t, calculatedOutput, outputRange }) => (
+> = ({ t, outputRange }) => (
   <>
-    <p>
-      {t.rich("Form.Common.passageHeightResult", {
-        result: calculatedOutput,
-        strong: (chunks) => <strong>{chunks}</strong>,
-      })}
-    </p>
     {outputRange && (
       <span>
         {t.rich("Form.Common.rangeSuccess", {

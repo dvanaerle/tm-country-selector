@@ -23,7 +23,7 @@ export default function NotFound() {
     <>
       <Header />
       <main
-        className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center gap-y-4 px-4 py-12 text-center sm:px-6 xl:py-20"
+        className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center gap-y-4 px-4 py-12 text-center sm:px-6 xl:pt-20"
         role="main"
         aria-live="polite"
       >

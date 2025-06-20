@@ -48,7 +48,7 @@ export default function StoreSelection({
 
   return (
     <div
-      className="no-scrollbar col-span-12 overflow-y-auto p-5 sm:p-10 xl:col-span-5 xl:p-12"
+      className="no-scrollbar col-span-12 overflow-y-auto p-5 xl:col-span-5 xl:p-10"
       role="region"
       aria-label={t("selectCountry")}
     >
@@ -73,7 +73,7 @@ export default function StoreSelection({
       )}
 
       <ul
-        className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(min(278px,100%),1fr))] gap-3"
+        className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(min(278px,100%),1fr))] gap-2"
         role="list"
       >
         {otherStores.map((store) => (
@@ -87,7 +87,7 @@ export default function StoreSelection({
         ))}
       </ul>
 
-      <div className="flex items-center gap-x-3">
+      {/* <div className="flex items-center gap-x-3">
         <Checkbox
           name="savePreference"
           id="savePreference"
@@ -99,7 +99,7 @@ export default function StoreSelection({
         <Label className="cursor-pointer font-medium" htmlFor="savePreference">
           {t("saveSelection")}
         </Label>
-      </div>
+      </div> */}
     </div>
   );
 }
