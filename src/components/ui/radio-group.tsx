@@ -13,7 +13,7 @@ function RadioGroup({
   return (
     <RadioGroupPrimitive.Root
       data-slot="radio-group"
-      className={cn("grid gap-3", className)}
+      className={cn("flex flex-wrap gap-2", className)}
       {...props}
     />
   );
@@ -27,7 +27,7 @@ function RadioGroupItem({
     <RadioGroupPrimitive.Item
       data-slot="radio-group-item"
       className={cn(
-        "border-control data-[state=checked]:border-primary text-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 aspect-square size-6 shrink-0 rounded-full border transition-[color] outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50 bg-white",
+        "border-control data-[state=checked]:border-primary text-primary focus-visible:border-ring focus-visible:ring-ring/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 aspect-square size-6 shrink-0 rounded-full border bg-white transition-[color] outline-none focus-visible:ring-2 disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}

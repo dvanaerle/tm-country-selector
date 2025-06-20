@@ -69,6 +69,7 @@ export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
       <span
         id={unitId}
         className="text-muted-foreground pointer-events-none absolute right-3 text-sm transition-opacity peer-disabled:opacity-50"
+        aria-disabled={disabled ? "true" : undefined}
       >
         {unit}
       </span>
