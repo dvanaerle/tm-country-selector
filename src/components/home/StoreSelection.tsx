@@ -71,7 +71,7 @@ export default function StoreSelection({
       )}
 
       <ul
-        className="mb-6 grid grid-cols-[repeat(auto-fit,minmax(min(278px,100%),1fr))] gap-2"
+        className="grid grid-cols-[repeat(auto-fit,minmax(min(278px,100%),1fr))] gap-2"
         role="list"
       >
         {otherStores.map((store) => (
