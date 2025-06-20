@@ -260,11 +260,16 @@ export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
                   disabled={disabled}
                   name={field.name}
                 >
-                  <SelectTrigger className="w-full" id={field.name}>
+                  <SelectTrigger
+                    className="w-full"
+                    id={field.name}
+                    aria-labelledby={`${field.name}-label ${field.name}-value`}
+                  >
                     <SelectValue
                       placeholder={
                         config.placeholderKey ? t(config.placeholderKey) : ""
                       }
+                      id={`${field.name}-value`}
                     />
                   </SelectTrigger>
                   <SelectContent>
