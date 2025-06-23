@@ -6,22 +6,21 @@ import CloseLine from "../../../public/icons/MingCute/close_line.svg";
 
 import { cn } from "@/lib/utils";
 
-// Custom hook to detect if the device is mobile
+// Custom hook om te detecteren of het apparaat mobiel is
 function useIsMobile(): boolean {
   const [isMobile, setIsMobile] = React.useState(false);
-
   React.useEffect(() => {
     const checkIsMobile = () => {
       setIsMobile(window.innerWidth < 640);
     };
 
-    // Set initial value
+    // Zet de initiële waarde
     checkIsMobile();
 
-    // Add event listener for window resize
+    // Voeg event listener toe voor window resize
     window.addEventListener("resize", checkIsMobile);
 
-    // Clean up event listener on component unmount
+    // Ruim event listener op bij component unmount
     return () => {
       window.removeEventListener("resize", checkIsMobile);
     };

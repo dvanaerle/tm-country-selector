@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import {
@@ -21,16 +21,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { rangeMidpoint } from "./rangeMidpointUtil";
 
-// Utility
-function parseMidpoint(range: string): number | null {
-  const match = range.match(/^(\d+)-(\d+)$/);
-  if (!match) return null;
-  const [, a, b] = match;
-  return Math.round((parseInt(a, 10) + parseInt(b, 10)) / 2);
-}
-
-// Helper for safe string
+// Type guard om te controleren of een waarde een gedefinieerde niet-lege string is
 function isDefinedString(val: unknown): val is string {
   return typeof val === "string" && val.length > 0;
 }
@@ -41,7 +34,7 @@ type Props = {
   disabled?: boolean;
 };
 
-export const gutterHeightRangeOptions = [
+export const GUTTER_HEIGHT_RANGE_OPTIONS = [
   { value: "1980-2020", label: "1980-2020 mm" },
   { value: "2030-2070", label: "2030-2070 mm" },
   { value: "2080-2120", label: "2080-2120 mm" },
@@ -57,9 +50,8 @@ export const gutterHeightRangeOptions = [
 export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
   const form = useFormContext();
   const groupLabelId = React.useId();
-
   if (config.type === "radio-group" && Array.isArray(config.options)) {
-    const options = config.options; // This is now always an array!
+    const options = config.options; // TypeScript verzekert ons dat dit een array is door de type guard
 
     return (
       <FormField
@@ -222,14 +214,15 @@ export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
         control={form.control}
         name={config.name}
         render={({ field }) => {
-          // Determine the Select's value (for controlled select)
+          // Bepaal de geselecteerde waarde voor de Select component (voor gecontroleerde select)
           let selectedRange = "";
           if (typeof field.value === "string") {
             selectedRange = field.value;
           } else if (typeof field.value === "number") {
+            // Zoek het bereik dat overeenkomt met de numerieke waarde
             selectedRange =
-              gutterHeightRangeOptions.find(
-                (opt) => parseMidpoint(opt.value) === field.value,
+              GUTTER_HEIGHT_RANGE_OPTIONS.find(
+                (opt) => rangeMidpoint(opt.value) === field.value,
               )?.value ?? "";
           }
           return (
@@ -255,7 +248,7 @@ export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
                   value={selectedRange}
                   onValueChange={(val) => {
                     // Zet de bereik-string altijd om naar het juiste middelpunt.
-                    field.onChange(parseMidpoint(val));
+                    field.onChange(rangeMidpoint(val));
                   }}
                   disabled={disabled}
                   name={field.name}
@@ -274,7 +267,7 @@ export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      {gutterHeightRangeOptions.map((option) => (
+                      {GUTTER_HEIGHT_RANGE_OPTIONS.map((option) => (
                         <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>

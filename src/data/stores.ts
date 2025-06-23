@@ -11,7 +11,7 @@ export type StoreData = {
 };
 
 // Een array met de data van alle beschikbare stores.
-export const StoresData: StoreData[] = [
+export const STORES_DATA: StoreData[] = [
   {
     countryCode: "BE-NL",
     country: "België",

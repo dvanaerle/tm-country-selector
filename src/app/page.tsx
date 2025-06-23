@@ -3,18 +3,17 @@ import { useLocale, useTranslations } from "next-intl";
 import Header from "@/components/header";
 import heroImage from "/public/images/tuinmaximaal-verandas.jpg";
 import StoreSelection from "@/components/home/StoreSelection";
-import { StoresData } from "@/data/stores";
+import { STORES_DATA } from "@/data/stores";
 import { getStoreLocalization } from "@/lib/storeUtils";
 
 export default function Home() {
   const t = useTranslations("Pages.Home");
   const locale = useLocale(); // Haalt de huidige taal/land-code op (bijv. 'nl').
   const userCountryCode = locale.toUpperCase();
-
   // Bepaalt de landselectie en de overige landen op basis van de locale van de gebruiker.
   const { preferredStore, otherStores } = getStoreLocalization(
     userCountryCode,
-    StoresData,
+    STORES_DATA,
   );
 
   return (
