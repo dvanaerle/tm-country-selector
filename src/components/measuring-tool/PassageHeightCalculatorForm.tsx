@@ -9,7 +9,7 @@ import {
   usePassageHeightCalculator,
   FormValues,
 } from "@/hooks/usePassageHeightCalculator";
-import { wallProfileSteps, gutterHeightSteps } from "./formStepsConfig";
+import { WALL_PROFILE_STEPS, GUTTER_HEIGHT_STEPS } from "./formStepsConfig";
 import { FormStep } from "./FormStep";
 
 // Het type berekening: muurprofiel of goothoogte.
@@ -46,9 +46,8 @@ export function PassageHeightCalculatorForm({
 
   // Hook voor de berekeningslogica, schema en configuratie.
   const { t, schema, calculateResult } = usePassageHeightCalculator(formType);
-
   const steps =
-    formType === "wallProfile" ? wallProfileSteps : gutterHeightSteps;
+    formType === "wallProfile" ? WALL_PROFILE_STEPS : GUTTER_HEIGHT_STEPS;
 
   const form = useForm<FormValues>({
     resolver: zodResolver(schema),

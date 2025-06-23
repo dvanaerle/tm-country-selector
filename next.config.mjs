@@ -2,26 +2,27 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin();
 
-// Your base Next.js config
+// De basis Next.js configuratie voor het project
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
     formats: ["image/webp", "image/avif"],
   },
   webpack(config) {
-    // Grab the existing rule that handles SVG imports
+    // Vind de bestaande regel die SVG imports verwerkt
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg"),
     );
 
     config.module.rules.push(
-      // Reapply the existing rule, but only for svg imports ending in ?url
+      // Hergebruik de bestaande regel, maar alleen voor SVG imports die eindigen op ?url
       {
         ...fileLoaderRule,
         test: /\.svg$/i,
         resourceQuery: /url/, // *.svg?url
       },
-      // Convert all other *.svg imports to React components
+      // Converteer alle andere *.svg imports naar React componenten
+      // Dit maakt het mogelijk om SVG's als componenten te gebruiken in plaats van afbeeldingen
       {
         test: /\.svg$/i,
         issuer: fileLoaderRule.issuer,
@@ -30,12 +31,12 @@ const nextConfig = {
       },
     );
 
-    // Modify the file loader rule to ignore *.svg, since we have it handled now.
+    // Wijzig de file loader regel om *.svg te negeren, omdat we dit nu zelf afhandelen
     fileLoaderRule.exclude = /\.svg$/i;
 
     return config;
   },
 };
 
-// Wrap the config with next-intl
+// Wrap de configuratie met next-intl voor internationalisatie
 export default withNextIntl(nextConfig);

@@ -40,6 +40,7 @@ The content is organized as follows:
 </file_summary>
 
 <directory_structure>
+.github/copilot-instructions.md
 .gitignore
 .prettierrc
 components.json
@@ -104,6 +105,236 @@ tsconfig.json
 
 <files>
 This section contains the contents of the repository's files.
+
+<file path=".github/copilot-instructions.md">
+# Code Style and Conventions Standards
+
+## Project-Specific Requirements (CRITICAL)
+
+**Framework:** React with TypeScript and Next.js
+**Internationalization:** next-intl
+**Comment Language:** ALL code comments must be written in Dutch
+**File Organization:** Feature-based directory structure required
+
+---
+
+## 1. Naming Conventions
+
+### Priority: CRITICAL
+
+**Rule:** Use descriptive and consistent naming conventions
+
+**Decision Tree:**
+
+- Variables/Functions → camelCase
+- Components → PascalCase (file name must match component name)
+- Constants → UPPER_SNAKE_CASE
+- Classes/Interfaces → PascalCase
+- i18n variables → consistent pattern (e.g., "i18n_key", "localizeMessage")
+
+**Examples:**
+
+```typescript
+// ✅ Do This
+const getUserProfile = () => {...}
+const API_BASE_URL = 'https://api.example.com'
+interface UserProfile {...}
+
+// ❌ Don't Do This
+const x = () => {...}
+const api_url = 'https://api.example.com'
+interface userprofile {...}
+```
+
+---
+
+## 2. Component Design Standards
+
+### 2.1 Component Architecture (CRITICAL)
+
+**Decision Tree for Component Size:**
+
+- If component > 200 lines → Break into smaller components
+- If logic is reusable → Extract to custom hook
+- If UI pattern repeats → Create reusable component
+
+**Single Responsibility Principle:**
+Each component must have ONE clear purpose.
+
+```typescript
+// ✅ Do This - Single responsibility
+const UserAvatar = ({ user, size }: UserAvatarProps) => {...}
+const UserContactInfo = ({ user }: UserContactInfoProps) => {...}
+
+// ❌ Don't Do This - Multiple responsibilities
+const UserComponent = ({ user }: Props) => {
+  // Handles avatar, contact info, preferences, AND notifications
+}
+```
+
+### 2.2 Functional Components (CRITICAL)
+
+**Rule:** Always use functional components with hooks
+
+**Exception:** Only use class components for legacy code integration
+
+---
+
+## 3. TypeScript Standards
+
+### 3.1 Type Definitions (CRITICAL)
+
+**Decision Tree:**
+
+- Object shapes → Use `interface`
+- Type aliases, unions, mapped types → Use `type`
+- Can properties be optional? → Use `?` operator
+- Need to extend/merge? → Use `interface`
+
+```typescript
+// ✅ Do This
+interface UserProps {
+  name: string;
+  email?: string; // Optional property
+}
+
+type Status = "pending" | "complete" | "error"; // Union type
+
+// ❌ Don't Do This
+type UserProps = {
+  // Should be interface for object shapes
+  name: any; // Avoid 'any'
+};
+```
+
+### 3.2 Nullability (CRITICAL)
+
+**Rule:** Handle null/undefined explicitly
+
+```typescript
+// ✅ Do This
+const processUser = (user: User | undefined) => {
+  if (!user) return null;
+  // Process user safely
+};
+
+// ❌ Don't Do This
+const processUser = (user: any) => {
+  return user.name; // Potential runtime error
+};
+```
+
+---
+
+## 4. Performance Optimization
+
+### 4.1 Memoization (IMPORTANT)
+
+**Decision Tree:**
+
+- Component receives stable props + expensive renders → Use `React.memo`
+- Expensive calculations in component → Use `useMemo`
+- Functions passed as props → Use `useCallback`
+- Simple components that rarely re-render → Skip memoization
+
+```typescript
+// ✅ Do This - When component has expensive renders
+const ExpensiveComponent = React.memo(({ data }: Props) => {
+  const processedData = useMemo(() =>
+    expensiveCalculation(data), [data]
+  );
+
+  const handleClick = useCallback(() => {
+    // Handle click
+  }, []);
+
+  return <div>{processedData}</div>;
+});
+```
+
+### 4.2 Code Organization (IMPORTANT)
+
+- Utility functions → `lib/utils.ts`
+- Custom hooks → `hooks/` directory
+- Reusable components → `components/` directory
+
+---
+
+## 5. Accessibility (CRITICAL)
+
+**Requirements:**
+
+- Semantic HTML elements
+- Alt text for images
+- Proper ARIA attributes
+- Keyboard navigation support
+
+```typescript
+// ✅ Do This
+<button
+  onClick={handleSubmit}
+  aria-label="Submit form"
+  disabled={isLoading}
+>
+  Submit
+</button>
+
+// ❌ Don't Do This
+<div onClick={handleSubmit}>Submit</div>
+```
+
+---
+
+## 6. Code Comments (IMPORTANT)
+
+**Rule:** All comments in Dutch, explain WHY not WHAT
+
+```typescript
+// ✅ Do This
+// We gebruiken debounce hier om API calls te beperken tijdens het typen
+const debouncedSearch = useMemo(() =>
+  debounce(searchFunction, 300), []);
+
+// ❌ Don't Do This
+// This function searches for users
+const searchUsers = () => {...}
+```
+
+---
+
+## 7. When to Deviate
+
+**Approved Exceptions:**
+
+1. **Performance Requirements:** Document with Dutch comment explaining trade-off
+2. **Third-party Integration:** When external library requires different pattern
+3. **Legacy Code:** Only when refactoring would break functionality
+
+**Required:** Always document deviations with Dutch comments explaining reasoning.
+
+---
+
+## 8. Tool Configuration
+
+**Required Tools:**
+
+- Prettier (automatic formatting)
+- ESLint with TypeScript + unused-imports rules
+- Remove dead code, commented blocks, unused imports
+
+---
+
+## Quick Reference Checklist
+
+- [ ] Component names in PascalCase
+- [ ] Dutch comments explaining complex logic
+- [ ] TypeScript interfaces for object shapes
+- [ ] Functional components with hooks
+- [ ] Accessibility attributes included
+- [ ] Memoization applied where beneficial
+- [ ] Single responsibility per component
+- [ ] Explicit null/undefined handling
+</file>
 
 <file path=".gitignore">
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
@@ -556,16 +787,6 @@ export const ImageSwitcher: React.FC<ImageSwitcherProps> = ({
 };
 </file>
 
-<file path="src/components/measuring-tool/rangeMidpointUtil.ts">
-// Parseert "2230-2270" => 2250
-export function rangeMidpoint(val: string): number | null {
-  const match = val.match(/^(\d+)-(\d+)$/);
-  if (!match) return null;
-  const [_, a, b] = match;
-  return (parseInt(a, 10) + parseInt(b, 10)) / 2;
-}
-</file>
-
 <file path="src/lib/utils.ts">
 import { clsx, type ClassValue } from "clsx"
 import { twMerge } from "tailwind-merge"
@@ -573,44 +794,6 @@ import { twMerge } from "tailwind-merge"
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
-</file>
-
-<file path="eslint.config.mjs">
-// import { dirname } from "path";
-// import { fileURLToPath } from "url";
-// import { FlatCompat } from "@eslint/eslintrc";
-
-// const __filename = fileURLToPath(import.meta.url);
-// const __dirname = dirname(__filename);
-
-// const compat = new FlatCompat({
-//   baseDirectory: __dirname,
-// });
-
-// const eslintConfig = [
-//   ...compat.extends("next/core-web-vitals", "next/typescript"),
-// ];
-
-// export default eslintConfig;
-
-import { FlatCompat } from "@eslint/eslintrc";
-
-const compat = new FlatCompat({
-  // import.meta.dirname is available after Node.js v20.11.0
-  baseDirectory: import.meta.dirname,
-});
-
-const eslintConfig = [
-  ...compat.config({
-    extends: ["next"],
-    rules: {
-      "react/no-unescaped-entities": "off",
-      "@next/next/no-page-custom-font": "off",
-    },
-  }),
-];
-
-export default eslintConfig;
 </file>
 
 <file path="next.config.js">
@@ -657,8 +840,79 @@ const nextConfig = {
 export default withNextIntl(nextConfig);
 </file>
 
+<file path="src/components/measuring-tool/rangeMidpointUtil.ts">
+// Parseert een bereik zoals "2230-2270" en retourneert het afgeronde middelpunt (bijv. 2250)
+export function rangeMidpoint(val: string): number | null {
+  const match = val.match(/^(\d+)-(\d+)$/);
+  if (!match) return null;
+  const [_, a, b] = match;
+  return Math.round((parseInt(a, 10) + parseInt(b, 10)) / 2);
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "compilerOptions": {
+    "target": "ES2017",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/not-found.tsx"],
+  "exclude": ["node_modules"]
+}
+</file>
+
+<file path="eslint.config.mjs">
+import { FlatCompat } from "@eslint/eslintrc";
+
+const compat = new FlatCompat({
+  // import.meta.dirname is available after Node.js v20.11.0
+  baseDirectory: import.meta.dirname,
+});
+
+const eslintConfig = [
+  ...compat.config({
+    extends: ["next"],
+    rules: {
+      "react/no-unescaped-entities": "off",
+      "@next/next/no-page-custom-font": "off",
+    },
+  }),
+];
+
+export default eslintConfig;
+</file>
+
+<file path="next.config.ts">
+import { NextConfig } from "next";
+import createNextIntlPlugin from "next-intl/plugin";
+
+const nextConfig: NextConfig = {};
+
+const withNextIntl = createNextIntlPlugin();
+export default withNextIntl(nextConfig);
+</file>
+
 <file path="src/components/measuring-tool/FormStep.tsx">
-import React, { useState } from "react";
+import React from "react";
 import { useFormContext } from "react-hook-form";
 import { useTranslations } from "next-intl";
 import {
@@ -681,16 +935,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { rangeMidpoint } from "./rangeMidpointUtil";
 
-// Utility
-function parseMidpoint(range: string): number | null {
-  const match = range.match(/^(\d+)-(\d+)$/);
-  if (!match) return null;
-  const [, a, b] = match;
-  return Math.round((parseInt(a, 10) + parseInt(b, 10)) / 2);
-}
-
-// Helper for safe string
+// Type guard om te controleren of een waarde een gedefinieerde niet-lege string is
 function isDefinedString(val: unknown): val is string {
   return typeof val === "string" && val.length > 0;
 }
@@ -701,7 +948,7 @@ type Props = {
   disabled?: boolean;
 };
 
-export const gutterHeightRangeOptions = [
+export const GUTTER_HEIGHT_RANGE_OPTIONS = [
   { value: "1980-2020", label: "1980-2020 mm" },
   { value: "2030-2070", label: "2030-2070 mm" },
   { value: "2080-2120", label: "2080-2120 mm" },
@@ -717,9 +964,8 @@ export const gutterHeightRangeOptions = [
 export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
   const form = useFormContext();
   const groupLabelId = React.useId();
-
   if (config.type === "radio-group" && Array.isArray(config.options)) {
-    const options = config.options; // This is now always an array!
+    const options = config.options; // TypeScript verzekert ons dat dit een array is door de type guard
 
     return (
       <FormField
@@ -882,14 +1128,15 @@ export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
         control={form.control}
         name={config.name}
         render={({ field }) => {
-          // Determine the Select's value (for controlled select)
+          // Bepaal de geselecteerde waarde voor de Select component (voor gecontroleerde select)
           let selectedRange = "";
           if (typeof field.value === "string") {
             selectedRange = field.value;
           } else if (typeof field.value === "number") {
+            // Zoek het bereik dat overeenkomt met de numerieke waarde
             selectedRange =
-              gutterHeightRangeOptions.find(
-                (opt) => parseMidpoint(opt.value) === field.value,
+              GUTTER_HEIGHT_RANGE_OPTIONS.find(
+                (opt) => rangeMidpoint(opt.value) === field.value,
               )?.value ?? "";
           }
           return (
@@ -915,7 +1162,7 @@ export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
                   value={selectedRange}
                   onValueChange={(val) => {
                     // Zet de bereik-string altijd om naar het juiste middelpunt.
-                    field.onChange(parseMidpoint(val));
+                    field.onChange(rangeMidpoint(val));
                   }}
                   disabled={disabled}
                   name={field.name}
@@ -934,7 +1181,7 @@ export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
-                      {gutterHeightRangeOptions.map((option) => (
+                      {GUTTER_HEIGHT_RANGE_OPTIONS.map((option) => (
                         <SelectItem key={option.value} value={option.value}>
                           {option.label}
                         </SelectItem>
@@ -952,100 +1199,6 @@ export const FormStep: React.FC<Props> = ({ config, t, disabled }) => {
 
   return null;
 };
-</file>
-
-<file path="tsconfig.json">
-{
-  "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/not-found.tsx"],
-  "exclude": ["node_modules"]
-}
-</file>
-
-<file path="next.config.ts">
-import { NextConfig } from "next";
-import createNextIntlPlugin from "next-intl/plugin";
-
-const nextConfig: NextConfig = {};
-
-const withNextIntl = createNextIntlPlugin();
-export default withNextIntl(nextConfig);
-</file>
-
-<file path="src/data/stores.ts">
-// Definieert de datastructuur voor een enkele store.
-export type StoreData = {
-  // De unieke code voor het land en de taal (bijv. "BE-NL", "DE").
-  countryCode: string;
-  // De naam van het land.
-  country: string;
-  // De taal die in het land wordt gesproken.
-  language: string;
-  // De volledige URL naar de webshop.
-  storeUrl: string;
-};
-
-// Een array met de data van alle beschikbare stores.
-export const StoresData: StoreData[] = [
-  {
-    countryCode: "BE-NL",
-    country: "België",
-    language: "Nederlands",
-    storeUrl: "https://www.tuinmaximaal.be/",
-  },
-  {
-    countryCode: "BE-FR",
-    country: "Belgique",
-    language: "Français",
-    storeUrl: "https://www.tuinmaximaal.be/fr/",
-  },
-  {
-    countryCode: "DE",
-    country: "Deutschland",
-    language: "Deutsch",
-    storeUrl: "https://www.tuinmaximaal.de/",
-  },
-  {
-    countryCode: "FR",
-    country: "France",
-    language: "Français",
-    storeUrl: "https://www.tuinmaximaal.fr/",
-  },
-  {
-    countryCode: "NL",
-    country: "Nederland",
-    language: "Nederlands",
-    storeUrl: "https://www.tuinmaximaal.nl/",
-  },
-  {
-    countryCode: "EN",
-    country: "United Kingdom",
-    language: "English",
-    storeUrl: "https://www.tuinmaximaal.co.uk/",
-  },
-];
 </file>
 
 <file path="src/lib/storeUtils.ts">
@@ -1205,6 +1358,60 @@ export default function Video({
     </div>
   );
 }
+</file>
+
+<file path="src/data/stores.ts">
+// Definieert de datastructuur voor een enkele store.
+export type StoreData = {
+  // De unieke code voor het land en de taal (bijv. "BE-NL", "DE").
+  countryCode: string;
+  // De naam van het land.
+  country: string;
+  // De taal die in het land wordt gesproken.
+  language: string;
+  // De volledige URL naar de webshop.
+  storeUrl: string;
+};
+
+// Een array met de data van alle beschikbare stores.
+export const STORES_DATA: StoreData[] = [
+  {
+    countryCode: "BE-NL",
+    country: "België",
+    language: "Nederlands",
+    storeUrl: "https://www.tuinmaximaal.be/",
+  },
+  {
+    countryCode: "BE-FR",
+    country: "Belgique",
+    language: "Français",
+    storeUrl: "https://www.tuinmaximaal.be/fr/",
+  },
+  {
+    countryCode: "DE",
+    country: "Deutschland",
+    language: "Deutsch",
+    storeUrl: "https://www.tuinmaximaal.de/",
+  },
+  {
+    countryCode: "FR",
+    country: "France",
+    language: "Français",
+    storeUrl: "https://www.tuinmaximaal.fr/",
+  },
+  {
+    countryCode: "NL",
+    country: "Nederland",
+    language: "Nederlands",
+    storeUrl: "https://www.tuinmaximaal.nl/",
+  },
+  {
+    countryCode: "EN",
+    country: "United Kingdom",
+    language: "English",
+    storeUrl: "https://www.tuinmaximaal.co.uk/",
+  },
+];
 </file>
 
 <file path="src/components/measuring-tool/InfoTooltipSheet.tsx">
@@ -1966,188 +2173,6 @@ export function PassageHeightCalculatorForm({
 }
 </file>
 
-<file path="src/components/ui/sheet.tsx">
-"use client";
-
-import * as React from "react";
-import * as SheetPrimitive from "@radix-ui/react-dialog";
-import CloseLine from "../../../public/icons/MingCute/close_line.svg";
-
-import { cn } from "@/lib/utils";
-
-// Custom hook to detect if the device is mobile
-function useIsMobile(): boolean {
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkIsMobile = () => {
-      setIsMobile(window.innerWidth < 640);
-    };
-
-    // Set initial value
-    checkIsMobile();
-
-    // Add event listener for window resize
-    window.addEventListener("resize", checkIsMobile);
-
-    // Clean up event listener on component unmount
-    return () => {
-      window.removeEventListener("resize", checkIsMobile);
-    };
-  }, []);
-
-  return isMobile;
-}
-
-function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
-  return <SheetPrimitive.Root data-slot="sheet" {...props} />;
-}
-
-function SheetTrigger({
-  className,
-  ...props
-}: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
-  return (
-    <SheetPrimitive.Trigger
-      data-slot="sheet-trigger"
-      className={cn(
-        "text-muted-foreground p-0.5 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
-        className,
-      )}
-      {...props}
-    />
-  );
-}
-
-function SheetClose({
-  ...props
-}: React.ComponentProps<typeof SheetPrimitive.Close>) {
-  return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
-}
-
-function SheetPortal({
-  ...props
-}: React.ComponentProps<typeof SheetPrimitive.Portal>) {
-  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
-}
-
-function SheetOverlay({
-  className,
-  ...props
-}: React.ComponentProps<typeof SheetPrimitive.Overlay>) {
-  return (
-    <SheetPrimitive.Overlay
-      data-slot="sheet-overlay"
-      className={cn(
-        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
-        className,
-      )}
-      {...props}
-    />
-  );
-}
-
-function SheetContent({
-  className,
-  children,
-  side: propSide,
-  ...props
-}: React.ComponentProps<typeof SheetPrimitive.Content> & {
-  side?: "top" | "right" | "bottom" | "left";
-}) {
-  const isMobile = useIsMobile();
-  const side = propSide || (isMobile ? "bottom" : "right");
-
-  return (
-    <SheetPortal>
-      <SheetOverlay />
-      <SheetPrimitive.Content
-        data-slot="sheet-content"
-        className={cn(
-          "data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 overflow-y-auto bg-white transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
-          side === "right" &&
-            "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 sm:max-w-md",
-          side === "left" &&
-            "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-md",
-          side === "top" &&
-            "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
-          side === "bottom" &&
-            "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto max-h-[calc(100%-3rem)] rounded-t-lg",
-          className,
-        )}
-        {...props}
-      >
-        {children}
-        <SheetPrimitive.Close className="focus:ring-ring bg-accent absolute top-0 right-0 h-10 w-10 rounded-bl-lg p-2 ring-offset-white focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
-          <CloseLine className="size-6 text-white" aria-hidden="true" />
-          <span className="sr-only">Close</span>
-        </SheetPrimitive.Close>
-      </SheetPrimitive.Content>
-    </SheetPortal>
-  );
-}
-
-function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="sheet-header"
-      className={cn("flex flex-col gap-1.5 p-6", className)}
-      {...props}
-    />
-  );
-}
-
-function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
-  return (
-    <div
-      data-slot="sheet-footer"
-      className={cn("mt-auto flex flex-col gap-2 p-6", className)}
-      {...props}
-    />
-  );
-}
-
-function SheetTitle({
-  className,
-  ...props
-}: React.ComponentProps<typeof SheetPrimitive.Title>) {
-  return (
-    <SheetPrimitive.Title
-      data-slot="sheet-title"
-      className={cn(
-        "w-[calc(100%-(--spacing(10)))] text-xl font-bold",
-        className,
-      )}
-      {...props}
-    />
-  );
-}
-
-function SheetDescription({
-  className,
-  ...props
-}: React.ComponentProps<typeof SheetPrimitive.Description>) {
-  return (
-    <SheetPrimitive.Description
-      data-slot="sheet-description"
-      className={cn("text-sm", className)}
-      {...props}
-    />
-  );
-}
-
-export {
-  Sheet,
-  SheetTrigger,
-  SheetClose,
-  SheetContent,
-  SheetHeader,
-  SheetFooter,
-  SheetTitle,
-  SheetDescription,
-};
-</file>
-
 <file path="src/hooks/usePassageHeightCalculator.ts">
 import { useMemo } from "react";
 import { useTranslations } from "next-intl";
@@ -2574,6 +2599,187 @@ export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
       </span>
     </div>
   );
+};
+</file>
+
+<file path="src/components/ui/sheet.tsx">
+"use client";
+
+import * as React from "react";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
+import CloseLine from "../../../public/icons/MingCute/close_line.svg";
+
+import { cn } from "@/lib/utils";
+
+// Custom hook om te detecteren of het apparaat mobiel is
+function useIsMobile(): boolean {
+  const [isMobile, setIsMobile] = React.useState(false);
+  React.useEffect(() => {
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth < 640);
+    };
+
+    // Zet de initiële waarde
+    checkIsMobile();
+
+    // Voeg event listener toe voor window resize
+    window.addEventListener("resize", checkIsMobile);
+
+    // Ruim event listener op bij component unmount
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
+
+  return isMobile;
+}
+
+function Sheet({ ...props }: React.ComponentProps<typeof SheetPrimitive.Root>) {
+  return <SheetPrimitive.Root data-slot="sheet" {...props} />;
+}
+
+function SheetTrigger({
+  className,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Trigger>) {
+  return (
+    <SheetPrimitive.Trigger
+      data-slot="sheet-trigger"
+      className={cn(
+        "text-muted-foreground p-0.5 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+function SheetClose({
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Close>) {
+  return <SheetPrimitive.Close data-slot="sheet-close" {...props} />;
+}
+
+function SheetPortal({
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Portal>) {
+  return <SheetPrimitive.Portal data-slot="sheet-portal" {...props} />;
+}
+
+function SheetOverlay({
+  className,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Overlay>) {
+  return (
+    <SheetPrimitive.Overlay
+      data-slot="sheet-overlay"
+      className={cn(
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/50",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+function SheetContent({
+  className,
+  children,
+  side: propSide,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Content> & {
+  side?: "top" | "right" | "bottom" | "left";
+}) {
+  const isMobile = useIsMobile();
+  const side = propSide || (isMobile ? "bottom" : "right");
+
+  return (
+    <SheetPortal>
+      <SheetOverlay />
+      <SheetPrimitive.Content
+        data-slot="sheet-content"
+        className={cn(
+          "data-[state=open]:animate-in data-[state=closed]:animate-out fixed z-50 flex flex-col gap-4 overflow-y-auto bg-white transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500",
+          side === "right" &&
+            "data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right inset-y-0 right-0 h-full w-3/4 sm:max-w-md",
+          side === "left" &&
+            "data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left inset-y-0 left-0 h-full w-3/4 border-r sm:max-w-md",
+          side === "top" &&
+            "data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top inset-x-0 top-0 h-auto border-b",
+          side === "bottom" &&
+            "data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom inset-x-0 bottom-0 h-auto max-h-[calc(100%-3rem)] rounded-t-lg",
+          className,
+        )}
+        {...props}
+      >
+        {children}
+        <SheetPrimitive.Close className="focus:ring-ring bg-accent absolute top-0 right-0 h-10 w-10 rounded-bl-lg p-2 ring-offset-white focus:ring-2 focus:ring-offset-2 focus:outline-hidden disabled:pointer-events-none">
+          <CloseLine className="size-6 text-white" aria-hidden="true" />
+          <span className="sr-only">Close</span>
+        </SheetPrimitive.Close>
+      </SheetPrimitive.Content>
+    </SheetPortal>
+  );
+}
+
+function SheetHeader({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="sheet-header"
+      className={cn("flex flex-col gap-1.5 p-6", className)}
+      {...props}
+    />
+  );
+}
+
+function SheetFooter({ className, ...props }: React.ComponentProps<"div">) {
+  return (
+    <div
+      data-slot="sheet-footer"
+      className={cn("mt-auto flex flex-col gap-2 p-6", className)}
+      {...props}
+    />
+  );
+}
+
+function SheetTitle({
+  className,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Title>) {
+  return (
+    <SheetPrimitive.Title
+      data-slot="sheet-title"
+      className={cn(
+        "w-[calc(100%-(--spacing(10)))] text-xl font-bold",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
+function SheetDescription({
+  className,
+  ...props
+}: React.ComponentProps<typeof SheetPrimitive.Description>) {
+  return (
+    <SheetPrimitive.Description
+      data-slot="sheet-description"
+      className={cn("text-sm", className)}
+      {...props}
+    />
+  );
+}
+
+export {
+  Sheet,
+  SheetTrigger,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetFooter,
+  SheetTitle,
+  SheetDescription,
 };
 </file>
 
@@ -3420,69 +3626,6 @@ export default async function RootLayout({
 }
 </file>
 
-<file path="src/app/page.tsx">
-import Image from "next/image";
-import { useLocale, useTranslations } from "next-intl";
-import Header from "@/components/header";
-import heroImage from "/public/images/tuinmaximaal-verandas.jpg";
-import StoreSelection from "@/components/home/StoreSelection";
-import { StoresData } from "@/data/stores";
-import { getStoreLocalization } from "@/lib/storeUtils";
-
-export default function Home() {
-  const t = useTranslations("Pages.Home");
-  const locale = useLocale(); // Haalt de huidige taal/land-code op (bijv. 'nl').
-  const userCountryCode = locale.toUpperCase();
-
-  // Bepaalt de landselectie en de overige landen op basis van de locale van de gebruiker.
-  const { preferredStore, otherStores } = getStoreLocalization(
-    userCountryCode,
-    StoresData,
-  );
-
-  return (
-    <>
-      <Header />
-      <main
-        className="container mx-auto px-4 py-12 sm:px-6 xl:h-[calc(100dvh-(--spacing(19)))] xl:pt-20"
-        role="main"
-        aria-label={t("a11y.mainContentLabel")}
-      >
-        <section className="overflow-hidden rounded-lg bg-white xl:h-full">
-          <div className="grid grid-cols-12 xl:h-full">
-            {/* Sectie voor de afbeelding */}
-            <div className="relative col-span-12 max-xl:aspect-16/9 xl:col-span-7">
-              <Image
-                src={heroImage}
-                alt={t("a11y.heroImageAlt")}
-                fill
-                priority
-                fetchPriority="high"
-                placeholder="blur"
-                className="object-cover object-[center_55%]"
-                sizes="
-                  (min-width: 1536px) calc((1536px - 48px) * 7/12),
-                  (min-width: 1280px) calc((1280px - 48px) * 7/12),
-                  (min-width: 1024px) calc(1024px - 48px),
-                  (min-width: 768px) calc(768px - 48px),
-                  (min-width: 640px) calc(640px - 48px),
-                  calc(100vw - 32px)"
-              />
-            </div>
-
-            {/* Sectie voor de landselectie */}
-            <StoreSelection
-              preferredStore={preferredStore}
-              otherStores={otherStores}
-            />
-          </div>
-        </section>
-      </main>
-    </>
-  );
-}
-</file>
-
 <file path="src/app/globals.css">
 @import "tailwindcss";
 @import "tw-animate-css";
@@ -3601,6 +3744,68 @@ export default function Home() {
   .trans-all * {
     @apply transition-all duration-300;
   }
+}
+</file>
+
+<file path="src/app/page.tsx">
+import Image from "next/image";
+import { useLocale, useTranslations } from "next-intl";
+import Header from "@/components/header";
+import heroImage from "/public/images/tuinmaximaal-verandas.jpg";
+import StoreSelection from "@/components/home/StoreSelection";
+import { STORES_DATA } from "@/data/stores";
+import { getStoreLocalization } from "@/lib/storeUtils";
+
+export default function Home() {
+  const t = useTranslations("Pages.Home");
+  const locale = useLocale(); // Haalt de huidige taal/land-code op (bijv. 'nl').
+  const userCountryCode = locale.toUpperCase();
+  // Bepaalt de landselectie en de overige landen op basis van de locale van de gebruiker.
+  const { preferredStore, otherStores } = getStoreLocalization(
+    userCountryCode,
+    STORES_DATA,
+  );
+
+  return (
+    <>
+      <Header />
+      <main
+        className="container mx-auto px-4 py-12 sm:px-6 xl:h-[calc(100dvh-(--spacing(19)))] xl:pt-20"
+        role="main"
+        aria-label={t("a11y.mainContentLabel")}
+      >
+        <section className="overflow-hidden rounded-lg bg-white xl:h-full">
+          <div className="grid grid-cols-12 xl:h-full">
+            {/* Sectie voor de afbeelding */}
+            <div className="relative col-span-12 max-xl:aspect-16/9 xl:col-span-7">
+              <Image
+                src={heroImage}
+                alt={t("a11y.heroImageAlt")}
+                fill
+                priority
+                fetchPriority="high"
+                placeholder="blur"
+                className="object-cover object-[center_55%]"
+                sizes="
+                  (min-width: 1536px) calc((1536px - 48px) * 7/12),
+                  (min-width: 1280px) calc((1280px - 48px) * 7/12),
+                  (min-width: 1024px) calc(1024px - 48px),
+                  (min-width: 768px) calc(768px - 48px),
+                  (min-width: 640px) calc(640px - 48px),
+                  calc(100vw - 32px)"
+              />
+            </div>
+
+            {/* Sectie voor de landselectie */}
+            <StoreSelection
+              preferredStore={preferredStore}
+              otherStores={otherStores}
+            />
+          </div>
+        </section>
+      </main>
+    </>
+  );
 }
 </file>
 

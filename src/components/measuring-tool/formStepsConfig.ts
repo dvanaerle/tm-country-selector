@@ -30,7 +30,7 @@ export interface FormStepConfig {
   max?: number;
 }
 
-export const wallProfileSteps: FormStepConfig[] = [
+export const WALL_PROFILE_STEPS: FormStepConfig[] = [
   {
     name: "depth",
     type: "radio-group",
@@ -105,10 +105,10 @@ export const wallProfileSteps: FormStepConfig[] = [
   },
 ];
 
-export const gutterHeightSteps: FormStepConfig[] = [
-  { ...wallProfileSteps[0] },
-  { ...wallProfileSteps[1] },
-  { ...wallProfileSteps[2] },
+export const GUTTER_HEIGHT_STEPS: FormStepConfig[] = [
+  { ...WALL_PROFILE_STEPS[0] },
+  { ...WALL_PROFILE_STEPS[1] },
+  { ...WALL_PROFILE_STEPS[2] },
   {
     name: "heightBottomGutter",
     type: "custom-select",

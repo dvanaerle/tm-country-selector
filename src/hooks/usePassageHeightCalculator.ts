@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import { z } from "zod";
 
 // Configuratieconstanten voor de berekeningen.
-const config = {
+const CALCULATOR_CONFIG = {
   depths: [2.5, 3, 3.5, 4] as const,
   angle: (8 * Math.PI) / 180, // Hoek van 8 graden, eenmalig omgerekend naar radialen.
   adjustments: {
@@ -50,17 +50,16 @@ type ValidatedGutterHeightForm = FormValues & {
 };
 
 // Een object dat alle rekenkundige logica groepeert.
-const calculator = {
-  // Berekent cruciale afmetingen op basis van diepte en afloop.
+const calculator = {  // Berekent cruciale afmetingen op basis van diepte en afloop.
   calculateDimensions(depth: number, slope: number) {
-    const cosAngle = Math.cos(config.angle);
-    const sinAngle = Math.sin(config.angle);
+    const cosAngle = Math.cos(CALCULATOR_CONFIG.angle);
+    const sinAngle = Math.sin(CALCULATOR_CONFIG.angle);
     const insideDepth =
       depth * cosAngle * 1000 +
-      config.adjustments.depthPrimary +
-      config.adjustments.depthSecondary;
+      CALCULATOR_CONFIG.adjustments.depthPrimary +
+      CALCULATOR_CONFIG.adjustments.depthSecondary;
     const wallToGutterDiff =
-      depth * sinAngle * 1000 + config.adjustments.wallToGutter;
+      depth * sinAngle * 1000 + CALCULATOR_CONFIG.adjustments.wallToGutter;
     const slopeRatio = insideDepth > 0 ? slope / insideDepth : 0;
     const slopeDrop =
       insideDepth * Math.sin(Math.asin(Math.max(-1, Math.min(1, slopeRatio))));
@@ -78,14 +77,12 @@ const calculator = {
       depth,
       slope,
     );
-    const gutterHeight = wallProfile - wallToGutterDiff + slopeDrop;
-    const passageHeight =
+    const gutterHeight = wallProfile - wallToGutterDiff + slopeDrop;    const passageHeight =
       railSlope === "checked"
-        ? gutterHeight + config.adjustments.railSlope
+        ? gutterHeight + CALCULATOR_CONFIG.adjustments.railSlope
         : gutterHeight;
     return Math.round(passageHeight);
   },
-
   // Berekent de muurprofielhoogte op basis van de gewenste doorloophoogte.
   calculateFromGutterHeight(
     depth: number,
@@ -95,7 +92,7 @@ const calculator = {
   ) {
     const targetGutterHeight =
       railSlope === "checked"
-        ? targetPassageHeight - config.adjustments.railSlope
+        ? targetPassageHeight - CALCULATOR_CONFIG.adjustments.railSlope
         : targetPassageHeight;
     const { wallToGutterDiff, slopeDrop } = this.calculateDimensions(
       depth,
@@ -104,7 +101,6 @@ const calculator = {
     const wallProfile = targetGutterHeight + wallToGutterDiff + slopeDrop;
     return Math.round(wallProfile);
   },
-
   // Berekent een voorgestelde muurprofielhoogte als de input buiten het bereik valt.
   calculateInverseForWallProfileSuggestion(
     depth: number,
@@ -114,7 +110,7 @@ const calculator = {
   ) {
     const targetGutterHeight =
       railSlope === "checked"
-        ? targetPassageHeight - config.adjustments.railSlope
+        ? targetPassageHeight - CALCULATOR_CONFIG.adjustments.railSlope
         : targetPassageHeight;
     const { wallToGutterDiff, slopeDrop } = this.calculateDimensions(
       depth,
@@ -136,19 +132,17 @@ const calculator = {
       depth,
       slope,
     );
-    const targetGutterHeight = targetWallProfile - wallToGutterDiff - slopeDrop;
-    const recommendedPassageHeight =
+    const targetGutterHeight = targetWallProfile - wallToGutterDiff - slopeDrop;    const recommendedPassageHeight =
       railSlope === "checked"
-        ? targetGutterHeight + config.adjustments.railSlope
+        ? targetGutterHeight + CALCULATOR_CONFIG.adjustments.railSlope
         : targetGutterHeight;
     return Math.round(recommendedPassageHeight);
   },
 
   // Controleert of een waarde binnen de gedefinieerde bereiken valt.
   checkRange(value: number, formType: FormType) {
-    for (const [min, max] of config.ranges) {
-      // Alleen voor wallProfile geldt de maxPassageHeight, niet voor gutterHeight
-      if (formType === "wallProfile" && value > config.limits.maxPassageHeight)
+    for (const [min, max] of CALCULATOR_CONFIG.ranges) {      // Alleen voor wallProfile geldt de maxPassageHeight, niet voor gutterHeight
+      if (formType === "wallProfile" && value > CALCULATOR_CONFIG.limits.maxPassageHeight)
         continue;
       if (value >= min && value <= max) {
         return { inRange: true, range: [min, max] as [number, number] };
@@ -157,9 +151,9 @@ const calculator = {
     // Zoek het dichtstbijzijnde bereik als de waarde buiten alle bereiken valt.
     let closest: [number, number] | null = null;
     let minDiff = Infinity;
-    for (const range of config.ranges) {
+    for (const range of CALCULATOR_CONFIG.ranges) {
       const [min, max] = range;
-      if (formType === "wallProfile" && min > config.limits.maxPassageHeight)
+      if (formType === "wallProfile" && min > CALCULATOR_CONFIG.limits.maxPassageHeight)
         continue;
       const diff = Math.min(Math.abs(value - min), Math.abs(value - max));
       if (diff < minDiff) {
@@ -181,9 +175,8 @@ const calculator = {
     if (depth == null || railSystemSlope == null) return null;
 
     let targetOutput =
-      output < closestRange[0] ? closestRange[0] : closestRange[1];
-    if (formType === "wallProfile") {
-      targetOutput = Math.min(targetOutput, config.limits.maxPassageHeight);
+      output < closestRange[0] ? closestRange[0] : closestRange[1];    if (formType === "wallProfile") {
+      targetOutput = Math.min(targetOutput, CALCULATOR_CONFIG.limits.maxPassageHeight);
     }
 
     const recommendedInput =
@@ -278,10 +271,10 @@ const createSchema = (
       const { inRange, range: closestRange } = calculator.checkRange(
         calculatedOutput,
         formType,
-      );
-
-      if (!inRange && closestRange) {
+      );      if (!inRange && closestRange) {
         if (formType === "wallProfile") {
+          // Als de berekende waarde buiten de geldige bereiken valt, genereren we een proactieve suggestie. 
+          // Dit helpt de gebruiker om een correcte waarde in te voeren zonder te hoeven gokken.
           const suggestion = calculator.generateSuggestion(
             formType,
             data,
@@ -341,5 +334,5 @@ export function usePassageHeightCalculator(formType: FormType) {
     }
   };
 
-  return { t, schema, config, calculateResult };
+  return { t, schema, config: CALCULATOR_CONFIG, calculateResult };
 }

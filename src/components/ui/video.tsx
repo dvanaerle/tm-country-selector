@@ -47,8 +47,8 @@ export default function Video({
     const separator = url.includes("?") ? "&" : "?";
     return `${url}${separator}autoplay=1`;
   }
-
-  // Als de video speelt, render de iframe.
+  // De iframe wordt pas gerenderd na een klik. Dit is een 'lazy-load' patroon 
+  // dat de initiële laadtijd van de pagina aanzienlijk verbetert.
   if (isPlaying) {
     return (
       <div

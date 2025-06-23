@@ -26,8 +26,7 @@ export const ClientSection: React.FC<ClientSectionProps> = ({
   const [selectedTab, setSelectedTab] = useState<
     "height-lower-gutter" | "wall-profile-height"
   >("height-lower-gutter");
-
-  // Bepaal afbeelding en alt op basis van geselecteerde tab
+  // We wisselen de afbeelding dynamisch om de gebruiker visuele context te geven bij de geselecteerde meetmethode.
   const imageObj =
     selectedTab === "height-lower-gutter"
       ? MeasuringHeightPaving
