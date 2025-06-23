@@ -50,7 +50,8 @@ type ValidatedGutterHeightForm = FormValues & {
 };
 
 // Een object dat alle rekenkundige logica groepeert.
-const calculator = {  // Berekent cruciale afmetingen op basis van diepte en afloop.
+const calculator = {
+  // Berekent cruciale afmetingen op basis van diepte en afloop.
   calculateDimensions(depth: number, slope: number) {
     const cosAngle = Math.cos(CALCULATOR_CONFIG.angle);
     const sinAngle = Math.sin(CALCULATOR_CONFIG.angle);
@@ -77,7 +78,8 @@ const calculator = {  // Berekent cruciale afmetingen op basis van diepte en afl
       depth,
       slope,
     );
-    const gutterHeight = wallProfile - wallToGutterDiff + slopeDrop;    const passageHeight =
+    const gutterHeight = wallProfile - wallToGutterDiff + slopeDrop;
+    const passageHeight =
       railSlope === "checked"
         ? gutterHeight + CALCULATOR_CONFIG.adjustments.railSlope
         : gutterHeight;
@@ -132,7 +134,8 @@ const calculator = {  // Berekent cruciale afmetingen op basis van diepte en afl
       depth,
       slope,
     );
-    const targetGutterHeight = targetWallProfile - wallToGutterDiff - slopeDrop;    const recommendedPassageHeight =
+    const targetGutterHeight = targetWallProfile - wallToGutterDiff - slopeDrop;
+    const recommendedPassageHeight =
       railSlope === "checked"
         ? targetGutterHeight + CALCULATOR_CONFIG.adjustments.railSlope
         : targetGutterHeight;
@@ -141,8 +144,12 @@ const calculator = {  // Berekent cruciale afmetingen op basis van diepte en afl
 
   // Controleert of een waarde binnen de gedefinieerde bereiken valt.
   checkRange(value: number, formType: FormType) {
-    for (const [min, max] of CALCULATOR_CONFIG.ranges) {      // Alleen voor wallProfile geldt de maxPassageHeight, niet voor gutterHeight
-      if (formType === "wallProfile" && value > CALCULATOR_CONFIG.limits.maxPassageHeight)
+    for (const [min, max] of CALCULATOR_CONFIG.ranges) {
+      // Alleen voor wallProfile geldt de maxPassageHeight, niet voor gutterHeight
+      if (
+        formType === "wallProfile" &&
+        value > CALCULATOR_CONFIG.limits.maxPassageHeight
+      )
         continue;
       if (value >= min && value <= max) {
         return { inRange: true, range: [min, max] as [number, number] };
@@ -153,7 +160,10 @@ const calculator = {  // Berekent cruciale afmetingen op basis van diepte en afl
     let minDiff = Infinity;
     for (const range of CALCULATOR_CONFIG.ranges) {
       const [min, max] = range;
-      if (formType === "wallProfile" && min > CALCULATOR_CONFIG.limits.maxPassageHeight)
+      if (
+        formType === "wallProfile" &&
+        min > CALCULATOR_CONFIG.limits.maxPassageHeight
+      )
         continue;
       const diff = Math.min(Math.abs(value - min), Math.abs(value - max));
       if (diff < minDiff) {
@@ -175,8 +185,12 @@ const calculator = {  // Berekent cruciale afmetingen op basis van diepte en afl
     if (depth == null || railSystemSlope == null) return null;
 
     let targetOutput =
-      output < closestRange[0] ? closestRange[0] : closestRange[1];    if (formType === "wallProfile") {
-      targetOutput = Math.min(targetOutput, CALCULATOR_CONFIG.limits.maxPassageHeight);
+      output < closestRange[0] ? closestRange[0] : closestRange[1];
+    if (formType === "wallProfile") {
+      targetOutput = Math.min(
+        targetOutput,
+        CALCULATOR_CONFIG.limits.maxPassageHeight,
+      );
     }
 
     const recommendedInput =
@@ -271,9 +285,10 @@ const createSchema = (
       const { inRange, range: closestRange } = calculator.checkRange(
         calculatedOutput,
         formType,
-      );      if (!inRange && closestRange) {
+      );
+      if (!inRange && closestRange) {
         if (formType === "wallProfile") {
-          // Als de berekende waarde buiten de geldige bereiken valt, genereren we een proactieve suggestie. 
+          // Als de berekende waarde buiten de geldige bereiken valt, genereren we een proactieve suggestie.
           // Dit helpt de gebruiker om een correcte waarde in te voeren zonder te hoeven gokken.
           const suggestion = calculator.generateSuggestion(
             formType,

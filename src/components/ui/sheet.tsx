@@ -77,8 +77,8 @@ function SheetOverlay({
   );
 }
 
-// DEVIATIE: In tegenstelling tot de standaard sheet, passen we de 'side' prop dynamisch aan. 
-// Op mobiele apparaten wordt een 'bottom' sheet gebruikt voor een betere gebruikerservaring 
+// DEVIATIE: In tegenstelling tot de standaard sheet, passen we de 'side' prop dynamisch aan.
+// Op mobiele apparaten wordt een 'bottom' sheet gebruikt voor een betere gebruikerservaring
 // en bereikbaarheid met één hand. Dit is een bewuste afwijking van de standaard implementatie.
 function SheetContent({
   className,
