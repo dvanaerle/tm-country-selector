@@ -44,10 +44,9 @@ export const RadioGroupStep: React.FC<Props> = ({ config, t, disabled }) => {
           <fieldset disabled={disabled} className="trans-all space-y-2">
             <FormLabel asChild id={groupLabelId}>
               <legend
-                className="flex items-center gap-x-1 has-disabled:opacity-50"
+                className="flex items-center gap-x-1.5 has-disabled:opacity-50"
                 data-required
               >
-                <span>{t(config.labelKey)}</span>
                 {isDefinedString(config.tooltipKey) && (
                   <InfoTooltipSheet
                     t={t}
@@ -57,6 +56,7 @@ export const RadioGroupStep: React.FC<Props> = ({ config, t, disabled }) => {
                     disabled={disabled}
                   />
                 )}
+                <span>{t(config.labelKey)}</span>
               </legend>
             </FormLabel>
             <FormControl>

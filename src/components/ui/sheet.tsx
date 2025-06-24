@@ -41,7 +41,7 @@ function SheetTrigger({
     <SheetPrimitive.Trigger
       data-slot="sheet-trigger"
       className={cn(
-        "text-muted-foreground p-0.5 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-5",
+        "text-info enabled:hover:bg-info-background p-1 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-6",
         className,
       )}
       {...props}

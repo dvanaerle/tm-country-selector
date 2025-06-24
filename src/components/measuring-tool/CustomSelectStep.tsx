@@ -69,10 +69,9 @@ export const CustomSelectStep: React.FC<Props> = ({ config, t, disabled }) => {
           <FormItem>
             <FormLabel
               htmlFor={field.name}
-              className="flex items-center gap-x-1 has-disabled:opacity-50"
+              className="flex items-center gap-x-1.5 has-disabled:opacity-50"
               data-required
             >
-              <span>{t(config.labelKey)}</span>
               {isDefinedString(config.tooltipKey) && (
                 <InfoTooltipSheet
                   t={t}
@@ -82,6 +81,7 @@ export const CustomSelectStep: React.FC<Props> = ({ config, t, disabled }) => {
                   disabled={disabled}
                 />
               )}
+              <span>{t(config.labelKey)}</span>
             </FormLabel>
             <FormControl>
               <Select
