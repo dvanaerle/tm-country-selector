@@ -32,16 +32,16 @@ type Props = {
 };
 
 export const GUTTER_HEIGHT_RANGE_OPTIONS = [
-  { value: "1980-2020", label: "1980-2020 mm" },
-  { value: "2030-2070", label: "2030-2070 mm" },
-  { value: "2080-2120", label: "2080-2120 mm" },
-  { value: "2130-2170", label: "2130-2170 mm" },
-  { value: "2180-2220", label: "2180-2220 mm" },
-  { value: "2230-2270", label: "2230-2270 mm" },
-  { value: "2280-2320", label: "2280-2320 mm" },
-  { value: "2330-2370", label: "2330-2370 mm" },
-  { value: "2380-2420", label: "2380-2420 mm" },
-  { value: "2480-2520", label: "2480-2520 mm" },
+  { value: "1980-2020", label: "2000 mm (1980-2020 mm)" },
+  { value: "2030-2070", label: "2050 mm (2030-2070 mm)" },
+  { value: "2080-2120", label: "2100 mm (2080-2120 mm)" },
+  { value: "2130-2170", label: "2150 mm (2130-2170 mm)" },
+  { value: "2180-2220", label: "2200 mm (2180-2220 mm)" },
+  { value: "2230-2270", label: "2250 mm (2230-2270 mm)" },
+  { value: "2280-2320", label: "2300 mm (2280-2320 mm)" },
+  { value: "2330-2370", label: "2350 mm (2330-2370 mm)" },
+  { value: "2380-2420", label: "2400 mm (2380-2420 mm)" },
+  { value: "2480-2520", label: "2500 mm (2480-2520 mm)" },
 ];
 
 // Specifieke component voor dropdown selectie met bereik opties
