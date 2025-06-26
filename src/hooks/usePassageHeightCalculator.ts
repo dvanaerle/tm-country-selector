@@ -2,6 +2,8 @@ import { useMemo } from "react";
 import { useTranslations } from "next-intl";
 import { z } from "zod";
 
+export const FOUNDATION_WARNING_THRESHOLD = 2400;
+
 // Configuratieconstanten voor de berekeningen.
 const CALCULATOR_CONFIG = {
   depths: [2.5, 3, 3.5, 4] as const,

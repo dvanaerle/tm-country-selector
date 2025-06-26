@@ -11,6 +11,12 @@ import {
 import { InfoTooltipSheet } from "./InfoTooltipSheet";
 import { NumberInputWithUnit } from "./NumberInputWithUnit";
 import { FormStepConfig } from "./formStepsConfig";
+import {
+  usePassageHeightCalculator,
+  FormValues,
+  FOUNDATION_WARNING_THRESHOLD,
+} from "@/hooks/usePassageHeightCalculator";
+import { FoundationWarning } from "./FoundationWarning";
 
 // Type guard om te controleren of een waarde een gedefinieerde niet-lege string is
 function isDefinedString(val: unknown): val is string {
@@ -28,6 +34,31 @@ type Props = {
 export const NumberInputStep: React.FC<Props> = ({ config, t, disabled }) => {
   const form = useFormContext();
   const groupLabelId = React.useId();
+
+  // Watch alle benodigde velden voor de berekening
+  const watchedValues = form.watch();
+  const isWallProfileStep = config.name === "wallProfileHeight";
+
+  // Hook voor berekeningen (alleen gebruiken voor wallProfileHeight)
+  const { calculateResult } = usePassageHeightCalculator("wallProfile");
+
+  // Bereken passage height alleen als alle vereiste velden ingevuld zijn
+  let showWarning = false;
+  if (
+    isWallProfileStep &&
+    watchedValues.wallProfileHeight != null &&
+    watchedValues.depth != null &&
+    watchedValues.railSystemSlope != null
+  ) {
+    try {
+      // We casten expliciet naar FormValues om typefout te voorkomen
+      const result = calculateResult(watchedValues as FormValues);
+      showWarning = result.output > FOUNDATION_WARNING_THRESHOLD;
+    } catch (error) {
+      // Bij fout in berekening geen waarschuwing tonen
+      showWarning = false;
+    }
+  }
 
   return (
     <FormField
@@ -70,6 +101,7 @@ export const NumberInputStep: React.FC<Props> = ({ config, t, disabled }) => {
             />
           </FormControl>
           <FormMessage id={`${field.name}-error`} />
+          {showWarning && <FoundationWarning t={t} />}
         </FormItem>
       )}
     />

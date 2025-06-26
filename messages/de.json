@@ -96,7 +96,8 @@
           "validNumberRequired": "Geben Sie eine gültige Zahl ein",
           "suggestionMessage": "Versuchen Sie eine {fieldName} von {recommendedInput} mm, um in den Bereich von {min} - {max} mm zu fallen.",
           "wallProfileHeightFieldName": "Wandprofilhöhe",
-          "passageHeightFieldName": "Durchgangshöhe"
+          "passageHeightFieldName": "Durchgangshöhe",
+          "pleaseNote": "Bitte beachten Sie:"
         }
       },
       "WallProfileHeight": {
@@ -106,7 +107,8 @@
         "railSystemQuestion": "Schienensystem im Boden versenken",
         "railSystemQuestionTooltip": "Erwägen Sie, die untere Schiene des Schiebesystems im Boden zu versenken. Dies schafft einen schwellenfreien Durchgang. Wenn Sie sich hierfür entscheiden, addieren Sie 18 mm (die Höhe der unteren Schiene) zu Ihrer gemessenen Durchgangshöhe hinzu.",
         "MeasuringHeightPavingCaption": "Messung der vertikalen Höhe vom Boden für die Profilmontage.",
-        "MeasuringHeightRecessedCaption": "Beispiel eines versenkten Schienensystems für einen schwellenfreien Durchgang."
+        "MeasuringHeightRecessedCaption": "Beispiel eines versenkten Schienensystems für einen schwellenfreien Durchgang.",
+        "foundationWarning": "Für eine Glasschiebewand mit einer Höhe von mehr als {threshold} mm können Sie keine Punktfundamente verwenden, da diese 10 cm eingegraben werden müssen."
       },
       "HeightBottomGutter": {
         "label": "Höhe bis Unterkante Rinne vom Boden (0° Gefälle)",

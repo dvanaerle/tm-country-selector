@@ -96,7 +96,8 @@
           "validNumberRequired": "Enter a valid number",
           "suggestionMessage": "Try a {fieldName} of {recommendedInput} mm to fall within the range of {min} - {max} mm.",
           "wallProfileHeightFieldName": "wall profile height",
-          "passageHeightFieldName": "passage height"
+          "passageHeightFieldName": "passage height",
+          "pleaseNote": "Please note:"
         }
       },
       "WallProfileHeight": {
@@ -106,7 +107,8 @@
         "railSystemQuestion": "Recess rail system into the ground",
         "railSystemQuestionTooltip": "Consider recessing the bottom rail of the sliding system into the ground. This creates a threshold-free passage. If you opt for this, add 18 mm (the height of the bottom rail) to your measured passage height.",
         "MeasuringHeightPavingCaption": "Measuring vertical height from the ground for profile mounting.",
-        "MeasuringHeightRecessedCaption": "Example of a recessed rail system for a threshold-free passage."
+        "MeasuringHeightRecessedCaption": "Example of a recessed rail system for a threshold-free passage.",
+        "foundationWarning": "For a glass sliding door with a height of more than <strong>{threshold} mm</strong>, you cannot use spot foundations, as they must be buried 10 cm."
       },
       "HeightBottomGutter": {
         "label": "Height to bottom of gutter from ground (0° slope)",

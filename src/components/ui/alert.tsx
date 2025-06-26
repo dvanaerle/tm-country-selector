@@ -14,6 +14,8 @@ const alertVariants = cva(
         destructive:
           "bg-destructive-background border-destructive/20 text-destructive-on-background [&>svg]:text-destructive",
         info: "bg-info-background [&>svg]:text-info border-info/20 text-info-on-background",
+        warning:
+          "bg-warning-background [&>svg]:text-warning border-warning/20 text-warning-on-background",
       },
     },
     defaultVariants: {
@@ -54,7 +56,7 @@ function AlertDescription({
   return (
     <div
       data-slot="alert-description"
-      className={cn("col-start-2 grid justify-items-start gap-1", className)}
+      className={cn("col-start-2", className)}
       {...props}
     />
   );

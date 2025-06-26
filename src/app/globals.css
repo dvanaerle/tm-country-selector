@@ -36,6 +36,10 @@
   --color-info-foreground: oklch(100% 0 0);
   --color-info-background: oklch(56.9% 0.169 251.7 / 0.08);
   --color-info-on-background: oklch(44% 0.132 252);
+  --color-warning: oklch(58.2% 0.159 47.8);
+  --color-warning-foreground: oklch(27.1% 0.068 154.6);
+  --color-warning-background: oklch(73.2% 0.186 53 / 0.08);
+  --color-warning-on-background: oklch(55.5% 0.152 47.7);
   --color-control: oklch(50% 0 0);
   --color-border: oklch(91.6% 0 0);
   --color-input: oklch(91.6% 0 0);

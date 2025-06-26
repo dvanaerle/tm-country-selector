@@ -96,7 +96,8 @@
           "validNumberRequired": "Entrez un nombre valide",
           "suggestionMessage": "Essayez un(e) {fieldName} de {recommendedInput} mm pour être dans la plage de {min} - {max} mm.",
           "wallProfileHeightFieldName": "hauteur de profilé mural",
-          "passageHeightFieldName": "hauteur de passage"
+          "passageHeightFieldName": "hauteur de passage",
+          "pleaseNote": "Veuillez noter :"
         }
       },
       "WallProfileHeight": {
@@ -106,7 +107,8 @@
         "railSystemQuestion": "Encastrer le système de rails dans le sol",
         "railSystemQuestionTooltip": "Envisagez d'encastrer le rail inférieur du système coulissant dans le sol. Cela crée un passage sans seuil. Si vous optez pour cela, ajoutez 18 mm (la hauteur du rail inférieur) à votre hauteur de passage mesurée.",
         "MeasuringHeightPavingCaption": "Mesure de la hauteur verticale depuis le sol pour le montage du profilé.",
-        "MeasuringHeightRecessedCaption": "Exemple d'un système de rail encastré pour un passage sans seuil."
+        "MeasuringHeightRecessedCaption": "Exemple d'un système de rail encastré pour un passage sans seuil.",
+        "foundationWarning": "Pour une paroi coulissante en verre d'une hauteur de plus de {threshold} mm, vous ne pouvez pas utiliser de fondations ponctuelles, car elles doivent être enterrées à 10 cm."
       },
       "HeightBottomGutter": {
         "label": "Hauteur jusqu'au bas de la gouttière par rapport au sol (pente 0°)",

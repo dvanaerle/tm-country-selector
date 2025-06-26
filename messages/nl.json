@@ -96,7 +96,8 @@
           "validNumberRequired": "Voer een geldig getal in",
           "suggestionMessage": "Probeer een {fieldName} van {recommendedInput} mm om binnen het bereik van {min} - {max} mm te vallen.",
           "wallProfileHeightFieldName": "muurprofielhoogte",
-          "passageHeightFieldName": "doorloophoogte"
+          "passageHeightFieldName": "doorloophoogte",
+          "pleaseNote": "Let op:"
         }
       },
       "WallProfileHeight": {
@@ -106,7 +107,8 @@
         "railSystemQuestion": "Railsysteem verzonken neerleggen",
         "railSystemQuestionTooltip": "Overweeg of u de onderrail van het schuifsysteem in de grond wilt verzinken. Dit zorgt voor een drempelloze doorgang. Als u hiervoor kiest, tel dan 18 mm (de hoogte van de onderrail) op bij de gemeten doorloophoogte.",
         "MeasuringHeightPavingCaption": "Het meten van de verticale hoogte vanaf de grond voor profielmontage.",
-        "MeasuringHeightRecessedCaption": "Voorbeeld van een verzonken railsysteem voor een drempelloze doorgang."
+        "MeasuringHeightRecessedCaption": "Voorbeeld van een verzonken railsysteem voor een drempelloze doorgang.",
+        "foundationWarning": "Voor een glazen schuifwand met een hoogte van meer dan {threshold} mm kunt u geen betonpoeren gebruiken, deze moeten namelijk 10 cm ingegraven worden."
       },
       "HeightBottomGutter": {
         "label": "Hoogte onderkant goot t.o.v. bodem (0° afloop)",
