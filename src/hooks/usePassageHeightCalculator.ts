@@ -354,7 +354,7 @@ export function usePassageHeightCalculator(formType: FormType) {
   const shouldShowFoundationWarning = (values: FormValues) => {
     // Only show warning for wall profile calculations
     if (formType !== "wallProfile") return false;
-    
+
     // Check if all required values are present
     if (
       values.wallProfileHeight == null ||

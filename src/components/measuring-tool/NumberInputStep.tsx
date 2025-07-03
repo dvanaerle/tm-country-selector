@@ -11,7 +11,10 @@ import {
 import { InfoTooltipSheet } from "./InfoTooltipSheet";
 import { NumberInputWithUnit } from "./NumberInputWithUnit";
 import { FormStepConfig } from "./formStepsConfig";
-import { usePassageHeightCalculator, FormValues } from "@/hooks/usePassageHeightCalculator";
+import {
+  usePassageHeightCalculator,
+  FormValues,
+} from "@/hooks/usePassageHeightCalculator";
 import { FoundationWarning } from "./FoundationWarning";
 
 // Type guard om te controleren of een waarde een gedefinieerde niet-lege string is
@@ -36,10 +39,13 @@ export const NumberInputStep: React.FC<Props> = ({ config, t, disabled }) => {
   const isWallProfileStep = config.name === "wallProfileHeight";
 
   // Hook voor berekeningen en business logic
-  const { shouldShowFoundationWarning } = usePassageHeightCalculator("wallProfile");
+  const { shouldShowFoundationWarning } =
+    usePassageHeightCalculator("wallProfile");
 
   // Determine if foundation warning should be shown
-  const showWarning = isWallProfileStep && shouldShowFoundationWarning(watchedValues as FormValues);
+  const showWarning =
+    isWallProfileStep &&
+    shouldShowFoundationWarning(watchedValues as FormValues);
 
   return (
     <FormField
