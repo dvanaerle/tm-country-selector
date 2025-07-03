@@ -51,7 +51,7 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
   return (
     <Sheet>
       <SheetTrigger
-        className="focus-visible:ring-ring/50 rounded outline-none focus-visible:ring-2"
+        className="focus-visible:ring-ring/50 text-info enabled:hover:bg-info-background rounded p-1 outline-none focus-visible:ring-2 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-6"
         aria-label={t(triggerTextKey || "Form.Common.moreInformation")}
         disabled={disabled}
       >
