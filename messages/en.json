@@ -116,8 +116,8 @@
       "HeightBottomGutter": {
         "label": "Passage height",
         "intro": "Do you have limited space on your facade and are you therefore bound to a specific wall profile height? Use this measuring tool to calculate the corresponding <info>passage height</info> of your Gumax<sup>®</sup> veranda. This way, you can order the correct size for your glass sliding door.",
-        "doorloophoogte_title": "Passage height",
-        "doorloophoogte_content": "The passage height is the distance from the flat underside of the gutter to the top of the foundation or paving. Note: after installing the sliding door, this height becomes approximately 7.5 cm lower due to the rail system.",
+        "passageHeightTooltipTitle": "Passage height",
+        "passageHeightTooltipDescription": "The passage height is the distance from the flat underside of the gutter to the top of the foundation or paving. Note: after installing the sliding door, this height becomes approximately 7.5 cm lower due to the rail system.",
         "placeholder": "Select your passage height",
         "tooltip": "Select the desired passage height of your Gumax<sup>®</sup> veranda. The passage height is the distance from the flat underside of the gutter to the top of the foundation or paving. Note: after installing the sliding door, this height becomes approximately 7.5 cm lower due to the rail system.",
         "MeasuringHeightPavingCaption": "Measuring the height from the ground to the underside of the gutter.",

@@ -116,8 +116,8 @@
       "HeightBottomGutter": {
         "label": "Hauteur de passage",
         "intro": "Avez-vous un espace limité sur votre façade et êtes-vous donc lié à une hauteur de profilé mural spécifique ? Calculez avec cet outil de mesure la <info>hauteur de passage</info> correspondante de votre véranda Gumax<sup>®</sup>. Ainsi, vous commandez directement la bonne taille pour votre paroi coulissante en verre.",
-        "doorloophoogte_title": "Hauteur de passage",
-        "doorloophoogte_content": "La hauteur de passage est la distance entre le dessous plat de la gouttière et le haut de la fondation ou du pavage. Remarque : après l'installation de la porte coulissante, cette hauteur devient environ 7,5 cm plus basse en raison du système de rails.",
+        "passageHeightTooltipTitle": "Hauteur de passage",
+        "passageHeightTooltipDescription": "La hauteur de passage est la distance entre le dessous plat de la gouttière et le haut de la fondation ou du pavage. Remarque : après l'installation de la porte coulissante, cette hauteur devient environ 7,5 cm plus basse en raison du système de rails.",
         "placeholder": "Sélectionnez votre hauteur de passage",
         "tooltip": "Sélectionnez la hauteur de passage souhaitée de votre véranda Gumax<sup>®</sup>. La hauteur de passage est la distance entre le dessous plat de la gouttière et le haut de la fondation ou du pavage. Remarque : après l'installation de la porte coulissante, cette hauteur devient environ 7,5 cm plus basse en raison du système de rails.",
         "MeasuringHeightPavingCaption": "Mesure de la hauteur depuis le sol jusqu'au dessous de la gouttière.",

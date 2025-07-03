@@ -116,8 +116,8 @@
       "HeightBottomGutter": {
         "label": "Durchgangshöhe",
         "intro": "Haben Sie nur begrenzten Platz an Ihrer Fassade und sind Sie daher an eine bestimmte Wandprofilhöhe gebunden? Berechnen Sie mit dieser Messhilfe die passende <info>Durchgangshöhe</info> Ihrer Gumax<sup>®</sup> Terrassenüberdachung. So bestellen Sie direkt die richtige Größe für Ihre Glasschiebetür.",
-        "doorloophoogte_title": "Durchgangshöhe",
-        "doorloophoogte_content": "Die Durchgangshöhe ist der Abstand zwischen der flachen Unterseite der Rinne bis zur Oberkante des Fundaments oder der Pflasterung. Hinweis: Nach der Installation der Schiebetür wird diese Höhe durch das Schienensystem um ca. 7,5 cm niedriger.",
+        "passageHeightTooltipTitle": "Durchgangshöhe",
+        "passageHeightTooltipDescription": "Die Durchgangshöhe ist der Abstand zwischen der flachen Unterseite der Rinne bis zur Oberkante des Fundaments oder der Pflasterung. Hinweis: Nach der Installation der Schiebetür wird diese Höhe durch das Schienensystem um ca. 7,5 cm niedriger.",
         "placeholder": "Wählen Sie Ihre Durchgangshöhe",
         "tooltip": "Wählen Sie die gewünschte Durchgangshöhe Ihrer Gumax<sup>®</sup> Terrassenüberdachung. Die Durchgangshöhe ist der Abstand zwischen der flachen Unterseite der Rinne bis zur Oberkante des Fundaments oder der Pflasterung. Hinweis: Nach der Installation der Schiebetür wird diese Höhe durch das Schienensystem um ca. 7,5 cm niedriger.",
         "MeasuringHeightPavingCaption": "Messung der Höhe vom Boden bis zur Unterkante der Rinne.",

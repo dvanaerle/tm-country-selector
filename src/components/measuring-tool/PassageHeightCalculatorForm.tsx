@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
@@ -110,10 +110,15 @@ export function PassageHeightCalculatorForm({
                 info: (chunks) => (
                   <ResponsiveInfoTrigger
                     triggerText={chunks}
-                    title={t("Form.HeightBottomGutter.doorloophoogte_title")}
-                    content={t("Form.HeightBottomGutter.doorloophoogte_content")}
+                    title={t(
+                      "Form.HeightBottomGutter.passageHeightTooltipTitle",
+                    )}
+                    content={t(
+                      "Form.HeightBottomGutter.passageHeightTooltipDescription",
+                    )}
                   />
                 ),
+                sup: () => <sup>®</sup>,
               })}
         </p>
         {steps.map((step) => (
