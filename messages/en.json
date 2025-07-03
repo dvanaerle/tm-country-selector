@@ -26,19 +26,20 @@
     },
     "MeasuringTool": {
       "metaData": {
-        "title": "Measuring instructions for Gumax® glass sliding doors",
-        "description": "Use our measuring instructions tool for accurately measuring your Gumax® glass sliding doors"
+        "title": "Measuring tool for Gumax® glass sliding doors",
+        "description": "Use our measuring instructions tool for accurately measuring your Gumax® glass sliding doors."
       },
-      "heading": "Measuring instructions for Gumax<sup>®</sup> glass sliding doors",
+      "heading": "Measuring tool Gumax<sup>®</sup> glass sliding doors",
+      "description": "Would you like to order a glass sliding door together with a Gumax<sup>®</sup> veranda? Then use our measuring tool to calculate the correct clearance height. Is there limited space on your facade for the wall profile? Then see which clearance height is suitable.",
       "tabs": {
-        "wallProfileHeight": "Height to bottom of wall profile",
-        "heightBottomGutter": "Height to bottom of gutter"
+        "wallProfileHeight": "Wall profile height",
+        "passageHeight": "Passage height"
       },
       "a11y": {
         "measuringToolVideoTitle": "Measuring instructions Gumax® glass sliding doors - New Gumax® veranda",
         "measuringToolVideoAlt": "Video with measuring instructions for the Gumax® glass sliding wall, including tips for measuring the height and slope of the veranda.",
         "calculatorTabsLabel": "Height calculation options",
-        "MeasuringSlopeAlt": "Image showing how to measure terrace slope",
+        "MeasuringSlopeAlt": "Image showing how to measure the slope of the terrace",
         "MeasuringHeightPavingAlt": "Measuring the height from existing paving to the underside of the gutter of a Tuinmaximaal Veranda using a tape measure, essential for fitting Glass Sliding Doors.",
         "MeasuringHeightRecessedAlt": "Accurately measuring the installation height for Tuinmaximaal Glass Sliding Doors from a recessed foundation channel to the Veranda's upper frame.",
         "MeasuringWidthFrontAlt": "Demonstration of measuring the clear front side opening between Tuinmaximaal Veranda posts with a tape measure for ordering correct size Glass Sliding Doors.",
@@ -75,19 +76,19 @@
         "moreInformation": "More information",
         "recommendation": "Recommendation",
         "depthVeranda": "Veranda depth",
-        "depthVerandaTooltip": "Measure the depth of your veranda from the wall to the front of the gutter. This dimension affects the required specifications if you are installing the sliding walls under an existing veranda and is relevant for the installation context.",
+        "depthVerandaTooltip": "Select the desired depth (A) of your Gumax<sup>®</sup> veranda. Choose from our standard depths: 2.5 m / 3.0 m / 3.5 m / 4.0 m.",
         "MeasuringWidthSideCaption": "Measuring the depth of the veranda from the wall to the front.",
         "slope": "Slope of your terrace",
-        "slopeTooltip": "Check if your terrace has a slope and measure the height difference over the depth of the veranda. If your terrace slopes downwards towards the garden, you must compensate for this difference when determining the mounting height of the wall profile; the passage height remains the same. Also consider the 18 mm height of the bottom rail if you plan to recess it, as this can affect overall calculations.",
+        "slopeTooltip": "Does your terrace slope towards the garden? Then measure the height difference over the depth chosen above. Enter this difference in mm.",
         "MeasuringSlopeCaption": "Determining the terrace slope and height difference.",
         "MeasuringWidthFrontCaption": "Measuring the front side of the veranda.",
         "slopePlaceholder": "Terrace slope",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "metre",
         "unitLabel": "Unit: {unit}",
-        "calculatePassageHeight": "Calculate passage height at gutter",
+        "calculatePassageHeight": "Calculate passage height",
         "calculateBottomWallProfileHeight": "Calculate wall profile heights",
-        "passageHeightResult": "The calculated passage height at the gutter is: <strong>{result} mm</strong>.",
+        "passageHeightResult": "The calculated passage height at the bottom of the gutter is: <strong>{result} mm</strong>.",
         "rangeSuccess": "Choose rail system passage height: <strong>{min} - {max} mm</strong>.",
         "validationErrors": {
           "selectOption": "Select an option",
@@ -101,19 +102,24 @@
         }
       },
       "WallProfileHeight": {
-        "label": "Height to bottom of wall profile from ground (0° slope)",
+        "sectionHeading": "Wall profile height",
+        "intro": "Do you know your desired passage height? Use this measuring tool to calculate the mounting height of the wall profile. This is the height to the bottom of the wall profile.",
+        "label": "Wall profile height",
         "placeholder": "Height to bottom of wall profile",
-        "tooltip": "This is the height at which the wall profile (to which the veranda or the upper part of the sliding wall construction is attached) is mounted to the façade, measured from the ground. For a terrace with no slope (0°), this height corresponds directly to the value from the tables/measuring tool, based on your desired passage height and depth.",
-        "railSystemQuestion": "Recess rail system into the ground",
-        "railSystemQuestionTooltip": "Consider recessing the bottom rail of the sliding system into the ground. This creates a threshold-free passage. If you opt for this, add 18 mm (the height of the bottom rail) to your measured passage height.",
+        "tooltip": "Select the height at which you want to mount the wall profile. Measure the distance to the bottom of the wall profile. The wall profile is 150 mm high, so make sure there is enough space on your facade to place it.",
+        "railSystemQuestion": "Recessed bottom rail",
+        "railSystemQuestionTooltip": "If you recess the bottom rail into the terrace, it will be flush with the surface of the terrace. This creates a threshold-free passage.<br></br>Do you want to place the bottom rail of the glass sliding wall recessed into the terrace? Then select 'Yes'.",
         "MeasuringHeightPavingCaption": "Measuring vertical height from the ground for profile mounting.",
         "MeasuringHeightRecessedCaption": "Example of a recessed rail system for a threshold-free passage.",
         "foundationWarning": "For a glass sliding door with a height of more than <strong>{threshold} mm</strong>, you cannot use spot foundations, as they must be buried 10 cm."
       },
       "HeightBottomGutter": {
-        "label": "Height to bottom of gutter from ground (0° slope)",
-        "placeholder": "Height to bottom of gutter",
-        "tooltip": "This is the \"passage height\": the distance from the top of your foundation/paving to the flat underside of the gutter of your (existing) veranda. Measure this at three points (left, centre, right) and use the lowest measured value. For a terrace with no slope (0°), this is the direct vertical measurement.",
+        "label": "Passage height",
+        "intro": "Do you have limited space on your facade and are you therefore bound to a specific wall profile height? Use this measuring tool to calculate the corresponding <info>passage height</info> of your Gumax<sup>®</sup> veranda. This way, you can order the correct size for your glass sliding door.",
+        "doorloophoogte_title": "Passage height",
+        "doorloophoogte_content": "The passage height is the distance from the flat underside of the gutter to the top of the foundation or paving. Note: after installing the sliding door, this height becomes approximately 7.5 cm lower due to the rail system.",
+        "placeholder": "Select your passage height",
+        "tooltip": "Select the desired passage height of your Gumax<sup>®</sup> veranda. The passage height is the distance from the flat underside of the gutter to the top of the foundation or paving. Note: after installing the sliding door, this height becomes approximately 7.5 cm lower due to the rail system.",
         "MeasuringHeightPavingCaption": "Measuring the height from the ground to the underside of the gutter.",
         "wallProfileHeightsResultTitle": "The calculated wall profile heights:",
         "bottomWallProfileHeightLabel": "Bottom of wall profile: <strong>{height} mm</strong>",

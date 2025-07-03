@@ -26,13 +26,14 @@
     },
     "MeasuringTool": {
       "metaData": {
-        "title": "Instructions de mesure pour la paroi coulissante en verre Gumax®",
-        "description": "Utilisez notre outil d'instructions de mesure pour mesurer avec précision votre paroi coulissante en verre Gumax®"
+        "title": "Aide à la mesure pour paroi coulissante en verre Gumax®",
+        "description": "Utilisez notre outil d'instructions de mesure pour mesurer avec précision votre paroi coulissante en verre Gumax®."
       },
-      "heading": "Instructions de mesure paroi coulissante en verre Gumax<sup>®</sup>",
+      "heading": "Aide à la mesure paroi coulissante en verre Gumax<sup>®</sup>",
+      "description": "Vous souhaitez commander une paroi coulissante en verre avec une véranda Gumax<sup>®</sup> ? Utilisez alors notre outil de mesure pour calculer la hauteur de passage correcte. L'espace sur votre façade est-il limité pour le profilé mural ? Voyez alors quelle hauteur de passage est adaptée.",
       "tabs": {
-        "wallProfileHeight": "Hauteur jusqu'au bas du profilé mural",
-        "heightBottomGutter": "Hauteur jusqu'au bas de la gouttière"
+        "wallProfileHeight": "Hauteur du profilé mural",
+        "passageHeight": "Hauteur de passage"
       },
       "a11y": {
         "measuringToolVideoTitle": "Instructions de mesure pour les parois coulissantes en verre Gumax® - Nouvelle véranda Gumax®",
@@ -75,19 +76,19 @@
         "moreInformation": "Plus d'informations",
         "recommendation": "Recommandation",
         "depthVeranda": "Profondeur de la véranda",
-        "depthVerandaTooltip": "Mesurez la profondeur de votre véranda, du mur jusqu'à l'avant de la gouttière. Cette dimension affecte les spécifications requises si vous installez les parois coulissantes sous une véranda existante et est pertinente pour le contexte de l'installation.",
+        "depthVerandaTooltip": "Sélectionnez la profondeur (A) souhaitée de votre véranda Gumax<sup>®</sup>. Choisissez parmi nos profondeurs standard : 2,5 m / 3,0 m / 3,5 m / 4,0 m.",
         "MeasuringWidthSideCaption": "Mesure de la profondeur de la véranda du mur à l'avant.",
         "slope": "Pente de votre terrasse",
-        "slopeTooltip": "Vérifiez si votre terrasse a une pente et mesurez la différence de hauteur sur la profondeur de la véranda. Si votre terrasse est en pente vers le jardin, vous devez compenser cette différence lors de la détermination de la hauteur de montage du profilé mural ; la hauteur de passage reste la même. Prenez également en compte la hauteur de 18 mm du rail inférieur si vous prévoyez de l'encastrer, car cela peut affecter les calculs globaux.",
+        "slopeTooltip": "Votre terrasse est-elle en pente vers le jardin ? Mesurez alors la différence de hauteur sur la profondeur choisie ci-dessus. Entrez cette différence en mm.",
         "MeasuringSlopeCaption": "Détermination de la pente de la terrasse et de la différence de hauteur.",
         "MeasuringWidthFrontCaption": "Mesure de l'avant de la véranda.",
         "slopePlaceholder": "Pente de la terrasse",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "mètre",
         "unitLabel": "Unité : {unit}",
-        "calculatePassageHeight": "Calculer la hauteur de passage à la gouttière",
+        "calculatePassageHeight": "Calculer la hauteur de passage",
         "calculateBottomWallProfileHeight": "Calculer les hauteurs du profilé mural",
-        "passageHeightResult": "La hauteur de passage calculée à la gouttière est de : <strong>{result} mm</strong>.",
+        "passageHeightResult": "La hauteur de passage calculée sous la gouttière est de : <strong>{result} mm</strong>.",
         "rangeSuccess": "Choisissez la hauteur de passage du système de rails : <strong>{min} - {max} mm</strong>.",
         "validationErrors": {
           "selectOption": "Sélectionnez une option",
@@ -101,19 +102,24 @@
         }
       },
       "WallProfileHeight": {
-        "label": "Hauteur jusqu'au bas du profilé mural par rapport au sol (pente 0°)",
+        "sectionHeading": "Hauteur du profilé mural",
+        "intro": "Vous connaissez la hauteur de passage souhaitée ? Utilisez cet outil de mesure pour calculer la hauteur de montage du profilé mural. Il s'agit de la hauteur jusqu'au bas du profilé mural.",
+        "label": "Hauteur du profilé mural",
         "placeholder": "Hauteur jusqu'au bas du profilé mural",
-        "tooltip": "C'est la hauteur à laquelle le profilé mural (auquel la véranda ou la partie supérieure de la structure de la paroi coulissante est fixée) est monté sur la façade, mesurée depuis le sol. Pour une terrasse sans pente (0°), cette hauteur correspond directement à la valeur des tableaux/outil d'aide à la mesure, en fonction de votre hauteur de passage et de votre profondeur souhaitées.",
-        "railSystemQuestion": "Encastrer le système de rails dans le sol",
-        "railSystemQuestionTooltip": "Envisagez d'encastrer le rail inférieur du système coulissant dans le sol. Cela crée un passage sans seuil. Si vous optez pour cela, ajoutez 18 mm (la hauteur du rail inférieur) à votre hauteur de passage mesurée.",
+        "tooltip": "Sélectionnez la hauteur à laquelle vous souhaitez monter le profilé mural. Mesurez la distance jusqu'au bas du profilé mural. Le profilé mural mesure 150 mm de haut, assurez-vous donc qu'il y a suffisamment d'espace sur votre façade pour le placer.",
+        "railSystemQuestion": "Rail inférieur encastré",
+        "railSystemQuestionTooltip": "Si vous encastrez le rail inférieur dans la terrasse, il sera au même niveau que la surface de la terrasse. Cela crée un passage sans seuil.<br></br>Voulez-vous que le rail inférieur de la paroi coulissante en verre soit encastré dans la terrasse ? Sélectionnez alors 'Oui'.",
         "MeasuringHeightPavingCaption": "Mesure de la hauteur verticale depuis le sol pour le montage du profilé.",
         "MeasuringHeightRecessedCaption": "Exemple d'un système de rail encastré pour un passage sans seuil.",
         "foundationWarning": "Pour une paroi coulissante en verre d'une hauteur de plus de {threshold} mm, vous ne pouvez pas utiliser de fondations ponctuelles, car elles doivent être enterrées à 10 cm."
       },
       "HeightBottomGutter": {
-        "label": "Hauteur jusqu'au bas de la gouttière par rapport au sol (pente 0°)",
-        "placeholder": "Hauteur jusqu'au bas de la gouttière",
-        "tooltip": "Ceci est la \"hauteur de passage\": la distance entre le haut de votre fondation/pavage et le dessous plat de la gouttière de votre véranda (existante). Mesurez-la en trois points (gauche, centre, droite) et utilisez la valeur la plus basse mesurée. Pour une terrasse sans pente (0°), c'est la mesure verticale directe.",
+        "label": "Hauteur de passage",
+        "intro": "Avez-vous un espace limité sur votre façade et êtes-vous donc lié à une hauteur de profilé mural spécifique ? Calculez avec cet outil de mesure la <info>hauteur de passage</info> correspondante de votre véranda Gumax<sup>®</sup>. Ainsi, vous commandez directement la bonne taille pour votre paroi coulissante en verre.",
+        "doorloophoogte_title": "Hauteur de passage",
+        "doorloophoogte_content": "La hauteur de passage est la distance entre le dessous plat de la gouttière et le haut de la fondation ou du pavage. Remarque : après l'installation de la porte coulissante, cette hauteur devient environ 7,5 cm plus basse en raison du système de rails.",
+        "placeholder": "Sélectionnez votre hauteur de passage",
+        "tooltip": "Sélectionnez la hauteur de passage souhaitée de votre véranda Gumax<sup>®</sup>. La hauteur de passage est la distance entre le dessous plat de la gouttière et le haut de la fondation ou du pavage. Remarque : après l'installation de la porte coulissante, cette hauteur devient environ 7,5 cm plus basse en raison du système de rails.",
         "MeasuringHeightPavingCaption": "Mesure de la hauteur depuis le sol jusqu'au dessous de la gouttière.",
         "wallProfileHeightsResultTitle": "Les hauteurs de profilé mural calculées :",
         "bottomWallProfileHeightLabel": "Bas du profilé mural : <strong>{height} mm</strong>",

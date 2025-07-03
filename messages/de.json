@@ -26,19 +26,20 @@
     },
     "MeasuringTool": {
       "metaData": {
-        "title": "Messanleitung Gumax® Glasschiebewand",
-        "description": "Nutzen Sie unsere Messanleitung für das exakte Ausmessen Ihrer Gumax® Glasschiebewand"
+        "title": "Messhilfe Gumax® Glasschiebewand",
+        "description": "Nutzen Sie unsere Messanleitung für das exakte Ausmessen Ihrer Gumax® Glasschiebewand."
       },
-      "heading": "Messanleitung Gumax<sup>®</sup> Glasschiebewand",
+      "heading": "Messhilfe Gumax<sup>®</sup> Glasschiebewand",
+      "description": "Möchten Sie eine Glasschiebewand zusammen mit einer Gumax<sup>®</sup> Terrassenüberdachung bestellen? Nutzen Sie dann unsere Messhilfe, um die richtige Durchgangshöhe zu berechnen. Ist an Ihrer Fassade nur begrenzt Platz für das Wandprofil vorhanden? Sehen Sie dann, welche Durchgangshöhe hierzu passt.",
       "tabs": {
-        "wallProfileHeight": "Höhe bis Unterkante Wandprofil",
-        "heightBottomGutter": "Höhe bis Unterkante Rinne"
+        "wallProfileHeight": "Wandprofilhöhe",
+        "passageHeight": "Durchgangshöhe"
       },
       "a11y": {
         "measuringToolVideoTitle": "Messanleitung Gumax® Glasschiebewand - Neue Gumax® Überdachung",
         "measuringToolVideoAlt": "Video mit Messanleitungen für die Gumax® Glasschiebewand, inklusive Tipps zum Messen der Höhe und Neigung der Terrassenüberdachung.",
         "calculatorTabsLabel": "Höhenberechnung Optionen",
-        "MeasuringSlopeAlt": "Abbildung zur Messung der Terrassenneigung",
+        "MeasuringSlopeAlt": "Abbildung, die zeigt, wie die Neigung der Terrasse gemessen wird",
         "MeasuringHeightPavingAlt": "Messen der Höhe vom vorhandenen Pflaster bis zur Unterkante der Rinne der Tuinmaximaal Terrassenüberdachung mittels Maßband, unerlässlich für den Einbau von Glasschiebewänden.",
         "MeasuringHeightRecessedAlt": "Genaues Messen der Montagehöhe für Tuinmaximaal Glasschiebewände von einer eingelassenen Fundamentrinne bis zum oberen Rahmen der Terrassenüberdachung.",
         "MeasuringWidthFrontAlt": "Demonstration der Messung der lichten Vorderseite Öffnungsbreite zwischen den Pfosten der Tuinmaximaal Terrassenüberdachung mittels Maßband zur Bestellung von Glasschiebewänden in korrekter Größe.",
@@ -75,19 +76,19 @@
         "moreInformation": "Weitere Informationen",
         "recommendation": "Empfehlung",
         "depthVeranda": "Tiefe der Terrassenüberdachung",
-        "depthVerandaTooltip": "Messen Sie die Tiefe Ihrer Terrassenüberdachung von der Wand bis zur Vorderkante der Rinne. Dieses Maß beeinflusst die erforderlichen Spezifikationen, wenn Sie die Schiebewände unter einer bestehenden Terrassenüberdachung installieren, und ist relevant für den Installationskontext.",
+        "depthVerandaTooltip": "Wählen Sie die gewünschte Tiefe (A) Ihrer Gumax<sup>®</sup> Terrassenüberdachung. Wählen Sie aus unseren Standardtiefen: 2,5 m / 3,0 m / 3,5 m / 4,0 m.",
         "MeasuringWidthSideCaption": "Messung der Tiefe der Terrassenüberdachung von der Wand bis zur Vorderseite.",
         "slope": "Gefälle Ihrer Terrasse",
-        "slopeTooltip": "Prüfen Sie, ob Ihre Terrasse ein Gefälle aufweist, und messen Sie den Höhenunterschied über die Tiefe der Terrassenüberdachung. Wenn Ihre Terrasse zum Garten hin abfällt, müssen Sie diesen Unterschied bei der Bestimmung der Montagehöhe des Wandprofils ausgleichen; die Durchgangshöhe bleibt gleich. Berücksichtigen Sie auch die 18 mm Höhe der unteren Schiene, falls Sie planen, diese zu versenken, da dies die Gesamtberechnungen beeinflussen kann.",
+        "slopeTooltip": "Fällt Ihre Terrasse zum Garten hin ab? Messen Sie dann den Höhenunterschied über die oben gewählte Tiefe. Geben Sie diesen Unterschied in mm ein.",
         "MeasuringSlopeCaption": "Bestimmung des Terrassengefälles und des Höhenunterschieds.",
         "MeasuringWidthFrontCaption": "Messung der Vorderseite der Terrassenüberdachung.",
         "slopePlaceholder": "Terrassengefälle",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "Meter",
         "unitLabel": "Einheit: {unit}",
-        "calculatePassageHeight": "Durchgangshöhe an der Rinne berechnen",
+        "calculatePassageHeight": "Durchgangshöhe berechnen",
         "calculateBottomWallProfileHeight": "Wandprofilhöhen berechnen",
-        "passageHeightResult": "Die berechnete Durchgangshöhe an der Rinne beträgt: <strong>{result} mm</strong>.",
+        "passageHeightResult": "Die berechnete Durchgangshöhe an der Unterkante der Rinne beträgt: <strong>{result} mm</strong>.",
         "rangeSuccess": "Wählen Sie die Durchgangshöhe des Schienensystems: <strong>{min} - {max} mm</strong>.",
         "validationErrors": {
           "selectOption": "Wählen Sie eine Option",
@@ -101,19 +102,24 @@
         }
       },
       "WallProfileHeight": {
-        "label": "Höhe bis Unterkante Wandprofil vom Boden (0° Gefälle)",
+        "sectionHeading": "Wandprofilhöhe",
+        "intro": "Sie kennen die gewünschte Durchgangshöhe? Verwenden Sie dieses Messwerkzeug, um die Montagehöhe des Wandprofils zu berechnen. Dies ist die Höhe bis zur Unterkante des Wandprofils.",
+        "label": "Wandprofilhöhe",
         "placeholder": "Höhe bis Unterkante Wandprofil",
-        "tooltip": "Dies ist die Höhe, in der das Wandprofil (an dem die Terrassenüberdachung oder der obere Teil der Schiebewandkonstruktion befestigt ist) an der Fassade montiert wird, gemessen vom Boden. Bei einer Terrasse ohne Gefälle (0°) entspricht diese Höhe direkt dem Wert aus den Tabellen/Messhilfe, basierend auf Ihrer gewünschten Durchgangshöhe und Tiefe.",
-        "railSystemQuestion": "Schienensystem im Boden versenken",
-        "railSystemQuestionTooltip": "Erwägen Sie, die untere Schiene des Schiebesystems im Boden zu versenken. Dies schafft einen schwellenfreien Durchgang. Wenn Sie sich hierfür entscheiden, addieren Sie 18 mm (die Höhe der unteren Schiene) zu Ihrer gemessenen Durchgangshöhe hinzu.",
+        "tooltip": "Wählen Sie aus, auf welcher Höhe Sie das Wandprofil montieren möchten. Messen Sie den Abstand bis zur Unterkante des Wandprofils. Das Wandprofil ist 150 mm hoch. Berücksichtigen Sie also, dass an Ihrer Fassade ausreichend Platz für die Montage vorhanden ist.",
+        "railSystemQuestion": "Versenkte Bodenschiene",
+        "railSystemQuestionTooltip": "Wenn Sie die untere Schiene in die Terrasse versenken, liegt sie bündig mit der Oberfläche der Terrasse. Dadurch entsteht ein schwellenloser Durchgang.<br></br>Möchten Sie die untere Schiene der Glasschiebewand in die Terrasse eingelassen platzieren? Wählen Sie dann 'Ja'.",
         "MeasuringHeightPavingCaption": "Messung der vertikalen Höhe vom Boden für die Profilmontage.",
         "MeasuringHeightRecessedCaption": "Beispiel eines versenkten Schienensystems für einen schwellenfreien Durchgang.",
         "foundationWarning": "Für eine Glasschiebewand mit einer Höhe von mehr als {threshold} mm können Sie keine Punktfundamente verwenden, da diese 10 cm eingegraben werden müssen."
       },
       "HeightBottomGutter": {
-        "label": "Höhe bis Unterkante Rinne vom Boden (0° Gefälle)",
-        "placeholder": "Höhe bis Unterkante Rinne",
-        "tooltip": "Dies ist die \"Durchgangshöhe\": der Abstand von der Oberkante Ihres Fundaments/Pflasters bis zur flachen Unterseite der Rinne Ihrer (bestehenden) Terrassenüberdachung. Messen Sie dies an drei Punkten (links, Mitte, rechts) und verwenden Sie den niedrigsten gemessenen Wert. Bei einer Terrasse ohne Gefälle (0°) ist dies das direkte vertikale Maß.",
+        "label": "Durchgangshöhe",
+        "intro": "Haben Sie nur begrenzten Platz an Ihrer Fassade und sind Sie daher an eine bestimmte Wandprofilhöhe gebunden? Berechnen Sie mit dieser Messhilfe die passende <info>Durchgangshöhe</info> Ihrer Gumax<sup>®</sup> Terrassenüberdachung. So bestellen Sie direkt die richtige Größe für Ihre Glasschiebetür.",
+        "doorloophoogte_title": "Durchgangshöhe",
+        "doorloophoogte_content": "Die Durchgangshöhe ist der Abstand zwischen der flachen Unterseite der Rinne bis zur Oberkante des Fundaments oder der Pflasterung. Hinweis: Nach der Installation der Schiebetür wird diese Höhe durch das Schienensystem um ca. 7,5 cm niedriger.",
+        "placeholder": "Wählen Sie Ihre Durchgangshöhe",
+        "tooltip": "Wählen Sie die gewünschte Durchgangshöhe Ihrer Gumax<sup>®</sup> Terrassenüberdachung. Die Durchgangshöhe ist der Abstand zwischen der flachen Unterseite der Rinne bis zur Oberkante des Fundaments oder der Pflasterung. Hinweis: Nach der Installation der Schiebetür wird diese Höhe durch das Schienensystem um ca. 7,5 cm niedriger.",
         "MeasuringHeightPavingCaption": "Messung der Höhe vom Boden bis zur Unterkante der Rinne.",
         "wallProfileHeightsResultTitle": "Die berechneten Wandprofilhöhen:",
         "bottomWallProfileHeightLabel": "Unterkante Wandprofil: <strong>{height} mm</strong>",
