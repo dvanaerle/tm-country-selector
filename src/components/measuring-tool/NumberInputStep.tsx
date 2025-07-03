@@ -69,7 +69,7 @@ export const NumberInputStep: React.FC<Props> = ({ config, t, disabled }) => {
           <FormLabel
             htmlFor={field.name}
             className="flex items-center gap-x-1.5 has-disabled:opacity-50"
-            // data-required
+            data-required={isWallProfileStep || undefined}
           >
             {isDefinedString(config.tooltipKey) && (
               <InfoTooltipSheet
