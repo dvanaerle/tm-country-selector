@@ -13,7 +13,6 @@ import {
 import {
   Tooltip,
   TooltipContent,
-  TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
 
@@ -47,14 +46,12 @@ export function ResponsiveInfoTrigger({
 
   if (isHoverDevice) {
     return (
-      <TooltipProvider>
-        <Tooltip delayDuration={100}>
-          <TooltipTrigger asChild>{triggerElement}</TooltipTrigger>
-          <TooltipContent className="max-w-xs">
-            <p>{content}</p>
-          </TooltipContent>
-        </Tooltip>
-      </TooltipProvider>
+      <Tooltip>
+        <TooltipTrigger asChild>{triggerElement}</TooltipTrigger>
+        <TooltipContent className="max-w-xs">
+          <p>{content}</p>
+        </TooltipContent>
+      </Tooltip>
     );
   }
 
@@ -62,11 +59,9 @@ export function ResponsiveInfoTrigger({
     <Sheet>
       <SheetTrigger asChild>{triggerElement}</SheetTrigger>
       <SheetContent side="bottom">
-        <SheetHeader className="text-left">
-          <SheetTitle>{title || triggerText}</SheetTitle>
-          <SheetDescription asChild>
-            <div className="pt-4 text-base">{content}</div>
-          </SheetDescription>
+        <SheetHeader>
+          <SheetTitle>{title}</SheetTitle>
+          <SheetDescription>{content}</SheetDescription>
         </SheetHeader>
       </SheetContent>
     </Sheet>
