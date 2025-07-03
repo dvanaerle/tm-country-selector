@@ -21,7 +21,7 @@ export default function StoreSelection({
 }: StoreSelectionProps) {
   const t = useTranslations("Components.StoreSelection");
   const router = useRouter();
-  const [saveSelection, setSaveSelection] = useState(false);
+  const [saveSelection] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   const isLoading = isPending; // Gebruik `isPending` voor een betere UX bij navigatie.

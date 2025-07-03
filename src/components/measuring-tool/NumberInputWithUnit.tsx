@@ -23,7 +23,6 @@ export const NumberInputWithUnit: React.FC<NumberInputWithUnitProps> = ({
   id,
   placeholder,
   unit,
-  t,
   min,
   max,
   value,
