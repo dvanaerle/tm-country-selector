@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { CalculationResultAlert } from "./CalculationResultAlert";
+import { ResponsiveInfoTrigger } from "@/components/ui/responsive-info-trigger";
 import {
   usePassageHeightCalculator,
   FormValues,
@@ -102,7 +103,20 @@ export function PassageHeightCalculatorForm({
   return (
     <Form {...form}>
       <form onSubmit={handleHookSubmit(onSubmit)} className="space-y-6">
-        {steps.map((step, i) => (
+        <p className="text-muted-foreground bg-muted/40 rounded p-4 text-sm">
+          {formType === "gutterHeight"
+            ? t.rich("Form.WallProfileHeight.intro")
+            : t.rich("Form.HeightBottomGutter.intro", {
+                info: (chunks) => (
+                  <ResponsiveInfoTrigger
+                    triggerText={chunks}
+                    title={t("Form.HeightBottomGutter.doorloophoogte_title")}
+                    content={t("Form.HeightBottomGutter.doorloophoogte_content")}
+                  />
+                ),
+              })}
+        </p>
+        {steps.map((step) => (
           <FormStep
             key={step.name}
             config={step}

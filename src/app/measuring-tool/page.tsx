@@ -26,9 +26,13 @@ export default function MeasuringTool() {
         <ClientSection
           measuringHeightPavingAlt={t("a11y.MeasuringHeightPavingAlt")}
           measuringHeightRecessedAlt={t("a11y.MeasuringHeightRecessedAlt")}
-          tabsHeightBottomGutter={t("tabs.heightBottomGutter")}
-          tabsWallProfileHeight={t("tabs.wallProfileHeight")}
+          tabsHeightBottomGutter={t("tabs.wallProfileHeight")}
+          tabsWallProfileHeight={t("tabs.passageHeight")}
+
           heading={t.rich("heading", {
+            sup: (chunks) => <sup>{chunks}</sup>,
+          })}
+          description={t.rich("description", {
             sup: (chunks) => <sup>{chunks}</sup>,
           })}
         />

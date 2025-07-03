@@ -61,7 +61,16 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
         <SheetHeader>
           <SheetTitle>{t(titleKey)}</SheetTitle>
           <SheetDescription className="mb-4">
-            {t(descriptionKey, descriptionValues)}
+            {t.rich(descriptionKey, {
+              ...descriptionValues,
+              sup: (chunks: React.ReactNode) => <sup>{chunks}</sup>,
+              br: () => (
+                <>
+                  <br />
+                  <br />
+                </>
+              ),
+            })}
           </SheetDescription>
           {images.length > 0 &&
             images.map((img, idx) => (

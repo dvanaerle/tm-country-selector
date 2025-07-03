@@ -1,9 +1,8 @@
 import { StaticImageData } from "next/image";
-import MeasuringWidthFront from "/public/images/measuring-width-front.jpg";
-import MeasuringWidthSide from "/public/images/measuring-width-side.jpg";
 import MeasuringHeightRecessed from "/public/images/measuring-height-recessed.jpg";
 import MeasuringSlope from "/public/images/measuring-slope.jpg";
 import MeasuringHeightPaving from "/public/images/measuring-height-paving.jpg";
+import ConfiguratorAngleDiagonalLeftA from "/public/images/configurator-angle-diagonal-left-a.jpg";
 
 export type FormStepType =
   | "radio-group"
@@ -38,12 +37,7 @@ export const WALL_PROFILE_STEPS: FormStepConfig[] = [
     tooltipKey: "Form.Common.depthVerandaTooltip",
     images: [
       {
-        src: MeasuringWidthFront,
-        alt: "Pages.MeasuringTool.MeasuringWidthFrontAlt",
-        captionKey: "Form.Common.MeasuringWidthFrontCaption",
-      },
-      {
-        src: MeasuringWidthSide,
+        src: ConfiguratorAngleDiagonalLeftA,
         alt: "Pages.MeasuringTool.MeasuringWidthSideAlt",
         captionKey: "Form.Common.MeasuringWidthSideCaption",
       },
