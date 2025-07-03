@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useTransition } from "react";
+import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { StoreCard } from "./StoreCard";
@@ -21,7 +21,6 @@ export default function StoreSelection({
 }: StoreSelectionProps) {
   const t = useTranslations("Components.StoreSelection");
   const router = useRouter();
-  const [saveSelection] = useState(false);
   const [isPending, startTransition] = useTransition();
 
   const isLoading = isPending; // Gebruik `isPending` voor een betere UX bij navigatie.
@@ -30,17 +29,7 @@ export default function StoreSelection({
   // Slaat de voorkeur op in een cookie indien aangevinkt en navigeert naar de URL.
   const handleSelectStore = (storeUrl: string) => {
     startTransition(() => {
-      try {
-        if (saveSelection) {
-          // Cookie instellen om de keuze 365 dagen te onthouden.
-          document.cookie = `preferredStore=${encodeURIComponent(
-            storeUrl,
-          )}; path=/; max-age=31536000; Secure; SameSite=Strict`;
-        }
-        router.push(storeUrl);
-      } catch (error) {
-        console.error(error);
-      }
+      router.push(storeUrl);
     });
   };
 

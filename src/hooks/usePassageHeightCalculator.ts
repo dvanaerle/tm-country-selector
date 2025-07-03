@@ -351,5 +351,27 @@ export function usePassageHeightCalculator(formType: FormType) {
     }
   };
 
-  return { t, schema, config: CALCULATOR_CONFIG, calculateResult };
+  const shouldShowFoundationWarning = (values: FormValues) => {
+    // Only show warning for wall profile calculations
+    if (formType !== "wallProfile") return false;
+    
+    // Check if all required values are present
+    if (
+      values.wallProfileHeight == null ||
+      values.depth == null ||
+      values.railSystemSlope == null
+    ) {
+      return false;
+    }
+
+    try {
+      const result = calculateResult(values);
+      return result.output > FOUNDATION_WARNING_THRESHOLD;
+    } catch (error) {
+      // If calculation fails, don't show warning
+      return false;
+    }
+  };
+
+  return { t, schema, config: CALCULATOR_CONFIG, calculateResult, shouldShowFoundationWarning };
 }

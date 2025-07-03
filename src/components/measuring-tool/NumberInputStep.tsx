@@ -11,11 +11,7 @@ import {
 import { InfoTooltipSheet } from "./InfoTooltipSheet";
 import { NumberInputWithUnit } from "./NumberInputWithUnit";
 import { FormStepConfig } from "./formStepsConfig";
-import {
-  usePassageHeightCalculator,
-  FormValues,
-  FOUNDATION_WARNING_THRESHOLD,
-} from "@/hooks/usePassageHeightCalculator";
+import { usePassageHeightCalculator, FormValues } from "@/hooks/usePassageHeightCalculator";
 import { FoundationWarning } from "./FoundationWarning";
 
 // Type guard om te controleren of een waarde een gedefinieerde niet-lege string is
@@ -39,26 +35,11 @@ export const NumberInputStep: React.FC<Props> = ({ config, t, disabled }) => {
   const watchedValues = form.watch();
   const isWallProfileStep = config.name === "wallProfileHeight";
 
-  // Hook voor berekeningen (alleen gebruiken voor wallProfileHeight)
-  const { calculateResult } = usePassageHeightCalculator("wallProfile");
+  // Hook voor berekeningen en business logic
+  const { shouldShowFoundationWarning } = usePassageHeightCalculator("wallProfile");
 
-  // Bereken passage height alleen als alle vereiste velden ingevuld zijn
-  let showWarning = false;
-  if (
-    isWallProfileStep &&
-    watchedValues.wallProfileHeight != null &&
-    watchedValues.depth != null &&
-    watchedValues.railSystemSlope != null
-  ) {
-    try {
-      // We casten expliciet naar FormValues om typefout te voorkomen
-      const result = calculateResult(watchedValues as FormValues);
-      showWarning = result.output > FOUNDATION_WARNING_THRESHOLD;
-    } catch (error) {
-      // Bij fout in berekening geen waarschuwing tonen
-      showWarning = false;
-    }
-  }
+  // Determine if foundation warning should be shown
+  const showWarning = isWallProfileStep && shouldShowFoundationWarning(watchedValues as FormValues);
 
   return (
     <FormField
