@@ -48,7 +48,7 @@ export function ResponsiveInfoTrigger({
     return (
       <Tooltip>
         <TooltipTrigger asChild>{triggerElement}</TooltipTrigger>
-        <TooltipContent className="max-w-xs">
+        <TooltipContent>
           <p>{content}</p>
         </TooltipContent>
       </Tooltip>
