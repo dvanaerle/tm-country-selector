@@ -15,8 +15,6 @@ import InformationLine from "../../../public/icons/MingCute/information_line.svg
 interface InfoImage {
   src: string | StaticImageData;
   alt: string;
-  captionKey?: string;
-  captionValues?: Record<string, any>;
 }
 
 // Props voor de InfoTooltipSheet component.
@@ -74,7 +72,7 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
           </SheetDescription>
           {images.length > 0 &&
             images.map((img, idx) => (
-              <figure key={idx} className="mb-4">
+              <div key={idx} className="mb-4">
                 <Image
                   src={img.src}
                   alt={img.alt}
@@ -82,12 +80,7 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
                   placeholder="blur"
                   className="rounded-lg"
                 />
-                {img.captionKey && (
-                  <figcaption className="text-muted-foreground mt-2 text-center text-sm">
-                    {t(img.captionKey, img.captionValues)}
-                  </figcaption>
-                )}
-              </figure>
+              </div>
             ))}
         </SheetHeader>
       </SheetContent>

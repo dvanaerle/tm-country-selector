@@ -3,7 +3,6 @@ import MeasuringHeightRecessed from "/public/images/measuring-height-recessed.jp
 import MeasuringSlope from "/public/images/measuring-slope.jpg";
 import MeasuringHeightPaving from "/public/images/measuring-height-paving.jpg";
 import ConfiguratorAngleDiagonalLeftA from "/public/images/configurator-angle-diagonal-left-a.jpg";
-import ConfiguratorAngleDiagonalLeftB from "/public/images/configurator-angle-diagonal-left-b.jpg";
 
 export type FormStepType =
   | "radio-group"
@@ -21,7 +20,6 @@ export interface FormStepConfig {
   images?: {
     src: string | StaticImageData;
     alt: string;
-    captionKey?: string;
   }[];
   options?: { value: string; labelKey: string }[];
   disabledOnStep?: number;
@@ -40,12 +38,6 @@ export const WALL_PROFILE_STEPS: FormStepConfig[] = [
       {
         src: ConfiguratorAngleDiagonalLeftA,
         alt: "Pages.MeasuringTool.MeasuringWidthSideAlt",
-        captionKey: "Form.Common.MeasuringWidthSideCaption",
-      },
-      {
-        src: ConfiguratorAngleDiagonalLeftB,
-        alt: "Pages.MeasuringTool.MeasuringWidthFrontAlt",
-        captionKey: "Form.Common.MeasuringWidthFrontCaption",
       },
     ],
     options: [
@@ -64,7 +56,6 @@ export const WALL_PROFILE_STEPS: FormStepConfig[] = [
       {
         src: MeasuringHeightRecessed,
         alt: "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
-        captionKey: "Form.WallProfileHeight.MeasuringHeightRecessedCaption",
       },
     ],
     disabledOnStep: 2,
@@ -79,7 +70,6 @@ export const WALL_PROFILE_STEPS: FormStepConfig[] = [
       {
         src: MeasuringSlope,
         alt: "Pages.MeasuringTool.MeasuringSlopeAlt",
-        captionKey: "Form.Common.MeasuringSlopeCaption",
       },
     ],
     unitKey: "Form.Common.measurementUnitMm",
@@ -96,7 +86,6 @@ export const WALL_PROFILE_STEPS: FormStepConfig[] = [
       {
         src: MeasuringHeightPaving,
         alt: "Pages.MeasuringTool.MeasuringHeightPavingAlt",
-        captionKey: "Form.WallProfileHeight.MeasuringHeightPavingCaption",
       },
     ],
     unitKey: "Form.Common.measurementUnitMm",
@@ -119,7 +108,6 @@ export const GUTTER_HEIGHT_STEPS: FormStepConfig[] = [
       {
         src: MeasuringHeightPaving,
         alt: "Pages.MeasuringTool.MeasuringHeightPavingAlt",
-        captionKey: "Form.HeightBottomGutter.MeasuringHeightPavingCaption",
       },
     ],
     unitKey: "Form.Common.measurementUnitMm",
