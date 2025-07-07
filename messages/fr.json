@@ -30,7 +30,7 @@
         "description": "Utilisez notre outil d'instructions de mesure pour mesurer avec précision votre paroi coulissante en verre Gumax®."
       },
       "heading": "Aide à la mesure paroi coulissante en verre Gumax<sup>®</sup>",
-      "description": "Vous souhaitez commander une paroi coulissante en verre avec une véranda Gumax<sup>®</sup> ? Utilisez alors notre outil de mesure pour calculer la hauteur de passage correcte. L'espace sur votre façade est-il limité pour le profilé mural ? Voyez alors quelle hauteur de passage est adaptée.",
+      "description": "Vous souhaitez commander une paroi coulissante en verre avec une véranda Gumax<sup>®</sup> ? Utilisez alors notre outil de mesure pour calculer la hauteur de passage correcte. Si l'espace sur votre façade est limité pour le profilé mural et que vous êtes donc contraint à une hauteur de profilé spécifique, découvrez ici quelle hauteur de passage y correspond.",
       "tabs": {
         "wallProfileHeight": "Hauteur du profilé mural",
         "passageHeight": "Hauteur de passage"
@@ -77,11 +77,8 @@
         "recommendation": "Recommandation",
         "depthVeranda": "Profondeur de la véranda",
         "depthVerandaTooltip": "Sélectionnez la profondeur (A) souhaitée de votre véranda Gumax<sup>®</sup>. Choisissez parmi nos profondeurs standard : 2,5 m / 3,0 m / 3,5 m / 4,0 m.",
-        "MeasuringWidthSideCaption": "Mesure de la profondeur de la véranda du mur à l'avant.",
         "slope": "Pente de votre terrasse",
         "slopeTooltip": "Votre terrasse est-elle en pente vers le jardin ? Mesurez alors la différence de hauteur sur la profondeur choisie ci-dessus. Entrez cette différence en mm.",
-        "MeasuringSlopeCaption": "Détermination de la pente de la terrasse et de la différence de hauteur.",
-        "MeasuringWidthFrontCaption": "Mesure de l'avant de la véranda.",
         "slopePlaceholder": "Pente de la terrasse",
         "measurementUnitMm": "mm",
         "measurementUnitMeter": "mètre",
@@ -109,18 +106,15 @@
         "tooltip": "Sélectionnez la hauteur à laquelle vous souhaitez monter le profilé mural. Mesurez la distance jusqu'au bas du profilé mural. Le profilé mural mesure 150 mm de haut, assurez-vous donc qu'il y a suffisamment d'espace sur votre façade pour le placer.",
         "railSystemQuestion": "Rail inférieur encastré",
         "railSystemQuestionTooltip": "Si vous encastrez le rail inférieur dans la terrasse, il sera au même niveau que la surface de la terrasse. Cela crée un passage sans seuil.<br></br>Voulez-vous que le rail inférieur de la paroi coulissante en verre soit encastré dans la terrasse ? Sélectionnez alors 'Oui'.",
-        "MeasuringHeightPavingCaption": "Mesure de la hauteur verticale depuis le sol pour le montage du profilé.",
-        "MeasuringHeightRecessedCaption": "Exemple d'un système de rail encastré pour un passage sans seuil.",
         "foundationWarning": "Pour une paroi coulissante en verre d'une hauteur de plus de {threshold} mm, vous ne pouvez pas utiliser de fondations ponctuelles, car elles doivent être enterrées à 10 cm."
       },
       "HeightBottomGutter": {
         "label": "Hauteur de passage",
         "intro": "Avez-vous un espace limité sur votre façade et êtes-vous donc lié à une hauteur de profilé mural spécifique ? Calculez avec cet outil de mesure la <info>hauteur de passage</info> correspondante de votre véranda Gumax<sup>®</sup>. Ainsi, vous commandez directement la bonne taille pour votre paroi coulissante en verre.",
         "passageHeightTooltipTitle": "Hauteur de passage",
-        "passageHeightTooltipDescription": "La hauteur de passage est la distance entre le dessous plat de la gouttière et le haut de la fondation ou du pavage. Remarque : après l'installation de la porte coulissante, cette hauteur devient environ 7,5 cm plus basse en raison du système de rails.",
+        "passageHeightTooltipDescription": "La hauteur de passage est la distance entre le dessous plat de la gouttière et le haut de la fondation ou du pavage. Remarque : après l'installation de la paroi coulissante, cette hauteur devient environ 7,5 cm plus basse en raison du système de rails.",
         "placeholder": "Sélectionnez votre hauteur de passage",
-        "tooltip": "Sélectionnez la hauteur de passage souhaitée de votre véranda Gumax<sup>®</sup>. La hauteur de passage est la distance entre le dessous plat de la gouttière et le haut de la fondation ou du pavage. Remarque : après l'installation de la porte coulissante, cette hauteur devient environ 7,5 cm plus basse en raison du système de rails.",
-        "MeasuringHeightPavingCaption": "Mesure de la hauteur depuis le sol jusqu'au dessous de la gouttière.",
+        "tooltip": "Sélectionnez la hauteur de passage souhaitée de votre véranda Gumax<sup>®</sup>. La hauteur de passage est la distance entre le dessous plat de la gouttière et le haut de la fondation ou du pavage. Remarque : après l'installation de la paroi coulissante, cette hauteur devient environ 7,5 cm plus basse en raison du système de rails.",
         "wallProfileHeightsResultTitle": "Les hauteurs de profilé mural calculées :",
         "bottomWallProfileHeightLabel": "Bas du profilé mural : <strong>{height} mm</strong>",
         "topWallProfileHeightLabel": "Haut du profilé mural : <strong>{height} mm</strong>",
