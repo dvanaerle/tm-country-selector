@@ -39,11 +39,12 @@
         "measuringToolVideoTitle": "Instructions de mesure pour les parois coulissantes en verre Gumax® - Nouvelle véranda Gumax®",
         "measuringToolVideoAlt": "Vidéo avec instructions de mesure pour la paroi coulissante en verre Gumax®, avec des conseils pour mesurer la hauteur et la pente de la véranda.",
         "calculatorTabsLabel": "Options de calcul de hauteur",
-        "MeasuringSlopeAlt": "Image montrant comment mesurer la pente de la terrasse",
-        "MeasuringHeightPavingAlt": "Mesure de la hauteur depuis le pavage existant jusqu'à la sous-face de la gouttière de la Véranda Tuinmaximaal à l'aide d'un mètre ruban, essentielle pour l'installation de Portes et baies coulissantes.",
-        "MeasuringWallProfileHeightAlt": "Relevé du dessous du profil mural de la véranda.",
-        "MeasuringWidthFrontAlt": "Démonstration de la mesure de la libre avant entre les poteaux de Véranda Tuinmaximaal avec un mètre ruban pour commander des Portes et baies coulissantes de la bonne taille.",
-        "MeasuringWidthSideAlt": "Mesure de la profondeur latérale d'une Véranda Tuinmaximaal, du mur de la maison à un poteau de support extérieur, pour assurer un ajustement correct des Portes et baies coulissantes."
+        "measuringSlopeAlt": "Image montrant comment mesurer la pente de la terrasse",
+        "measuringHeightPavingAlt": "Mesure de la hauteur depuis le pavage existant jusqu'à la sous-face de la gouttière de la Véranda Tuinmaximaal à l'aide d'un mètre ruban, essentielle pour l'installation de Portes et baies coulissantes.",
+        "measuringHeightRecessedAlt": "Mesure précise de la hauteur d'installation pour les Portes et baies coulissantes Tuinmaximaal depuis un caniveau de fondation encastré jusqu'au cadre supérieur de la Véranda.",
+        "measuringWallProfileHeightAlt": "Relevé du dessous du profil mural de la véranda.",
+        "measuringWidthFrontAlt": "Démonstration de la mesure de la libre avant entre les poteaux de Véranda Tuinmaximaal avec un mètre ruban pour commander des Portes et baies coulissantes de la bonne taille.",
+        "measuringWidthSideAlt": "Mesure de la profondeur latérale d'une Véranda Tuinmaximaal, du mur de la maison à un poteau de support extérieur, pour assurer un ajustement correct des Portes et baies coulissantes."
       }
     }
   },

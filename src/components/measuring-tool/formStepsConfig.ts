@@ -32,12 +32,12 @@ export const WALL_PROFILE_STEPS: FormStepConfig[] = [
   {
     name: "depth",
     type: "radio-group",
-    labelKey: "Form.Common.depthVeranda",
-    tooltipKey: "Form.Common.depthVerandaTooltip",
+    labelKey: "Components.Form.Common.depthVeranda",
+    tooltipKey: "Components.Form.Common.depthVerandaTooltip",
     images: [
       {
         src: ConfiguratorAngleDiagonalLeftA,
-        alt: "Pages.MeasuringTool.MeasuringWidthSideAlt",
+        alt: "Pages.MeasuringTool.a11y.measuringWidthSideAlt",
       },
     ],
     options: [
@@ -50,12 +50,12 @@ export const WALL_PROFILE_STEPS: FormStepConfig[] = [
   {
     name: "railSystemSlope",
     type: "yes-no",
-    labelKey: "Form.WallProfileHeight.railSystemQuestion",
-    tooltipKey: "Form.WallProfileHeight.railSystemQuestionTooltip",
+    labelKey: "Components.Form.WallProfileHeight.railSystemQuestion",
+    tooltipKey: "Components.Form.WallProfileHeight.railSystemQuestionTooltip",
     images: [
       {
         src: MeasuringHeightRecessed,
-        alt: "Pages.MeasuringTool.MeasuringHeightRecessedAlt",
+        alt: "Pages.MeasuringTool.a11y.measuringHeightRecessedAlt",
       },
     ],
     disabledOnStep: 2,
@@ -63,32 +63,32 @@ export const WALL_PROFILE_STEPS: FormStepConfig[] = [
   {
     name: "slope",
     type: "number-input",
-    labelKey: "Form.Common.slope",
-    placeholderKey: "Form.Common.slopePlaceholder",
-    tooltipKey: "Form.Common.slopeTooltip",
+    labelKey: "Components.Form.Common.slope",
+    placeholderKey: "Components.Form.Common.slopePlaceholder",
+    tooltipKey: "Components.Form.Common.slopeTooltip",
     images: [
       {
         src: MeasuringSlope,
-        alt: "Pages.MeasuringTool.MeasuringSlopeAlt",
+        alt: "Pages.MeasuringTool.a11y.measuringSlopeAlt",
       },
     ],
-    unitKey: "Form.Common.measurementUnitMm",
+    unitKey: "Components.Form.Common.measurementUnitMm",
     min: 0,
     disabledOnStep: 3,
   },
   {
     name: "wallProfileHeight",
     type: "number-input",
-    labelKey: "Form.WallProfileHeight.label",
-    placeholderKey: "Form.WallProfileHeight.placeholder",
-    tooltipKey: "Form.WallProfileHeight.tooltip",
+    labelKey: "Components.Form.WallProfileHeight.label",
+    placeholderKey: "Components.Form.WallProfileHeight.placeholder",
+    tooltipKey: "Components.Form.WallProfileHeight.tooltip",
     images: [
       {
         src: MeasuringHeightPaving,
-        alt: "Pages.MeasuringTool.MeasuringHeightPavingAlt",
+        alt: "Pages.MeasuringTool.a11y.measuringHeightPavingAlt",
       },
     ],
-    unitKey: "Form.Common.measurementUnitMm",
+    unitKey: "Components.Form.Common.measurementUnitMm",
     min: 0,
     disabledOnStep: 3,
   },
@@ -101,16 +101,16 @@ export const GUTTER_HEIGHT_STEPS: FormStepConfig[] = [
   {
     name: "heightBottomGutter",
     type: "custom-select",
-    labelKey: "Form.HeightBottomGutter.label",
-    placeholderKey: "Form.HeightBottomGutter.placeholder",
-    tooltipKey: "Form.HeightBottomGutter.tooltip",
+    labelKey: "Components.Form.HeightBottomGutter.label",
+    placeholderKey: "Components.Form.HeightBottomGutter.placeholder",
+    tooltipKey: "Components.Form.HeightBottomGutter.tooltip",
     images: [
       {
         src: MeasuringHeightPaving,
-        alt: "Pages.MeasuringTool.MeasuringHeightPavingAlt",
+        alt: "Pages.MeasuringTool.a11y.measuringHeightPavingAlt",
       },
     ],
-    unitKey: "Form.Common.measurementUnitMm",
+    unitKey: "Components.Form.Common.measurementUnitMm",
     min: 0,
     disabledOnStep: 3,
   },

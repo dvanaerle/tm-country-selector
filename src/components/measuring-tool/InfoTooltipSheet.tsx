@@ -50,7 +50,9 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
     <Sheet>
       <SheetTrigger
         className="focus-visible:ring-ring/50 text-info enabled:hover:bg-info-background rounded p-1 outline-none focus-visible:ring-2 [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-6"
-        aria-label={t(triggerTextKey || "Form.Common.moreInformation")}
+        aria-label={t(
+          triggerTextKey || "Components.Form.Common.moreInformation",
+        )}
         disabled={disabled}
       >
         <InformationLine aria-hidden="true" />
@@ -75,7 +77,7 @@ export const InfoTooltipSheet: React.FC<InfoTooltipSheetProps> = ({
               <div key={idx} className="mb-4">
                 <Image
                   src={img.src}
-                  alt={img.alt}
+                  alt={t(img.alt)}
                   sizes="(min-width: 640px) calc(448px - 48px), calc(100vw - 48px)"
                   placeholder="blur"
                   className="rounded-lg"

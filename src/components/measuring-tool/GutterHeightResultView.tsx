@@ -22,13 +22,13 @@ export const GutterHeightResultView: React.FC<GutterHeightResultViewProps> = ({
   <>
     <ul className="list-(--dash) space-x-12 pl-3" role="list">
       <li className="pl-2">
-        {t.rich("Form.HeightBottomGutter.bottomWallProfileHeightLabel", {
+        {t.rich("Components.Form.HeightBottomGutter.bottomWallProfileHeightLabel", {
           height: calculatedOutput,
           strong: (chunks) => <strong>{chunks}</strong>,
         })}
       </li>
       <li className="pl-2">
-        {t.rich("Form.HeightBottomGutter.topWallProfileHeightLabel", {
+        {t.rich("Components.Form.HeightBottomGutter.topWallProfileHeightLabel", {
           height: topWallProfileHeight,
           strong: (chunks) => <strong>{chunks}</strong>,
         })}

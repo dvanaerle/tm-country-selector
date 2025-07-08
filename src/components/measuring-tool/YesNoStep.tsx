@@ -64,8 +64,8 @@ export const YesNoStep: React.FC<Props> = ({ config, t, disabled }) => {
                   name={field.name}
                   value={field.value ? valueAsBoolean : undefined}
                   onChange={handleValueChange}
-                  yesLabel={t("Form.Common.yes")}
-                  noLabel={t("Form.Common.no")}
+                  yesLabel={t("Components.Form.Common.yes")}
+                  noLabel={t("Components.Form.Common.no")}
                   aria-describedby={`${field.name}-error`}
                   aria-labelledby={groupLabelId}
                 />

@@ -225,32 +225,38 @@ const createSchema = (
   return z
     .object({
       depth: z.coerce.number({
-        invalid_type_error: t("Form.Common.validationErrors.selectOption"),
+        invalid_type_error: t(
+          "Components.Form.Common.validationErrors.selectOption",
+        ),
       }),
       railSystemSlope: z.enum(["checked", "unchecked"], {
-        invalid_type_error: t("Form.Common.validationErrors.selectOption"),
+        invalid_type_error: t(
+          "Components.Form.Common.validationErrors.selectOption",
+        ),
       }),
       slope: z.coerce
         .number({
-          invalid_type_error: t("Form.Common.validationErrors.enterNumber"),
+          invalid_type_error: t(
+            "Components.Form.Common.validationErrors.enterNumber",
+          ),
         })
-        .int(t("Form.Common.validationErrors.integerOnly"))
+        .int(t("Components.Form.Common.validationErrors.integerOnly"))
         .optional(),
       wallProfileHeight: z.coerce
         .number({
           invalid_type_error: t(
-            "Form.Common.validationErrors.validNumberRequired",
+            "Components.Form.Common.validationErrors.validNumberRequired",
           ),
         })
-        .int(t("Form.Common.validationErrors.integerOnly"))
+        .int(t("Components.Form.Common.validationErrors.integerOnly"))
         .optional(),
       heightBottomGutter: z.coerce
         .number({
           invalid_type_error: t(
-            "Form.Common.validationErrors.validNumberRequired",
+            "Components.Form.Common.validationErrors.validNumberRequired",
           ),
         })
-        .int(t("Form.Common.validationErrors.integerOnly"))
+        .int(t("Components.Form.Common.validationErrors.integerOnly"))
         .optional(),
     })
     .superRefine((data, ctx) => {
@@ -261,7 +267,9 @@ const createSchema = (
       if (mainInputValue == null) {
         ctx.addIssue({
           code: z.ZodIssueCode.custom,
-          message: t("Form.Common.validationErrors.validNumberRequired"),
+          message: t(
+            "Components.Form.Common.validationErrors.validNumberRequired",
+          ),
           path: [field],
         });
         return;
@@ -300,17 +308,20 @@ const createSchema = (
           );
           if (suggestion) {
             const fieldName = t(
-              "Form.Common.validationErrors.wallProfileHeightFieldName",
+              "Components.Form.Common.validationErrors.wallProfileHeightFieldName",
             );
             ctx.addIssue({
               code: z.ZodIssueCode.custom,
               path: [field],
-              message: t("Form.Common.validationErrors.suggestionMessage", {
-                fieldName,
-                recommendedInput: suggestion.recommendedInput,
-                min: suggestion.newOutputRange[0],
-                max: suggestion.newOutputRange[1],
-              }),
+              message: t(
+                "Components.Form.Common.validationErrors.suggestionMessage",
+                {
+                  fieldName,
+                  recommendedInput: suggestion.recommendedInput,
+                  min: suggestion.newOutputRange[0],
+                  max: suggestion.newOutputRange[1],
+                },
+              ),
             });
           }
         }
@@ -321,7 +332,7 @@ const createSchema = (
 // Custom hook voor de doorloophoogtecalculator.
 // Beheert de state, validatie en berekeningslogica.
 export function usePassageHeightCalculator(formType: FormType) {
-  const t = useTranslations("Components");
+  const t = useTranslations();
   const schema = useMemo(() => createSchema(t, formType), [t, formType]);
 
   const calculateResult = (values: FormValues) => {
@@ -373,5 +384,11 @@ export function usePassageHeightCalculator(formType: FormType) {
     }
   };
 
-  return { t, schema, config: CALCULATOR_CONFIG, calculateResult, shouldShowFoundationWarning };
+  return {
+    t,
+    schema,
+    config: CALCULATOR_CONFIG,
+    calculateResult,
+    shouldShowFoundationWarning,
+  };
 }

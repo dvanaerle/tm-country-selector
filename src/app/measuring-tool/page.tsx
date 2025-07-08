@@ -24,8 +24,8 @@ export default function MeasuringTool() {
         role="main"
       >
         <ClientSection
-          measuringHeightPavingAlt={t("a11y.MeasuringHeightPavingAlt")}
-          measuringHeightRecessedAlt={t("a11y.MeasuringHeightRecessedAlt")}
+          measuringHeightPavingAlt={t("a11y.measuringHeightPavingAlt")}
+          measuringWallProfileHeightAlt={t("a11y.measuringWallProfileHeightAlt")}
           tabsHeightBottomGutter={t("tabs.wallProfileHeight")}
           tabsWallProfileHeight={t("tabs.passageHeight")}
 

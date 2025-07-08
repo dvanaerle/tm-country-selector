@@ -33,7 +33,9 @@ export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
       <Alert variant="info" role="status" aria-live="polite">
         <InformationLine aria-hidden="true" />
         <AlertTitle>
-          {t("Form.HeightBottomGutter.wallProfileHeightsResultTitle")}
+          {t(
+            "Components.Form.HeightBottomGutter.wallProfileHeightsResultTitle",
+          )}
         </AlertTitle>
         <AlertDescription>
           <GutterHeightResultView
@@ -50,7 +52,7 @@ export const CalculationResultAlert: React.FC<CalculationResultAlertProps> = ({
     <Alert variant="success" role="status" aria-live="polite">
       <CheckCircleLine aria-hidden="true" />
       <AlertTitle>
-        {t.rich("Form.Common.passageHeightResult", {
+        {t.rich("Components.Form.Common.passageHeightResult", {
           result: calculatedOutput,
           strong: (chunks) => <strong className="font-bold">{chunks}</strong>,
         })}

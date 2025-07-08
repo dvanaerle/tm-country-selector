@@ -76,7 +76,7 @@ export const RadioGroupStep: React.FC<Props> = ({ config, t, disabled }) => {
                   >
                     <span>
                       {option.labelKey.match(/^\d/)
-                        ? `${option.value} ${t("Form.Common.measurementUnitMeter")}`
+                        ? `${option.value} ${t("Components.Form.Common.measurementUnitMeter")}`
                         : t(option.labelKey)}
                     </span>
                   </RadioGroupCards.Item>

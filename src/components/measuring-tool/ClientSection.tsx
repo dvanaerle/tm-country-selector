@@ -9,7 +9,7 @@ import MeasuringWallProfileHeight from "/public/images/measuring-wall-profile-he
 
 interface ClientSectionProps {
   measuringHeightPavingAlt: string;
-  MeasuringWallProfileHeightAlt: string;
+  measuringWallProfileHeightAlt: string;
   tabsHeightBottomGutter: string;
   tabsWallProfileHeight: string;
   heading: React.ReactNode;
@@ -18,7 +18,7 @@ interface ClientSectionProps {
 
 export const ClientSection: React.FC<ClientSectionProps> = ({
   measuringHeightPavingAlt,
-  MeasuringWallProfileHeightAlt,
+  measuringWallProfileHeightAlt,
   tabsHeightBottomGutter,
   tabsWallProfileHeight,
   heading,
@@ -42,7 +42,7 @@ export const ClientSection: React.FC<ClientSectionProps> = ({
           alt={
             selectedTab === "height-lower-gutter"
               ? measuringHeightPavingAlt
-              : MeasuringWallProfileHeightAlt
+              : measuringWallProfileHeightAlt
           }
           selectedTab={selectedTab}
         />
@@ -80,19 +80,19 @@ export const ClientSection: React.FC<ClientSectionProps> = ({
             <TabsContent value="wall-profile-height" role="tabpanel">
               <PassageHeightCalculatorForm
                 formType="wallProfile"
-                mainInputLabelKey="Form.WallProfileHeight.label"
-                mainInputPlaceholderKey="Form.WallProfileHeight.placeholder"
-                mainInputTooltipKey="Form.WallProfileHeight.tooltip"
-                submitButtonTextKey="Form.Common.calculatePassageHeight"
+                mainInputLabelKey="Components.Form.WallProfileHeight.label"
+                mainInputPlaceholderKey="Components.Form.WallProfileHeight.placeholder"
+                mainInputTooltipKey="Components.Form.WallProfileHeight.tooltip"
+                submitButtonTextKey="Components.Form.Common.calculatePassageHeight"
               />
             </TabsContent>
             <TabsContent value="height-lower-gutter" role="tabpanel">
               <PassageHeightCalculatorForm
                 formType="gutterHeight"
-                mainInputLabelKey="Form.HeightBottomGutter.label"
-                mainInputPlaceholderKey="Form.HeightBottomGutter.placeholder"
-                mainInputTooltipKey="Form.HeightBottomGutter.tooltip"
-                submitButtonTextKey="Form.Common.calculateBottomWallProfileHeight"
+                mainInputLabelKey="Components.Form.HeightBottomGutter.label"
+                mainInputPlaceholderKey="Components.Form.HeightBottomGutter.placeholder"
+                mainInputTooltipKey="Components.Form.HeightBottomGutter.tooltip"
+                submitButtonTextKey="Components.Form.Common.calculateBottomWallProfileHeight"
               />
             </TabsContent>
           </Tabs>

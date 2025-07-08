@@ -39,11 +39,12 @@
         "measuringToolVideoTitle": "Messanleitung Gumax® Glasschiebewand - Neue Gumax® Überdachung",
         "measuringToolVideoAlt": "Video mit Messanleitungen für die Gumax® Glasschiebewand, inklusive Tipps zum Messen der Höhe und Neigung der Terrassenüberdachung.",
         "calculatorTabsLabel": "Höhenberechnung Optionen",
-        "MeasuringSlopeAlt": "Abbildung, die zeigt, wie die Neigung der Terrasse gemessen wird",
-        "MeasuringHeightPavingAlt": "Messen der Höhe vom vorhandenen Pflaster bis zur Unterkante der Rinne der Tuinmaximaal Terrassenüberdachung mittels Maßband, unerlässlich für den Einbau von Glasschiebewänden.",
-        "MeasuringWallProfileHeightAlt": "Aufmaß der Unterseite des Wandprofils der Terrassenüberdachung.",
-        "MeasuringWidthFrontAlt": "Demonstration der Messung der lichten Vorderseite Öffnungsbreite zwischen den Pfosten der Tuinmaximaal Terrassenüberdachung mittels Maßband zur Bestellung von Glasschiebewänden in korrekter Größe.",
-        "MeasuringWidthSideAlt": "Messen der seitlichen Tiefe einer Tuinmaximaal Terrassenüberdachung, von der Hauswand bis zu einem äußeren Stützpfosten, um die korrekte Passform der Glasschiebewände sicherzustellen."
+        "measuringSlopeAlt": "Abbildung, die zeigt, wie die Neigung der Terrasse gemessen wird",
+        "measuringHeightPavingAlt": "Messen der Höhe vom vorhandenen Pflaster bis zur Unterkante der Rinne der Tuinmaximaal Terrassenüberdachung mittels Maßband, unerlässlich für den Einbau von Glasschiebewänden.",
+        "measuringHeightRecessedAlt": "Genaues Messen der Montagehöhe für Tuinmaximaal Glasschiebewände von einer eingelassenen Fundamentrinne bis zum oberen Rahmen der Terrassenüberdachung.",
+        "measuringWallProfileHeightAlt": "Aufmaß der Unterseite des Wandprofils der Terrassenüberdachung.",
+        "measuringWidthFrontAlt": "Demonstration der Messung der lichten Vorderseite Öffnungsbreite zwischen den Pfosten der Tuinmaximaal Terrassenüberdachung mittels Maßband zur Bestellung von Glasschiebewänden in korrekter Größe.",
+        "measuringWidthSideAlt": "Messen der seitlichen Tiefe einer Tuinmaximaal Terrassenüberdachung, von der Hauswand bis zu einem äußeren Stützpfosten, um die korrekte Passform der Glasschiebewände sicherzustellen."
       }
     }
   },

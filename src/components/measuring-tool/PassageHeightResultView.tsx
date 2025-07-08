@@ -20,7 +20,7 @@ export const PassageHeightResultView: React.FC<
   <>
     {outputRange && (
       <span>
-        {t.rich("Form.Common.rangeSuccess", {
+        {t.rich("Components.Form.Common.rangeSuccess", {
           min: outputRange[0],
           max: outputRange[1],
           strong: (chunks) => <strong>{chunks}</strong>,

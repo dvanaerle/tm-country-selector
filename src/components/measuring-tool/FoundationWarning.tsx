@@ -18,9 +18,11 @@ export const FoundationWarning: React.FC<FoundationWarningProps> = ({ t }) => {
     >
       <Alert variant="warning" className="mt-4">
         <AlertLine aria-hidden="true" />
-        <AlertTitle>{t("Form.Common.validationErrors.pleaseNote")}</AlertTitle>
+        <AlertTitle>
+          {t("Components.Form.Common.validationErrors.pleaseNote")}
+        </AlertTitle>
         <AlertDescription>
-          {t.rich("Form.WallProfileHeight.foundationWarning", {
+          {t.rich("Components.Form.WallProfileHeight.foundationWarning", {
             strong: (chunks) => <strong>{chunks}</strong>,
             threshold: FOUNDATION_WARNING_THRESHOLD,
           })}

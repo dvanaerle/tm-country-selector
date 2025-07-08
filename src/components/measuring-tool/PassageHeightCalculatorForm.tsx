@@ -105,16 +105,16 @@ export function PassageHeightCalculatorForm({
       <form onSubmit={handleHookSubmit(onSubmit)} className="space-y-6">
         <p className="text-muted-foreground bg-muted/40 rounded p-4 text-sm">
           {formType === "gutterHeight"
-            ? t.rich("Form.WallProfileHeight.intro")
-            : t.rich("Form.HeightBottomGutter.intro", {
+            ? t.rich("Components.Form.WallProfileHeight.intro")
+            : t.rich("Components.Form.HeightBottomGutter.intro", {
                 info: (chunks) => (
                   <ResponsiveInfoTrigger
                     triggerText={chunks}
                     title={t(
-                      "Form.HeightBottomGutter.passageHeightTooltipTitle",
+                      "Components.Form.HeightBottomGutter.passageHeightTooltipTitle",
                     )}
                     content={t(
-                      "Form.HeightBottomGutter.passageHeightTooltipDescription",
+                      "Components.Form.HeightBottomGutter.passageHeightTooltipDescription",
                     )}
                   />
                 ),
