@@ -104,7 +104,7 @@
         "intro": "Do you know your desired passage height? Use this measuring tool to calculate the mounting height of the wall profile. This is the height to the bottom of the wall profile.",
         "label": "Wall profile height",
         "placeholder": "Height to bottom of wall profile",
-        "tooltip": "Select the height at which you want to mount the wall profile. Measure the distance to the bottom of the wall profile. The wall profile is 150 mm high, so make sure there is enough space on your facade to place it.",
+        "tooltip": "Indicate the height at which you want to mount the wall profile. Measure the distance to the bottom of the wall profile. The wall profile is 150 mm high, so make sure there is enough space on your facade to place it.",
         "railSystemQuestion": "Recessed bottom rail",
         "railSystemQuestionTooltip": "If you recess the bottom rail into the terrace, it will be flush with the surface of the terrace. This creates a threshold-free passage.<br></br>Do you want to place the bottom rail of the glass sliding wall recessed into the terrace? Then select 'Yes'.",
         "foundationWarning": "For a glass sliding door with a height of more than <strong>{threshold} mm</strong>, you cannot use spot foundations, as they must be buried 10 cm."

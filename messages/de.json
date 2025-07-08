@@ -104,7 +104,7 @@
         "intro": "Sie kennen die gewünschte Durchgangshöhe? Verwenden Sie dieses Messwerkzeug, um die Montagehöhe des Wandprofils zu berechnen. Dies ist die Höhe bis zur Unterkante des Wandprofils.",
         "label": "Wandprofilhöhe",
         "placeholder": "Höhe bis Unterkante Wandprofil",
-        "tooltip": "Wählen Sie aus, auf welcher Höhe Sie das Wandprofil montieren möchten. Messen Sie den Abstand bis zur Unterkante des Wandprofils. Das Wandprofil ist 150 mm hoch. Berücksichtigen Sie also, dass an Ihrer Fassade ausreichend Platz für die Montage vorhanden ist.",
+        "tooltip": "Geben Sie an, auf welcher Höhe Sie das Wandprofil montieren möchten. Messen Sie den Abstand bis zur Unterkante des Wandprofils. Das Wandprofil ist 150 mm hoch. Berücksichtigen Sie also, dass an Ihrer Fassade ausreichend Platz für die Montage vorhanden ist.",
         "railSystemQuestion": "Versenkte Bodenschiene",
         "railSystemQuestionTooltip": "Wenn Sie die untere Schiene in die Terrasse versenken, liegt sie bündig mit der Oberfläche der Terrasse. Dadurch entsteht ein schwellenloser Durchgang.<br></br>Möchten Sie die untere Schiene der Glasschiebewand in die Terrasse eingelassen platzieren? Wählen Sie dann 'Ja'.",
         "foundationWarning": "Für eine Glasschiebewand mit einer Höhe von mehr als {threshold} mm können Sie keine Punktfundamente verwenden, da diese 10 cm eingegraben werden müssen."

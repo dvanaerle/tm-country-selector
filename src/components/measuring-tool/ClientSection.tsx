@@ -36,13 +36,13 @@ export const ClientSection: React.FC<ClientSectionProps> = ({
         <ImageSwitcher
           src={
             selectedTab === "height-lower-gutter"
-              ? MeasuringHeightPaving
-              : MeasuringWallProfileHeight
+              ? MeasuringWallProfileHeight
+              : MeasuringHeightPaving
           }
           alt={
             selectedTab === "height-lower-gutter"
-              ? measuringHeightPavingAlt
-              : measuringWallProfileHeightAlt
+              ? measuringWallProfileHeightAlt
+              : measuringHeightPavingAlt
           }
           selectedTab={selectedTab}
         />

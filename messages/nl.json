@@ -104,7 +104,7 @@
         "intro": "Weet u wat uw gewenste doorloophoogte is? Bereken dan met deze meettool op welke hoogte u het muurprofiel moet monteren. Dit is de hoogte tot de onderkant van het muurprofiel.",
         "label": "Muurprofielhoogte",
         "placeholder": "Hoogte tot onderkant muurprofiel",
-        "tooltip": "Selecteer op welke hoogte u het muurprofiel wilt monteren. Meet de afstand tot de onderkant van het muurprofiel. Het muurprofiel is 150 mm hoog, dus houdt er rekening mee dat er voldoende ruimte op uw gevel is om dit te plaatsen.",
+        "tooltip": "Geef aan op welke hoogte u het muurprofiel wilt monteren. Meet de afstand tot de onderkant van het muurprofiel. Het muurprofiel is 150 mm hoog, dus houdt er rekening mee dat er voldoende ruimte op uw gevel is om dit te plaatsen.",
         "railSystemQuestion": "Verzonken onderrail",
         "railSystemQuestionTooltip": "Als u de onderrail in het terras verzinkt, komt deze gelijk te liggen met het oppervlak van het terras. Hierdoor ontstaat een drempelloze doorgang.<br></br>Wilt u de onderrail van de glazen schuifwand verzonken in het terras plaatsen? Selecteer dan 'Ja'.",
         "foundationWarning": "Voor een glazen schuifwand met een hoogte van meer dan {threshold} mm kunt u geen betonpoeren gebruiken, deze moeten namelijk 10 cm ingegraven worden."

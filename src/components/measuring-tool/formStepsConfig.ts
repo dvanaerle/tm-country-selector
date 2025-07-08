@@ -3,6 +3,7 @@ import MeasuringHeightRecessed from "/public/images/measuring-height-recessed.jp
 import MeasuringSlope from "/public/images/measuring-slope.jpg";
 import MeasuringHeightPaving from "/public/images/measuring-height-paving.jpg";
 import ConfiguratorAngleDiagonalLeftA from "/public/images/configurator-angle-diagonal-left-a.jpg";
+import MeasuringWallProfileHeight from "/public/images/measuring-wall-profile-height.jpg";
 
 export type FormStepType =
   | "radio-group"
@@ -84,8 +85,8 @@ export const WALL_PROFILE_STEPS: FormStepConfig[] = [
     tooltipKey: "Components.Form.WallProfileHeight.tooltip",
     images: [
       {
-        src: MeasuringHeightPaving,
-        alt: "Pages.MeasuringTool.a11y.measuringHeightPavingAlt",
+        src: MeasuringWallProfileHeight,
+        alt: "Pages.MeasuringTool.a11y.measuringWallProfileHeightAlt",
       },
     ],
     unitKey: "Components.Form.Common.measurementUnitMm",

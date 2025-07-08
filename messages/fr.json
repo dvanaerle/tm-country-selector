@@ -104,7 +104,7 @@
         "intro": "Vous connaissez la hauteur de passage souhaitée ? Utilisez cet outil de mesure pour calculer la hauteur de montage du profilé mural. Il s'agit de la hauteur jusqu'au bas du profilé mural.",
         "label": "Hauteur du profilé mural",
         "placeholder": "Hauteur jusqu'au bas du profilé mural",
-        "tooltip": "Sélectionnez la hauteur à laquelle vous souhaitez monter le profilé mural. Mesurez la distance jusqu'au bas du profilé mural. Le profilé mural mesure 150 mm de haut, assurez-vous donc qu'il y a suffisamment d'espace sur votre façade pour le placer.",
+        "tooltip": "Indiquez à quelle hauteur vous souhaitez monter le profilé mural. Mesurez la distance jusqu'au bas du profilé mural. Le profilé mural mesure 150 mm de haut, assurez-vous donc qu'il y a suffisamment d'espace sur votre façade pour le placer.",
         "railSystemQuestion": "Rail inférieur encastré",
         "railSystemQuestionTooltip": "Si vous encastrez le rail inférieur dans la terrasse, il sera au même niveau que la surface de la terrasse. Cela crée un passage sans seuil.<br></br>Voulez-vous que le rail inférieur de la paroi coulissante en verre soit encastré dans la terrasse ? Sélectionnez alors 'Oui'.",
         "foundationWarning": "Pour une paroi coulissante en verre d'une hauteur de plus de {threshold} mm, vous ne pouvez pas utiliser de fondations ponctuelles, car elles doivent être enterrées à 10 cm."
