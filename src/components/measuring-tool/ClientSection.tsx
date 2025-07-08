@@ -5,11 +5,11 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { PassageHeightCalculatorForm } from "@/components/measuring-tool/PassageHeightCalculatorForm";
 import { ImageSwitcher } from "@/components/measuring-tool/ImageSwitcher";
 import MeasuringHeightPaving from "/public/images/measuring-height-paving.jpg";
-import MeasuringHeightRecessed from "/public/images/measuring-height-recessed.jpg";
+import MeasuringWallProfileHeight from "/public/images/measuring-wall-profile-height.jpg";
 
 interface ClientSectionProps {
   measuringHeightPavingAlt: string;
-  measuringHeightRecessedAlt: string;
+  MeasuringWallProfileHeightAlt: string;
   tabsHeightBottomGutter: string;
   tabsWallProfileHeight: string;
   heading: React.ReactNode;
@@ -18,7 +18,7 @@ interface ClientSectionProps {
 
 export const ClientSection: React.FC<ClientSectionProps> = ({
   measuringHeightPavingAlt,
-  measuringHeightRecessedAlt,
+  MeasuringWallProfileHeightAlt,
   tabsHeightBottomGutter,
   tabsWallProfileHeight,
   heading,
@@ -37,12 +37,12 @@ export const ClientSection: React.FC<ClientSectionProps> = ({
           src={
             selectedTab === "height-lower-gutter"
               ? MeasuringHeightPaving
-              : MeasuringHeightRecessed
+              : MeasuringWallProfileHeight
           }
           alt={
             selectedTab === "height-lower-gutter"
               ? measuringHeightPavingAlt
-              : measuringHeightRecessedAlt
+              : MeasuringWallProfileHeightAlt
           }
           selectedTab={selectedTab}
         />
