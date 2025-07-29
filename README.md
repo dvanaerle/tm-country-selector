@@ -27,7 +27,8 @@ The application serves as a global entry point for Tuinmaximaal customers. It au
 | **Internationalization** | [next-intl](https://next-intl-docs.vercel.app/)                                                          |
 | **Locale Matching**      | [Negotiator](https://github.com/jshttp/negotiator), [@formatjs/intl-localematcher](https://formatjs.io/) |
 | **UI Components**        | [Radix UI (Slot)](https://www.radix-ui.com/primitives), [class-variance-authority](https://cva.style/)   |
-| **Linting**              | [ESLint](https://eslint.org/)                                                                            |
+| **Linting**              | [ESLint](https://eslint.org/) with plugins for import sorting and unused imports                         |
+| **Type Validation**      | [Zod](https://zod.dev/) for runtime schema validation                                                    |
 
 ## Getting Started
 
@@ -68,6 +69,8 @@ The application will be available at `http://localhost:3000`. The page will auto
 - `npm run build`: Creates a production-ready build of the application.
 - `npm run start`: Starts the production server (requires a build to be run first).
 - `npm run lint`: Lints the codebase using ESLint to find and fix problems.
+- `npm run lint:fix`: Runs ESLint with automatic fixes.
+- `npm run typecheck`: Runs TypeScript type checking without emitting files.
 
 ## Project Structure
 
@@ -115,5 +118,3 @@ The main page (`src/app/page.tsx`) orchestrates the store selection logic.
 - **Tailwind CSS**: The project uses Tailwind CSS for utility-first styling. Custom theme values (colors, fonts, spacing) are defined in `src/app/globals.css` using the `@theme` directive.
 - **`cn` Utility**: The `cn` function in `src/lib/utils.ts` is a helper that merges Tailwind classes from `clsx` and `tailwind-merge`, allowing for clean and conditional class name composition in components.
 - **Custom Fonts**: The "Articulat CF" font is loaded locally from `/public/fonts` and configured in `src/app/layout.tsx` using `next/font/local`.
-
----
