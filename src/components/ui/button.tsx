@@ -11,31 +11,12 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-secondary text-secondary-foreground ring-offset-2 hover:bg-secondary-hover inset-shadow-button",
-        outline:
-          "border border-primary hover:bg-primary hover:text-primary-foreground",
         border: "border hover:border-primary",
-        link: "text-primary hover:text-secondary-hover",
       },
       size: {
         default: "min-h-12 px-6 py-2.75",
-        sm: "min-h-10 px-4 py-2.25 text-sm",
-        icon: "size-5",
       },
     },
-    compoundVariants: [
-      {
-        variant: "default",
-        size: "default",
-        className:
-          "pt-2.5 pb-[calc((--spacing(2.5))+var(--inset-shadow-button-y))]",
-      },
-      {
-        variant: "default",
-        size: "sm",
-        className:
-          "pt-2 pb-[calc((--spacing(2))+var(--inset-shadow-button-y))]",
-      },
-    ],
     defaultVariants: {
       variant: "default",
       size: "default",

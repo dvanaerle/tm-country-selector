@@ -1,18 +1,12 @@
 @import "tailwindcss";
 
 @theme {
-  --dash: "-";
   --inset-shadow-button-y: 4px;
   --inset-shadow-button: inset 0px calc(var(--inset-shadow-button-y) * -1) 0px
     oklch(0% 0 0 / 0.2);
   --tw-leading: 1.5;
-  --color-surface: oklch(95.1% 0.035 68.7);
   --color-background: oklch(97.5% 0.017 67.6);
   --color-foreground: oklch(27.1% 0.068 154.6);
-  --color-card: oklch(100% 0 0);
-  --color-card-foreground: oklch(27.1% 0.068 154.6);
-  --color-popover: oklch(100% 0 0);
-  --color-popover-foreground: oklch(50% 0 0);
   --color-primary: oklch(27.1% 0.068 154.6);
   --color-primary-foreground: oklch(100% 0 0);
   --color-primary-shadow: oklch(19.1% 0.036 175.1);
@@ -21,9 +15,7 @@
   --color-secondary-hover: oklch(47.6% 0.119 124.5);
   --color-muted: oklch(91.6% 0 0);
   --color-muted-foreground: oklch(50% 0 0);
-  --color-control: oklch(50% 0 0);
   --color-border: oklch(91.6% 0 0);
-  --color-input: oklch(91.6% 0 0);
   --color-ring: oklch(70.8% 0 0);
 }
 
