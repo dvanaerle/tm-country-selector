@@ -1,7 +1,7 @@
-import { getRequestConfig } from "next-intl/server";
-import { headers } from "next/headers";
-import Negotiator from "negotiator";
 import { match } from "@formatjs/intl-localematcher";
+import Negotiator from "negotiator";
+import { headers } from "next/headers";
+import { getRequestConfig } from "next-intl/server";
 import { z } from "zod";
 
 const SupportedLocaleSchema = z.enum(["en", "nl", "de", "fr"]);

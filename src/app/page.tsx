@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
-import Header from "@/components/header";
+
 import heroImage from "/public/images/tuinmaximaal-verandas.jpg";
+import Header from "@/components/header";
 import StoreSelection from "@/components/home/store-selection";
-import { STORES_DATA, StoreCountryCodeSchema } from "@/data/stores";
+import { StoreCountryCodeSchema,STORES_DATA } from "@/data/stores";
 import { getStoreLocalization } from "@/lib/store-utils";
 
 export default function Home() {

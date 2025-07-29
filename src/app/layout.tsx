@@ -1,9 +1,9 @@
+import "./globals.css";
+
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getTranslations } from "next-intl/server";
-
-import "./globals.css";
 
 const articulatCF = localFont({
   src: [
@@ -28,9 +28,6 @@ const articulatCF = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-articulat-cf",
-  fallback: ["system-ui", "sans-serif"],
-  display: "swap",
 });
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -55,9 +52,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body
-        className={`${articulatCF.variable} font-sans antialiased`}
-      >
+      <body className={`${articulatCF.className} antialiased`}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>

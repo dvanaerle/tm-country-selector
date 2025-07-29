@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
-import Header from "@/components/header";
-import Link from "next/link";
-import { getTranslations } from "next-intl/server";
-import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
+
 import illustration404 from "/public/images/404-illustration.png";
+import Header from "@/components/header";
+import { buttonVariants } from "@/components/ui/button";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("Pages.NotFound.metaData");
@@ -23,13 +24,14 @@ export default function NotFound() {
     <>
       <Header />
       <main
-        className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center gap-y-4 px-4 py-12 text-center sm:px-6 xl:pt-20"
+        className="container mx-auto flex min-h-[calc(100dvh-(--spacing(19)))] flex-col items-center justify-center px-4 py-12 text-center sm:px-6 xl:pt-20"
         role="main"
         aria-live="polite"
       >
         <Image
           src={illustration404}
           alt=""
+          className="mb-4"
           priority
           fetchPriority="high"
           placeholder="blur"
@@ -44,7 +46,7 @@ export default function NotFound() {
 
         <h1>{t("heading")}</h1>
 
-        <p id="not-found-description" className="text-muted-foreground">
+        <p id="not-found-description" className="mb-4">
           {t("description")}
         </p>
 

@@ -1,10 +1,12 @@
 "use client";
 
-import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { StoreCard } from "./store-card";
+import { useTransition } from "react";
+
 import { type StoreData } from "@/data/stores";
+
+import { StoreCard } from "./store-card";
 
 type StoreSelectionProps = {
   preferredStore: StoreData | undefined;

@@ -1,4 +1,4 @@
-import { type StoreData, type CountryCode } from "@/data/stores";
+import { type CountryCode,type StoreData } from "@/data/stores";
 
 type GetStoreLocalizationOptions = {
   userCountryCode: CountryCode | undefined;

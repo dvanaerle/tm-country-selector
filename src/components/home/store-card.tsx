@@ -2,9 +2,11 @@
 
 import { useTranslations } from "next-intl";
 import { CircleFlag } from "react-circle-flags";
+
 import { Button } from "@/components/ui/button";
+import { type CountryCode,type StoreData } from "@/data/stores";
+
 import ArrowRightLine from "../../../public/icons/MingCute/arrow_right_line.svg";
-import { type StoreData, type CountryCode } from "@/data/stores";
 
 const FLAG_MAP: Partial<Record<CountryCode, string>> = {
   "BE-NL": "be",

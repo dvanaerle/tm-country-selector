@@ -1,6 +1,7 @@
 import Link from "next/link";
-import Logo from "../../public/brand/tm-logo.svg";
 import { useTranslations } from "next-intl";
+
+import Logo from "/public/brand/tm-logo.svg";
 
 export default function Header() {
   const t = useTranslations("Components.Header");
