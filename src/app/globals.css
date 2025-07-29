@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 
 @theme {
   --dash: "-";
@@ -22,24 +21,6 @@
   --color-secondary-hover: oklch(47.6% 0.119 124.5);
   --color-muted: oklch(91.6% 0 0);
   --color-muted-foreground: oklch(50% 0 0);
-  --color-accent: oklch(68.7% 0.188 47.8);
-  --color-accent-foreground: oklch(100% 0 0);
-  --color-destructive: oklch(59.8% 0.245 29.2);
-  --color-destructive-foreground: oklch(100% 0 0);
-  --color-destructive-background: oklch(59.8% 0.245 29.2 / 0.06);
-  --color-destructive-on-background: oklch(57.1% 0.234 29.2);
-  --color-success: oklch(55.1% 0.17 137.9);
-  --color-success-foreground: oklch(100% 0 0);
-  --color-success-background: oklch(55.1% 0.17 137.9 / 0.08);
-  --color-success-on-background: oklch(52.7% 0.162 137.8);
-  --color-info: oklch(56.9% 0.169 251.7);
-  --color-info-foreground: oklch(100% 0 0);
-  --color-info-background: oklch(56.9% 0.169 251.7 / 0.08);
-  --color-info-on-background: oklch(44% 0.132 252);
-  --color-warning: oklch(58.2% 0.159 47.8);
-  --color-warning-foreground: oklch(27.1% 0.068 154.6);
-  --color-warning-background: oklch(73.2% 0.186 53 / 0.08);
-  --color-warning-on-background: oklch(55.5% 0.152 47.7);
   --color-control: oklch(50% 0 0);
   --color-border: oklch(91.6% 0 0);
   --color-input: oklch(91.6% 0 0);
@@ -104,16 +85,5 @@
   }
   p {
     @apply text-pretty;
-  }
-}
-
-@layer utilities {
-  label[data-required] span::after,
-  legend[data-required] span::after {
-    content: "*";
-    @apply text-destructive mx-1;
-  }
-  .trans-all * {
-    @apply transition-all duration-300;
   }
 }

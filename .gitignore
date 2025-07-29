@@ -41,5 +41,7 @@ yarn-error.log*
 next-env.d.ts
 
 # Exclude GitHub configuration and repomix output
-.github/
+CLAUDE.md
+development-guidelines.md
 repomix-output.xml
+repomix.config.json

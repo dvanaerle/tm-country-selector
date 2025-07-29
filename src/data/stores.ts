@@ -1,51 +1,63 @@
-// Definieert de datastructuur voor een enkele store.
-export interface StoreData {
-  // De unieke code voor het land en de taal (bijv. "BE-NL", "DE").
-  countryCode: string;
-  // De naam van het land.
-  country: string;
-  // De taal die in het land wordt gesproken.
-  language: string;
-  // De volledige URL naar de webshop.
-  storeUrl: string;
-}
+import { z } from "zod";
 
-// Een array met de data van alle beschikbare stores.
-export const STORES_DATA: StoreData[] = [
+export const STORE_COUNTRY_CODES = [
+  "BE-NL",
+  "BE-FR",
+  "DE",
+  "FR",
+  "NL",
+  "EN",
+] as const;
+
+export const StoreCountryCodeSchema = z.enum(STORE_COUNTRY_CODES);
+
+export const StoreDataSchema = z.object({
+  countryCode: StoreCountryCodeSchema,
+  countryKey: z.string(),
+  languageKey: z.string(),
+  storeUrl: z.url(),
+});
+
+export type CountryCode = z.infer<typeof StoreCountryCodeSchema>;
+export type StoreData = z.infer<typeof StoreDataSchema>;
+
+const storesDataArray: StoreData[] = [
   {
     countryCode: "BE-NL",
-    country: "België",
-    language: "Nederlands",
+    countryKey: "België",
+    languageKey: "Nederlands",
     storeUrl: "https://www.tuinmaximaal.be/",
   },
   {
     countryCode: "BE-FR",
-    country: "Belgique",
-    language: "Français",
+    countryKey: "Belgique",
+    languageKey: "Français",
     storeUrl: "https://www.tuinmaximaal.be/fr/",
   },
   {
     countryCode: "DE",
-    country: "Deutschland",
-    language: "Deutsch",
+    countryKey: "Deutschland",
+    languageKey: "Deutsch",
     storeUrl: "https://www.tuinmaximaal.de/",
   },
   {
     countryCode: "FR",
-    country: "France",
-    language: "Français",
+    countryKey: "France",
+    languageKey: "Français",
     storeUrl: "https://www.tuinmaximaal.fr/",
   },
   {
     countryCode: "NL",
-    country: "Nederland",
-    language: "Nederlands",
+    countryKey: "Nederland",
+    languageKey: "Nederlands",
     storeUrl: "https://www.tuinmaximaal.nl/",
   },
   {
     countryCode: "EN",
-    country: "United Kingdom",
-    language: "English",
+    countryKey: "United Kingdom",
+    languageKey: "English",
     storeUrl: "https://www.tuinmaximaal.co.uk/",
   },
 ];
+
+export const STORES_DATA = z.array(StoreDataSchema).parse(storesDataArray);

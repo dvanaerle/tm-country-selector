@@ -2,19 +2,23 @@ import Image from "next/image";
 import { useLocale, useTranslations } from "next-intl";
 import Header from "@/components/header";
 import heroImage from "/public/images/tuinmaximaal-verandas.jpg";
-import StoreSelection from "@/components/home/StoreSelection";
-import { STORES_DATA } from "@/data/stores";
-import { getStoreLocalization } from "@/lib/storeUtils";
+import StoreSelection from "@/components/home/store-selection";
+import { STORES_DATA, StoreCountryCodeSchema } from "@/data/stores";
+import { getStoreLocalization } from "@/lib/store-utils";
 
 export default function Home() {
   const t = useTranslations("Pages.Home");
-  const locale = useLocale(); // Haalt de huidige taal/land-code op (bijv. 'nl').
-  const userCountryCode = locale.toUpperCase();
-  // Bepaalt de landselectie en de overige landen op basis van de locale van de gebruiker.
-  const { preferredStore, otherStores } = getStoreLocalization(
+  const locale = useLocale();
+
+  // Validate the locale string at the boundary
+  const userCountryCodeString = locale.toUpperCase();
+  const parseResult = StoreCountryCodeSchema.safeParse(userCountryCodeString);
+  const userCountryCode = parseResult.success ? parseResult.data : undefined;
+
+  const { preferredStore, otherStores } = getStoreLocalization({
     userCountryCode,
-    STORES_DATA,
-  );
+    allStores: STORES_DATA,
+  });
 
   return (
     <>
@@ -26,7 +30,6 @@ export default function Home() {
       >
         <section className="overflow-hidden rounded-lg bg-white xl:h-full">
           <div className="grid grid-cols-12 xl:h-full">
-            {/* Sectie voor de afbeelding */}
             <div className="relative col-span-12 max-xl:aspect-16/9 xl:col-span-7">
               <Image
                 src={heroImage}
@@ -46,7 +49,6 @@ export default function Home() {
               />
             </div>
 
-            {/* Sectie voor de landselectie */}
             <StoreSelection
               preferredStore={preferredStore}
               otherStores={otherStores}

@@ -3,18 +3,14 @@
 import { useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
-import { StoreCard } from "./StoreCard";
+import { StoreCard } from "./store-card";
 import { type StoreData } from "@/data/stores";
 
-interface StoreSelectionProps {
-  // De gedetecteerde voorkeurselectie van de gebruiker, indien aanwezig.
+type StoreSelectionProps = {
   preferredStore: StoreData | undefined;
-  // Een lijst met alle andere beschikbare landen.
   otherStores: StoreData[];
-}
+};
 
-// Rendert de UI voor het selecteren van een land, beheert de laadstatus
-// en de navigatie inclusief het opslaan van de keuze in een cookie.
 export default function StoreSelection({
   preferredStore,
   otherStores,
@@ -23,10 +19,8 @@ export default function StoreSelection({
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
-  const isLoading = isPending; // Gebruik `isPending` voor een betere UX bij navigatie.
+  const isLoading = isPending;
 
-  // Behandelt de selectie van een winkel.
-  // Slaat de voorkeur op in een cookie indien aangevinkt en navigeert naar de URL.
   const handleSelectStore = (storeUrl: string) => {
     startTransition(() => {
       router.push(storeUrl);
@@ -44,7 +38,7 @@ export default function StoreSelection({
           <h1 className="mb-5 text-2xl font-bold">{t("selectCountry")}</h1>
           <div className="mb-6">
             <p className="text-muted-foreground mb-2 text-sm font-semibold">
-              {t("areYouFrom", { country: preferredStore.country })}
+              {t("areYouFrom", { country: preferredStore.countryKey })}
             </p>
             <StoreCard
               store={preferredStore}

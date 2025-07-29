@@ -20,31 +20,7 @@
       "description": "We kunnen de pagina die je zoekt niet vinden. Maar geen zorgen, we helpen je graag verder!",
       "backToHome": "Terug naar Home",
       "a11y": {
-        "imageAlt": "404 fout illustratie",
         "backToHomeDescription": "Navigeer terug naar de startpagina"
-      }
-    },
-    "MeasuringTool": {
-      "metaData": {
-        "title": "Meettool Gumax® glazen schuifwand",
-        "description": "Gebruik onze meetinstructies tool voor het nauwkeurig inmeten van je Gumax® glazen schuifwand"
-      },
-      "heading": "Meettool Gumax<sup>®</sup> glazen schuifwand",
-      "description": "Wilt u een glazen schuifwand samen met een Gumax<sup>®</sup> terrasoverkapping bestellen? Gebruik dan onze meettool om de juiste doorloophoogte te berekenen. Is er weinig ruimte op uw gevel voor het muurprofiel en bent u dus gebonden aan een specifieke muurprofielhoogte? Bekijk dan welke doorloophoogte bij deze muurprofielhoogte past.",
-      "tabs": {
-        "wallProfileHeight": "Muurprofielhoogte",
-        "passageHeight": "Doorloophoogte"
-      },
-      "a11y": {
-        "measuringToolVideoTitle": "Meetinstructies Gumax® glazen schuifwand - Nieuwe Gumax® overkapping",
-        "measuringToolVideoAlt": "Video met meetinstructies voor de Gumax® glazen schuifwand, inclusief tips voor het meten van de hoogte en afloop van de terrasoverkapping.",
-        "calculatorTabsLabel": "Hoogte berekening opties",
-        "measuringSlopeAlt": "Afbeelding die laat zien hoe de afschot van het terras gemeten wordt",
-        "measuringHeightPavingAlt": "Het meten van de hoogte vanaf bestaande bestrating tot de onderkant van de goot van de Tuinmaximaal terrasoverkapping met een meetlint, essentieel voor het plaatsen van glazen schuifwanden.",
-        "measuringHeightRecessedAlt": "Nauwkeurig meten van de installatiehoogte voor Tuinmaximaal glazen schuifwanden vanaf een verzonken funderingsgoot tot het bovenframe van de terrasoverkapping.",
-        "measuringWallProfileHeightAlt": "Het inmeten van de onderkant van het muurprofiel van de terrasoverkapping.",
-        "measuringWidthFrontAlt": "Demonstratie van het meten van de vrije voorzijde tussen de palen van de Tuinmaximaal terrasoverkapping met een meetlint voor het bestellen van de juiste maat glazen schuifwanden.",
-        "measuringWidthSideAlt": "Het meten van de zijdelingse diepte van een Tuinmaximaal terrasoverkapping, van de huismuur tot een buitenste steunpaal, om een goede passing van glazen schuifwanden te verzekeren."
       }
     }
   },
@@ -59,71 +35,11 @@
     "StoreSelection": {
       "selectCountry": "Selecteer je land",
       "areYouFrom": "Kom je uit {country}?",
-      "otherCountryPreference": "Voorkeur voor een ander land?",
-      "saveSelection": "Mijn selectie bewaren voor een volgend bezoek."
+      "otherCountryPreference": "Voorkeur voor een ander land?"
     },
     "StoreCard": {
       "selectCountry": "Selecteer land",
-      "goToStore": "Ga verder naar de Nederlandse webshop",
-      "a11y": {
-        "flagAlt": "Vlag van {country}"
-      }
-    },
-    "Form": {
-      "Common": {
-        "yes": "Ja",
-        "no": "Nee",
-        "info": "Info",
-        "moreInformation": "Meer informatie",
-        "recommendation": "Aanbeveling",
-        "depthVeranda": "Diepte terrasoverkapping",
-        "depthVerandaTooltip": "Selecteer de gewenste diepte (A) van uw Gumax<sup>®</sup> terrasoverkapping. Kies uit onze standaard dieptematen: 2,5 m / 3,0 m  / 3,5 m / 4,0 m.",
-        "slope": "Afloop van uw terras",
-        "slopeTooltip": "Loopt uw terras af richting tuinzijde? Meet dan het hoogteverschil over de hierboven gekozen diepte. Vul dit verschil in mm in.",
-        "slopePlaceholder": "Afloop terras",
-        "measurementUnitMm": "mm",
-        "measurementUnitMeter": "meter",
-        "unitLabel": "Eenheid: {unit}",
-        "calculatePassageHeight": "Bereken doorloophoogte",
-        "calculateBottomWallProfileHeight": "Bereken muurprofielhoogtes",
-        "passageHeightResult": "De berekende doorloophoogte onderkant goot is: <strong>{result} mm</strong>.",
-        "rangeSuccess": "Kies doorloophoogte railsysteem: <strong>{min} - {max} mm</strong>.",
-        "validationErrors": {
-          "selectOption": "Selecteer een optie",
-          "enterNumber": "Voer een getal in",
-          "integerOnly": "Alleen hele millimeters zijn toegestaan",
-          "validNumberRequired": "Voer een geldig getal in",
-          "suggestionMessage": "Probeer een {fieldName} van {recommendedInput} mm om binnen het bereik van {min} - {max} mm te vallen.",
-          "wallProfileHeightFieldName": "muurprofielhoogte",
-          "passageHeightFieldName": "doorloophoogte",
-          "pleaseNote": "Let op:"
-        }
-      },
-      "WallProfileHeight": {
-        "sectionHeading": "Muurprofielhoogte",
-        "intro": "Weet u wat uw gewenste doorloophoogte is? Bereken dan met deze meettool op welke hoogte u het muurprofiel moet monteren. Dit is de hoogte tot de onderkant van het muurprofiel.",
-        "label": "Muurprofielhoogte",
-        "placeholder": "Hoogte tot onderkant muurprofiel",
-        "tooltip": "Geef aan op welke hoogte u het muurprofiel wilt monteren. Meet de afstand tot de onderkant van het muurprofiel. Het muurprofiel is 150 mm hoog, dus houdt er rekening mee dat er voldoende ruimte op uw gevel is om dit te plaatsen.",
-        "railSystemQuestion": "Verzonken onderrail",
-        "railSystemQuestionTooltip": "Als u de onderrail in het terras verzinkt, komt deze gelijk te liggen met het oppervlak van het terras. Hierdoor ontstaat een drempelloze doorgang.<br></br>Wilt u de onderrail van de glazen schuifwand verzonken in het terras plaatsen? Selecteer dan 'Ja'.",
-        "foundationWarning": "Voor een glazen schuifwand met een hoogte van meer dan {threshold} mm kunt u geen betonpoeren gebruiken, deze moeten namelijk 10 cm ingegraven worden."
-      },
-      "HeightBottomGutter": {
-        "label": "Doorloophoogte",
-        "intro": "Heeft u beperkte ruimte op uw gevel en bent u daardoor gebonden aan een specifieke muurprofielhoogte? Bereken met deze meettool de bijpassende <info>doorloophoogte</info> van uw Gumax<sup>®</sup> terrasoverkapping. Zo bestelt u direct de juiste maat voor uw glazen schuifwand.",
-        "passageHeightTooltipTitle": "Doorloophoogte",
-        "passageHeightTooltipDescription": "De doorloophoogte is de afstand tussen de vlakke onderzijde van de goot tot de bovenkant van de fundering of bestrating. Let op: na plaatsing van de schuifwand wordt deze hoogte door het railsysteem ongeveer 7,5 cm lager.",
-        "placeholder": "Selecteer uw doorloophoogte",
-        "tooltip": "Selecteer de gewenste doorloophoogte van uw Gumax<sup>®</sup> terrasoverkapping. De doorloophoogte is de afstand tussen de vlakke onderzijde van de goot tot de bovenkant van de fundering of bestrating. Let op: na plaatsing van de schuifwand wordt deze hoogte door het railsysteem ongeveer 7,5 cm lager.",
-        "wallProfileHeightsResultTitle": "De berekende hoogtes muurprofiel:",
-        "bottomWallProfileHeightLabel": "Onderzijde muurprofiel: <strong>{height} mm</strong>",
-        "topWallProfileHeightLabel": "Bovenzijde muurprofiel: <strong>{height} mm</strong>",
-        "walkthroughHeightRangeLabel": "Kies doorloophoogte railsysteem: <strong>{min} - {max} mm</strong>."
-      }
+      "goToStore": "Ga verder naar de Nederlandse webshop"
     }
-  },
-  "Video": {
-    "playVideoAriaLabel": "Video afspelen over {title}"
   }
 }

@@ -20,31 +20,7 @@
       "description": "We can't find the page you're looking for. But don't worry, we're happy to help you!",
       "backToHome": "Back to Home",
       "a11y": {
-        "imageAlt": "404 error illustration",
         "backToHomeDescription": "Navigate back to the homepage"
-      }
-    },
-    "MeasuringTool": {
-      "metaData": {
-        "title": "Measuring tool for Gumax® glass sliding doors",
-        "description": "Use our measuring instructions tool for accurately measuring your Gumax® glass sliding doors."
-      },
-      "heading": "Measuring tool Gumax<sup>®</sup> glass sliding doors",
-      "description": "Would you like to order a glass sliding door together with a Gumax<sup>®</sup> veranda? Then use our measuring tool to calculate the correct passage height. If there is limited space on your facade for the wall profile and you are therefore bound to a specific wall profile height, see which passage height is suitable.",
-      "tabs": {
-        "wallProfileHeight": "Wall profile height",
-        "passageHeight": "Passage height"
-      },
-      "a11y": {
-        "measuringToolVideoTitle": "Measuring instructions Gumax® glass sliding doors - New Gumax® veranda",
-        "measuringToolVideoAlt": "Video with measuring instructions for the Gumax® glass sliding wall, including tips for measuring the height and slope of the veranda.",
-        "calculatorTabsLabel": "Height calculation options",
-        "measuringSlopeAlt": "Image showing how to measure the slope of the terrace",
-        "measuringHeightPavingAlt": "Measuring the height from existing paving to the underside of the gutter of a Tuinmaximaal Veranda using a tape measure, essential for fitting Glass Sliding Doors.",
-        "measuringHeightRecessedAlt": "Accurately measuring the installation height for Tuinmaximaal Glass Sliding Doors from a recessed foundation channel to the Veranda's upper frame.",
-        "measuringWallProfileHeightAlt": "Measuring the bottom of the wall profile of the veranda.",
-        "measuringWidthFrontAlt": "Demonstration of measuring the clear front side opening between Tuinmaximaal Veranda posts with a tape measure for ordering correct size Glass Sliding Doors.",
-        "measuringWidthSideAlt": "Measuring the side depth of a Tuinmaximaal Veranda, from the house wall to an outer support post, to ensure proper fit of Glass Sliding Doors."
       }
     }
   },
@@ -59,71 +35,11 @@
     "StoreSelection": {
       "selectCountry": "Select your country",
       "areYouFrom": "Are you from {country}?",
-      "otherCountryPreference": "Preference for another country?",
-      "saveSelection": "Save my selection for later visits."
+      "otherCountryPreference": "Preference for another country?"
     },
     "StoreCard": {
       "selectCountry": "Select country",
-      "goToStore": "Continue to the UK online shop",
-      "a11y": {
-        "flagAlt": "Flag of {country}"
-      }
-    },
-    "Form": {
-      "Common": {
-        "yes": "Yes",
-        "no": "No",
-        "info": "Info",
-        "moreInformation": "More information",
-        "recommendation": "Recommendation",
-        "depthVeranda": "Veranda depth",
-        "depthVerandaTooltip": "Select the desired depth (A) of your Gumax<sup>®</sup> veranda. Choose from our standard depths: 2.5 m / 3.0 m / 3.5 m / 4.0 m.",
-        "slope": "Slope of your terrace",
-        "slopeTooltip": "Does your terrace slope towards the garden? Then measure the height difference over the depth chosen above. Enter this difference in mm.",
-        "slopePlaceholder": "Terrace slope",
-        "measurementUnitMm": "mm",
-        "measurementUnitMeter": "metre",
-        "unitLabel": "Unit: {unit}",
-        "calculatePassageHeight": "Calculate passage height",
-        "calculateBottomWallProfileHeight": "Calculate wall profile heights",
-        "passageHeightResult": "The calculated passage height at the bottom of the gutter is: <strong>{result} mm</strong>.",
-        "rangeSuccess": "Choose rail system passage height: <strong>{min} - {max} mm</strong>.",
-        "validationErrors": {
-          "selectOption": "Select an option",
-          "enterNumber": "Enter a number",
-          "integerOnly": "Only whole millimeters are allowed",
-          "validNumberRequired": "Enter a valid number",
-          "suggestionMessage": "Try a {fieldName} of {recommendedInput} mm to fall within the range of {min} - {max} mm.",
-          "wallProfileHeightFieldName": "wall profile height",
-          "passageHeightFieldName": "passage height",
-          "pleaseNote": "Please note:"
-        }
-      },
-      "WallProfileHeight": {
-        "sectionHeading": "Wall profile height",
-        "intro": "Do you know your desired passage height? Use this measuring tool to calculate the mounting height of the wall profile. This is the height to the bottom of the wall profile.",
-        "label": "Wall profile height",
-        "placeholder": "Height to bottom of wall profile",
-        "tooltip": "Indicate the height at which you want to mount the wall profile. Measure the distance to the bottom of the wall profile. The wall profile is 150 mm high, so make sure there is enough space on your facade to place it.",
-        "railSystemQuestion": "Recessed bottom rail",
-        "railSystemQuestionTooltip": "If you recess the bottom rail into the terrace, it will be flush with the surface of the terrace. This creates a threshold-free passage.<br></br>Do you want to place the bottom rail of the glass sliding wall recessed into the terrace? Then select 'Yes'.",
-        "foundationWarning": "For a glass sliding door with a height of more than <strong>{threshold} mm</strong>, you cannot use spot foundations, as they must be buried 10 cm."
-      },
-      "HeightBottomGutter": {
-        "label": "Passage height",
-        "intro": "Do you have limited space on your facade and are you therefore bound to a specific wall profile height? Use this measuring tool to calculate the corresponding <info>passage height</info> of your Gumax<sup>®</sup> veranda. This way, you can order the correct size for your glass sliding door.",
-        "passageHeightTooltipTitle": "Passage height",
-        "passageHeightTooltipDescription": "The passage height is the distance from the flat underside of the gutter to the top of the foundation or paving. Note: after installing the sliding door, this height becomes approximately 7.5 cm lower due to the rail system.",
-        "placeholder": "Select your passage height",
-        "tooltip": "Select the desired passage height of your Gumax<sup>®</sup> veranda. The passage height is the distance from the flat underside of the gutter to the top of the foundation or paving. Note: after installing the sliding door, this height becomes approximately 7.5 cm lower due to the rail system.",
-        "wallProfileHeightsResultTitle": "The calculated wall profile heights:",
-        "bottomWallProfileHeightLabel": "Bottom of wall profile: <strong>{height} mm</strong>",
-        "topWallProfileHeightLabel": "Top of wall profile: <strong>{height} mm</strong>",
-        "walkthroughHeightRangeLabel": "Choose rail system passage height: <strong>{min} - {max} mm</strong>."
-      }
+      "goToStore": "Continue to the UK online shop"
     }
-  },
-  "Video": {
-    "playVideoAriaLabel": "Play video about {title}"
   }
 }

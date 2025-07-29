@@ -29,7 +29,7 @@ export default function NotFound() {
       >
         <Image
           src={illustration404}
-          alt={t("a11y.imageAlt")}
+          alt=""
           priority
           fetchPriority="high"
           placeholder="blur"
@@ -48,7 +48,6 @@ export default function NotFound() {
           {t("description")}
         </p>
 
-        {/* Link terug naar de homepage met een toegankelijke beschrijving. */}
         <Link
           href="/"
           className={buttonVariants({ variant: "default" })}
@@ -57,7 +56,6 @@ export default function NotFound() {
           {t("backToHome")}
         </Link>
 
-        {/* Verborgen beschrijving voor screenreaders. */}
         <p id="back-to-home-sr-description" className="sr-only">
           {t("a11y.backToHomeDescription")}
         </p>

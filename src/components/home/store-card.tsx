@@ -4,31 +4,25 @@ import { useTranslations } from "next-intl";
 import { CircleFlag } from "react-circle-flags";
 import { Button } from "@/components/ui/button";
 import ArrowRightLine from "../../../public/icons/MingCute/arrow_right_line.svg";
-import { type StoreData } from "@/data/stores";
+import { type StoreData, type CountryCode } from "@/data/stores";
 
-// Vertaalt een landcode naar een vlagcode die door `react-circle-flags` wordt ondersteund.
-const getFlagCountryCode = (countryCode: string): string => {
-  const flagMap: Record<string, string> = {
-    "BE-NL": "be",
-    "BE-FR": "be",
-    EN: "gb",
-  };
-  return flagMap[countryCode] || countryCode.toLowerCase();
+const FLAG_MAP: Partial<Record<CountryCode, string>> = {
+  "BE-NL": "be",
+  "BE-FR": "be",
+  EN: "gb",
 };
 
-// Props voor de StoreCard component.
-interface StoreCardProps {
-  // De data van de store.
-  store: StoreData;
-  // Geeft aan of dit de voorkeurselectie is.
-  isPreferred?: boolean;
-  // Callback-functie die wordt aangeroepen bij selectie.
-  onSelectStore: (storeUrl: string) => void;
-  // Geeft aan of de card is uitgeschakeld.
-  disabled?: boolean;
-}
+const getFlagCountryCode = (countryCode: CountryCode): string => {
+  return FLAG_MAP[countryCode] || countryCode.toLowerCase();
+};
 
-// Rendert een klikbare card voor een specifiek land.
+type StoreCardProps = {
+  store: StoreData;
+  isPreferred?: boolean;
+  onSelectStore: (storeUrl: string) => void;
+  disabled?: boolean;
+};
+
 export function StoreCard({
   store,
   isPreferred = false,
@@ -37,7 +31,6 @@ export function StoreCard({
 }: StoreCardProps) {
   const t = useTranslations("Components.StoreCard");
 
-  // Behandelt de klik op de card en roept de `onSelectStore` callback aan.
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!disabled) {
@@ -56,8 +49,7 @@ export function StoreCard({
       <div className="flex flex-1 items-center gap-x-3">
         <CircleFlag
           countryCode={getFlagCountryCode(store.countryCode)}
-          title={t("a11y.flagAlt", { country: store.country })}
-          alt={t("a11y.flagAlt", { country: store.country })}
+          alt=""
           width={24}
           height={24}
           className="size-6"
@@ -67,9 +59,9 @@ export function StoreCard({
         ) : (
           <div className="flex flex-wrap items-center gap-x-1.5">
             <span className="sr-only">{t("selectCountry")}</span>
-            <span className="text-left">{store.country}</span>
+            <span className="text-left">{store.countryKey}</span>
             <span className="text-muted-foreground text-sm">
-              ({store.language})
+              ({store.languageKey})
             </span>
           </div>
         )}

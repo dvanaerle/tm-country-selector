@@ -2,27 +2,49 @@ import { getRequestConfig } from "next-intl/server";
 import { headers } from "next/headers";
 import Negotiator from "negotiator";
 import { match } from "@formatjs/intl-localematcher";
+import { z } from "zod";
 
-export default getRequestConfig(async () => {
-  // Haal de 'accept-language' header van het inkomende verzoek op.
-  const acceptLanguageHeader = (await headers()).get("accept-language") ?? "";
+const SupportedLocaleSchema = z.enum(["en", "nl", "de", "fr"]);
+type SupportedLocale = z.infer<typeof SupportedLocaleSchema>;
 
-  // Definieer de ondersteunde talen en de standaardtaal.
-  const supportedLocales = ["en", "nl", "de", "fr"];
-  const defaultLocale = "en";
+const SUPPORTED_LOCALES = SupportedLocaleSchema.options;
+const DEFAULT_LOCALE = SupportedLocaleSchema.parse("en");
 
-  // Gebruik Negotiator om de door de browser gevraagde talen te parsen.
+type GetNegotiatedLocaleOptions = {
+  acceptLanguage: string;
+  supportedLocales: string[];
+};
+
+const getAcceptLanguageHeader = (headers: Headers): string => {
+  return headers.get("accept-language") ?? "";
+};
+
+const getNegotiatedLocale = (
+  options: GetNegotiatedLocaleOptions,
+): SupportedLocale => {
+  const { acceptLanguage, supportedLocales } = options;
+
   const languages = new Negotiator({
-    headers: { "accept-language": acceptLanguageHeader },
+    headers: { "accept-language": acceptLanguage },
   }).languages();
 
-  // Gebruik @formatjs/intl-localematcher om de beste overeenkomst te vinden
-  // tussen de gevraagde talen en de ondersteunde talen.
-  const locale = match(languages, supportedLocales, defaultLocale);
+  const matchedLocale = match(languages, supportedLocales, DEFAULT_LOCALE);
+  const validationResult = SupportedLocaleSchema.safeParse(matchedLocale);
+
+  return validationResult.success ? validationResult.data : DEFAULT_LOCALE;
+};
+
+export default getRequestConfig(async () => {
+  const requestHeaders = await headers();
+  const acceptLanguage = getAcceptLanguageHeader(requestHeaders);
+
+  const locale = getNegotiatedLocale({
+    acceptLanguage,
+    supportedLocales: SUPPORTED_LOCALES,
+  });
 
   return {
     locale,
-    // Laad dynamisch het JSON-bestand met vertalingen voor de geselecteerde taal.
     messages: (await import(`../../messages/${locale}.json`)).default,
   };
 });
