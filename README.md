@@ -6,7 +6,7 @@ This project is a responsive, internationalized landing page for Tuinmaximaal. I
 
 The application serves as a global entry point for Tuinmaximaal customers. It automatically detects the user's preferred language and suggests the corresponding country's store. Users can also manually select from a list of all available regional stores. The interface is clean, modern, and fully translated into English, Dutch, German, and French.
 
-## ✨ Features
+## Features
 
 - **Automatic Locale Detection**: Intelligently detects the user's browser language (`Accept-Language` header) to suggest the most relevant store.
 - **Preferred Store Suggestion**: Highlights the detected regional store for quick access.
@@ -16,7 +16,7 @@ The application serves as a global entry point for Tuinmaximaal customers. It au
 - **Component-Based Architecture**: A clean and maintainable codebase with reusable UI components and a clear separation of concerns.
 - **Accessibility Focused**: Semantic HTML and ARIA attributes are used to ensure the application is accessible to all users.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category                 | Technology                                                                                               |
 | ------------------------ | -------------------------------------------------------------------------------------------------------- |
@@ -29,7 +29,7 @@ The application serves as a global entry point for Tuinmaximaal customers. It au
 | **UI Components**        | [Radix UI (Slot)](https://www.radix-ui.com/primitives), [class-variance-authority](https://cva.style/)   |
 | **Linting**              | [ESLint](https://eslint.org/)                                                                            |
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these instructions to set up and run the project locally.
 
@@ -62,14 +62,14 @@ npm run dev
 
 The application will be available at `http://localhost:3000`. The page will automatically reload as you make changes to the code.
 
-## 📜 Available Scripts
+## Available Scripts
 
 - `npm run dev`: Starts the development server.
 - `npm run build`: Creates a production-ready build of the application.
 - `npm run start`: Starts the production server (requires a build to be run first).
 - `npm run lint`: Lints the codebase using ESLint to find and fix problems.
 
-## 📂 Project Structure
+## Project Structure
 
 The project follows a standard Next.js App Router structure with a focus on clear separation of concerns.
 
@@ -88,7 +88,7 @@ The project follows a standard Next.js App Router structure with a focus on clea
 └── ...                   # Configuration files (next.config.mjs, tailwind.config.ts, etc.)
 ```
 
-## 💡 Key Implementation Details
+## Key Implementation Details
 
 ### Internationalization (i18n)
 
